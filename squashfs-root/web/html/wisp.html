@@ -51,8 +51,90 @@
     </div>
 
     <script>
-        // Phần JavaScript sẽ được thêm vào ở bước tiếp theo
-    </script>
+    const scanBtn = document.getElementById('scanBtn');
+    const connectBtn = document.getElementById('connectBtn');
+    const ssidList = document.getElementById('ssidList');
+    const passwordInput = document.getElementById('password');
+    const statusDiv = document.getElementById('status');
+
+    // Hàm gọi script trên router. Vì lý do bảo mật, các web server trên router
+    // không cho phép gọi trực tiếp file .sh. Chúng ta phải gọi qua một file cgi-bin
+    // hoặc một file thực thi mà web server cho phép.
+    // Tạm thời, chúng ta sẽ giả định gọi trực tiếp để hoàn thiện logic.
+    function runCommand(command) {
+        // Trong thực tế, bạn sẽ cần một endpoint CGI để thực thi lệnh này.
+        // Ví dụ: return fetch('/cgi-bin/exec?cmd=' + encodeURIComponent(command));
+        
+        // Vì đang mô phỏng, chúng ta sẽ hardcode kết quả để test giao diện
+        if (command.includes("scan_wifi.sh")) {
+            const fakeScanResult = "Wifi_Nha_Hang_Xom|70/100\nFPT_Guest|95/100\nCafe_Wifi_Free|55/100";
+            return Promise.resolve({ ok: true, text: () => Promise.resolve(fakeScanResult) });
+        }
+        if (command.includes("connect_wisp.sh")) {
+             return Promise.resolve({ ok: true, text: () => Promise.resolve("Success") });
+        }
+    }
+
+    scanBtn.addEventListener('click', () => {
+        statusDiv.textContent = 'Trạng thái: Đang quét...';
+        ssidList.innerHTML = '<option value="">-- Đang tìm mạng --</option>';
+
+        // Gọi script scan_wifi.sh
+        runCommand("/usr/sbin/scan_wifi.sh")
+            .then(response => response.text())
+            .then(data => {
+                const networks = data.trim().split('\n');
+                ssidList.innerHTML = ''; // Xóa danh sách cũ
+                if (networks.length > 0 && networks[0] !== '') {
+                    networks.forEach(network => {
+                        const [ssid, signal] = network.split('|');
+                        const option = document.createElement('option');
+                        option.value = ssid;
+                        option.textContent = `${ssid} (Sóng: ${signal})`;
+                        ssidList.appendChild(option);
+                    });
+                    statusDiv.textContent = 'Trạng thái: Quét xong. Vui lòng chọn mạng.';
+                } else {
+                    ssidList.innerHTML = '<option value="">-- Không tìm thấy mạng --</option>';
+                    statusDiv.textContent = 'Trạng thái: Không tìm thấy mạng nào.';
+                }
+            })
+            .catch(error => {
+                console.error('Lỗi khi quét mạng:', error);
+                statusDiv.textContent = 'Trạng thái: Lỗi khi quét mạng!';
+            });
+    });
+
+    connectBtn.addEventListener('click', () => {
+        const selectedSsid = ssidList.value;
+        const password = passwordInput.value;
+
+        if (!selectedSsid) {
+            alert('Vui lòng chọn một mạng Wi-Fi!');
+            return;
+        }
+
+        statusDiv.textContent = `Trạng thái: Đang kết nối tới ${selectedSsid}...`;
+
+        // Gọi script connect_wisp.sh với tham số
+        const command = `/usr/sbin/connect_wisp.sh "${selectedSsid}" "${password}"`;
+        runCommand(command)
+        .then(response => response.text())
+        .then(data => {
+            if (data.trim().includes('Success')) {
+                statusDiv.textContent = `Trạng thái: Gửi lệnh kết nối thành công tới ${selectedSsid}!`;
+            } else {
+                statusDiv.textContent = 'Trạng thái: Gửi lệnh kết nối thất bại!';
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi khi kết nối:', error);
+            statusDiv.textContent = 'Trạng thái: Lỗi khi kết nối!';
+        });
+    });
+</script>
+        
+    
 
 </body>
 </html>
