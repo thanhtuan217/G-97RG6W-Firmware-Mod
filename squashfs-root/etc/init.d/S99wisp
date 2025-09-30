@@ -1,0 +1,14 @@
+#!/bin/sh
+
+WISP_CONFIG="/mnt/rwdir/wisp.conf"
+
+# Chờ 20 giây để hệ thống khởi động hoàn tất và ổn định
+sleep 20
+
+if [ -f "$WISP_CONFIG" ]; then
+    # Đọc cấu hình đã lưu từ file
+    . $WISP_CONFIG
+
+    # Gọi script kết nối với thông tin đã đọc
+    /usr/sbin/connect_wisp.sh "$WISP_SSID" "$WISP_PASS"
+fi
