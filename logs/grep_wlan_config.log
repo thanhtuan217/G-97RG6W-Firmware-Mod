@@ -1,0 +1,280 @@
+./etc/rg_hmx.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_hmx.xml:		</LANEthernetInterfaceConfig>		<WLANConfiguration>
+./etc/rg_hmx.xml:		</WLANConfiguration>
+./etc/rg_hmx.xml:		<WLANConfiguration>
+./etc/rg_hmx.xml:		</WLANConfiguration>
+./etc/rg_general.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_general.xml:		<WLANConfiguration _ID_="0">
+./etc/rg_general.xml:		</WLANConfiguration>
+./etc/rg_general.xml:		<WLANConfiguration _ID_="1">
+./etc/rg_general.xml:		</WLANConfiguration>
+./etc/rg_brazilunknow.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_brazilunknow.xml:		</LANEthernetInterfaceConfig>		<WLANConfiguration>
+./etc/rg_brazilunknow.xml:		</WLANConfiguration>
+./etc/rg_brazilunknow.xml:		<WLANConfiguration>
+./etc/rg_brazilunknow.xml:		</WLANConfiguration>
+./etc/rg_ultrawave.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_ultrawave.xml:		<WLANConfiguration _ID_="0">
+./etc/rg_ultrawave.xml:		</WLANConfiguration>
+./etc/rg_ultrawave.xml:		<WLANConfiguration _ID_="1">
+./etc/rg_ultrawave.xml:		</WLANConfiguration>
+./etc/rg_alphion.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_alphion.xml:		<WLANConfiguration>
+./etc/rg_alphion.xml:		</WLANConfiguration>
+./etc/rg_alphion.xml:		<WLANConfiguration>
+./etc/rg_alphion.xml:		</WLANConfiguration>
+./etc/rg_default.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_default.xml:		<WLANConfiguration _ID_="0">
+./etc/rg_default.xml:		</WLANConfiguration>
+./etc/rg_default.xml:		<WLANConfiguration _ID_="1">
+./etc/rg_default.xml:		</WLANConfiguration>
+./etc/rg_pldt.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_pldt.xml:		<WLANConfiguration _ID_="0">
+./etc/rg_pldt.xml:		</WLANConfiguration>
+./etc/rg_pldt.xml:		<WLANConfiguration _ID_="1">
+./etc/rg_pldt.xml:		</WLANConfiguration>
+./etc/rg_ugt.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_ugt.xml:		<WLANConfiguration _ID_="0">
+./etc/rg_ugt.xml:		</WLANConfiguration>
+./etc/rg_ugt.xml:		<WLANConfiguration _ID_="1">
+./etc/rg_ugt.xml:		</WLANConfiguration>
+./etc/rg_fpt.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_fpt.xml:		<WLANConfiguration _ID_="0">
+./etc/rg_fpt.xml:		</WLANConfiguration>
+./etc/rg_fpt.xml:		<WLANConfiguration _ID_="1">
+./etc/rg_fpt.xml:		</WLANConfiguration>
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.LANWLANConfigurationNumberOfEntries;9;0;0;0;1;-1;0;-1;;1
+./etc/tr069cfg/dps.param:#	LANDevice.{i}.WLANConfiguration.{i} ; index range 10000 ~ 11000
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.;99;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.WifiButtonEnable;18;0;0;2;1;1;1;10100;;0
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.WifiOptimizeState;6;0;0;2;1;1;1;10101;;None
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.Wifi5OptimizeState;6;0;0;2;1;1;1;10102;;None
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.SmartChannelEnable;18;0;0;2;1;1;1;10300;;0
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.;97;0;0;1;1;10090;1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Enable;115;0;2;2;1;1;1;10000;;1
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WMMSupported;115;0;2;2;1;-1;0;-1;;1
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AutoRateFallBackEnabled;115;0;2;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MaxBitRate;103;0;0;2;1;1;1;1;;Auto
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicDataTransmitRates;103;0;0;2;1;1;1;1;;1,2
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.OperationalDataTransmitRates;103;0;0;2;1;1;1;1;;1,2,5.5,11
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Channel;106;0;0;2;1;1;10029;10002;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AutoChannelEnable;115;0;0;2;1;1;1;10003;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.SSID;103;0;2;2;1;1;1;10004;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Name;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BSSID;103;0;2;2;1;1;10058;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconType;103;0;2;2;1;1;1;10005;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MACAddressControlEnabled;115;0;0;2;1;1;1;10006;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MACAddressControlMode;106;0;0;2;1;1;1;10201;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.;99;0;0;2;1;1;1;1;;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.0.;97;0;0;1;1;10202;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.0.MAC;103;0;0;2;1;1;1;10203;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.;99;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.0.;97;0;0;1;1;10204;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.0.MAC;103;0;0;2;1;1;1;10205;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Standard;103;0;0;2;1;-1;0;-1;;n
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RegulatoryDomain;103;0;0;2;1;1;1;10023;;CN
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKeyIndex;106;0;0;2;1;-1;0;-1;;1
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPEncryptionLevel;103;0;0;2;1;-1;10063;-1;;40-bit
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.DeviceOperationMode;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.ChannelsInUse;103;0;0;2;1;1;10059;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleDataTransmitRates;103;0;0;2;1;-1;0;-1;;1,2,5.5,11,6,9,12,18,24,36,48,54,6.5,7.2,13,14.4,19.5,21.7,26,28.9,39,43.3,52,57.8,58.5,65,72.2,78,86.7,104,115.6,117,130,144.4,156,173.3,175.5,195,216.7,13.5,15,27,30,40.5,45,60,81,90,108,120,121.5,135,150,162,180,216,240,243,270,300,324,360,364.5,405,450
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TransmitPowerSupported;103;0;0;2;1;-1;0;-1;;0,25,50,75,100
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleChannels;103;0;0;2;1;-;0;-1;;1-14
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.KeyPassphrase;103;0;0;2;1;1;1;10009;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicAuthenticationMode;103;0;0;2;1;1;1;10010;;None
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicEncryptionModes;103;0;0;0;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAEncryptionModes;103;0;0;2;1;1;1;10011;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAAuthenticationMode;103;0;0;2;1;1;1;10012;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WMMEnable;115;0;0;2;1;1;1;10013;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.X_CU_FrecuencyBand;103;0;0;2;1;1;10056;-1;;WLAN2.4GHZ
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.X_CU_Bandwidth;103;0;0;2;1;1;1;10015;;20MHz
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Status;103;0;0;2;1;1;10062;-1;;Up
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconAdvertisementEnabled;115;0;0;2;1;1;1;10016;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.SSIDAdvertisementEnabled;115;0;0;2;1;1;1;10017;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iEncryptionModes;103;0;0;2;1;1;1;10019;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iAuthenticationMode;103;0;0;2;1;1;1;10020;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RadioEnabled;115;0;0;2;1;1;1;10021;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TransmitPower;106;0;0;2;1;1;1;10022;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesSent;106;0;0;2;1;1;10051;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesReceived;106;0;0;2;1;1;10052;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsSent;106;0;0;2;1;1;10053;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsReceived;106;0;0;2;1;1;10054;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalAssociations;106;0;0;0;1;1;10061;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPSKFailures;106;0;0;0;1;-1;0;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalIntegrityFailures;106;0;0;0;1;-1;0;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.;99;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.;98;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.;98;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.PreSharedKey;103;0;0;2;1;1;1;10040;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.KeyPassphrase;103;0;0;2;1;1;1;10041;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.AssociatedDeviceMACAddress;103;0;0;2;1;1;-1;10042;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.;99;0;0;1;1;1;0;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceMACAddress;103;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceIPAddress;103;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceAuthenticationState;115;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.LastDataTransmitRate;103;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANInterfaces.LANWLANConfigurationNumberOfEntries;9;0;0;0;1;-1;0;-1;;0
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANInterfaces.WLANConfiguration.;99;0;0;1;1;-1;0;-1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANInterfaces.WLANConfiguration.0.;97;0;0;1;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.LANInterfaces.WLANConfiguration.0.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps.param:InternetGatewayDevice.Layer2Bridging.AvailableInterface.5.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.1
+./etc/tr069cfg/dps.param:InternetGatewayDevice.Layer2Bridging.AvailableInterface.6.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.2
+./etc/tr069cfg/dps.param:InternetGatewayDevice.Layer2Bridging.AvailableInterface.7.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.3
+./etc/tr069cfg/dps.param:InternetGatewayDevice.Layer2Bridging.AvailableInterface.8.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.4
+./etc/tr069cfg/dps_huawei.param:#	LANDevice.{i}.WLANConfiguration.{i} ; index range 10000 ~ 11000
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.;99;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.;97;0;0;1;1;10090;1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Enable;115;0;2;2;1;1;1;10000;;1
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Status;103;0;0;2;1;1;10062;-1;;Up
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BSSID;103;0;2;2;1;1;10058;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.X_Huawei_RadioIndex;103;0;0;2;1;1;1;1;;WLAN2.4GHZ
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Channel;106;0;0;2;1;1;1;10002;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.SSID;103;0;2;2;1;1;1;10004;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconType;103;0;2;2;1;1;1;10005;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MACAddressControlEnabled;115;0;0;2;1;1;1;10006;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Standard;103;0;0;2;1;-1;0;-1;;n
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RegulatoryDomain;103;0;0;2;1;1;1;10023;;CN
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKeyIndex;106;0;0;2;1;-1;0;-1;;1
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicAuthenticationMode;103;0;0;2;1;1;1;10010;;None
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicEncryptionModes;103;0;0;0;1;1;1;1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAEncryptionModes;103;0;0;2;1;1;1;10011;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAAuthenticationMode;103;0;0;2;1;1;1;10012;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iEncryptionModes;103;0;0;2;1;1;1;10019;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iAuthenticationMode;103;0;0;2;1;1;1;10020;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleChannels;103;0;0;2;1;-1;0;-1;;1-14
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleDataTransmitRates;103;0;0;2;1;-1;0;-1;;1,2,5.5,11,6,9,12,18,24,36,48,54,6.5,7.2,13,14.4,19.5,21.7,26,28.9,39,43.3,52,57.8,58.5,65,72.2,78,86.7,104,115.6,117,130,144.4,156,173.3,175.5,195,216.7,13.5,15,27,30,40.5,45,60,81,90,108,120,121.5,135,150,162,180,216,240,243,270,300,324,360,364.5,405,450
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconAdvertisementEnabled;115;0;0;2;1;1;1;10016;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RadioEnabled;115;0;0;2;1;1;1;10021;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.ChannelsInUse;103;0;0;2;1;1;10059;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesSent;106;0;0;2;1;1;10051;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesReceived;106;0;0;2;1;1;10052;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsSent;106;0;0;2;1;1;10053;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsReceived;106;0;0;2;1;1;10054;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalAssociations;106;0;0;0;1;1;10061;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.;99;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.WEPKey;103;0;0;2;1;1;-1;10030;;1111111111
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.WEPKey;103;0;0;2;1;1;-1;10030;;1111111111
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.WEPKey;103;0;0;2;1;1;-1;10030;;1111111111
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.WEPKey;103;0;0;2;1;1;-1;10030;;1111111111
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.;98;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.;98;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.PreSharedKey;103;0;0;2;1;1;1;10040;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.KeyPassphrase;103;0;0;2;1;1;-1;10041;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.AssociatedDeviceMACAddress;103;0;0;2;1;1;-1;10042;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.;99;0;0;1;1;1;0;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceMACAddress;103;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceIPAddress;103;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps_huawei.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPEncryptionLevel;103;0;0;2;1;-1;10063;-1;;40-bit
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.WifiButtonEnable;18;0;0;2;1;1;1;10100;;0
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.WifiOptimizeState;6;0;0;2;1;1;1;10101;;None
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.Wifi5OptimizeState;6;0;0;2;1;1;1;10102;;None
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.SmartChannelEnable;18;0;0;2;1;1;1;10300;;0
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MACAddressControlMode;106;0;0;2;1;1;1;10201;;
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.;99;0;0;2;1;1;1;1;;;
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.0.;97;0;0;1;1;10202;1;1;;
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.0.MAC;103;0;0;2;1;1;1;10203;;
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.;99;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.0.;97;0;0;1;1;10204;1;1;;
+./etc/tr069cfg/dps_new.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.0.MAC;103;0;0;2;1;1;1;10205;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.LANWLANConfigurationNumberOfEntries;9;0;0;0;1;-1;0;-1;;1
+./etc/tr069cfg/dps_rtl_bhs.param:#	LANDevice.{i}.WLANConfiguration.{i} ; index range 10000 ~ 11000
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.;99;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.;97;0;0;1;1;10090;1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Enable;115;0;2;2;1;1;1;10000;;1
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WMMSupported;115;0;2;2;1;-1;0;-1;;1
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AutoRateFallBackEnabled;115;0;2;2;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MaxBitRate;103;0;0;2;1;1;1;1;;Auto
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicDataTransmitRates;103;0;0;2;1;1;1;1;;1,2
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.OperationalDataTransmitRates;103;0;0;2;1;1;1;1;;1,2,5.5,11
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Channel;106;0;0;2;1;1;1;10002;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AutoChannelEnable;115;0;0;2;1;1;1;10003;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.SSID;103;0;2;2;1;1;1;10004;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Name;103;0;2;2;1;-1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BSSID;103;0;2;2;1;1;10058;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconType;103;0;2;2;1;1;1;10005;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MACAddressControlEnabled;115;0;0;2;1;1;1;10006;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Standard;103;0;0;2;1;-1;0;-1;;n
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RegulatoryDomain;103;0;0;2;1;1;1;10023;;CN
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKeyIndex;106;0;0;2;1;-1;0;-1;;1
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPEncryptionLevel;103;0;0;2;1;-1;10063;-1;;40-bit
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.DeviceOperationMode;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.ChannelsInUse;103;0;0;2;1;1;10059;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleDataTransmitRates;103;0;0;2;1;-1;0;-1;;1,2,5.5,11,6,9,12,18,24,36,48,54,6.5,7.2,13,14.4,19.5,21.7,26,28.9,39,43.3,52,57.8,58.5,65,72.2,78,86.7,104,115.6,117,130,144.4,156,173.3,175.5,195,216.7,13.5,15,27,30,40.5,45,60,81,90,108,120,121.5,135,150,162,180,216,240,243,270,300,324,360,364.5,405,450
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TransmitPowerSupported;103;0;0;2;1;-1;0;-1;;0,25,50,75,100
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleChannels;103;0;0;2;1;-;0;-1;;1-14
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicAuthenticationMode;103;0;0;2;1;1;1;10010;;None
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicEncryptionModes;103;0;0;0;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAEncryptionModes;103;0;0;2;1;1;1;10011;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAAuthenticationMode;103;0;0;2;1;1;1;10012;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WMMEnable;115;0;0;2;1;1;1;10013;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.X_TELEFONICA-ES_FrecuencyBand;103;0;0;2;1;1;10056;-1;;WLAN2.4GHZ
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.X_TELEFONICA-ES_Bandwidth;103;0;0;2;1;1;1;10015;;20MHz
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Status;103;0;0;2;1;1;10062;-1;;Up
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconAdvertisementEnabled;115;0;0;2;1;1;1;10016;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.SSIDAdvertisementEnabled;115;0;0;2;1;1;1;10017;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iEncryptionModes;103;0;0;2;1;1;1;10019;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iAuthenticationMode;103;0;0;2;1;1;1;10020;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RadioEnabled;115;0;0;2;1;1;1;10021;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TransmitPower;106;0;0;2;1;1;1;10022;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesSent;106;0;0;2;1;1;10051;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesReceived;106;0;0;2;1;1;10052;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsSent;106;0;0;2;1;1;10053;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsReceived;106;0;0;2;1;1;10054;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalAssociations;106;0;0;0;1;1;10061;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPSKFailures;106;0;0;0;1;-1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalIntegrityFailures;106;0;0;0;1;-1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.;99;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.;98;0;0;2;1;1;-1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.;98;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.PreSharedKey;103;0;0;2;1;1;1;10040;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.KeyPassphrase;103;0;0;2;1;1;1;10041;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.AssociatedDeviceMACAddress;103;0;0;2;1;1;-1;10042;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.;99;0;0;1;1;1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.;97;0;0;1;1;1;1;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceMACAddress;103;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceIPAddress;103;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceAuthenticationState;115;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.LastDataTransmitRate;103;0;0;2;1;-1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANInterfaces.LANWLANConfigurationNumberOfEntries;9;0;0;0;1;-1;0;-1;;0
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANInterfaces.WLANConfiguration.;99;0;0;1;1;-1;0;-1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANInterfaces.WLANConfiguration.0.;97;0;0;1;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.LANInterfaces.WLANConfiguration.0.Alias;103;0;0;2;1;1;1;1;;
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.Layer2Bridging.AvailableInterface.5.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.1
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.Layer2Bridging.AvailableInterface.6.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.2
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.Layer2Bridging.AvailableInterface.7.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.3
+./etc/tr069cfg/dps_rtl_bhs.param:InternetGatewayDevice.Layer2Bridging.AvailableInterface.8.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.4
+./etc/rg_fpt_2g.xml:		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+./etc/rg_fpt_2g.xml:		<WLANConfiguration _ID_="0">
+./etc/rg_fpt_2g.xml:		</WLANConfiguration>

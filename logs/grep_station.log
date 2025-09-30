@@ -1,0 +1,16 @@
+./sbin/wifi_cb:	echo "    Example:wifi_cb tp 2G_0 Station1-4 6 11n 14 20"
+./sbin/wifi_cb:#ONT>/system/manu/wifi_cb tp 2G_0 Station1-4 6 11n 14 20
+./web/html/hmx/script/lang_en.js:XwifissidString[8] = "Set station isolation in BSS.";
+./web/html/hmx/script/lang_en.js:XwifissidString[9] = "Station Isolation";
+./web/html/hmx/script/lang_en.js:Xwifi5ssidString[8] = "Set station isolation in BSS.";
+./web/html/hmx/script/lang_en.js:Xwifi5ssidString[9] = "Station Isolation";
+./web/html/hmx/script/lang_en.js:PortfwdApp[84] = "PlayStation";
+./web/html/script/lang_en.js:XwifissidString[8] = "Set station isolation in BSS.";
+./web/html/script/lang_en.js:XwifissidString[9] = "Station Isolation";
+./web/html/script/lang_en.js:Xwifi5ssidString[8] = "Set station isolation in BSS.";
+./web/html/script/lang_en.js:Xwifi5ssidString[9] = "Station Isolation";
+./web/html/script/lang_en.js:PortfwdApp[84] = "PlayStation";
+./web/html/script/lang_jp.js:PortfwdApp[84] = "PlayStation";
+./web/html/script/port_forwarding.js:		"name" : "PlayStation",
+./web/html/wifissid.html:	   <td width="200" id="XS9">Isolate the Wireless Stations</td>
+./web/html/wifi5ssid.html:	   <td width="200" id="XS9">Isolate the Wireless Stations</td>
