@@ -1,0 +1,7 @@
+mount -t proc proc /proc
+mount -t ramfs ramfs  /var
+/bin/mount -t sysfs sysfs /sys
+/bin/echo /sbin/mdev > /proc/sys/kernel/hotplug
+/bin/mount -t tmpfs mdev /dev
+/bin/mknod /dev/adsl0 c 100 0
+mdev -s

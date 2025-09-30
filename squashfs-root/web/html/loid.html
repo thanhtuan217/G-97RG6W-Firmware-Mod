@@ -1,0 +1,130 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var sn = "";
+var cur_pwd = "";
+var pwd_mode = 0;
+
+<% LOID_GetConfig(); %>
+
+function WebInit()
+{
+    $("#sn").html(sn);
+    $("#cur_pwd").html(cur_pwd);
+    $("#pwd_model").attr("value", pwd_mode);
+    WebStepIndex(); 
+}
+
+$(document).ready(function (){
+    $("#btn_apply").click(function(){
+        XDoSubmit();
+    });   
+});
+
+function CheckAsciiVal(value)
+{
+    var Regx = /^[A-Za-z0-9]*$/;
+    if (Regx.test(value)) 
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+function WebDoSubmit()
+{ 
+    var len=$("#new_pwd").val().length;
+    var mode=$("#pwd_model").val();
+    if(0 == len)
+    {
+        alert(WebString.loid_pwd_invalid);
+        $("#new_pwd").focus();
+        return false;
+    }
+    if(0 == mode)
+    {
+        if(10 < len)
+        {
+            alert(WebString.invalid_loid_password);
+            $("#new_pwd").focus();
+            return false;
+        }
+        if(false == CheckAsciiVal($("#new_pwd").val()))
+        {
+            alert(WebString.invalid_loid_password);
+            $("#new_pwd").focus();
+            return false ;
+        }
+    }
+    else
+    {
+        if(20 < len)
+        {
+            alert(WebString.invalid_loid_password);
+            $("#new_pwd").focus();
+            return false;
+        }
+        if(false == isValidHexKey($("#new_pwd").val(),len))
+        {
+            alert(WebString.invalid_loid_password);
+            $("#new_pwd").focus();
+            return false;
+        }
+    }
+
+   /* if (confirm(WebString.reboot_to_apply_slid))
+    {
+        $("#reboot").val("1");
+    }else
+    {
+        $("#reboot").val("0"); 
+    }*/
+
+    alert(WebString.loid_passwd_ok);
+    $("#XForm").submit();
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <!--<p><strong id="XS0"></strong></p>-->
+    <table>
+        <tr>
+            <td width="200" id="XS1"></td>
+            <td><label name="sn" id="sn" /></label></td>
+        </tr>
+        <tr>
+            <td width="200" id="XS2"></td>
+            <td><label name="cur_pwd" id="cur_pwd" /></td>
+        </tr>
+        <!--<tr>
+            <td width="200" id="XS3"></td>
+            <td><input type="password" name="new_pwd" id="new_pwd" /></td>
+        </tr>
+        <tr>
+            <td width="200" id="XS4"></td>
+            <td>
+                <select name="pwd_model" id="pwd_model">
+                    <option value="0">ASCII</option>
+                    <option value="1">HEX</option>
+                </select>
+            </td>
+        </tr>-->
+    </table>
+</div>
+
+<!--<div class="cfgstep">
+    <p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+    <a id="btn_apply" class="btn" href="#"><script>document.write(WebString.Apply);</script></a>
+    <input id="reboot" name="reboot" type="hidden" value="0"/>
+</div>-->
+
+<% PrintTemplate3(); %>

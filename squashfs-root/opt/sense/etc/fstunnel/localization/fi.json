@@ -1,0 +1,99 @@
+[
+    [
+        "harmful_title",
+        "Haitallinen sivusto estetty"
+    ],
+    [
+        "harmful_heading",
+        "SENSE on suojannut sinua estämällä tämän sivuston"
+    ],
+    [
+        "harmful_details",
+        "<br><br>Olemme havainneet, että tämä sivusto on haitallinen ja se saattaa yrittää varastaa henkilötietojasi tai asettaa haittaohjelman laitteeseen, jota käytät selaamiseen.<br>Tällä sivustolla ei missään nimessä kannata käydä."
+    ],
+    [
+        "denied_title",
+        "Sivusto estetty"
+    ],
+
+    [
+        "denied_heading",
+        "Sivusto estetty"
+    ],
+    [
+        "denied_details",
+        "<br><br>Verkon järjestelmänvalvoja on estänyt tämän sivuston."
+    ],
+    [
+        "continue_button",
+        "Poista sivuston esto yhden tunnin ajaksi"
+    ],
+    [
+        "back_button",
+        "Takaisin"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "Älykotisi puuttuva palanen"
+    ],
+    [
+        "agent_heading",
+        "F‑Secure SENSE ‑reititin suojaa nyt tätä laitetta."
+    ],
+    [
+        "agent_details",
+        "Paranna suojaustasi! Suosittelemme, että asennat tähän laitteeseen SENSE-sovelluksen<br>for <a data-tooltip=\"Windows-järjestelmää uhkaa kirjaimellisesti tuhannet virukset ja tietoturva-aukot, joita luodaan päivittäin lisää. SENSE-sovellus pysyy aina ajan tasalla uusimmista suojauskeinoista ja estää haitallisen koodin suorittamisen laitteessasi. Tämä suojaus toimii paitsi SENSE-verkossa myös sen ulkopuolella.\" class=\"tooltip\">Paras suojaus</a> Internet-uhkia vastaan."
+    ],
+    [
+        "agent_install",
+        "Lataa SENSE Windows-käyttöjärjestelmälle"
+    ],
+    [
+        "agent_dontshow",
+        "Älä näytä tätä enää"
+    ],
+    [
+        "agent_postpone",
+        "Ohita ja jatka sivustolle"
+    ],
+    [
+        "time_title",
+        "Aika umpeutunut"
+    ],
+    [
+        "time_heading",
+        "Online-aikasi on päättynyt ja on aika harjata hampaat!"
+    ],
+    [
+        "time_details",
+        "Voit käyttää Internetiä taas huomenna aamulla"
+    ],
+    [
+        "device_title",
+        "Internet-käyttö estetty!"
+    ],
+    [
+        "device_heading",
+        "Internet-käyttö estetty!"
+    ],
+    [
+        "device_details",
+        "Kotiverkkosi järjestelmänvalvoja on estänyt tämän laitteen Internet-käytön."
+    ],
+    [
+        "parental_title",
+        "Sivusto estetty"
+    ],
+    [
+        "parental_heading",
+        "Sivusto estetty!"
+    ],
+    [
+        "parental_details",
+        "Tämä sivustoluokka on estetty perhesäännöillä"
+    ]
+]

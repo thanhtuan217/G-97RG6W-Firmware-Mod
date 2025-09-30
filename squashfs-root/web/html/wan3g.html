@@ -1,0 +1,136 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var v_apnnane = "";
+var v_dialnum = "";
+var v_pppuser = "";
+var v_ppppwd = "";
+var v_pincode = "";
+var v_enable  = "1";
+
+<% GetWan3gCfg(); %>
+<% WAN_Get_3G_Status(); %>
+
+function doSetVal()
+{
+    switch(parseInt(Status3G.status))
+    {
+        case 1:
+            $("#state3g").html(Xwan3gString[2]);
+            $("#state3g").css("color","#090");
+            break;
+        case 2:
+            $("#state3g").html(Xwan3gString[3]);
+            $("#state3g").css("color","#E08800");
+            break;
+        case 0:
+        default:
+            $("#state3g").html(Xwan3gString[4]);
+            $("#state3g").css("color","#F00");
+        break;
+    }
+    
+    $("#apnname").val(v_apnnane);
+    
+    $("#dialnum").val(v_dialnum);
+
+    $("#pppuser").val(v_pppuser);
+    
+    $("#ppppwd").val(v_ppppwd);
+    
+    $("#pincode").val(v_pincode);
+    
+    $("#enable3g").attr("checked", ((v_enable == "1")?true:false));
+    
+}
+
+function docheckValue()
+{
+    if (($("#pincode").val().length != 0) && (($("#pincode").val().length < 4) || ($("#pincode").val().length > 8)))
+    {
+        alert(WebString.wan3gPIN);
+        return false;
+    } 
+}
+
+function WebInit()
+{
+    doSetVal();
+    WebStepIndex();
+}
+
+function WebDoSubmit()
+{
+	if (false == docheckValue())
+	{
+		return;
+	}
+	$("#XForm").submit();
+}
+
+$(document).ready(function () {
+    $("#btn_apply").click(function() {
+		XDoSubmit();
+	}); 
+
+    $("#btn_reconnect").click(function() {
+        $("#reconnect").val("1");
+        XDoSubmit();
+	}); 
+    
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<input type="hidden" id="reconnect" name="reconnect" value="0" />
+<div class="cfgstep">
+	<p><strong id="XS0"> </strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"> </td>
+			<td><label id="state3g" style="font-weight:bold;"> </label>
+                <a class="btn" href="#" id="btn_reconnect"><script>document.write(Xwan3gString[5]);</script></a>
+            </td>
+        </tr>
+		<tr>
+			<td width="200" id="XS6"> </td>
+			<td><input type="text" id="apnname" name="apnname" maxlength="32" style="width:240px"/></td>
+        </tr>
+		<tr>
+			<td width="200" id="XS7"> </td>
+			<td><input type="text" id="dialnum" name="dialnum" maxlength="32" style="width:240px"/></td>
+        </tr>
+        <tr>
+			<td width="200" id="XS8"> </td>
+			<td><input type="text" id="pppuser" name="pppuser" maxlength="64" style="width:240px"/></td>
+        </tr>
+		<tr>
+			<td width="200" id="XS9"> </td>
+			<td><input type="password" id="ppppwd" name="ppppwd" maxlength="64" style="width:240px"/></td>
+        </tr>
+		<tr>
+			<td width="200" id="XS10"> </td>
+			<td><input type="password" id="pincode" name="pincode" maxlength="8" size="8" onkeypress="return OnKeyPress(event, X_INPUT_NUM);"/>
+            <script>document.write(Xwan3gString[11]);</script></td>
+        </tr>
+		<tr>
+			<td width="200" id="XS12"> </td>
+			<td><input type="checkbox" id="enable3g" name="enable3g"/></td>
+        </tr>        
+    </table>
+</div>
+
+<div class="cfgstep">
+	<p><strong><script type="text/javascript">document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_apply" href="#" class="btn"><script type="text/javascript">document.write(WebString.Apply);</script></a>
+</div>
+
+
+
+
+<% PrintTemplate3(); %>

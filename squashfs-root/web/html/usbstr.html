@@ -1,0 +1,253 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+var format_list = new Array("NONE","FAT32","NTFS");
+var usbStat = new Array();
+var ftp_enable = "";
+var ftp_user_name = "";
+var ftp_password = "";
+var ftp_port = "";
+var ftp_up_down_in_proc = "";
+
+
+<% FTP_GetConfig(); %>
+<% USBDEV_GetConfig(); %>
+
+function FreshTable(){	
+	var TR = "";
+	TR += "<table id='usbTable' class='mlist'>";
+	TR += '<tr>';
+	TR += '<th colspan="3" style="text-align:center">' + XusbstrString[0] +'</th>\n';
+	TR += '</tr>\n';
+	TR += '<tr>\n';
+	TR += '<th>' + XusbstrString[1] +'</th>\n';
+	TR += '<th>' + XusbstrString[2] +'</th>\n';
+	TR += '<th>' + XusbstrString[3] +'</th>\n';
+	TR += '</tr>\n';
+
+	if(usbStat.length == 0){
+		TR += '</table>\n';
+		$("#USBTable").html(TR);
+		return;
+	}else{
+		for (i = 0; i < usbStat.length; i++)
+		{
+			TR += '<tr>\n';
+			TR += '<td>' + usbStat[i].hostnum + '</td>\n';
+			TR += '<td>' + usbStat[i].devnum + '</td>\n';
+			TR += '<td>' + format_list[parseInt(usbStat[i].format)] + '</td>\n';
+			TR += '</tr>\n';			
+		}
+		
+		TR += '</table>\n';
+	}
+
+	$("#USBTable").html(TR);
+}
+
+function radioSet(name){
+	if (eval(name)=="0"){
+		$("#"+name+"0").get(0).checked=false;
+		$("#"+name+"1").get(0).checked=true;
+	}else if (eval(name)=="1"){
+		$("#"+name+"0").get(0).checked=true;
+		$("#"+name+"1").get(0).checked=false;
+	}else{
+		return;
+	}		
+}
+
+function SetMode()
+{
+	if (1 == $("input[name='ftp_enable']:checked").val()){
+		$("[name='hide2']").show();
+		$("[id='USBTable']").show();
+	}else if (0 == $("input[name='ftp_enable']:checked").val()){
+		$("[name='hide2']").hide();
+		$("[id='USBTable']").hide();
+	}
+	WebStepIndex();
+}
+
+function SetVal()
+{
+	$("#ftpusername").val(ftp_user_name);
+	$("#ftppassword1").val(ftp_password);
+	$("#ftppassword2").val(ftp_password);
+	$("#ftp_port").val(ftp_port);
+}
+
+function WebInit(){
+	FreshTable();
+	radioSet("ftp_enable");
+	SetMode();
+	SetVal();
+}
+
+function doCheckVal()
+{
+	var password = $("#ftppassword1").val();
+	var password2 = $("#ftppassword2").val();
+	var username = $("#ftpusername").val();
+	var port = $("#ftp_port").val();
+
+	if(username.length <= 0 || username.length >64){
+		alert(XusbstrString[4]);
+		$("#ftpusername").focus();
+		return false;
+	}
+	
+	if($("#ftpusername").val() == "ftp"){
+		alert(XusbstrString[5]);
+		$("#ftpusername").focus();
+		return false;
+	}
+
+	if(password != password2) {
+		alert(XusbstrString[6]);
+		$("#ftppassword2").focus();
+		return false;
+	}
+
+	if(password.length <6 || password.length >64){
+		alert(XusbstrString[7]);
+		$("#ftppassword1").focus();
+		return false;
+	}
+
+	if(port <= 0 || port > 65535){
+		alert(XusbstrString[8]);
+		$("#ftp_port").focus();
+		return false;
+	}
+
+}
+
+function WebDoSubmit(){
+	var enable = $("input[name='ftp_enable']:checked").val();
+	
+	do{
+		if(0 == enable){
+			break;
+		}
+
+		if(false == doCheckVal()){
+			return;
+		}
+	}while(0);
+
+	$("#XForm").submit();
+}
+
+function XDoCancel() {
+	$("[name='hide1']").show();
+	$("[name='hide3']").show();
+	$("[name='hide4']").hide();
+	WebInit();
+}
+
+function XBefDoSubmit() {
+	if (parseInt(ftp_up_down_in_proc) == 1)
+	{
+		$("[name='hide1']").hide();
+		$("[name='hide2']").hide();
+		$("[name='hide3']").hide();
+		$("[name='hide4']").show();
+	}
+	else
+	{
+		XDoSubmit();
+	}
+}
+
+$(document).ready(function () {
+	$("input").css("ime-mode","disabled");
+	$("#ftp_enable0").change(function(){
+		SetMode();
+	});
+	
+	$("#ftp_enable1").change(function(){
+		SetMode();
+	});
+
+	$("#btn_apply").click(function(){
+		XBefDoSubmit();
+	});
+	
+	$("#btn_ok").click(function(){
+		XDoSubmit();
+	});
+	
+	$("#btn_no").click(function(){
+		XDoCancel();
+	});
+});
+
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+<div class="cfgstep" name="hide1">
+	<p><strong id="XS9"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS10"></td>
+			<td>
+				<input type="radio" name="ftp_enable" id="ftp_enable0" value="1" />
+				<script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+				<input type="radio" name="ftp_enable" id="ftp_enable1" value="0" checked="true"/>
+				<script>document.write(WebString.Disable);</script> 
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="cfgstep" style="display:none" name="hide2">
+	<p><strong id="XS11"></strong></p>
+	<table>
+		<tr>
+			<td id="XS12"></td>
+			<td>
+				<input type="text" name="ftpusername" id="ftpusername" maxlength="64" style="width:150px" onkeypress="
+				return OnKeyPress(event, X_INPUT_ID);"/>
+			</td>
+		</tr>
+		<tr>
+			<td id="XS13"></td>
+			<td><input type="password" name="ftppassword1" id="ftppassword1" style="width:150px" onkeypress="
+				return OnKeyPress(event, X_INPUT_PASSWD);"/>
+			</td>
+		</tr>
+		<tr>
+			<td id="XS14"></td>
+			<td><input type="password" name="ftppassword2" id="ftppassword2" style="width:150px" onkeypress="
+				return OnKeyPress(event, X_INPUT_PASSWD);"/>
+			</td>
+		</tr>
+		<tr>
+			<td id="XS15"></td>
+			<td><input type="text" name="ftp_port" id="ftp_port" maxlength="5" size="6" onkeypress="
+				return OnKeyPress(event, X_INPUT_NUM);"/>
+			</td>
+			<td id="XS16"></td>
+		</tr>
+	</table>
+</div>
+<div class="cfgstep" name="hide3">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_apply" class="btn apply_btn" href="#">
+		<script>document.write(WebString.Apply);</script>
+	</a>
+</div>
+<div class="cfgstep" style="display:none"  name="hide4">
+	<p><strong><script>document.write(WebString.dupAckApply);</script></strong></p>
+	<a id="btn_ok" class="btn apply_btn" href="#">
+		<script>document.write(WebString.Yes);</script>
+	</a>
+	<a id="btn_no" class="btn apply_btn" href="#">
+		<script>document.write(WebString.No);</script>
+	</a>
+</div>
+<div id="USBTable" class="cfglist"></div>
+<% PrintTemplate3(); %>

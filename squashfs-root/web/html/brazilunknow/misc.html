@@ -1,0 +1,70 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var vendorid = new Array();
+
+<% misc_GetConfig(); %>
+
+function WebInit()
+{
+    $("#vendorid").val(vendorid);
+    
+    WebStepIndex(); 
+}
+
+$(document).ready(function (){
+    $("#btn_apply").click(function(){
+        XDoSubmit();
+    });   
+});
+
+function CheckSetValue()
+{
+    var vendorid = $("#vendorid").val();
+	
+    if(vendorid.length != 4 || false == isValidVendorID(vendorid))
+    {
+        alert(WebString.misc_no_username);
+        return false;
+    }
+	
+	if (!confirm(WebString.reboot_to_apply_param))
+	{
+		return false;
+	}
+	
+    return true;
+}
+
+function WebDoSubmit()
+{       
+    if( false == CheckSetValue())
+    {
+        return;
+    }
+    $("#XForm").submit();
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p><strong id="XS0"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS1"></td>
+            <td><input type="text" name="vendorid" id="vendorid" maxlength="4" style="width:150px" /></td>
+        </tr>
+    </table>
+</div>
+
+<div class="cfgstep">
+    <p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+    <a id="btn_apply" class="btn" href="#"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

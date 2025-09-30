@@ -1,0 +1,202 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+
+<script type="text/javascript">
+//<![CDATA[
+var brgifcount = "0";
+var brgcount = "0";
+var brgifConfig = new Array();
+var brgConfig = new Array();
+var bcindex = 0;
+var isInitStage = true;
+
+<% BRGIF_GetConfig(); %>
+
+function WebDoSubmit() {
+    $("#XForm").submit();
+}
+
+function WebInit() {
+    var i;
+
+    $("isp_wan_device").remove($("isp_wan_device").length-1);
+
+
+    for (i = 0; i < brgifcount; i++)
+    {
+        var index=brgifConfig[i].uniIndex;
+        var name=brgifConfig[i].uniName;
+        var objOption = new Option(name,index);
+        $("#isp_wan_device").append("<option value='"+index+"'>"+name+"</option>");
+    }
+    
+    if (0 == brgifcount) {
+        return;
+    }
+
+    if (brgifConfig[0].uniMode == '0') {
+        $("#mode_enabled").attr("checked", true);
+    } else {
+        $("#mode_disabled").attr("checked", true);
+    }        
+
+    mode_change();
+    
+    isInitStage = false;//after web init, is should be set to false
+    
+}
+
+$(document).ready(function() {
+    $("#btn_apply").click(function() {
+        XDoSubmit();
+    });
+});        
+   
+//]]>
+    
+</script>
+<script language="javascript">
+    function device_select() {
+
+        var ss = document.getElementById("isp_wan_device");
+        var checkText=$("#isp_wan_device").find("option:selected").text();
+        var checkValue=$("#isp_wan_device").val();
+        var i = 0;
+        
+        for (i = 0; i < brgifcount; i++)
+        {
+            if (checkValue == brgifConfig[i].uniIndex)
+            {
+                bcindex = i;
+                break;
+            }
+        }
+
+        if (brgifConfig[bcindex].uniMode == '0') 
+            $("#mode_enabled").attr("checked", true);
+        else 
+            $("#mode_disabled").attr("checked", true);
+                
+        isInitStage = true;
+        mode_change();
+        isInitStage = false;
+    }
+    function checkIfUniBind()
+    {
+        var i = 0; 
+        var j = 0; 
+        for (i = 0; i < brgcount; i++)
+        {
+            for (j = 0; j < brgConfig[i].uniCount; j++)
+            {
+                if (bcindex == brgConfig[i].uniBridge[j].uniIdx)
+                {
+                    return true;
+                }
+                
+            }
+            
+        }
+        
+        return false;
+    }
+    function mode_change() {
+        var ss = document.getElementsByName("mode_state");
+        //alert("1 "+ss[0].checked+" 2 "+ss[1].checked);
+        if (ss[0].checked) //ss[0].value == "qos_upstream_enable")
+        {
+            //check whether UNI binded exclude the every UNI init stage
+            if (false == isInitStage)
+            {
+                if (true == checkIfUniBind())
+                {
+                    $("#mode_enabled").attr("checked", false);
+                    $("#mode_disabled").attr("checked", true);
+                    alert(XbrgifString[22]);//alert("uni is binded");
+                    return ;
+                }
+            }
+        }
+    }    
+
+    function onBody() {
+
+    }
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p>
+        <strong>
+            <script>document.write(XbrgifString[0]);</script>
+        </strong>
+    </p>
+    <table>
+        <tr>
+            <td width="200">
+                <script>document.write(XbrgifString[1]);</script>
+            </td>
+            <td>
+                <select name="isp_wan_device" id="isp_wan_device" onchange="device_select();">
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td width="200">
+                <script>document.write(XbrgifString[2]);</script>
+            </td>
+            <td>
+                <input name="mode_state" id="mode_enabled" type="radio" value="on" onclick="mode_change();" />
+                    <script>document.write(XbrgifString[3]);</script>
+                <input name="mode_state" id="mode_disabled" type="radio" value="off" checked="checked"
+                onclick="mode_change();" />
+                    <script>document.write(XbrgifString[4]);</script>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="cfgstep">
+    <p>
+        <strong>
+            2.
+            <script>
+                document.write(WebString.stepApply);
+            </script>
+        </strong>
+    </p>
+    <a id="btn_apply" class="btn apply_btn" href="#">
+        <script>
+            document.write(WebString.Apply);
+        </script>
+    </a>
+</div>
+<div class="cfglist">
+    <table>
+    <tr>
+        <th colspan="8"  class="tableTitle"><script>document.write(XbrgifString[8]);</script></th>
+    </tr>
+    <tr>
+        <th><script>document.write(XbrgifString[9]);</script></th>
+        <th><script>document.write(XbrgifString[10]);</script></th>
+    </tr>
+    <script>
+    var i;
+    var j;
+    for (i=0;i< brgifcount;i++)
+    {
+        document.write("<tr>");
+        document.write("<td>"+brgifConfig[i].uniName+"</td>");
+        if (brgifConfig[i].uniMode=='0')
+            document.write("<td>"+XbrgifString[3]+"</td>");
+        else
+            document.write("<td>"+XbrgifString[4]+"</td>");
+        
+        document.write("</tr>");
+    }        
+    </script>
+    </table>
+</div>
+<% PrintTemplate3(); %>

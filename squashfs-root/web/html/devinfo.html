@@ -1,0 +1,152 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var dev_name = "";
+var vendor = "";
+var customer = "";
+var dev_id = "";
+var hw_ver = "";
+var sw_ver = "";
+var onuid = "";
+var desc = "";
+var dev_uptime = 0;
+var ponStaIndex = 1;
+var pots_state = new Array();
+
+<% DevInfo_GetConfig(); %>
+<% PonInfo_GetPonStatus(); %>
+
+function SetUptime()
+{
+	dev_uptime++;
+
+	var second = parseInt(dev_uptime);
+	var dd = parseInt(second/(3600*24));
+	var hh = parseInt((second%(3600*24))/3600);
+	var mm = parseInt((second%3600)/60);
+	var ss = parseInt(second%60);
+	var strtime = "";
+	
+	strtime += dd + " " + WebString.days + ", ";
+	strtime += hh + "h:";
+	strtime += mm + "m:";
+	strtime += ss + "s";
+	
+	$("#uptime").html(strtime);
+}
+
+function WebInit()
+{
+	var i, obj;
+	
+	if (top.WebProject == "hw")
+	{
+		$("#dev_vendor").html("Huawei");
+		$("#vendor").show();
+	}
+	
+	for (i = 0; i < top.WebPotsNumber; i++)
+	{
+		obj = "#voip_pots" + parseInt(i + 1);
+		$(obj).show();
+	}
+
+	if (ponStaIndex == 5)
+	{
+		$("#onuid").html(onuid);
+	}
+
+	$("#dev_name").html(dev_name);
+	$("#dev_sn").html(dev_id.toUpperCase());
+	$("#dev_hw").html(hw_ver.toUpperCase());
+	$("#dev_sw").html(sw_ver);
+	$("#desc").html(desc);
+	$("#gpon").html("O" + ponStaIndex + " - " + WebString.gpon_state[ponStaIndex-1]);
+	
+	for (i = 0; i < pots_state.length; i++)
+	{
+		if(parseInt(pots_state[i]) != 0 && parseInt(pots_state[i]) != 1)
+		{
+			pots_state[i] = 2;
+		}
+		$("#pots" + (i + 1)).html(WebString.pots_state[pots_state[i]]);
+	}
+
+    if(POTS_NUM > 1)	
+    {		
+        $("#voip_pots2").show();	
+    }	
+    else
+    {		
+        $("#voip_pots2").hide();	
+    }
+	SetUptime();
+	setInterval("SetUptime();", 1000);
+}
+
+function WebDoSubmit()
+{
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr id="vendor" style="display:none">
+			<td width="200" id="XS9"></td>
+			<td id="dev_vendor"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td id="dev_sn"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS2"></td>
+			<td id="dev_name"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS3"></td>
+			<td id="dev_sw"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS4"></td>
+			<td id="dev_hw"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS5"></td>
+			<td id="uptime"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS6"></td>
+			<td id="gpon"></td>
+		</tr>
+		<tr id="voip_pots1" style="display:none">
+			<td width="200" id="XS7"></td>
+			<td id="pots1"></td>
+		</tr>
+		<tr id="voip_pots2" style="display:none">
+			<td width="200" id="XS8"></td>
+			<td id="pots2"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS10"></td>
+			<td id="onuid"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS11"></td>
+			<td id="desc"></td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<a id="btn_refresh" class="btn" href="devinfo.html"><script type="text/javascript">document.write(WebString.Refresh);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

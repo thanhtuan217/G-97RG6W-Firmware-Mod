@@ -1,0 +1,366 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/sense-api.js"></script>
+    <script type="module" src="js/settings-view.js"></script>
+    <script type="module" src="js/devices-view.js"></script>
+    <script type="module" src="js/header-view.js"></script>
+    <script type="module" src="js/about-view.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/profiles-view.js"></script>
+    <script type="module" src="js/events-view.js"></script>
+    <title>F-Secure Sense SDK</title>
+</head>
+
+<body>
+    <div id="header">
+        <img id="header-logo-sdk" src="res/sense_sdk.svg" />
+        <div id="header-devices" class="header-item">Home</div>
+        <div id="header-settings" class="header-item">Settings</div>
+        <div id="header-profiles" class="header-item">Profiles</div>
+        <div id="header-events" class="header-item">Events</div>
+        <div id="header-about" class="header-item">About</div>
+        <img id="header-logo-f" src="res/f-secure_logo.svg" />
+    </div>
+    <div id="system-settings" class="settings">
+        <div id="system-settings-title-container">
+            <div id="system-settings-title-switches">Connected home security settings</div>
+            <div id="system-settings-title-filter">Website filtering</div>
+            <div id="system-settings-title-privacy">Privacy</div>
+        </div>
+        <div id="system-settings-switches">
+            <div class="system-settings-section">
+                <div class="title">Protection</div>
+                <div class="description">We recommend always keeping the protection on. These features will block
+                    intrusive tracking and keeps personal data transmitted through your device safe, making your home
+                    private as well as secure.</div>
+                <img class="switch" id="enabled-switch" src="res/toggle_on.svg" />
+            </div>
+            <div class="system-settings-separator"></div>
+            <div class="system-settings-section">
+                <div class="title">Browsing protection</div>
+                <div class="description">Browsing protection helps you evaluate the safety of web sites you visit,
+                    prevents you from unintentionally accessing harmful web sites and blocks connections to servers that
+                    are known to be end-points for malware.</div>
+                <img class="switch" id="browsing-switch" src="res/toggle_on.svg" />
+            </div>
+            <div class="system-settings-section">
+                <div class="title">Tracking protection</div>
+                <div class="description">Tracking protection allows you to block sites from sharing your personal
+                    information, like browsing habits, to a third party. Enable tracking protection if you want added
+                    privacy and security when browsing the web.</div>
+                <img class="switch" id="tracking-switch" src="res/toggle_on.svg" />
+            </div>
+            <div class="system-settings-section">
+                <div class="title">Advanced IoT protection</div>
+                <div class="description"></div>
+                <img class="switch" id="iot-switch" src="res/toggle_on.svg" />
+            </div>
+        </div>
+        <div id="system-settings-filter">
+            <div class="container">
+                <div class="text">Address:</div>
+                <input type="text" id="host-name" placeholder="example: f-secure.com" />
+                <div class="button" id="block-host">Block</div>
+                <div class="button" id="allow-host">Allow</div>
+            </div>
+            <div id="filter-description">Enter website domain address to block or allow. These rules will bypass
+                browsing protection and content filtering settings.</div>
+            <select id="filterlist" multiple size="15"></select>
+            <div class="button" id="delete-host" style="float: right;">Delete</div>
+            <div class="button" id="select-all-none-host">Select all/none</div>
+        </div>
+        <div id="system-settings-privacy">
+            <div class="system-settings-section">
+                <div class="title">Usage data</div>
+                <div class="description">Send anonymous data on how you use the SENSE router.</div>
+                <img class="switch" id="privacy-switch" src="res/toggle_on.svg" />
+            </div>
+            <div>
+                <a href="https://www.f-secure.com/en/web/legal/privacy/sense-no-nav">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+    <div id="device-settings" class="settings">
+        <div id="device-title-container">
+            <div id="device-title">Everything is OK in the connected home</div>
+            <img id="device-title-logo" src="res/ok.svg">
+            <div id="device-content-title">Device List</div>
+        </div>
+        <div id="device-list">
+            <div class="device-row-header" id='device-list-header'>
+                <div class="device-row-name">Name</div>
+                <div class="device-row-mac">MAC address</div>
+                <div class="device-row-ip">IP address</div>
+                <div class="device-row-profile">Profile</div>
+                <div class="device-row-type">Type</div>
+                <div class="device-row-browsing" title="Browsing protection">BP</div>
+                <div class="device-row-tracking" title="Tracking protection">TP</div>
+                <div class="device-row-iot" title="Advanced IoT protection">IoT</div>
+                <div class="device-row-block">Block</div>
+            </div>
+            <div id="device-list-content"></div>
+            <div id="detailed-settings">
+                <img id="detailed-settings-delete" src="res/delete.svg" />
+                <input type="text" class="device-row-name" id="detailed-settings-name" maxlength="25" />
+                <div class="device-row-mac" id="detailed-settings-mac"></div>
+                <div class="device-row-ip" id="detailed-settings-ip"></div>
+                <select class="device-row-profile" id="detailed-settings-profile"></select>
+                <div class="device-row-type" id="detailed-settings-type"></div>
+                <input type="checkbox" class="device-row-browsing" id="detailed-settings-browsing" />
+                <input type="checkbox" class="device-row-tracking" id="detailed-settings-tracking" />
+                <input type="checkbox" class="device-row-iot" id="detailed-settings-iot" />
+                <input type="checkbox" class="device-row-block" id="detailed-settings-block" />
+            </div>
+            <div id="device-add-header">
+                <div class="device-row-name">MAC address</div>
+            </div>
+            <div id="device-add">
+                <input type="text" id="device-add-mac" maxlength="17" placeholder="MM-MM-MM-SS-SS-SS" />
+            </div>
+        </div>
+        <div id="detailed-settings-buttons">
+            <div class="button" id="detailed-settings-cancel">Cancel</div>
+            <div class="button" id="detailed-settings-save">Save</div>
+        </div>
+        <div class="button" id="device-add-device">Add device</div>
+        <div id="device-add-buttons">
+            <div class="button" id="device-add-cancel">Cancel</div>
+            <div class="button" id="device-add-save">Save</div>
+        </div>
+    </div>
+    <div id="profile-settings" class="settings">
+        <div id="profile-settings-container">
+            <div id="profile-header-container">
+                <div id="profile-header"></div>
+                <div id="profile-description"></div>
+            </div>
+            <div id="profile-list"></div>
+            <div id="profile-details">
+                <div id="profile-details-avatar" class="profile-avatar">
+                    <div></div>
+                </div>
+                <input id="profile-name-input" maxlength="18" />
+                <div class="button" id="profile-settings-delete">Delete</div>
+            </div>
+            <div id="profile-details-title"></div>
+            <div id="profile-details-description"></div>
+            <div id="profile-time-limits">
+                <div class="time-limit-container">
+                    <div class="time-limit-title">Weekdays</div>
+                    <div class="time-limit-description">From Sunday evening until Friday morning</div>
+                    <div class="time-limit-selection">
+                        <select class="time-limit-select evening" id="weekday-evening-select"></select>
+                        <span class="time-limit-separator">-</span>
+                        <select class="time-limit-select morning" id="weekday-morning-select"></select>
+                    </div>
+                    <img class="switch" id="time-limit-weekday-switch" src="res/toggle_on.svg" />
+                </div>
+                <div class="time-limit-container">
+                    <div class="time-limit-title">Weekends</div>
+                    <div class="time-limit-description">From Friday evening until Sunday morning</div>
+                    <div class="time-limit-selection">
+                        <select class="time-limit-select evening" id="weekend-evening-select"></select>
+                        <span class="time-limit-separator">-</span>
+                        <select class="time-limit-select morning" id="weekend-morning-select"></select>
+                    </div>
+                    <img class="switch" id="time-limit-weekend-switch" src="res/toggle_on.svg" />
+                </div>
+            </div>
+            <div id="profile-content-filtering"></div>
+            <div id="profile-settings-buttons">
+                <div class="button" id="profile-settings-select-all">Select all/none</div>
+                <div class="button" id="profile-settings-new">Add new</div>
+                <div class="button" id="profile-settings-cancel">Cancel</div>
+                <div class="button" id="profile-settings-next">Next</div>
+                <div class="button" id="profile-settings-save">Save</div>
+            </div>
+        </div>
+    </div>
+    <div id="events" class="settings">
+        <div id="events-title-container">
+            <div id="events-title-list">Events list</div>
+            <div id="events-title-statistics">Statistics</div>
+        </div>
+        <div id="events-list-container">
+            <div id="events-list"></div>
+            <div id="events-list-buttons">
+                <div class="button" id="events-delete-all">Delete events</div>
+                <div class="button" id="events-refresh">Refresh</div>
+            </div>
+        </div>
+        <div id="events-statistics-container">
+            <div id="events-statistics"></div>
+            <div id="events-total-count-container">
+                <div id="events-total-count-title">Total number of events</div>
+                <div id="events-total-count"></div>
+            </div>
+            <div id="events-statistics-buttons">
+                <div class="button" id="events-reset-counters">Reset counters</div>
+                <div class="button" id="events-refresh-counters">Refresh</div>
+            </div>
+        </div>
+    </div>
+    <div id="about" class="settings">
+        <h2>F-Secure Sense SDK version <span id="about-version"></span></h2>
+        Router id: <span id="about-router-id"></span><br />
+        Client id: <span id="about-client-id"></span><br />
+        License status: <span id="about-license-status"></span><br /><br />
+        "F-Secure" and F-logo are registered trademarks of F-Secure Corporation and F-Secure product and technology
+        names and F-Secure logos are either trademarks or registered trademarks of F-Secure Corporation. Other product
+        names referenced herein are trademarks or registered trademarks of their respective companies.<br />
+        <h4>Copyright &copy; 2015-2019 F-Secure corporation. All rights reserved.</h4>
+    </div>
+    <div id="version">version <span id="system-version"></span></div>
+</body>
+
+<template id="device-template">
+    <div class="device-accordion">
+        <div class="device-row-name"></div>
+        <div class="device-row-mac"></div>
+        <div class="device-row-ip"></div>
+        <div class="device-row-profile"></div>
+        <div class="device-row-type"></div>
+        <div class="device-row-browsing"></div>
+        <div class="device-row-tracking"></div>
+        <div class="device-row-iot"></div>
+        <div class="device-row-block"></div>
+    </div>
+    <div class="device-panel">
+        <h5>Basic info</h5>
+        <table class="detailed-device-info-table">
+            <tr>
+                <th>Name</th>
+                <td>
+                    <div class="device-detailed-name"></div>
+                </td>
+                <th>MAC address</th>
+                <td>
+                    <div class="device-detailed-mac"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>IP address</th>
+                <td>
+                    <div class="device-detailed-ip"></div>
+                </td>
+                <th>Profile</th>
+                <td>
+                    <div class="device-detailed-profile"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>First seen</th>
+                <td>
+                    <div class="device-detailed-first"></div>
+                </td>
+                <th>Type</th>
+                <td>
+                    <div class="device-detailed-type"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>Last seen</th>
+                <td>
+                    <div class="device-detailed-last"></div>
+                </td>
+                <th>Endpoint protection</th>
+                <td>
+                    <div class="device-detailed-epp"></div>
+                </td>
+            </tr>
+        </table>
+
+        <h5>Device discovery info</h5>
+        <table class="detailed-device-info-table">
+            <tr>
+                <th>Detected IoT</th>
+                <td>
+                    <div class="device-detected-iot"></div>
+                </td>
+                <th>Detected name</th>
+                <td>
+                    <div class="device-detected-name"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>Detected type</th>
+                <td>
+                    <div class="device-detected-type"></div>
+                </td>
+                <th>Detected model</th>
+                <td>
+                    <div class="device-detected-model"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>Detected manufacturer</th>
+                <td>
+                    <div class="device-detected-manufacturer"></div>
+                </td>
+                <th>Detected OS</th>
+                <td>
+                    <div class="device-detected-os"></div>
+                </td>
+            </tr>
+        </table>
+
+        <h5>Protection settings</h5>
+        <table class="detailed-device-info-table">
+            <tr>
+                <th>Browsing Protection</th>
+                <th>Tracking Protection</th>
+                <th>Advanced IoT Protection</th>
+                <th>Blocked</th>
+            </tr>
+            <tr>
+                <td><div class="device-detailed-browsing"></div></td>
+                <td><div class="device-detailed-tracking"></div></td>
+                <td><div class="device-detailed-iot"></div></td>
+                <td><div class="device-detailed-block"></div></td>
+            </tr>
+        </table>
+        <div class="button button-edit" id="edit-device">Edit</div>
+    </div>
+</template>
+
+<template id="profile-template">
+    <div class="profile-row">
+        <div class="profile-avatar"><div></div></div>
+        <div class="profile-name"></div>
+        <div class="profile-devices">Devices: <span class="profile-devices-text"></span></div>
+        <div class="profile-family-rules">
+            <div class="profile-family-rules-text">Family Rules</div>
+            <img class="profile-family-rules-toggle" src="res/toggle_on.svg" />
+        </div>
+        <div class="profile-button button">Edit</div>
+    </div>
+</template>
+
+<template id="category-template">
+    <div class="category-container">
+        <input class="category-checkbox" type="checkbox" />
+        <img class="category-icon" />
+        <div class="category-description"></div>
+    </div>
+</template>
+
+<template id="event-template">
+    <div class="event-container">
+        <div class="date"></div>
+        <div class="type"></div>
+        <div class="mac"></div>
+        <div class="argument"></div>
+    </div>
+</template>
+
+<template id="event-counter-template">
+    <div class="event-counter-container">
+        <div class="type"></div>
+        <div class="count"></div>
+    </div>
+</template>
+
+</html>

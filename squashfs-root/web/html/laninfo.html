@@ -1,0 +1,103 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var lanState = new Array();
+var lancount = 0;
+
+<% ETH_Get_Status(); %>
+
+function showLanTable()
+{
+    var index   = 0;
+    var linkup  = 0;
+    var state   = "Enable";
+    var mode    = "AUTO";
+    var txpkts  = 0;
+    var rxpkts  = 0;
+    for (i = 0; i < lancount; i++)
+    {
+        index = i + 1;
+
+        if (parseInt(lanState[i].adminState))
+        {
+            state = "Enable";
+        }
+        else
+        {
+            state = "Disable";
+        }
+        
+        if (parseInt(lanState[i].linkUp) == 0)
+        {
+            mode    = XlaninfoString[6];
+            txpkts  = "N/A";
+            rxpkts  = "N/A";
+        }
+        else
+        {
+            switch(parseInt(lanState[i].mode))
+            {
+                case 1:
+                    mode    = "10M FULL";
+                    break;
+                case 2:
+                    mode    = "100M FULL";
+                    break
+                case 3:
+                    mode    = "1000M FULL";
+                    break;
+                case 17:
+                    mode    = "10M HALF";
+                    break
+                case 18:
+                    mode    = "100M HALF";
+                    break
+                case 19:
+                    mode    = "1000M HALF";
+                    break;
+                default:
+                    break
+            }
+            
+            txpkts  = lanState[i].txPkts;
+            rxpkts  = lanState[i].rxPkts;            
+        }
+
+        $("#lan_list").append("<tr><td>"+ index +"<\/td><td>"+ state+"<\/td><td>"+mode+"<\/td><td>"+txpkts+"<\/td><td>"+rxpkts+"<\/td><\/tr>");
+    }
+
+    WebStyleCommonList();
+}
+
+function WebInit()
+{
+    showLanTable();
+    //WebStepIndex();
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+
+<div class="cfgstep">
+    <p><strong id="XS0"></strong></p>
+<table id="lan_list" class="commonlist">
+    <tr>
+        <th id="XS1"></th>
+        <th id="XS2"></th>
+        <th id="XS3"></th>
+        <th id="XS4"></th>
+        <th id="XS5"></th>
+    </tr>
+</table>  
+</div>
+
+<div class="cfgstep">
+    <a id="btn_refresh" class="btn" href="laninfo.html"><script type="text/javascript">document.write(WebString.Refresh);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

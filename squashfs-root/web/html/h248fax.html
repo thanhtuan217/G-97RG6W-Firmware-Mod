@@ -1,0 +1,54 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var pots1_codec = new Array;
+var pots2_codec = new Array;
+
+<% VOIP_GetMediaConfig(); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	WebStepIndex();
+}
+
+$(document).ready(function(){
+	
+	$("#fax_nego").val(fax_neg);
+
+	$("#btn_apply").click(function(){
+	XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td>
+				<select name="fax_nego" id="fax_nego">
+					<option selected="selected" value="1" id="XS2"></option>
+					<option value="0" id="XS3"></option>
+				</select>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a href="#" id="btn_apply" class="btn"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

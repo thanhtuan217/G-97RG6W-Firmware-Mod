@@ -1,0 +1,238 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+<% VOIP_GetSIPConfig("sipbasic"); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function  numCheck(str)
+{
+	var validstr="+0123456789*#_-@.:";
+	var len = str.length;
+
+	for(var i = 0; i < len; i++)
+	{
+		var ch = str.charAt(i);
+		if(!((ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z")))
+		{
+			if(-1 == validstr.indexOf(ch))
+				return false;
+		}
+	}
+	return true;
+}
+
+function WebInit()
+{
+	if($("#enable_obproxy").get(0).checked == true)
+	{
+		$("#sip_obproxy_addr").get(0).disabled = false;
+		$("#sip_obproxy_port").get(0).disabled = false;		
+	}
+	else
+	{
+		$("#sip_obproxy_addr").get(0).disabled = true;
+		$("#sip_obproxy_port").get(0).disabled = true;	
+	}
+	
+	if($("#enable_reg").get(0).checked == true)
+	{
+		$("#sip_reg_addr").get(0).disabled = false;
+		$("#sip_reg_port").get(0).disabled = false;		
+	}
+	else
+	{
+		$("#sip_reg_addr").get(0).disabled = true;
+		$("#sip_reg_port").get(0).disabled = true;	
+	}
+	
+	WebStepIndex();
+}
+
+$(document).ready(function(){
+	
+	$("#sip_port_base").val(port_base);
+	$("#sip_host_uri").val(host_part_uri);
+	$("#sip_auth_name1").val(username1);
+	$("#sip_auth_name2").val(username2);
+	$("#sip_auth_pw1").val(password1);
+	$("#sip_auth_pw2").val(password2);
+	$("#sip_user_part1").val(user_part_aor1);
+	$("#sip_user_part2").val(user_part_aor2);
+	
+	$("#sip_obproxy_addr").val(outband_proxy_addr);
+	$("#sip_obproxy_port").val(outband_proxy_port);
+	$("#sip_reg_addr").val(registarar_addr);
+	$("#sip_reg_port").val(registarar_port);
+	
+	if($("#sip_obproxy_addr").val() == "")
+	{
+		$("#enable_obproxy").get(0).checked = false;
+	}
+	else
+	{
+		$("#enable_obproxy").get(0).checked = true;
+	}
+	if($("#sip_reg_addr").val() == "")
+	{
+		$("#enable_reg").get(0).checked = false;
+	}
+	else
+	{
+		$("#enable_reg").get(0).checked = true;
+	}
+	
+	$("#enable_obproxy").change(function(){
+		WebInit();
+	});
+	$("#enable_reg").change(function(){
+		WebInit();
+	});
+	if(POTS_NUM > 1)
+	{
+		$("#pots_2").show();
+	}
+	else
+	{
+		$("#pots_2").hide();
+	}
+	$("#btn_apply").click(function(){
+		if($("#sip_port_base").val() < 0 || $("#sip_port_base").val() > 65535)
+		{
+			alert(WebString.sip_port_base);
+			return false;
+		}
+		var phonenum1 = $("#sip_user_part1").val();
+		var phonenum2 = $("#sip_user_part2").val();
+		if(numCheck(phonenum1) == false || numCheck(phonenum2) == false)
+		{
+			alert(WebString.user_part_aor);
+			return false;
+		}
+		if($("#enable_obproxy").get(0).checked == true)
+		{
+			if($("#sip_obproxy_port").val() < 0 || $("#sip_obproxy_port").val() > 65535)
+			{
+				alert(WebString.sip_ob_port);
+				return false;
+			}
+		}
+		if($("#enable_reg").get(0).checked == true)
+		{
+			if($("#sip_reg_port").val() < 0 || $("#sip_reg_port").val() > 65535)
+			{
+				alert(WebString.sip_reg_port);
+				return false;
+			}
+		}
+		
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td colspan="2">
+				<input id="sip_port_base" name="sip_port_base" type="text" maxlength="5" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" /> (0~65535)
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS2"></td>
+			<td colspan="2">
+				<input id="sip_host_uri" name="sip_host_uri" type="text" maxlength="64" size="40" onkeypress="return OnKeyPress(event, X_INPUT_URL);" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<ul style="font-weight:bold" width="200"><script>document.write(WebString.pots_if);</script></ul>
+				<ul style="padding-top:10px" width="200" id="XS3"></ul>
+				<ul style="padding-top:10px" width="200" id="XS4"></ul>
+				<ul style="padding-top:10px" width="200" id="XS5"></ul>
+			</td>
+			<td id="pots_1">
+				<ul style="font-weight:bold"><script>document.write(WebString.pots1);</script></ul>
+				<ul style="padding-top:10px">
+					<input id="sip_auth_name1" name="sip_auth_name1" type="text" maxlength="49" />
+				</ul>
+				<ul style="padding-top:10px">
+					<input id="sip_auth_pw1" name="sip_auth_pw1" type="password" maxlength="49" />
+				</ul>
+				<ul style="padding-top:10px">
+					<input id="sip_user_part1" name="sip_user_part1" type="text" maxlength="49" />
+				</ul>
+			</td>
+			<td id="pots_2">
+				<ul style="font-weight:bold"><script>document.write(WebString.pots2);</script></ul>
+				<ul style="padding-top:10px">
+					<input id="sip_auth_name2" name="sip_auth_name2" type="text" maxlength="49" />
+				</ul>
+				<ul style="padding-top:10px">
+					<input id="sip_auth_pw2" name="sip_auth_pw2" type="password" maxlength="49" />
+				</ul>
+				<ul style="padding-top:10px">
+					<input id="sip_user_part2" name="sip_user_part2" type="text" maxlength="49" />
+				</ul>			
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="cfgstep">
+	<p><strong id="XS6"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS7"></td>
+			<td>
+				<input id="enable_obproxy" type="checkbox" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS8"></td>
+			<td>
+				<input id="sip_obproxy_addr" name="sip_obproxy_addr" type="text" maxlength="64" size="40" onkeypress="return OnKeyPress(event, X_INPUT_URL);" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS9"></td>
+			<td>
+				<input id="sip_obproxy_port" name="sip_obproxy_port" type="text" maxlength="5" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS10"></td>
+			<td>
+				<input id="enable_reg" type="checkbox" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS11"></td>
+			<td>
+				<input id="sip_reg_addr" name="sip_reg_addr" type="text" maxlength="64" size="40" onkeypress="return OnKeyPress(event, X_INPUT_URL);" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS12"></td>
+			<td>
+				<input id="sip_reg_port" name="sip_reg_port" type="text" maxlength="5" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a href="#" id="btn_apply" class="btn"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

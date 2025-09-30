@@ -1,0 +1,99 @@
+[
+    [
+        "harmful_title",
+        "Sitio web dañino bloqueado"
+    ],
+    [
+        "harmful_heading",
+        "Para protegerlo, SENSE bloqueó este sitio web"
+    ],
+    [
+        "harmful_details",
+        "<br><br>Hemos detectado que este sitio web es dañino y puede intentar robar su información personal o infectar el dispositivo que usa para navegar.<br>Le recomendamos con énfasis que no visite este sitio."
+    ],
+    [
+        "denied_title",
+        "Sitio web denegado"
+    ],
+
+    [
+        "denied_heading",
+        "Sitio web denegado"
+    ],
+    [
+        "denied_details",
+        "<br><br>El administrador de la red denegó el acceso a este sitio web."
+    ],
+    [
+        "continue_button",
+        "Desbloquear este sitio web durante una hora"
+    ],
+    [
+        "back_button",
+        "Atrás"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "La pieza faltante de su hogar conectado"
+    ],
+    [
+        "agent_heading",
+        "El enrutador F‑Secure SENSE ahora está protegiendo este dispositivo."
+    ],
+    [
+        "agent_details",
+        "¡Siéntase más seguro! Le recomendamos que instale la aplicación SENSE en este dispositivo<br>para obtener <a data-tooltip=\"Existen literalmente miles de virus y amenazas que atentan contra el sistema Windows y todos los días aparecen más. La aplicación SENSE siempre está actualizada con las protecciones más recientes y bloquea el código malicioso para que no se ejecute en su dispositivo, tanto dentro como fuera de la red de SENSE\" class=\"tooltip\">protección máxima</a> contra las amenazas de Internet."
+    ],
+    [
+        "agent_install",
+        "Descargar SENSE para Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Nunca volver a mostrar esto"
+    ],
+    [
+        "agent_postpone",
+        "Omitir y continuar con el sitio web"
+    ],
+    [
+        "time_title",
+        "Comunicación sin conexión"
+    ],
+    [
+        "time_heading",
+        "Su tiempo en línea se acabó por hoy, ¡es hora de lavarse los dientes!"
+    ],
+    [
+        "time_details",
+        "Puede volver a acceder a Internet mañana por la mañana"
+    ],
+    [
+        "device_title",
+        "¡Acceso a Internet bloqueado!"
+    ],
+    [
+        "device_heading",
+        "¡Acceso a Internet bloqueado!"
+    ],
+    [
+        "device_details",
+        "El administrador de su red doméstica bloqueó el acceso a Internet para este dispositivo."
+    ],
+    [
+        "parental_title",
+        "Sitio web bloqueado"
+    ],
+    [
+        "parental_heading",
+        "¡Sitio web bloqueado!"
+    ],
+    [
+        "parental_details",
+        "Las Reglas familiares bloquearon esta categoría de sitio web"
+    ]
+]

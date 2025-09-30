@@ -1,0 +1,114 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-Transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8" dir="ltr">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style/ont.css" type="text/css" rel="stylesheet" />
+<script language="Javascript" src="script/jquery.js" type="text/javascript"></script>
+<script language="Javascript" src="script/menu.js" type="text/javascript"></script>
+<script language="Javascript" src="script/common.js" type="text/javascript"></script><script type="text/javascript" src="script/common.js"></script>
+<style type="text/css">
+
+.x_table th {
+    text-align:left;
+    padding-left: 4px;
+}
+
+.x_table td {
+    text-align:right;
+    padding-right: 4px;
+}
+
+.x_form_line {
+	width: 680px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.x_form_line li {
+    padding-left: 4px;
+	float: left;
+}
+
+.x_form_caption {
+	width: 240px;
+	font-size: 14px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.x_form_input {
+	width: 240px;
+	font-size: 14px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+div {
+    padding: 10px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var nat_count = 0;
+var conntrack=new Array();
+
+<% WAN_GetNatSession(); %>
+
+function value_init()
+{
+    var i = 0;
+
+    $("#count").html(nat_count);
+
+    for(i; i < nat_count; i++)
+    {
+        $("#nat_table").append("<tr><td>"+i+
+        	"<\/td><td>"+conntrack[i].type+
+        	"<\/td><td>"+conntrack[i].timeout+
+        	"<\/td><td>"+conntrack[i].sip+
+        	"<\/td><td>"+conntrack[i].dip+
+        	"<\/td><td>"+conntrack[i].dport+
+        	"<\/td><td>"+conntrack[i].stat+
+        	"<\/td><\/tr>");
+    }
+}
+
+function WebInit()
+{
+    value_init();
+}
+
+</script>
+
+</head>
+
+<body onload="WebInit();">
+<div style="width:680px;">
+<table>
+	<tr>
+        <td style="font-weight:bold; ">Active IPv4 Connections</td>
+	</tr>    
+</table>
+</div>
+
+<div style="width:680px;">    
+<table id="nat_count" class="x_table">
+	<tr>
+		<td>Connections Number</td>
+		<td id="count" ></td>
+	</tr>    
+</table>
+</div>
+
+<div style="width:680px;">    
+    <table id="nat_table" class="x_table" width="100%">
+        <tr> <th>No.</th> <th>Protocol</th> <th>Timeout(s)</th> <th>Source Address</th> <th>Remote Address</th> <th>Service Port</th> <th>State</th></tr>
+    </table>
+</div>
+</body>
+</html>
+

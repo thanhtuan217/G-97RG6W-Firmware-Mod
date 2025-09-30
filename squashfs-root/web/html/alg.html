@@ -1,0 +1,159 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+var ftp_enable;
+var tftp_enbale;
+var sip_enable;
+var h323_enable;
+var rtsp_enable;
+var l2tp_enable;
+var ipsec_enable;
+var pptp_enable;
+
+<%ALG_GetConfig(); %>
+
+function radioSet(name){
+	if(eval(name+"_enable")=="1"){
+		$("#"+name+"0").get(0).checked=true;
+		$("#"+name+"1").get(0).checked=false;
+	}else{
+		$("#"+name+"0").get(0).checked=false;
+		$("#"+name+"1").get(0).checked=true;
+	}
+		
+}
+
+function WebInit(){
+	WebStepIndex();
+	radioSet("ftp");
+	radioSet("tftp");
+	radioSet("sip");
+	radioSet("h323");
+	radioSet("rtsp");
+	radioSet("l2tp");
+	radioSet("ipsec");
+	radioSet("pptp");
+}
+
+function WebDoSubmit(){
+	var ftp   = $("input[name='ftp']:checked").val();
+	var tftp  = $("input[name='tftp']:checked").val();
+	var sip   = $("input[name='sip']:checked").val();
+	var h323  = $("input[name='h323']:checked").val();
+	var rtsp  = $("input[name='rtsp']:checked").val();
+	var l2tp  = $("input[name='l2tp']:checked").val();
+	var ipsec = $("input[name='ipsec']:checked").val();
+	var pptp = $("input[name='pptp']:checked").val();
+		
+	var value;
+	
+	value = ftp;
+	value += ":" + tftp;
+	value += ":" + sip;
+	value += ":" + h323;
+	value += ":" + rtsp;
+	value += ":" + l2tp;
+	value += ":" + ipsec;
+	value += ":" + pptp;
+	
+	$("#alg_value").val(value);
+	$("#XForm").submit();
+}
+
+$(document).ready(function () {
+	$("#btn_apply").click(function(){
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+<input id="alg_value" name="alg_value" type="hidden" value="" />
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+    	<td id="XS1" width="200"></td>
+      	<td><input name="ftp" type="radio" id="ftp0" value="1" checked="true" />
+      		<script>document.write(WebString.Enable);</script> 
+      		<input name="ftp" type="radio" id="ftp1" value="0" />
+      		<script>document.write(WebString.Disable);</script> 
+      	</td>
+    </tr>
+    <tr>
+      <td id="XS2" width="200"></td>
+      <td><input name="tftp" type="radio" id="tftp0" value="1" checked="true" />
+      	<script>document.write(WebString.Enable);</script> 
+      	<input name="tftp" type="radio" id="tftp1" value="0" />
+      	<script>document.write(WebString.Disable);</script>  
+      </td>
+    </tr>
+	  <tr>
+      <td id="XS3" width="200"></td>
+      <td><input name="sip" type="radio" id="sip0" value="1" checked="true" />
+      	<script>document.write(WebString.Enable);</script> 
+      	<input name="sip" type="radio" id="sip1" value="0" />
+      	<script>document.write(WebString.Disable);</script> 
+      </td>
+    </tr>
+	  <tr>
+      <td id="XS4" width="200"></td>
+      <td><input name="h323" type="radio" id="h3230" value="1" checked="true" />
+      	<script>document.write(WebString.Enable);</script> 
+      	<input name="h323" type="radio" id="h3231" value="0" />
+      	<script>document.write(WebString.Disable);</script>  
+      </td>
+    </tr>
+    <tr>
+    	<td id="XS5" width="200"></td>
+      <td><input name="rtsp" type="radio" id="rtsp0" value="1" checked="true" />
+      	<script>document.write(WebString.Enable);</script>
+      	<input name="rtsp" type="radio" id="rtsp1" value="0" />
+      	<script>document.write(WebString.Disable);</script>   
+      </td>
+    </tr>
+	  <tr>
+      <td id="XS6" width="200"></td>
+      <td><input name="l2tp" type="radio" id="l2tp0" value="1" checked="true" />
+      	<script>document.write(WebString.Enable);</script>
+      	<input name="l2tp" type="radio" id="l2tp1" value="0" />
+      	<script>document.write(WebString.Disable);</script> 
+      </td>
+    </tr>
+	  <tr>
+      <td id="XS7" width="200"></td>
+      <td><input name="ipsec" type="radio" id="ipsec0" value="1" checked="true" />
+      	<script>document.write(WebString.Enable);</script>
+      	<input name="ipsec" type="radio" id="ipsec1" value="0" />
+      	<script>document.write(WebString.Disable);</script>  
+      </td>
+    </tr>
+	  <tr>
+      <td id="XS8" width="200"></td>
+      <td><input name="pptp" type="radio" id="pptp0" value="1" checked="true" />
+      	<script>document.write(WebString.Enable);</script>
+      	<input name="pptp" type="radio" id="pptp1" value="0" />
+      	<script>document.write(WebString.Disable);</script>  
+      </td>
+    </tr>
+		<tr style="display:none">
+    	<td id="XS9" width="200"></td>
+   	  <td><input name="gre" type="radio" id="gre0" value="1" checked="true" />
+   	  	<script>document.write(WebString.Enable);</script>
+   	  	<input name="gre" type="radio" id="gre1" value="0" />
+   	  	<script>document.write(WebString.Disable);</script>  
+   	  </td>
+    </tr>
+	</table>
+</div>
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_apply" class="btn apply_btn" href="#">
+		<script>document.write(WebString.Apply);</script>
+	</a>
+</div>
+
+<% PrintTemplate3(); %>

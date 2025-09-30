@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8" dir="ltr">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+<script language="Javascript" src="script/jquery.js" type="text/javascript"></script>
+<script language="Javascript" src="script/menu.js" type="text/javascript"></script>
+<script language="Javascript" src="script/common.js" type="text/javascript"></script>
+<%ImportLangJS();%>
+<style type="text/css">
+body#popup{
+	background: #fff;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+#popup_wrapper {
+	background: #E6E6E6;
+	border-radius: 8px 8px 8px 8px;
+		-moz-border-radius: 8px 8px 8px 8px;
+		-webkit-border-radius: 8px 8px 8px 8px;
+	-webkit-box-shadow: #666 0px 3px 4px;
+	-moz-box-shadow: #666 0px 3px 4px;
+	box-shadow: #666 0px 3px 4px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px 20px;
+	behavior: url(style/css3pie/PIE.htc);
+    width: 600px;
+}
+
+#popup_header {
+    height: 80px;
+    position: relative;
+}
+
+#popup_header #logo {
+    display: block;
+    float: left;
+    height: 78px;
+    margin: 0 0 10px;
+    overflow: hidden;
+    position: relative;
+    width: 188px;
+}
+
+#popup_header #prompt_msg {
+    color: #909090;
+    float: left;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 20px;
+}
+
+#popup_header #account_msg {
+    color: #909090;
+    float: left;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 20px;
+}
+
+#popup_header #24GSSID_msg {
+    color: #909090;
+    float: left;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 20px;
+}
+
+#popup_header #58GSSID_msg {
+    color: #909090;
+    float: left;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 20px;
+}
+
+#popup_content {
+    margin: 0;
+    width: 600px;
+    text-align: center;
+}
+
+#popup_content .cfgstep {
+    background: none repeat scroll 0 0 #FFFFFF;
+    margin-bottom: 0px;
+    margin-left: 0;
+    padding: 12px 0;
+}
+
+#popup_content table {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-collapse: collapse;
+    color: #000000;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 20px auto 0;
+    text-align: center;
+    width: 500px;
+}
+
+#popup_content table td {
+    background: none repeat scroll 0 0 #FFFFFF;
+    margin: 0;
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+#popup_err {
+	color: #F00;
+    font-size: 13px;
+    line-height: 26px;
+}
+
+#btn_popup {
+	margin: 20px auto;
+    padding: 7px 28px;
+}
+
+#btn_close {
+	margin: 20px auto;
+    padding: 7px 28px;
+}
+
+#popup .btn {
+	background: #0077ee; /* Old browsers */
+	background: -moz-linear-gradient(top, #00CCFF 0%, #004CE5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00CCFF), color-stop(100%,#004CE5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #00CCFF 0%,#004CE5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #00CCFF 0%,#004CE5 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #00CCFF 0%,#004CE5 100%); /* IE10+ */
+	background: linear-gradient(top, #00CCFF 0%,#004CE5 100%); /* W3C */
+	border-radius:6px 6px 6px 6px;
+		-moz-border-radius:6px 6px 6px 6px;
+		-webkit-border-radius:6px 6px 6px 6px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+	padding: 12px 36px;
+	#margin: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-shadow: 1px 1px 4px #000000;
+	behavior: url(style/css3pie/PIE.htc);
+}
+
+#popup .btn:hover {
+	background:#00A5FF;
+	text-shadow:none;
+}
+
+#popup_footer {
+    color: #000000;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0;
+    text-align: center;
+}
+#header_left {
+	float: left;
+}
+
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var username = new Array();
+var user_pri = 0;
+
+//wifssid param
+var ssid_list = new Array([4]);
+
+var ssid_security = new Array([4]);
+var ssid_enable = new Array([4]);
+var ssid_network_name = new Array([4]);
+var ssid_broadcast = new Array([4]);
+var ssid_isolation = new Array([4]);
+var ssid_wmm = new Array([4]);
+var ssid_max_clients = new Array([4]);
+var UserPriority = 0;
+var wifi_mode='0';
+
+//wifisec parm
+var select_security_mode = new Array([4]);
+
+//WPA  PSK
+var encryption_wpa_type = new Array([4]);
+var security_wpa_key = new Array([4]);
+var security_wpa_ver = new Array([4]);
+
+//WPA ENTERPRISE
+var wpa_enterpri_interval = new Array([4]);
+var wpa_enterpri_radius_key = new Array([4]);
+var wpa_enterpri_radius_port = new Array([4]);
+var wpa_enterpri_server = new Array([4]);
+
+//WEP
+var wpa_wep_authmode = new Array([4]);
+var wpa_wep_key = new Array("","","","");
+
+//wifssid param 5G
+var ssid5_list = new Array([4]);
+
+var ssid5_security = new Array([4]);
+var ssid5_enable = new Array([4]);
+var ssid5_network_name = new Array([4]);
+var ssid5_broadcast = new Array([4]);
+var ssid5_isolation = new Array([4]);
+var ssid5_wmm = new Array([4]);
+var ssid5_max_clients = new Array([4]);
+var UserPriority5 = 0;
+var wifi5_mode='0';
+
+//wifisec parm
+var select_security5_mode = new Array([4]);
+
+//WPA  PSK
+var encryption_wpa5_type = new Array([4]);
+var security_wpa5_key = new Array([4]);
+var security_wpa5_ver = new Array([4]);
+
+//WPA ENTERPRISE
+var wpa_enterpri5_interval = new Array([4]);
+var wpa_enterpri5_radius_key = new Array([4]);
+var wpa_enterpri5_radius_port = new Array([4]);
+var wpa_enterpri5_server = new Array([4]);
+
+//WEP
+var wpa_wep5_authmode = new Array([4]);
+var wpa_wep5_key = new Array("","","","");
+
+<% Password_GetConfig(); %>
+<% POPUP_WIFI_SSID_GetConfig(); %>
+<% POPUP_WIFI_Secu_GetConfig(); %>
+<% POPUP_WIFI5_SSID_GetConfig(); %>
+<% POPUP_WIFI5_Secu_GetConfig(); %>
+
+function showUserList()
+{
+	var i, str = "";
+	for (i = 0; i< username.length; i++)
+	{
+		if (0 == username[i].length) continue;
+		str += '<option value="' + username[i] + '">' + username[i] + '<\/option>';
+	}
+	$("#userlist").html(str);
+}
+
+function doUserList()
+{
+	$("#username").val($("#userlist").val());
+}
+
+function CheckSetValue()
+{
+    var username = $("#username").val();
+	var password0 = $("#password0").val();
+    var password1 = $("#password1").val();
+    var password2 = $("#password2").val();
+	
+    /*if(username.length < 6)
+    {
+        alert(WebString.username_length);
+        $("#username").focus();
+        return false;
+    }*/
+	if(password0.length == 0 && password1.length == 0 && password2.length ==0)
+	{
+		return true;
+	}
+	if(password0 != old_password)
+	{
+		alert(WebString.password_username);
+		$("#password0").focus();
+		return false;
+	}
+    if(password1.length < 6 || password1.length > 64)
+    {
+        alert(WebString.valid_passwd_length);
+        $("#password1").focus();
+        return false;
+    }
+
+    if(password1 != password2)
+    {
+        alert(WebString.password_differ);
+        $("#password2").focus();
+        return false;
+    }
+
+    return true;
+}
+function CheckSetSSIDValue(rfindex)
+{	
+	if (0 == rfindex) {
+		var ssid_network_name = $("#ssid_network_name").val();
+		var password1 = $("#24Gpassword1").val();
+		var password2 = $("#24Gpassword2").val();
+	} else {
+		var ssid_network_name = $("#ssid5_network_name").val();
+		var password1 = $("#58Gpassword1").val();
+		var password2 = $("#58Gpassword2").val();
+	}
+	//SSID name & password VALIDATE
+	if (false == isValidSsid(ssid_network_name, true))
+    {
+        alert(XwifissidString[19]);
+        return false;
+    }
+    else if(ssid_network_name.length == 0)
+    {
+        alert(XwifissidString[10]);
+        return false;
+    }
+    else if (ssid_network_name.charAt(0) == " ")
+    {
+        alert(XwifissidString[20]);
+        return false;
+    }
+	if(password1.length == 0 && password2.length == 0)
+    {
+    	return true;
+    }
+    if(password1.length < 8 || password1.length > 64)
+    {
+        alert(WebString.valid_passwd_length);
+		if (0 == rfindex)
+			$("#24Gpassword1").focus();
+		else
+			$("#58Gpassword1").focus();
+        return false;
+    }
+
+    if(password1 != password2)
+    {
+        alert(WebString.password_differ);
+		if (0 == rfindex)
+			$("#24Gpassword2").focus();
+		else
+			$("#58Gpassword2").focus();
+        return false;
+    }
+	
+    return true;
+}
+
+function showSelectSsid(rfindex)
+{
+	var str = "";
+	var j = 0;
+	for (var i = 0; i < 4; i++)
+	{
+	    /* if ((UserPriority != 0) && (i >= 2))
+	    {
+	        break;
+	    } */
+	    
+		j = i + 1;
+		str += (
+			'<option value='+ i +'>' + 'SSID ' + j +'</option>'
+		);
+	}
+	if (0 == rfindex) {
+		$("#ssid_list").html(str);
+	} else {
+		$("#ssid5_list").html(str);
+	}
+}
+
+function SelectShow(i, rfindex)
+{
+	if (0 == rfindex) {
+		$("#ssid_list").val(ssid_list[i]);
+		$("#ssid_network_name").val(ssid_network_name[i]);
+	} else {
+		$("#ssid5_list").val(ssid5_list[i]);
+		$("#ssid5_network_name").val(ssid5_network_name[i]);
+	}
+}
+
+function select_ssid(mode, rfindex)
+{
+	SelectShow(mode, rfindex);
+}
+
+function WebInit()
+{
+	if (("em" == top.WebProject) && (4 == top.XCurrentUser))
+	{
+		$("#userlist").show();
+		$("#username").hide();
+		showUserList();
+	}
+    $("#username").attr("readonly","true");
+    $("#username").val(username[0]);
+	$("#prompt_msg").html("You could configure current account on this page");
+	$("#account_msg").html("Account Management");
+	$("#24GSSID_msg").html("2.4G SSID1");
+	$("#58GSSID_msg").html("5G SSID1");
+
+    showSelectSsid(0);
+    showSelectSsid(1);
+    SelectShow(0, 0);
+    SelectShow(0, 1);
+    WebStepIndex(); 
+}
+
+function custom_close()
+{
+    window.opener=null;
+    window.open('','_self');
+    window.close();
+}
+
+function WebDoSubmit()
+{       	
+	var act = $("#Action").val();
+
+	if (act == "Apply") {
+		//login account VALIDATE
+	    if( false == CheckSetValue())
+	    {
+	        return;
+	    }
+	    if( (false == CheckSetSSIDValue(0)) || (false == CheckSetSSIDValue(1)))
+	    {
+	        return;
+	    }
+		
+		$("#security_wpa_key").val($("#24Gpassword1").val());
+		$("#security_wpa5_key").val($("#58Gpassword1").val());
+	}
+	
+    $("#XForm").submit();
+}
+
+function XDoSubmit()
+{
+	WebDoSubmit();
+}
+
+$(document).ready(function (){
+	WebInit();
+
+	$("#userlist").change(function(){
+		doUserList();
+	});
+    $("#btn_popup").click(function(){
+        $("#Action").val("Apply");
+        XDoSubmit();
+		//custom_close();
+    });   
+    $("#btn_close").click(function(){
+        $("#Action").val("Cancel");
+        XDoSubmit();
+        //custom_close();
+    });   
+});
+
+//]]>
+</script>
+</head>
+<body id="popup">
+	<form id="XForm" name="XForm" method="post" action="/GponForm/password_XForm">
+	<input id="XWebPageName" name="XWebPageName" type="hidden" value="popup_changepasswd" />
+	<input type="hidden" id="security_wpa_key" name="security_wpa_key" value="" />
+	<input type="hidden" id="security_wpa5_key" name="security_wpa5_key" value="" />
+	<input id="Action" name="Action" type="hidden" value="Cancle" />
+	<div id="popup_wrapper">
+		<div id="popup_header">
+			<div id="header_left">
+				<h2 id="prompt_msg"></h2>
+			</div>
+		</div>
+
+		<div id="popup_content">
+				<div id="cfgareadark">
+					<div class="cfgstep">
+						<table>
+							<tr>
+								<td width="200"><h2 id="account_msg"></h2></td>
+							</tr>						
+							<tr>
+								<td width="200">Username</td>
+								<td><select name="userlist" id="userlist" style="display:none"></select>
+									<input type="text" name="username" id="username" maxlength="64" style="width:150px" /></td>
+							</tr>
+							<tr>
+								<td width="200">Old Password</td>
+								<td><input type="password" name="password0" id="password0" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);"/></td>
+							</tr>
+							<tr>
+								<td width="200">New Password</td>
+								<td><input type="password" name="password1" id="password1" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);"/></td>
+							</tr>
+							<tr>
+								<td width="200">New Password Confirm</td>
+								<td><input type="password" name="password2" id="password2" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);"/></td>
+							</tr>
+							<tr>
+								<td width="200"><h2 id="24GSSID_msg"></h2></td>
+							</tr>
+							<tr style="display:none">
+								<td width="200">SSID</td>
+								<td><select name="ssid_list" id="ssid_list" onchange="select_ssid(this.options[this.selectedIndex].value, 0);">
+									</select>
+								</td>							
+							</tr>
+							<tr>
+								<td width="200">SSID Name</td>
+								<td><input name="ssid_network_name"  id="ssid_network_name" type="text" style="width:150px" maxlength="32"/></td>
+							</tr>
+							<tr>
+								<td width="200">Password</td>
+								<td><input type="password" name="24Gpassword1" id="24Gpassword1" style="width:150px" maxlength="64" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);"/></td>
+							</tr>
+							<tr>
+								<td width="200">Password Confirm</td>
+								<td><input type="password" name="24Gpassword2" id="24Gpassword2" style="width:150px" maxlength="64" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);"/></td>
+							</tr>
+							<tr>
+								<td width="200"><h2 id="58GSSID_msg"></h2></td>
+							</tr>
+							<tr style="display:none">
+								<td width="200">SSID</td>
+								<td><select name="ssid5_list" id="ssid5_list" onchange="select_ssid(this.options[this.selectedIndex].value, 1);">
+									</select>
+								</td>							
+							</tr>
+							<tr>
+								<td width="200">SSID Name</td>
+								<td><input name="ssid5_network_name"  id="ssid5_network_name" type="text" style="width:150px" maxlength="32"/></td>
+							</tr>
+							<tr>
+								<td width="200">Password</td>
+								<td><input type="password" name="58Gpassword1" id="58Gpassword1" style="width:150px" maxlength="64" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);"/></td>
+							</tr>
+							<tr>
+								<td width="200">Password Confirm</td>
+								<td><input type="password" name="58Gpassword2" id="58Gpassword2" style="width:150px" maxlength="64" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);"/></td>
+							</tr>
+							<tr>
+								<td width="200">
+									<a href="#" id="btn_popup" class="btn">Apply</a>
+								</td>
+								<td width="200">
+									<a href="#" id="btn_close" class="btn">Cancel</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>					
+
+		</div>
+	</div>
+	</form>
+</body>
+</html>
+

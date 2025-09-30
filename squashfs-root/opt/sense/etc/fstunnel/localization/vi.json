@@ -1,0 +1,98 @@
+[
+    [
+        "harmful_title",
+        "Hi FPT - Fsecure - Browsing protection (HTTP)"
+    ],
+    [
+        "harmful_heading",
+        "Website đang truy cập chứa chương trình độc hại"
+    ],
+    [
+        "harmful_details",
+        "Chúng tôi đã liệt trang web này vào dạng website độc hại.<br />Nếu là chủ hợp đồng, bạn vui lòng sử dụng ứng dụng Hi FPT để cài đặt thông qua <b> “Cài đặt bảo mật“</b>."
+    ],
+    [
+        "denied_title",
+        "Hi FPT - Fsecure - Blacklist"
+    ],
+    [
+        "denied_heading",
+        "Website đã bị chặn"
+    ],
+    [
+        "denied_details",
+        "Website đang nằm trong danh sách bị chặn. Hãy liên hệ chủ Hợp đồng để bỏ chặn trang web này.<br />Nếu là chủ hợp đồng, bạn vui lòng sử dụng ứng dụng Hi FPT để cài đặt thông qua <b>“Cài đặt bảo mật“</b>."
+    ],
+    [
+        "time_title",
+        "Hi FPT - Fsecure - Internet Break"
+    ],
+    [
+        "time_heading",
+        "Truy cập Internet tạm thời bị ngắt."
+    ],
+    [
+        "time_details",
+        "Truy cập Internet đang tạm thời bị ngắt. Hãy liên hệ chủ Hợp đồng để mở truy cập Internet.<br />Nếu là chủ hợp đồng, bạn vui lòng sử dụng ứng dụng Hi FPT để cài đặt thông qua <b>“Cài đặt bảo mật“</b>."
+    ],
+    [
+        "parental_title",
+        "Hi FPT - Fsecure - Content filtering"
+    ],
+    [
+        "parental_heading",
+        "Website đã bị chặn"
+    ],
+    [
+        "parental_details",
+        "Website bị chặn do vi phạm nội dung. Hãy liên hệ chủ Hợp đồng để thêm trang web này vào <b>Website ưu tiên</b><br />Nếu là chủ hợp đồng, bạn vui lòng sử dụng ứng dụng Hi FPT để cài đặt thông qua <b>“Cài đặt bảo mật&“</b>."
+    ],
+    [
+        "device_title",
+        "Hi FPT - Fsecure - Internet Break"
+    ],
+    [
+        "device_heading",
+        "Truy cập Internet tạm thời bị ngắt."
+    ],
+    [
+        "device_details",
+        "Truy cập Internet đang tạm thời bị ngắt. Hãy liên hệ chủ Hợp đồng để mở truy cập Internet.<br />Nếu là chủ hợp đồng, bạn vui lòng sử dụng ứng dụng Hi FPT để cài đặt thông qua <b> “Cài đặt bảo mật“</b>."
+    ],
+    [
+        "continue_button",
+        "Unblock this website for one hour"
+    ],
+    [
+        "back_button",
+        "Go back"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "The missing piece of your connected home"
+    ],
+    [
+        "agent_heading",
+        "The F‑Secure SENSE router is now protecting this device."
+    ],
+    [
+        "agent_details",
+        "Be even more secure! We recommend that you install the SENSE app on this device<br>for <a data-tooltip=\"There are literally thousands of viruses and exploits marring the Windows system and new ones are created every day. SENSE app is always up-to-date with latest protections and will block malicious code from being executed in your device - in and out of SENSE network\" class=\"tooltip\">maximum protection</a> against Internet threats."
+    ],
+    [
+        "agent_install",
+        "Download SENSE for Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Never show this again"
+    ],
+    [
+        "agent_postpone",
+        "Skip and continue to your website"
+    ]
+]

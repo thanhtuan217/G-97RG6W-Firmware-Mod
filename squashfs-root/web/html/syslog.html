@@ -1,0 +1,107 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var syslog_enable = 0;
+var syslog_server = "";
+var server_cfg_err = 0;
+
+<% syslogd_GetConfig(); %>
+
+function syslogdisplay()
+{
+	var enable = $("#syslog_enable").attr("checked");
+	if (enable == "checked")
+	{
+		$("#syslog_server").show();
+	} 
+	else 
+	{
+		$("#syslog_server").hide();
+	}
+	WebStepIndex();
+}
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	if(1 == syslog_enable){
+		$("#syslog_enabled").attr("checked",true);
+		$("#syslog_server").val(syslog_server);
+	}
+	else 
+	{
+		$("#syslog_disabled").attr("checked",true);
+		$("#syslog_server").val(syslog_server);
+	}
+	if(1 == server_cfg_err){
+		alert(WebString.server_cfg_err);
+	}
+	WebStepIndex();
+}
+
+function CheckSetValue()
+{
+    if(1 == $('input[name="syslog_enable"]:checked').val())
+    {
+        if( !isValidIpAddress($("#syslog_server").val()) && !isValidDomain($("#syslog_server").val()) )
+        {
+            alert(WebString.server_cfg_err);
+            return false;
+        }
+	}
+}
+
+$(document).ready(function () {
+	/*$("input[name='syslog_enable']").click(function() {
+		syslogdisplay();
+	});*/
+
+
+
+	$("#btn_apply").click(function(){
+	    if( false == CheckSetValue())
+	    {
+	        return;
+	    }
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td><input type="radio" name="syslog_enable" id="syslog_enabled" value="1" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+				<input type="radio" name="syslog_enable" id="syslog_disabled" value="0" /><script>document.write(WebString.Disable);</script></td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong id="XS2"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS3"></td>
+			<td><input type="text" name="syslog_server" id="syslog_server" maxlength="128" size="40" onkeypress="return OnKeyPress(event, X_INPUT_URL);" /></td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_apply" class="btn apply_btn" href="#"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

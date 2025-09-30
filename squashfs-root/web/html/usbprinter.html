@@ -1,0 +1,101 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var srv_enable = 0;
+var usbprt_list = new Array();
+
+<% USBPRT_GetConfig(); %>
+<% USBDEV_GetConfig(); %>
+
+function DataInit()
+{
+    if (1 == srv_enable)
+        $("#usbprt_enable").attr("checked", true);
+    else
+        $("#usbprt_disable").attr("checked", true);
+}
+
+function usbprinter_enable()
+{
+    var enable = $('input:radio[name="usb_printer"]:checked').val();
+    if (1 == enable)
+        $("#usbprinter_list_div").show();
+    else
+        $("#usbprinter_list_div").hide();
+}
+
+function FreshTable()
+{
+    var TR = "";
+    var i = 0;
+    for(i = 0; i < usbprt_list.length; i++)
+    {
+        TR = '<tr>\n';
+        TR += '<td>' + usbprt_list[i].pname + '</td>\n';        
+        TR += '<td>' +'usb' + usbprt_list[i].path + '</td>\n';
+        TR += '</tr>\n'; 
+        $("#printer_list_div").append(TR);          
+    } 
+}
+
+function WebInit()
+{
+    DataInit();
+    usbprinter_enable(); 
+    FreshTable();
+    WebStepIndex(); 
+}
+
+
+$(document).ready(function (){
+    $("input[name='usb_printer']").click(function() {
+        usbprinter_enable();
+    });
+    $("#btn_apply").click(function(){
+        XDoSubmit();
+    });   
+});
+
+
+function WebDoSubmit()
+{       
+    $("#XForm").submit();
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p><strong id="XS0"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS1"></td>
+            <td><input type="radio" name="usb_printer" id="usbprt_enable" value="1" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+                <input type="radio" name="usb_printer" id="usbprt_disable" value="0" checked/><script>document.write(WebString.Disable);</script>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="cfgstep">
+    <p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+    <a id="btn_apply" class="btn" href="#"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<div class="cfglist" id = "usbprinter_list_div">
+<table id="printer_list_div">
+    <tr>
+        <th colspan="2" class="tableTitle" id="XS2"></th>
+    </tr>
+    <tr>       
+        <th id="XS3"></th>
+        <th id="XS4"></th>
+    </tr>
+</table>  
+</div>
+
+<% PrintTemplate3(); %>

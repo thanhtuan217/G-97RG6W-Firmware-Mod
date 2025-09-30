@@ -1,0 +1,99 @@
+[
+    [
+        "harmful_title",
+        "Skadeligt websted blev blokeret"
+    ],
+    [
+        "harmful_heading",
+        "SENSE blokerede dette websted for at beskytte dig"
+    ],
+    [
+        "harmful_details",
+        "<br><br>Vi har fundet, at dette websted er skadeligt og kan forsøge at stjæle dine personlige oplysninger eller inficere enheden, du bruger til browsing.<br>Vi anbefaler kraftigt, at du ikke besøger dette websted."
+    ],
+    [
+        "denied_title",
+        "Websted afvist"
+    ],
+
+    [
+        "denied_heading",
+        "Websted afvist"
+    ],
+    [
+        "denied_details",
+        "<br><br>Adgang til dette websted er blevet afvist af netværksadministratoren."
+    ],
+    [
+        "continue_button",
+        "Ophæv blokering af dette websted i én time"
+    ],
+    [
+        "back_button",
+        "Gå tilbage"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "Det manglende led i dit forbundne hjem"
+    ],
+    [
+        "agent_heading",
+        "F‑Secure SENSE-routeren beskytter nu denne enhed."
+    ],
+    [
+        "agent_details",
+        "Vær endnu mere sikker! Vi anbefaler, at du installerer SENSE-appen på denne enhed<br>for <a data-tooltip=\"Der er bogstavelig talt tusindvis af virus og udnyttelser, der ødelægger Windows-systemet, og nye oprettes hver dag. SENSE-appen er altid opdateret med den nyeste beskyttelse og vil forhindre ondsindet kode i at blive afviklet på din enhed – ind og ud af SENSE-netværket\" class=\"tooltip\">maksimal beskyttelse</a> mod internettrusler."
+    ],
+    [
+        "agent_install",
+        "Hent SENSE til Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Vis aldrig dette igen"
+    ],
+    [
+        "agent_postpone",
+        "Ignorer, og fortsæt til dit websted"
+    ],
+    [
+        "time_title",
+        "Onlinetid er slut"
+    ],
+    [
+        "time_heading",
+        "Din tid online er slut for nu, det er tid til at børste tænder!"
+    ],
+    [
+        "time_details",
+        "Du kan få adgang til internettet igen i morgen tidlig"
+    ],
+    [
+        "device_title",
+        "Internetadgang er blokeret!"
+    ],
+    [
+        "device_heading",
+        "Internetadgang er blokeret!"
+    ],
+    [
+        "device_details",
+        "Din hjemmenetværksadminstrator har blokeret internetadgang for denne enhed."
+    ],
+    [
+        "parental_title",
+        "Websted blev blokeret"
+    ],
+    [
+        "parental_heading",
+        "Websted blev blokeret!"
+    ],
+    [
+        "parental_details",
+        "Denne webstedskategori er blevet blokeret af Familieregler"
+    ]
+]

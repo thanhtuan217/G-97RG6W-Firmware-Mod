@@ -1,0 +1,119 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var ponStaIndex=0;
+var current="0";
+var voltage="0";
+var temperature="0";
+var rxpower="0";
+var txpower="0";
+var txpkts=0;
+var rxpkts=0;
+var txDropped=0;
+var rxDropped=0;
+var txErrs=0;
+var rxpower_temp=0;
+var txpower_value=0;
+
+<% GetOMStatus(); %>
+<% PonInfo_GetPonStatus(); %>
+
+function WebInit()
+{	
+	if (top.WebProject != "hw")
+	{
+		$("#gpon_txpower").show();
+		$("#gpon_rxpower").show();
+		$("#gpon_temperature").show();
+		$("#gpon_voltage").show();
+		$("#gpon_current").show();
+	}
+
+	$("#ponSta").html("O" + ponStaIndex + " - " + WebString.gpon_state[ponStaIndex-1]);
+	txpower_value=((parseInt(txpower)/500)-30).toFixed(2);
+	if (txpower_value == -1)
+	{
+		$("#txpower").html("No output");
+	}
+	else 
+	{	
+		$("#txpower").html(((parseInt(txpower)/500)-30).toFixed(2) + " dBm");
+	}	
+	if (ponStaIndex == 1)
+	{
+		$("#rxpower").html(WebString.no_optical_input);	
+	}
+	else 
+	{
+		$("#rxpower").html(((parseInt(rxpower)/500)-30).toFixed(2) + " dBm");	
+	}	
+	$("#temperature").html((parseInt(temperature/256)) + " ℃");		
+	$("#voltage").html((parseInt(voltage)/50).toFixed(2) + " V");
+	$("#current").html((parseInt(current)/500).toFixed(2) + " mA");
+	$("#txpkts").html(txpkts);
+	$("#rxpkts").html(rxpkts);
+	rxpower_temp=((parseInt(rxpower)/500)-30).toFixed(2); 
+	if(rxpower_temp < -27 || rxpower_temp > -8)
+	{	
+	$("#warning").html("Warning：The optical signal is out of range!!!");
+	$("#warning").css("color","#F00");	
+	}
+}
+
+function WebDoSubmit()
+{
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td id="ponSta"></td>
+		</tr>
+		<tr id="gpon_txpower" style="display:none">
+			<td width="200" id="XS2"></td>
+			<td id="txpower"></td>
+		</tr>
+		<tr id="gpon_rxpower" style="display:none">
+			<td width="200" id="XS3"></td>
+			<td id="rxpower"></td>
+		</tr>
+		<tr id="gpon_temperature" style="display:none">
+			<td width="200" id="XS8"></td>
+			<td id="temperature"></td>
+		</tr>
+		<tr id="gpon_voltage" style="display:none">
+			<td width="200" id="XS4"></td>
+			<td id="voltage"></td>
+		</tr>
+		<tr id="gpon_current" style="display:none">
+			<td width="200" id="XS5"></td>
+			<td id="current"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS6"></td>
+			<td id="txpkts"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS7"></td>
+			<td id="rxpkts"></td>
+		</tr>
+		<tr>
+			<td id="warning"></td>
+		</tr>		
+	</table>
+</div>
+
+<div class="cfgstep">
+	<a id="btn_refresh" class="btn" href="gponinfo.html"><script type="text/javascript">document.write(WebString.Refresh);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

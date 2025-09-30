@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InternetGatewayDevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rg_mib.xsd">
+	<Schema>1.002</Schema>
+	<Version>1.002.033</Version>
+	<DeviceInfo>
+		<Manufacturer/>
+		<ManufacturerOUI/>
+		<ModelName/>
+		<SerialNumber/>
+		<HardwareVersion/>
+		<SoftwareVersion/>
+	</DeviceInfo>
+	<ManagementServer resetlevel="level_1">
+		<EnableCWMP>1</EnableCWMP>
+		<URL>http://acs2.fpt.net/cpe/</URL>
+		<Username Encryption="0" Crypt_len="8">5EHmjoP+NGU= </Username>
+		<Password Encryption="0" Crypt_len="8">5EHmjoP+NGU= </Password>
+		<DevUsername Encryption="0" Crypt_len="8">JPEvyetJ4DQ=</DevUsername>
+		<DevPassword Encryption="0" Crypt_len="8">JPEvyetJ4DQ=</DevPassword>
+		<InformEnable>1</InformEnable>
+		<InformInterval>86400</InformInterval>
+		<DevURL/>
+	</ManagementServer>
+	<LANDevice>
+		<LANEthernetInterfaceNumberOfEntries>4</LANEthernetInterfaceNumberOfEntries>
+		<LANWLANConfigurationNumberOfEntries>4</LANWLANConfigurationNumberOfEntries>
+		<PoolType>0</PoolType>
+		<LANHostConfigManagement>
+			<MACAddress>00:00:00:00:00:00</MACAddress>
+			<DHCPServerEnable>1</DHCPServerEnable>
+			<DHCPRelay>false</DHCPRelay>
+			<DomainName overwrite="102"> </DomainName>
+			<IPInterface>
+				<IPInterfaceIPAddress>192.168.1.1</IPInterfaceIPAddress>
+				<IPInterfaceSubnetMask>255.255.255.0</IPInterfaceSubnetMask>
+				<IPInterfaceAddressingType>Static</IPInterfaceAddressingType>
+				<DnsLocalHost>
+				    <Enable/>
+				    <IPAddr/>	
+				    <Domain/>
+				</DnsLocalHost>
+				<DnsLocalHost>
+				    <Enable/>
+				    <IPAddr/>
+				    <Domain/>
+				</DnsLocalHost>
+				</IPInterface>
+			<DHCPConditionalServingPool>
+				<MinAddress>192.168.1.2</MinAddress>
+				<MaxAddress>192.168.1.254</MaxAddress>
+				<SubnetMask>255.255.255.0</SubnetMask>
+				<DHCPLeaseTime>1440</DHCPLeaseTime>
+				<Enable>1</Enable>
+			</DHCPConditionalServingPool>
+		</LANHostConfigManagement>
+		<LANHostConfigManagement>
+			<MACAddress>00:00:00:00:00:00</MACAddress>
+			<DHCPServerEnable>1</DHCPServerEnable>
+			<DHCPRelay>false</DHCPRelay>
+			<DomainName/>
+			<IPInterface>
+				<IPInterfaceIPAddress>192.168.0.1</IPInterfaceIPAddress>
+				<IPInterfaceSubnetMask>255.255.255.0</IPInterfaceSubnetMask>
+				<IPInterfaceAddressingType>Static</IPInterfaceAddressingType>
+			</IPInterface>
+			<DHCPConditionalServingPool>
+				<MinAddress>192.168.0.2</MinAddress>
+				<MaxAddress>192.168.0.254</MaxAddress>
+				<SubnetMask>255.255.255.0</SubnetMask>
+				<DHCPLeaseTime>1440</DHCPLeaseTime>
+				<Enable>1</Enable>
+			</DHCPConditionalServingPool>
+		</LANHostConfigManagement>
+		<LANEthernetInterfaceConfig>
+			<Enable>1</Enable>
+			<MACAddressControlEnabled>1</MACAddressControlEnabled>
+			<MaxBitRate>Auto</MaxBitRate>
+			<DuplexMode>Auto</DuplexMode>
+		</LANEthernetInterfaceConfig>
+		<LANEthernetInterfaceConfig>
+			<Enable>1</Enable>
+			<MACAddressControlEnabled>1</MACAddressControlEnabled>
+			<MaxBitRate>auto</MaxBitRate>
+			<DuplexMode>auto</DuplexMode>
+		</LANEthernetInterfaceConfig>
+		<LANEthernetInterfaceConfig>
+			<Enable>1</Enable>
+			<MACAddressControlEnabled>1</MACAddressControlEnabled>
+			<MaxBitRate>auto</MaxBitRate>
+			<DuplexMode>auto</DuplexMode>
+		</LANEthernetInterfaceConfig>
+		<LANEthernetInterfaceConfig>
+			<Enable>1</Enable>
+			<MACAddressControlEnabled>1</MACAddressControlEnabled>
+			<MaxBitRate>auto</MaxBitRate>
+			<DuplexMode>auto</DuplexMode>
+		</LANEthernetInterfaceConfig>
+		<WLANConfiguration _ID_="0">
+			<Enable>true</Enable>
+			<MaxBitRate>0</MaxBitRate>
+			<Channel>0</Channel>
+			<AutoChannelEnable>true</AutoChannelEnable>
+			<Standard>auto</Standard>
+			<X_Country overwrite="101">USA</X_Country>
+			<X_RFBand>2.4G</X_RFBand>
+			<X_ChannelWidth overwrite="101">0</X_ChannelWidth>
+			<BeaconInterval overwrite="103">100</BeaconInterval>
+			<X_GuardInterval overwrite="102">400</X_GuardInterval>
+			<X_RetryTimeout>20</X_RetryTimeout>
+			<X_Powerlevel>0</X_Powerlevel>
+			<Ampdu>0</Ampdu>
+			<Rtsthreshold overwrite="102">512</Rtsthreshold>
+			<MaxClients>0</MaxClients>
+			<MulticastEn>true</MulticastEn>
+			<Interface>
+				<Isinuse>true</Isinuse>
+				<Enable>true</Enable>
+				<Name>ath0</Name>
+				<BSSID>00:00:00:00:00:00</BSSID>
+				<SSID>FPT Telecom-%{MAC4}</SSID>
+				<BeaconType>WPA</BeaconType>
+				<ApIsolate>false</ApIsolate>
+				<WPS>
+					<Enable>true</Enable>
+					<KeyWord>0</KeyWord>
+					<DevicePassword Encryption="0" Crypt_len="8">NNJh3gkEMUs=</DevicePassword>
+				</WPS>
+				<WPA>
+					<Version>2</Version>
+					<EncryptionModes>AES</EncryptionModes>
+					<AuthenticationMode>PSK</AuthenticationMode>
+					<KeyPassphrase>%{SN2}</KeyPassphrase>
+				</WPA>
+				<BeaconAdvertisementEnabled>1</BeaconAdvertisementEnabled>
+				<SSIDAdvertisementEnabled>1</SSIDAdvertisementEnabled>
+				<Wmm_Enable>true</Wmm_Enable>
+				<WmmUAPSDEnable>false</WmmUAPSDEnable>
+				<MACAddressControlEnabled>false</MACAddressControlEnabled>
+				<MACAddressControlMode>false</MACAddressControlMode>
+				<MaxClients>0</MaxClients>
+			</Interface>
+			<Interface resetlevel="level_1">
+				<Isinuse>false</Isinuse>
+				<Enable>false</Enable>
+				<Name>ath1</Name>
+				<BSSID>00:00:00:00:00:00</BSSID>
+				<SSID>FPT Telecom-%{MAC4}-SSID2</SSID>
+				<BeaconType>WPA</BeaconType>
+				<ApIsolate>false</ApIsolate>
+				<WPS>
+					<Enable>false</Enable>
+					<KeyWord>0</KeyWord>
+					<DevicePassword Encryption="0" Crypt_len="8">NNJh3gkEMUs=</DevicePassword>
+				</WPS>
+				<WPA>
+					<Version>2</Version>
+					<EncryptionModes>AES</EncryptionModes>
+					<AuthenticationMode>PSK</AuthenticationMode>
+					<KeyPassphrase Encryption="0" Crypt_len="8">NNJh3gkEMUs=</KeyPassphrase>
+				</WPA>
+				<BeaconAdvertisementEnabled>1</BeaconAdvertisementEnabled>
+				<SSIDAdvertisementEnabled>1</SSIDAdvertisementEnabled>
+				<Wmm_Enable>true</Wmm_Enable>
+				<WmmUAPSDEnable>false</WmmUAPSDEnable>
+				<MACAddressControlEnabled>false</MACAddressControlEnabled>
+				<MACAddressControlMode>false</MACAddressControlMode>
+				<MaxClients>0</MaxClients>
+			</Interface>
+			<Interface resetlevel="level_1">
+				<Isinuse>false</Isinuse>
+				<Enable>false</Enable>
+				<Name>ath2</Name>
+				<BSSID>00:00:00:00:00:00</BSSID>
+				<SSID>FPT Telecom-%{MAC4}-SSID3</SSID>
+				<BeaconType>WPA</BeaconType>
+				<ApIsolate>false</ApIsolate>
+				<WPS>
+					<Enable>false</Enable>
+					<KeyWord>0</KeyWord>
+					<DevicePassword Encryption="0" Crypt_len="8">NNJh3gkEMUs=</DevicePassword>
+				</WPS>
+				<WPA>
+					<Version>2</Version>
+					<EncryptionModes>AES</EncryptionModes>
+					<AuthenticationMode>PSK</AuthenticationMode>
+					<KeyPassphrase Encryption="0" Crypt_len="8">NNJh3gkEMUs=</KeyPassphrase>
+				</WPA>
+				<BeaconAdvertisementEnabled>1</BeaconAdvertisementEnabled>
+				<SSIDAdvertisementEnabled>1</SSIDAdvertisementEnabled>
+				<Wmm_Enable>true</Wmm_Enable>
+				<WmmUAPSDEnable>false</WmmUAPSDEnable>
+				<MACAddressControlEnabled>false</MACAddressControlEnabled>
+				<MACAddressControlMode>false</MACAddressControlMode>
+				<MaxClients>0</MaxClients>
+			</Interface>
+			<Interface resetlevel="level_1">
+				<Isinuse>false</Isinuse>
+				<Enable>false</Enable>
+				<Name>ath3</Name>
+				<BSSID>00:00:00:00:00:00</BSSID>
+				<SSID>FPT Telecom-%{MAC4}-SSID4</SSID>
+				<BeaconType>WPA</BeaconType>
+				<ApIsolate>false</ApIsolate>
+				<WPS>
+					<Enable>false</Enable>
+					<KeyWord>0</KeyWord>
+					<DevicePassword Encryption="0" Crypt_len="8">NNJh3gkEMUs=</DevicePassword>
+				</WPS>
+				<WPA>
+					<Version>2</Version>
+					<EncryptionModes>AES</EncryptionModes>
+					<AuthenticationMode>PSK</AuthenticationMode>
+					<KeyPassphrase Encryption="0" Crypt_len="8">NNJh3gkEMUs=</KeyPassphrase>
+				</WPA>
+				<BeaconAdvertisementEnabled>1</BeaconAdvertisementEnabled>
+				<SSIDAdvertisementEnabled>1</SSIDAdvertisementEnabled>
+				<Wmm_Enable>true</Wmm_Enable>
+				<WmmUAPSDEnable>false</WmmUAPSDEnable>
+				<MACAddressControlEnabled>false</MACAddressControlEnabled>
+				<MACAddressControlMode>false</MACAddressControlMode>
+				<MaxClients>0</MaxClients>
+			</Interface>
+		</WLANConfiguration>
+		<X_HostList/>
+		<LANHostConfigManagementIPv6>
+			<HostSubPrefix/>
+			<LLAddress>fe80::1</LLAddress>
+			<DHCPv6Config>
+				<Enable>1</Enable>
+				<Mode>AUTO</Mode>
+			</DHCPv6Config>
+			<RAConfig>
+				<Enable>1</Enable>
+				<OtherFlag>true</OtherFlag>
+				<ManagedFlag overwrite="101">true</ManagedFlag>
+				<MaxRtrAdvInterval>300</MaxRtrAdvInterval>
+				<MinRtrAdvInterval>60</MinRtrAdvInterval>
+			</RAConfig>
+			<ULAConfig>
+				<Enable>0</Enable>
+			</ULAConfig>
+			<Dnstype>1</Dnstype>
+			<DnsLocalHost>
+			    <Enable/>
+			    <IPAddr/>
+			    <Domain/>
+			</DnsLocalHost>
+			<DnsLocalHost>
+			    <Enable/>
+			    <IPAddr/>
+			    <Domain/>
+			</DnsLocalHost>
+		</LANHostConfigManagementIPv6>
+		<LoopDectect>true</LoopDectect>
+	</LANDevice>
+	<WANDevice>
+		<WANConnectionDevice resetlevel="level_1">
+			<Enable>1</Enable>
+			<WanName/>
+			<UPLinkType>GPON</UPLinkType>
+			<IPVer>IPV4_IPV6</IPVer>
+			<ConnectionType>routed</ConnectionType>
+			<NATEnabled>1</NATEnabled>
+			<MaxMTUSize>1492</MaxMTUSize>
+			<X_ServiceList>
+				<ServiceType>
+					<HSI>1</HSI>
+					<VoIP>0</VoIP>
+					<TR69>1</TR69>
+					<IPTV>1</IPTV>
+				</ServiceType>
+			</X_ServiceList>
+			<Metric>1</Metric>
+			<Portmap>0</Portmap>
+			<X_VLANEnable>0</X_VLANEnable>
+			<X_VLAN>0</X_VLAN>
+			<WANPPPConnection>
+				<Username Encryption="0" Crypt_len="8">1Wa+m7O3UjQ=</Username>
+				<Password Encryption="0" Crypt_len="8">1Wa+m7O3UjQ=</Password>
+				<PPPoEACName/>
+				<PPPoEServiceName/>
+				<X_KeepAliveTime>15</X_KeepAliveTime>
+				<PPPLCPEchoRetry>4</PPPLCPEchoRetry>
+				<ConnectTrigger>0</ConnectTrigger>
+				<IdleDisconnectTime>0</IdleDisconnectTime>
+			</WANPPPConnection>
+			<WANIPv6Connection>
+				<RD6Mode/>
+				<RD6Prefix/>
+				<RD6PrefixLen/>
+				<RD6MaskLen/>
+				<RD6brAddr/>
+				<TunnelEnable>0</TunnelEnable>
+				<TunnelMode>6RD</TunnelMode>
+				<Original overwrite="101">18</Original>
+			</WANIPv6Connection>
+			<IPv6DNSOverWrite overwrite="101">1</IPv6DNSOverWrite>
+			<Ipv6DNS1 overwrite="101">2001:4860:4860::8888</Ipv6DNS1>
+			<Ipv6DNS2 overwrite="101">2001:4860:4860::8844</Ipv6DNS2>
+		</WANConnectionDevice>
+		<WANConnectionDevice resetlevel="level_1">
+		</WANConnectionDevice>
+		<WANConnectionDevice resetlevel="level_1">
+		</WANConnectionDevice>
+		<WANConnectionDevice resetlevel="level_1">
+		</WANConnectionDevice>
+		<WANConnectionDevice resetlevel="level_1">
+		</WANConnectionDevice>
+		<WANConnectionDevice resetlevel="level_1">
+		</WANConnectionDevice>
+		<WANConnectionDevice resetlevel="level_1">
+		</WANConnectionDevice>
+		<WANConnectionDevice resetlevel="level_1">
+		</WANConnectionDevice>
+		<X_ALG>
+			<SIPEnable>false</SIPEnable>
+			<FTPEnable>true</FTPEnable>
+			<H323Enable>true</H323Enable>
+			<TFTPEnable>true</TFTPEnable>
+			<L2TPEnable>true</L2TPEnable>
+			<IPSecEnable>true</IPSecEnable>
+			<PPTPEnable>true</PPTPEnable>
+			<RSTPEnable>true</RSTPEnable>
+		</X_ALG>
+	</WANDevice>
+	<X_ACL>
+		<RemoteWEB>
+			<Enable overwrite="102">false</Enable>
+			<Protocol overwrite="101">HTTPS</Protocol>
+			<Port overwrite="101">443</Port>
+			<Username Encryption="0" Crypt_len="8">Oqfsw13jysg=</Username>
+			<Password>%{mac1}</Password>
+		</RemoteWEB>
+		<SSH>
+			<LocalEnable>false</LocalEnable>
+			<RemoteEnable>false</RemoteEnable>
+			<Port>22</Port>
+			<Username Encryption="0" Crypt_len="8">Oqfsw13jysg=</Username>
+			<Password>%{mac1}</Password>
+			<KeepAlive>0</KeepAlive>
+		</SSH>
+		<FTP>
+			<LocalEnable>false</LocalEnable>
+			<RemoteEnable>false</RemoteEnable>
+			<Port>21</Port>
+		</FTP>
+		<Telnet>
+			<LocalEnable>false</LocalEnable>
+			<RemoteEnable>false</RemoteEnable>
+			<Port>23</Port>
+			<UserName Encryption="0" Crypt_len="8">Oqfsw13jysg=</UserName>
+			<PassWord>%{mac1}</PassWord>
+		</Telnet>
+	</X_ACL>
+	<Layer3Forwarding/>
+	<X_NTP>
+		<Enable>1</Enable>
+		<NTPServer1>vn.pool.ntp.org</NTPServer1>
+		<NTPServer2>time.nist.gov</NTPServer2>
+		<TimeZone>7</TimeZone>
+		<Interval>86400</Interval>
+	</X_NTP>
+	<X_FPT_SYSLOG overwrite="102">
+		<Enable overwrite="102">1</Enable>
+		<Server overwrite="101">bblogs.fpt.vn</Server>
+	</X_FPT_SYSLOG>
+	<X_FPT_ROGUE_DETECT overwrite="101">
+		<Enable overwrite="101">0</Enable>
+	</X_FPT_ROGUE_DETECT>
+	<X_UPnP>
+		<IGD>
+			<Enable>1</Enable>
+		</IGD>
+		<DMS>
+			<Enable>1</Enable>
+			<RootDir>/tmp</RootDir>
+		</DMS>
+	</X_UPnP>
+	<X_Authentication resetlevel="level_1">
+		<Users>
+			<Username Encryption="0" Crypt_len="8">Oqfsw13jysg=</Username>
+			<Password>%{mac1}</Password>
+			<Priority>1</Priority>
+			<Enable>true</Enable>
+		</Users>
+	</X_Authentication>
+	<X_IGMPCfg>
+		<Enable>true</Enable>
+		<ProxyEnable>true</ProxyEnable>
+		<SnoopingEnable>true</SnoopingEnable>
+		<ServiceMode>snooping</ServiceMode>
+		<LeaveMode>fast</LeaveMode>
+		<Robust>2</Robust>
+		<QueryInterval>0</QueryInterval>
+		<QueryRespInterval>135000</QueryRespInterval>
+		<LastMemberInterval>3000</LastMemberInterval>
+		<HostTrackEnable>true</HostTrackEnable>
+		<MaxGroupNumber>128</MaxGroupNumber>
+	</X_IGMPCfg>
+	<Language>ENGLISH</Language>
+	<TimeFormat>24HOUR</TimeFormat>
+	<X_Firewall>
+		<Enable/>
+		<SecurityLevel>0</SecurityLevel>
+		<IPFilterEnable>0</IPFilterEnable>
+		<IPFilterDefAction>0</IPFilterDefAction>
+		<IPFilterDSDefAction>0</IPFilterDSDefAction>
+		<MACFilterEnable>0</MACFilterEnable>
+		<MACFilterParentalctlEnable>0</MACFilterParentalctlEnable>
+		<MACFilterDefAction>0</MACFilterDefAction>
+		<URLFilterEnable>0</URLFilterEnable>
+		<URLFilterDefAction>0</URLFilterDefAction>
+	</X_Firewall>
+	<X_TimerSwitch>
+	    <WifiSwitchTimer>
+            <Enable>0</Enable>
+            <DAY>127</DAY>
+            <StartTime>06:00</StartTime>
+            <EndTime>23:00</EndTime>
+        </WifiSwitchTimer>
+        <RebootSwitchTimer>
+            <Enable>0</Enable>
+            <DAY>127</DAY>
+            <Time>06:00</Time>
+        </RebootSwitchTimer>
+	</X_TimerSwitch>
+	<X_RG_QOS>
+		<IPRateLimitEnable>0</IPRateLimitEnable>
+	</X_RG_QOS>
+	<QueueManagement>
+		<Enable>true</Enable>
+		<Queue>
+			<Enable>true</Enable>
+			<Mode>0</Mode>
+			<Priority>0</Priority>
+			<Weight>0</Weight>
+			<Rate>0</Rate>
+		</Queue>
+		<Queue>
+			<Enable>true</Enable>
+			<Mode>0</Mode>
+			<Priority>1</Priority>
+			<Weight>0</Weight>
+			<Rate>0</Rate>
+		</Queue>
+		<Queue>
+			<Enable>true</Enable>
+			<Mode>0</Mode>
+			<Priority>2</Priority>
+			<Weight>0</Weight>
+			<Rate>0</Rate>
+		</Queue>
+		<Queue>
+			<Enable>true</Enable>
+			<Mode>0</Mode>
+			<Priority>3</Priority>
+			<Weight>0</Weight>
+			<Rate>0</Rate>
+		</Queue>
+		<Queue>
+			<Enable>true</Enable>
+			<Mode>0</Mode>
+			<Priority>4</Priority>
+			<Weight>0</Weight>
+			<Rate>0</Rate>
+		</Queue>
+		<Queue>
+			<Enable>true</Enable>
+			<Mode>0</Mode>
+			<Priority>5</Priority>
+			<Weight>0</Weight>
+			<Rate>0</Rate>
+		</Queue>
+		<Queue>
+			<Enable>true</Enable>
+			<Mode>0</Mode>
+			<Priority>6</Priority>
+			<Weight>0</Weight>
+			<Rate>0</Rate>
+		</Queue>
+		<Queue>
+			<Enable>true</Enable>
+			<Mode>0</Mode>
+			<Priority>7</Priority>
+			<Weight>0</Weight>
+			<Rate>0</Rate>
+		</Queue>
+		<Classification overwrite="101">
+			<Rule overwrite="101" _ID_="32">
+				<Name overwrite="101"/>
+				<ClassType overwrite="101">4</ClassType>
+				<Direction overwrite="101">0</Direction>
+				<TemplateIndex overwrite="101">3</TemplateIndex>
+				<Enable overwrite="101">1</Enable>
+				<UniPort overwrite="101">0</UniPort>
+				<ClsPbit overwrite="101">-1</ClsPbit>
+				<ClsVlanID overwrite="101">-1</ClsVlanID>
+				<EthType overwrite="101">0</EthType>
+				<ClsDscp overwrite="101">-1</ClsDscp>
+				<SrcMac overwrite="101">00:00:00:00:00:00</SrcMac>
+				<DstMac overwrite="101">00:00:00:00:00:00</DstMac>
+				<Protocol overwrite="101">UDP</Protocol>
+				<SrcIp overwrite="101">0.0.0.0</SrcIp>
+				<SrcIpMask overwrite="101">0.0.0.0</SrcIpMask>
+				<DstIp overwrite="101">0.0.0.0</DstIp>
+				<DstIpMask overwrite="101">0.0.0.0</DstIpMask>
+				<SrcPort overwrite="101">3478</SrcPort>
+				<SrcPortMax overwrite="101">3497</SrcPortMax>
+				<DstPort overwrite="101">0</DstPort>
+				<DstPortMax overwrite="101">0</DstPortMax>
+				<Queue overwrite="101">5</Queue>
+				<PolicerKey overwrite="101">0</PolicerKey>
+				<Dscp overwrite="101">-1</Dscp>
+				<Pbit overwrite="101">-1</Pbit>
+			</Rule>
+			<Rule overwrite="101" _ID_="32">
+				<Name overwrite="101"/>
+				<ClassType overwrite="101">4</ClassType>
+				<Direction overwrite="101">0</Direction>
+				<TemplateIndex overwrite="101">3</TemplateIndex>
+				<Enable overwrite="101">1</Enable>
+				<UniPort overwrite="101">0</UniPort>
+				<ClsPbit overwrite="101">-1</ClsPbit>
+				<ClsVlanID overwrite="101">-1</ClsVlanID>
+				<EthType overwrite="101">0</EthType>
+				<ClsDscp overwrite="101">-1</ClsDscp>
+				<SrcMac overwrite="101">00:00:00:00:00:00</SrcMac>
+				<DstMac overwrite="101">00:00:00:00:00:00</DstMac>
+				<Protocol overwrite="101">UDP</Protocol>
+				<SrcIp overwrite="101">0.0.0.0</SrcIp>
+				<SrcIpMask overwrite="101">0.0.0.0</SrcIpMask>
+				<DstIp overwrite="101">0.0.0.0</DstIp>
+				<DstIpMask overwrite="101">0.0.0.0</DstIpMask>
+				<SrcPort overwrite="101">0</SrcPort>
+				<SrcPortMax overwrite="101">0</SrcPortMax>
+				<DstPort overwrite="101">3478</DstPort>
+				<DstPortMax overwrite="101">3497</DstPortMax>
+				<Queue overwrite="101">5</Queue>
+				<PolicerKey overwrite="101">0</PolicerKey>
+				<Dscp overwrite="101">-1</Dscp>
+				<Pbit overwrite="101">-1</Pbit>
+			</Rule>
+			<Rule overwrite="101" _ID_="32">
+				<Name overwrite="101"/>
+				<ClassType overwrite="101">4</ClassType>
+				<Direction overwrite="101">0</Direction>
+				<TemplateIndex overwrite="101">3</TemplateIndex>
+				<Enable overwrite="101">1</Enable>
+				<UniPort overwrite="101">0</UniPort>
+				<ClsPbit overwrite="101">-1</ClsPbit>
+				<ClsVlanID overwrite="101">-1</ClsVlanID>
+				<EthType overwrite="101">0</EthType>
+				<ClsDscp overwrite="101">-1</ClsDscp>
+				<SrcMac overwrite="101">00:00:00:00:00:00</SrcMac>
+				<DstMac overwrite="101">00:00:00:00:00:00</DstMac>
+				<Protocol overwrite="101">UDP</Protocol>
+				<SrcIp overwrite="101">0.0.0.0</SrcIp>
+				<SrcIpMask overwrite="101">0.0.0.0</SrcIpMask>
+				<DstIp overwrite="101">0.0.0.0</DstIp>
+				<DstIpMask overwrite="101">0.0.0.0</DstIpMask>
+				<SrcPort overwrite="101">16402</SrcPort>
+				<SrcPortMax overwrite="101">16405</SrcPortMax>
+				<DstPort overwrite="101">0</DstPort>
+				<DstPortMax overwrite="101">0</DstPortMax>
+				<Queue overwrite="101">5</Queue>
+				<PolicerKey overwrite="101">0</PolicerKey>
+				<Dscp overwrite="101">-1</Dscp>
+				<Pbit overwrite="101">-1</Pbit>
+			</Rule>
+			<Rule overwrite="101" _ID_="32">
+				<Name overwrite="101"/>
+				<ClassType overwrite="101">4</ClassType>
+				<Direction overwrite="101">0</Direction>
+				<TemplateIndex overwrite="101">3</TemplateIndex>
+				<Enable overwrite="101">1</Enable>
+				<UniPort overwrite="101">0</UniPort>
+				<ClsPbit overwrite="101">-1</ClsPbit>
+				<ClsVlanID overwrite="101">-1</ClsVlanID>
+				<EthType overwrite="101">0</EthType>
+				<ClsDscp overwrite="101">-1</ClsDscp>
+				<SrcMac overwrite="101">00:00:00:00:00:00</SrcMac>
+				<DstMac overwrite="101">00:00:00:00:00:00</DstMac>
+				<Protocol overwrite="101">UDP</Protocol>
+				<SrcIp overwrite="101">0.0.0.0</SrcIp>
+				<SrcIpMask overwrite="101">0.0.0.0</SrcIpMask>
+				<DstIp overwrite="101">0.0.0.0</DstIp>
+				<DstIpMask overwrite="101">0.0.0.0</DstIpMask>
+				<SrcPort overwrite="101">0</SrcPort>
+				<SrcPortMax overwrite="101">0</SrcPortMax>
+				<DstPort overwrite="101">16402</DstPort>
+				<DstPortMax overwrite="101">16405</DstPortMax>
+				<Queue overwrite="101">5</Queue>
+				<PolicerKey overwrite="101">0</PolicerKey>
+				<Dscp overwrite="101">-1</Dscp>
+				<Pbit overwrite="101">-1</Pbit>
+			</Rule>
+		</Classification>
+	</QueueManagement>
+	<LogLevel>7</LogLevel>
+	<UsbrestoreEnable>0</UsbrestoreEnable>
+	<UserInfo resetlevel="level_1">
+		<Status>99</Status>
+		<Limit>10</Limit>
+		<Times>0</Times>
+		<Result>99</Result>
+	</UserInfo>
+	<IpProVer>BOTH</IpProVer>
+	<SysCfg>
+		<HTTP_REDIRECT>0</HTTP_REDIRECT>
+		<DISABLE_TR069_CONFIG>0</DISABLE_TR069_CONFIG>
+		<RG_WAN_CFG_BY_PRIVATE>yes</RG_WAN_CFG_BY_PRIVATE>
+		<DISABLE_WAN_EDIT>yes</DISABLE_WAN_EDIT>
+		<VLANFILTER_FWDOP_HV_E>1</VLANFILTER_FWDOP_HV_E>
+		<WorkingMode>RGU</WorkingMode>
+		<IGMP_FILTER_MODE>1</IGMP_FILTER_MODE>
+	</SysCfg>
+	<X_ipv6_Firewall>
+		<Enable>true</Enable>
+	</X_ipv6_Firewall>
+	<WriteLevel>4</WriteLevel>
+	<ReadLevel>4</ReadLevel>
+	<X_CIG_SystemTime>
+		<TCPTime>
+			<Sync_Send_Timeout>120</Sync_Send_Timeout>
+			<Sync_Recv_Timeout>60</Sync_Recv_Timeout>
+			<Established_Timeout>300</Established_Timeout>
+			<FIN_Wait_Timeout>5</FIN_Wait_Timeout>
+			<Time_Wait_Timeout>5</Time_Wait_Timeout>
+			<Close_Wait_Timeout>5</Close_Wait_Timeout>
+			<Last_Ack_Timeout>5</Last_Ack_Timeout>
+		</TCPTime>
+		<UDPTime>
+			<Stream_Timeout>180</Stream_Timeout>
+		</UDPTime>
+		<ICMPTime>
+			<Timeout>30</Timeout>
+		</ICMPTime>
+	</X_CIG_SystemTime>
+	<IPTVConfig>
+		<Enable>0</Enable>
+		<Vlan>0</Vlan>
+		<LAN>
+			<Enable>0</Enable>
+			<Default>1</Default>
+			<Vlan>0</Vlan>
+		</LAN>
+		<WLAN>
+			<Enable>0</Enable>
+			<Default>1</Default>
+			<Vlan>0</Vlan>
+		</WLAN>
+	</IPTVConfig>
+	<USB_3G_Dongle>
+		<Enable>false</Enable>
+	</USB_3G_Dongle>
+	<LoopDectect>
+		<Enable>true</Enable>
+	</LoopDectect>
+	<X_FULLCONE>
+		<Enable>0</Enable>
+	</X_FULLCONE>
+	<GameAccelerate overwrite="101">
+		<LolEnable overwrite="101">1</LolEnable>
+	</GameAccelerate>
+        <VPN>
+                <Pptpd>
+                        <Enable>0</Enable>
+                        <MPPE128Enable>0</MPPE128Enable>
+                </Pptpd>
+        </VPN>
+</InternetGatewayDevice>

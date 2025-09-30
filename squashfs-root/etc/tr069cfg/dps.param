@@ -1,0 +1,1505 @@
+#
+#	Dimark Sample Client TR-098 configuraiton file
+#
+#
+#	(C) Copyright 2006, 2007 Dimark Technologies, Inc.
+#	All Rights Reserved.
+#	Use is subject to license terms
+#
+#	This File is a sample configuraiton File that does not
+#	integrate into any backend systems.
+#
+#	The parameters in this file define the TR-098 based
+#	Baseline:1 profile
+#
+#	This sample provides a complete instance 0 object reference.
+#	While not all of those objects can actually be created by the
+#	ACS, this allows simple cut/paste/edit operations to enhance
+#	the configuration as desired.
+#
+#	This file can form the basis of building any Gateway Device.
+#
+# The form of every line is difined by the below type definition:
+# <PATH>;<TYPE>;<INSTANCE>;<NOTIFICATION>;<MAXNOTIFICATION>;<REBOOT>;<INITIDX>;<GETIDX>;<SETIDX>;<ACCESSLIST>;<DEFAULT VALUE>
+#
+#
+InternetGatewayDevice.;98;0;0;1;1;-1;-1;-1;;
+#
+InternetGatewayDevice.DeviceSummary;6;0;3;2;1;-1;0;-1;;InternetGatewayDevice:1.5[](Baseline:1, Time:1, EthernetLAN:1, USBLAN:1, WiFiLAN:1, IPPing:1)
+InternetGatewayDevice.Services.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.Capabilities.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.Capabilities.PerformanceDiagnostic.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.Capabilities.PerformanceDiagnostic.DownloadTransports;6;0;3;0;3;-1;0;-1;;HTTP
+InternetGatewayDevice.Capabilities.PerformanceDiagnostic.UploadTransports;6;0;3;0;3;-1;0;-1;;HTTP
+#
+#	InternetGatewayDeviceInfo object ; index range 2000 ~ 2100
+#
+InternetGatewayDevice.DeviceInfo.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.DeviceInfo.SpecVersion;6;0;3;0;3;-1;0;-1;;1.0
+InternetGatewayDevice.DeviceInfo.HardwareVersion;6;0;3;2;1;-1;0;-1;;V1.0
+InternetGatewayDevice.DeviceInfo.SoftwareVersion;6;0;3;2;1;-1;0;-1;;Navigator 1-1_V2.0
+InternetGatewayDevice.DeviceInfo.Manufacturer;6;0;0;2;1;-1;0;-1;;ASB
+InternetGatewayDevice.DeviceInfo.ManufacturerOUI;6;0;0;2;1;-1;0;-1;;00085c
+InternetGatewayDevice.DeviceInfo.ModelName;6;0;0;1;1;-1;0;-1;;TR-098 InternetGatewayDevice
+InternetGatewayDevice.DeviceInfo.Description;6;0;3;2;1;-1;0;-1;;Sample TR-098 Configuration
+InternetGatewayDevice.DeviceInfo.ProductClass;6;0;0;2;1;-1;0;-1;;RG100E-AB
+InternetGatewayDevice.DeviceInfo.SerialNumber;6;0;0;2;1;-1;0;-1;;71200001FA3C7AB42
+InternetGatewayDevice.DeviceInfo.ModemFirmwareVersion;6;0;0;0;1;-1;0;-1;1.0.0;BCM Client Version 3.0.8
+InternetGatewayDevice.DeviceInfo.EnabledOptions;6;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.DeviceInfo.AdditionalHardwareVersion;6;0;0;2;1;-1;0;-1;;1.0
+InternetGatewayDevice.DeviceInfo.AdditionalSoftwareVersion;6;0;0;2;1;-1;0;-1;;3.0.1
+InternetGatewayDevice.DeviceInfo.ProvisioningCode;6;0;3;2;1;1;1;1;;
+InternetGatewayDevice.DeviceInfo.UpTime;9;0;0;1;1;-1;2001;-1;;
+InternetGatewayDevice.DeviceInfo.FirstUseDate;11;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.DeviceInfo.DeviceLog;6;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.DeviceInfo.UrlVersion;6;0;3;2;1;-1;0;-1;;
+#
+#	VendorConfigFile ; index range 2100 ~ 2200
+#
+InternetGatewayDevice.DeviceInfo.VendorConfigFileNumberOfEntries;9;0;0;1;1;-1;0;-1;;1
+InternetGatewayDevice.DeviceInfo.VendorConfigFile.;99;1;0;1;1;1;1;-1;;
+InternetGatewayDevice.DeviceInfo.VendorConfigFile.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.DeviceInfo.VendorConfigFile.0.Name;103;0;0;1;1;-1;0;-1;;dps.param
+InternetGatewayDevice.DeviceInfo.VendorConfigFile.0.Version;103;0;0;1;1;-1;0;-1;;3.0.1
+InternetGatewayDevice.DeviceInfo.VendorConfigFile.0.Date;108;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.DeviceInfo.VendorConfigFile.0.Description;103;0;0;1;1;-1;0;-1;;BCM TR-069 Client configuration file
+#
+# MemoryStatus parameters; TR-181 Issue 2 Amendment 2.htm; index range 2200 ~ 2300
+#
+InternetGatewayDevice.DeviceInfo.MemoryStatus.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.DeviceInfo.MemoryStatus.Total;9;0;0;1;1;1;2201;-1;;
+InternetGatewayDevice.DeviceInfo.MemoryStatus.Free;9;0;0;1;1;1;2202;-1;;
+#
+# ProcessStatus parameters; TR-181 Issue 2 Amendment 2.htm; index range 2300 ~ 2400
+#
+InternetGatewayDevice.DeviceInfo.ProcessStatus.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.CPUUsage;9;0;0;1;1;1;2301;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.ProcessNumberOfEntries;9;0;0;1;1;1;2303;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.Process.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.Process.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.Process.0.PID;106;0;0;1;1;1;2304;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.Process.0.Command;103;0;0;1;1;1;2305;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.Process.0.Size;106;0;0;1;1;1;2306;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.Process.0.Priority;106;0;0;1;1;1;2307;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.Process.0.CPUTime;106;0;0;1;1;1;2308;-1;;
+InternetGatewayDevice.DeviceInfo.ProcessStatus.Process.0.State;103;0;0;1;1;1;2309;-1;;
+#
+#	InternetGatewayDevice.Config
+#
+InternetGatewayDevice.DeviceConfig.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.DeviceConfig.PersistentData;6;0;0;1;1;1;1;1;;
+InternetGatewayDevice.DeviceConfig.ConfigFile;6;0;0;1;1;1;1;1;;
+#
+#	Management Server; index range 3000 ~ 3950
+#
+InternetGatewayDevice.ManagementServer.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.ManagementServer.EnableCWMP;18;0;0;2;1;1;1;3001;;1
+InternetGatewayDevice.ManagementServer.URL;6;0;0;2;1;1;1;3002;;
+InternetGatewayDevice.ManagementServer.Username;6;0;0;2;1;1;1;3003;;
+InternetGatewayDevice.ManagementServer.Password;6;0;0;2;1;1;-1;3004;;
+InternetGatewayDevice.ManagementServer.PeriodicInformEnable;18;0;0;2;1;1;1;3005;;1
+InternetGatewayDevice.ManagementServer.PeriodicInformInterval;9;0;0;2;1;1;1;3006;;60
+InternetGatewayDevice.ManagementServer.PeriodicInformTime;11;0;0;2;1;1;1;1;;
+InternetGatewayDevice.ManagementServer.ConnectionRequestURL;6;0;3;2;1;-1;0;-1;;
+InternetGatewayDevice.ManagementServer.ConnectionRequestUsername;6;0;0;2;1;1;1;3009;;
+InternetGatewayDevice.ManagementServer.ConnectionRequestPassword;6;0;0;2;1;1;3010;3010;;
+InternetGatewayDevice.ManagementServer.ParameterKey;6;0;3;1;1;-1;0;-1;;
+InternetGatewayDevice.ManagementServer.UpgradesManaged;18;0;0;2;1;1;1;1;;1
+InternetGatewayDevice.ManagementServer.KickURL;6;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.ManagementServer.DownloadProgressURL;6;0;0;2;1;-1;0;-1;;
+
+InternetGatewayDevice.ManagementServer.UDPConnectionRequestAddress;6;0;0;0;1;-1;0;-1;;http://192.168.0.4:9898/dps/TR069
+InternetGatewayDevice.ManagementServer.UDPConnectionRequestAddressNotificationLimit;9;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.ManagementServer.STUNEnable;18;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.ManagementServer.STUNServerAddress;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.ManagementServer.STUNServerPort;9;0;0;2;1;1;1;1;;3478
+InternetGatewayDevice.ManagementServer.STUNUsername;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.ManagementServer.STUNPassword;6;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.ManagementServer.STUNMaximumKeepAlivePeriod;7;0;0;2;1;1;1;1;;-1
+InternetGatewayDevice.ManagementServer.STUNMinimumKeepAlivePeriod;9;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.ManagementServer.NATDetected;18;0;0;2;1;-1;0;-1;;0
+
+InternetGatewayDevice.ManagementServer.ManageableDevice.;99;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.ManagementServer.ManageableDevice.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.ManagementServer.ManageableDevice.0.ManufacturerOUI;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.ManagementServer.ManageableDevice.0.SerialNumber;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.ManagementServer.ManageableDevice.0.ProductClass;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.ManagementServer.ManageableDevice.0.Host;103;0;0;2;1;-1;0;-1;;
+
+#
+#	UserInterface; index range 3950 ~ 4000
+#
+InternetGatewayDevice.UserInterface.;98;0;0;0;1;-1;-1;-1;;
+#
+#	RemoteAccess
+#
+InternetGatewayDevice.UserInterface.RemoteAccess.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.UserInterface.RemoteAccess.Enable;18;0;0;2;1;1;1;3960;;0
+InternetGatewayDevice.UserInterface.RemoteAccess.Port;9;0;0;2;1;1;1;3961;;
+InternetGatewayDevice.UserInterface.RemoteAccess.SupportedProtocols;6;0;0;2;1;-1;0;-1;;HTTP
+InternetGatewayDevice.UserInterface.RemoteAccess.Protocol;6;0;0;2;1;1;1;3963;;
+#
+#	Time.; index range 4000 ~ 5000
+#
+InternetGatewayDevice.Time.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Time.Enable;18;0;0;2;1;1;1;4001;;0
+InternetGatewayDevice.Time.Status;6;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.Time.NTPServer1;6;0;0;2;1;1;1;4003;;
+InternetGatewayDevice.Time.NTPServer2;6;0;0;2;1;1;1;4004;;
+InternetGatewayDevice.Time.NTPServer3;6;0;0;2;1;1;1;4005;;
+InternetGatewayDevice.Time.NTPServer4;6;0;0;2;1;1;1;4006;;
+InternetGatewayDevice.Time.NTPServer5;6;0;0;2;1;1;1;4007;;
+InternetGatewayDevice.Time.CurrentLocalTime;11;0;0;1;1;1;4008;-1;;
+InternetGatewayDevice.Time.LocalTimeZoneName;6;0;0;2;1;1;1;4009;;
+
+#
+#	Layer3Forwarding; index range 5000 ~ 6000
+#
+InternetGatewayDevice.Layer3Forwarding.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Layer3Forwarding.DefaultConnectionService;6;0;0;2;1;1;5013;5001;;
+InternetGatewayDevice.Layer3Forwarding.ForwardNumberOfEntries;9;0;0;2;1;-1;5002;-1;;0
+InternetGatewayDevice.Layer3Forwarding.Forwarding.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.;97;0;0;1;1;5000;1;-1;;
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.Enable;115;0;0;2;1;1;1;5003;;0
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.Status;103;0;0;2;1;1;5004;-1;;Disabled
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.StaticRoute;115;0;0;2;1;1;1;5006;;1
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.DestIPAddress;103;0;0;2;1;1;1;5007;;
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.DestSubnetMask;103;0;0;2;1;1;1;5008;;
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.SourceIPAddress;103;0;0;2;1;1;1;5009;;
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.SourceSubnetMask;103;0;0;2;1;1;1;5010;;
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.GatewayIPAddress;103;0;0;2;1;1;1;5011;;
+InternetGatewayDevice.Layer3Forwarding.Forwarding.0.Interface;103;0;0;2;1;1;1;5012;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.DefaultConnectionService;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.ForwardNumberOfEntries;9;0;0;2;1;-1;5502;-1;;0
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.;97;0;0;1;1;5500;1;-1;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.Enable;115;0;0;2;1;1;1;5503;;0
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.Status;103;0;0;2;1;1;5504;-1;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.Type;103;0;0;2;1;1;1;1;;Default
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.DestIPv6Address;103;0;0;2;1;1;1;5506;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.SourceIPv6Address;103;0;0;2;1;1;1;5507;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.SourceIfName;103;0;0;2;1;1;1;5508;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.GatewayIPv6Address;103;0;0;2;1;1;1;5509;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.Interface;103;0;0;2;1;1;1;5510;;
+InternetGatewayDevice.X_CU_IPv6Layer3Forwarding.IPv6Forwarding.0.ForwardingMetric;104;0;0;2;1;1;1;5511;;
+#
+#	QueueManagement; index range 7000 ~ 7100
+#
+InternetGatewayDevice.QueueManagement.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.QueueManagement.Enable;18;0;0;2;1;1;1;7001;;
+InternetGatewayDevice.QueueManagement.MaxQueues;9;0;0;2;1;-1;0;-1;;8
+InternetGatewayDevice.QueueManagement.MaxClassificationEntries;9;0;0;2;1;-1;0;-1;;32
+InternetGatewayDevice.QueueManagement.ClassificationNumberOfEntries;9;0;0;2;1;-1;7004;-1;;
+InternetGatewayDevice.QueueManagement.MaxQueueEntries;9;0;0;2;1;-1;0;-1;;8
+InternetGatewayDevice.QueueManagement.QueueNumberOfEntries;9;0;0;2;1;-1;7006;-1;;
+#
+#	QueueManagement.Classification; index range 7100 ~ 7200
+#
+InternetGatewayDevice.QueueManagement.Classification.;99;0;0;1;1;1;-1;-1;;
+InternetGatewayDevice.QueueManagement.Classification.0.;97;0;0;1;1;7100;-1;-1;;
+InternetGatewayDevice.QueueManagement.Classification.0.ClassificationKey;106;0;0;2;1;1;1;7101;;
+InternetGatewayDevice.QueueManagement.Classification.0.ClassificationEnable;115;0;0;2;1;1;1;7102;;
+InternetGatewayDevice.QueueManagement.Classification.0.ClassificationStatus;103;0;0;2;1;1;7103;-1;;
+InternetGatewayDevice.QueueManagement.Classification.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.QueueManagement.Classification.0.DestIP;103;0;0;2;1;1;1;7105;;
+InternetGatewayDevice.QueueManagement.Classification.0.DestMask;103;0;0;2;1;1;1;7106;;
+InternetGatewayDevice.QueueManagement.Classification.0.SourceIP;103;0;0;2;1;1;1;7107;;
+InternetGatewayDevice.QueueManagement.Classification.0.SourceMask;103;0;0;2;1;1;1;7108;;
+InternetGatewayDevice.QueueManagement.Classification.0.Protocol;104;0;0;2;1;1;1;7109;;
+InternetGatewayDevice.QueueManagement.Classification.0.DestPort;104;0;0;2;1;1;1;7110;;
+InternetGatewayDevice.QueueManagement.Classification.0.DestPortRangeMax;104;0;0;2;1;1;1;7111;;
+InternetGatewayDevice.QueueManagement.Classification.0.SourcePort;104;0;0;2;1;1;1;7112;;
+InternetGatewayDevice.QueueManagement.Classification.0.SourcePortRangeMax;104;0;0;2;1;1;1;7113;;
+InternetGatewayDevice.QueueManagement.Classification.0.DSCPMark;104;0;0;2;1;1;1;7114;;
+InternetGatewayDevice.QueueManagement.Classification.0.EthernetPriorityMark;104;0;0;2;1;1;1;7115;;
+InternetGatewayDevice.QueueManagement.Classification.0.ClassQueue;104;0;0;2;1;1;1;7116;;
+#
+#	QueueManagement.Queue; index range 7200 ~ 7300
+#
+InternetGatewayDevice.QueueManagement.Queue.;99;0;0;1;1;1;-1;-1;;
+InternetGatewayDevice.QueueManagement.Queue.0.;97;0;0;1;1;1;-1;-1;;
+InternetGatewayDevice.QueueManagement.Queue.0.QueueEnable;115;0;0;2;1;1;1;7201;;0
+InternetGatewayDevice.QueueManagement.Queue.0.QueueStatus;103;0;0;2;1;1;7202;-1;;Disabled
+InternetGatewayDevice.QueueManagement.Queue.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.QueueManagement.Queue.0.QueueWeight;106;0;0;2;1;1;1;7204;;0
+InternetGatewayDevice.QueueManagement.Queue.0.QueuePrecedence;106;0;0;2;1;1;1;7205;;1
+InternetGatewayDevice.QueueManagement.Queue.0.SchedulerAlgorithm;103;0;0;2;1;1;1;7206;;SP
+InternetGatewayDevice.QueueManagement.Queue.0.ShapingRate;104;0;0;2;1;1;1;7207;;-1
+InternetGatewayDevice.QueueManagement.Queue.0.ShapingBurstSize;106;0;0;2;1;-1;0;-1;;
+#
+#	IPPingDiagnostics.; index range 8000 ~ 9019
+#
+InternetGatewayDevice.IPPingDiagnostics.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.IPPingDiagnostics.DiagnosticsState;6;0;0;2;1;1;1;8001;;None
+InternetGatewayDevice.IPPingDiagnostics.Interface;6;0;0;2;1;1;1;8002;;
+InternetGatewayDevice.IPPingDiagnostics.Host;6;0;0;2;1;1;1;8003;;
+InternetGatewayDevice.IPPingDiagnostics.NumberOfRepetitions;9;0;0;2;1;1;1;8004;;4
+InternetGatewayDevice.IPPingDiagnostics.Timeout;9;0;0;2;1;1;1;8005;;1
+InternetGatewayDevice.IPPingDiagnostics.DataBlockSize;9;0;0;2;1;1;1;8006;;1
+InternetGatewayDevice.IPPingDiagnostics.DSCP;9;0;0;2;1;1;1;8007;;0
+InternetGatewayDevice.IPPingDiagnostics.SuccessCount;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.IPPingDiagnostics.FailureCount;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.IPPingDiagnostics.AverageResponseTime;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.IPPingDiagnostics.MinimumResponseTime;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.IPPingDiagnostics.MaximumResponseTime;9;0;0;0;1;-1;0;-1;;
+#
+#	TraceRouteDiagnostics.; index range 8020 ~ 9039
+#
+InternetGatewayDevice.TraceRouteDiagnostics.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.TraceRouteDiagnostics.DiagnosticsState;6;0;0;2;1;1;1;8021;;None
+InternetGatewayDevice.TraceRouteDiagnostics.Interface;6;0;0;2;1;1;1;8022;;
+InternetGatewayDevice.TraceRouteDiagnostics.Host;6;0;0;2;1;1;1;8023;;
+InternetGatewayDevice.TraceRouteDiagnostics.NumberOfTries;9;0;0;2;1;1;1;8024;;3
+InternetGatewayDevice.TraceRouteDiagnostics.Timeout;9;0;0;2;1;1;1;8025;;5000
+InternetGatewayDevice.TraceRouteDiagnostics.DataBlockSize;9;0;0;2;1;1;1;8026;;38
+InternetGatewayDevice.TraceRouteDiagnostics.DSCP;9;0;0;2;1;1;1;8027;;0
+InternetGatewayDevice.TraceRouteDiagnostics.MaxHopCount;9;0;0;0;1;1;1;8028;;30
+InternetGatewayDevice.TraceRouteDiagnostics.ResponseTime;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.TraceRouteDiagnostics.RouteHopsNumberOfEntries;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.TraceRouteDiagnostics.RouteHops.;99;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.TraceRouteDiagnostics.RouteHops.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.TraceRouteDiagnostics.RouteHops.0.HopHost;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.TraceRouteDiagnostics.RouteHops.0.HopHostAddress;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.TraceRouteDiagnostics.RouteHops.0.HopErrorCode;106;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.TraceRouteDiagnostics.RouteHops.0.HopRTTimes;103;0;0;1;1;-1;0;-1;;
+#
+#	DownloadDiagnostics.; index range 8040 ~ 9059
+#
+InternetGatewayDevice.DownloadDiagnostics.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.DownloadDiagnostics.DiagnosticsState;6;0;0;2;1;1;1;8041;;None
+InternetGatewayDevice.DownloadDiagnostics.Interface;6;0;0;2;1;1;1;8042;;
+InternetGatewayDevice.DownloadDiagnostics.DownloadURL;6;0;0;2;1;1;1;8043;;
+InternetGatewayDevice.DownloadDiagnostics.DSCP;9;0;0;2;1;1;1;8044;;0
+InternetGatewayDevice.DownloadDiagnostics.EthernetPriority;9;0;0;0;1;1;1;8045;;
+InternetGatewayDevice.DownloadDiagnostics.ROMTime;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.DownloadDiagnostics.BOMTime;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.DownloadDiagnostics.EOMTime;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.DownloadDiagnostics.TestBytesReceived;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.DownloadDiagnostics.TotalBytesReceived;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.DownloadDiagnostics.TCPOpenRequestTime;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.DownloadDiagnostics.TCPOpenResponseTime;9;0;0;0;1;-1;0;-1;;
+#
+#	UploadDiagnostics.; index range 8060 ~ 9079
+#
+# InternetGatewayDevice.UploadDiagnostics.;98;0;0;1;1;1;1;-1;;
+# InternetGatewayDevice.UploadDiagnostics.DiagnosticsState;6;0;0;2;1;1;1;8061;;None
+# InternetGatewayDevice.UploadDiagnostics.Interface;6;0;0;2;1;1;1;8062;;
+# InternetGatewayDevice.UploadDiagnostics.UploadURL;6;0;0;2;1;1;1;8063;;
+# InternetGatewayDevice.UploadDiagnostics.DSCP;9;0;0;2;1;1;1;8064;;0
+# InternetGatewayDevice.UploadDiagnostics.EthernetPriority;9;0;0;0;1;1;1;8065;;
+# InternetGatewayDevice.UploadDiagnostics.TestFileLength;9;0;0;0;1;1;1;8066;;
+# InternetGatewayDevice.UploadDiagnostics.ROMTime;9;0;0;0;1;-1;0;-1;;
+# InternetGatewayDevice.UploadDiagnostics.BOMTime;9;0;0;0;1;-1;0;-1;;
+# InternetGatewayDevice.UploadDiagnostics.EOMTime;9;0;0;0;1;-1;0;-1;;
+# InternetGatewayDevice.UploadDiagnostics.TotalBytesSent;9;0;0;0;1;-1;0;-1;;
+# InternetGatewayDevice.UploadDiagnostics.TCPOpenRequestTime;9;0;0;0;1;-1;0;-1;;
+# InternetGatewayDevice.UploadDiagnostics.TCPOpenResponseTime;9;0;0;0;1;-1;0;-1;;
+#
+#	LANconfigSecurity
+#
+InternetGatewayDevice.LANConfigSecurity.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANConfigSecurity.ConfigPassword;6;0;0;2;1;1;-1;1;;
+#
+#	LANDevice.{i}; index range 9000 ~ 10000
+#
+#
+#
+#	This definition is for a static LANDevice table. In order
+#	to define a dynamic table the entries need to be changed and
+#	an instance 0 has to be defined as blueprint for future objects.
+#
+InternetGatewayDevice.LANDeviceNumberOfEntries;9;0;0;0;1;-1;0;-1;;1
+InternetGatewayDevice.LANDevice.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.;98;0;1;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceNumberOfEntries;9;0;0;0;1;-1;0;-1;;4
+InternetGatewayDevice.LANDevice.1.LANWLANConfigurationNumberOfEntries;9;0;0;0;1;-1;0;-1;;1
+#
+#	LANDevice.{i}.LANHostConfigManagement ; index range 9100 ~ 9150
+#
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.MACAddress;6;0;0;2;1;1;9101;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPServerEnable;18;0;0;2;1;1;1;9103;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.MinAddress;6;0;0;2;1;1;1;9104;;192.168.0.100
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.MaxAddress;6;0;0;2;1;1;1;9105;;192.168.30.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.SubnetMask;6;0;0;2;1;1;1;9106;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DNSServers;6;0;0;2;1;1;1;9107;;192.168.0.1,192.168.0.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DomainName;6;0;0;2;1;1;1;9108;;brg.com
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPLeaseTime;7;0;0;2;1;1;1;9109;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPIpMacBind.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPIpMacBind.0.;97;0;0;2;1;9111;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPIpMacBind.0.MAC;6;0;0;2;1;1;1;9112;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPIpMacBind.0.IP;6;0;0;2;1;1;1;9113;;
+#
+#	LANDevice.{i}.LANHostConfigManagement.IPInterface.{i}. ; index range 9150 ~ 9160
+#
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterfaceNumberOfEntries;9;0;0;2;1;-1;0;-1;;2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.;97;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.Enable;115;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.IPInterfaceIPAddress;103;0;0;2;1;1;1;9155;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.IPInterfaceSubnetMask;103;0;0;2;1;1;1;9156;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.IPInterfaceAddressingType;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.UniqueLocalAddress;6;0;0;2;1;1;1;9158;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6InterfaceAddressingType.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6InterfaceAddressingType.StaticDelegated;18;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.DelegatedAddress.;99;0;0;2;1;1;1;1;; 
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.;97;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.Mode;103;0;0;2;1;-1;0;-1;;WANDelegated
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.DelegatedConnection;103;0;0;2;1;1;1;9162;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6InterfaceAddress;103;0;0;2;1;1;1;9163;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6PrefixAddress;103;0;0;2;1;1;1;9164;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.0.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6PrefixLength;106;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.Enable;18;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.IPInterfaceIPAddress;6;0;0;2;1;1;1;9155;;192.168.0.1
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.IPInterfaceSubnetMask;6;0;0;2;1;1;1;9156;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.IPInterfaceAddressingType;6;0;0;2;1;1;1;1;;DHCP
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.UniqueLocalAddress;6;0;0;2;1;1;1;9158;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6InterfaceAddressingType.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6InterfaceAddressingType.StaticDelegated;18;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.DelegatedAddress.;99;0;0;2;1;1;1;1;; 
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.;97;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.Mode;103;0;0;2;1;-1;0;-1;;WANDelegated
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.DelegatedConnection;103;0;0;2;1;1;1;9162;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6InterfaceAddress;103;0;0;2;1;1;1;9163;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6PrefixAddress;103;0;0;2;1;1;1;9164;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6PrefixLength;106;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.Enable;18;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.IPInterfaceIPAddress;6;0;0;2;1;1;1;9155;;192.168.1.1
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.IPInterfaceSubnetMask;6;0;0;2;1;1;1;9156;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.IPInterfaceAddressingType;6;0;0;2;1;1;1;1;;DHCP
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.UniqueLocalAddress;6;0;0;2;1;1;1;9158;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6InterfaceAddressingType.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6InterfaceAddressingType.StaticDelegated;18;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.DelegatedAddress.;99;0;0;2;1;1;1;1;; 
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.;97;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.Mode;103;0;0;2;1;-1;0;-1;;WANDelegated
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.DelegatedConnection;103;0;0;2;1;1;1;9162;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6InterfaceAddress;103;0;0;2;1;1;1;9163;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6PrefixAddress;103;0;0;2;1;1;1;9164;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.2.X_CU_IPv6LanIntfAddress.DelegatedAddress.0.IPv6PrefixLength;106;0;0;2;1;1;1;9165;;
+#
+#	LANDevice.{i}.LANHostConfigManagement.DHCPConditionalServingPool.{i}. ; index range 9160 ~ 9180
+#
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalPoolNumberOfEntries;9;0;0;0;1;-1;0;-1;;8
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.;97;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.Enable;115;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.SourceInterface;103;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.MinAddress;103;0;0;2;1;1;1;9166;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.MaxAddress;103;0;0;2;1;1;1;9167;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.SubnetMask;103;0;0;2;1;1;1;9168;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.DNSServers;103;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.0.DHCPLeaseTime;106;0;0;2;1;1;1;9170;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.Enable;18;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.SourceInterface;6;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.MinAddress;6;0;0;2;1;1;1;9166;;192.168.1.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.MaxAddress;6;0;0;2;1;1;1;9167;;192.168.1.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.SubnetMask;6;0;0;2;1;1;1;9168;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.DNSServers;6;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.1.DHCPLeaseTime;9;0;0;2;1;1;1;9170;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.Enable;18;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.SourceInterface;6;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.MinAddress;6;0;0;2;1;1;1;9166;;192.168.1.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.MaxAddress;6;0;0;2;1;1;1;9167;;192.168.1.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.SubnetMask;6;0;0;2;1;1;1;9168;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.DNSServers;6;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.2.DHCPLeaseTime;9;0;0;2;1;1;1;9170;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.Enable;18;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.SourceInterface;6;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.MinAddress;6;0;0;2;1;1;1;9166;;192.168.1.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.MaxAddress;6;0;0;2;1;1;1;9167;;192.168.1.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.SubnetMask;6;0;0;2;1;1;1;9168;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.DNSServers;6;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.3.DHCPLeaseTime;9;0;0;2;1;1;1;9170;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.Enable;18;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.SourceInterface;6;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.MinAddress;6;0;0;2;1;1;1;9166;;192.168.1.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.MaxAddress;6;0;0;2;1;1;1;9167;;192.168.1.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.SubnetMask;6;0;0;2;1;1;1;9168;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.DNSServers;6;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.4.DHCPLeaseTime;9;0;0;2;1;1;1;9170;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.Enable;18;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.SourceInterface;6;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.MinAddress;6;0;0;2;1;1;1;9166;;192.168.0.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.MaxAddress;6;0;0;2;1;1;1;9167;;192.168.0.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.SubnetMask;6;0;0;2;1;1;1;9168;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.DNSServers;6;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.5.DHCPLeaseTime;9;0;0;2;1;1;1;9170;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.Enable;18;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.SourceInterface;6;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.MinAddress;6;0;0;2;1;1;1;9166;;192.168.0.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.MaxAddress;6;0;0;2;1;1;1;9167;;192.168.0.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.SubnetMask;6;0;0;2;1;1;1;9168;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.DNSServers;6;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.6.DHCPLeaseTime;9;0;0;2;1;1;1;9170;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.Enable;18;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.SourceInterface;6;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.MinAddress;6;0;0;2;1;1;1;9166;;192.168.0.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.MaxAddress;6;0;0;2;1;1;1;9167;;192.168.0.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.SubnetMask;6;0;0;2;1;1;1;9168;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.DNSServers;6;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.7.DHCPLeaseTime;9;0;0;2;1;1;1;9170;;86400
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.Enable;18;0;0;2;1;1;1;9163;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.SourceInterface;6;0;0;2;1;1;1;9165;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.MinAddress;6;0;0;2;1;1;1;9166;;192.168.0.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.MaxAddress;6;0;0;2;1;1;1;9167;;192.168.0.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.SubnetMask;6;0;0;2;1;1;1;9168;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.DNSServers;6;0;0;2;1;1;1;9169;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPConditionalServingPool.8.DHCPLeaseTime;9;0;0;2;1;1;1;9170;;86400
+#
+#	LANDevice.{i}.LANHostConfigManagement.X_FPT_DNSLOCALHOST.{i}. ; index range 9181 ~ 9199
+#
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.0.;97;0;0;2;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.0.Enable;115;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.0.IPAddr;103;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.0.Domain;103;0;0;2;1;1;1;9183;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.1.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.1.Enable;18;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.1.IPAddr;6;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.1.Domain;6;0;0;2;1;1;1;9183;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.2.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.2.Enable;18;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.2.IPAddr;6;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.2.Domain;6;0;0;2;1;1;1;9183;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.3.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.3.Enable;18;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.3.IPAddr;6;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.3.Domain;6;0;0;2;1;1;1;9183;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.4.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.4.Enable;18;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.4.IPAddr;6;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.4.Domain;6;0;0;2;1;1;1;9183;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.5.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.5.Enable;18;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.5.IPAddr;6;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.5.Domain;6;0;0;2;1;1;1;9183;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.6.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.6.Enable;18;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.6.IPAddr;6;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.6.Domain;6;0;0;2;1;1;1;9183;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.7.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.7.Enable;18;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.7.IPAddr;6;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.7.Domain;6;0;0;2;1;1;1;9183;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.8.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.8.Enable;18;0;0;2;1;1;1;9181;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.8.IPAddr;6;0;0;2;1;1;1;9182;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.X_FPT_DNSLOCALHOST.8.Domain;6;0;0;2;1;1;1;9183;;
+#
+#	LANDevice.{i}.Hosts ; index range 9200 ~ 9220
+#
+InternetGatewayDevice.LANDevice.1.Hosts.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.HostNumberOfEntries;9;0;0;2;1;1;9255;-1;;0
+InternetGatewayDevice.LANDevice.1.Hosts.Host.;99;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.IPAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.AddressSource;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.MACAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.Layer2Interface;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.HostName;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.InterfaceType;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.Active;115;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.SignalLvl;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.Hosts.Host.0.LeaseTimeRemaining;103;0;0;2;1;-1;0;-1;;
+
+#
+#	LANDevice.{i}.LANEthernetInterfaceConfig.{i} ; index range 9220 ~ 9240
+#
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.;99;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.;97;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Enable;115;0;0;2;1;1;1;9222;;1
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Name;103;0;0;2;1;1;9223;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Status;103;0;0;2;1;-1;0;-1;;Up
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.MACAddress;103;0;0;2;1;-1;9224;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.MACAddressControlEnabled;115;0;0;2;1;1;1;9225;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.MaxBitRate;103;0;0;1;1;-1;0;9226;;Auto
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.DuplexMode;103;0;0;1;1;-1;0;9227;;Auto
+
+#
+#	LANDevice.{i}.LANEthernetInterfaceConfig.{i}.Stats ; index range 9250 ~ 9260
+#
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Stats.;99;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Stats.BytesSent;106;0;0;1;1;-1;9251;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Stats.BytesReceived;106;0;0;1;1;-1;9252;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Stats.PacketsSent;106;0;0;1;1;-1;9253;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.0.Stats.PacketsReceived;106;0;0;1;1;-1;9254;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.1.Stats.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.1.Stats.BytesSent;9;0;0;1;1;-1;9251;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.1.Stats.BytesReceived;9;0;0;1;1;-1;9252;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.1.Stats.PacketsSent;9;0;0;1;1;-1;9253;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.1.Stats.PacketsReceived;9;0;0;1;1;-1;9254;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.2.Stats.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.2.Stats.BytesSent;9;0;0;1;1;-1;9251;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.2.Stats.BytesReceived;9;0;0;1;1;-1;9252;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.2.Stats.PacketsSent;9;0;0;1;1;-1;9253;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.2.Stats.PacketsReceived;9;0;0;1;1;-1;9254;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.3.Stats.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.3.Stats.BytesSent;9;0;0;1;1;-1;9251;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.3.Stats.BytesReceived;9;0;0;1;1;-1;9252;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.3.Stats.PacketsSent;9;0;0;1;1;-1;9253;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.3.Stats.PacketsReceived;9;0;0;1;1;-1;9254;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.4.Stats.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.4.Stats.BytesSent;9;0;0;1;1;-1;9251;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.4.Stats.BytesReceived;9;0;0;1;1;-1;9252;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.4.Stats.PacketsSent;9;0;0;1;1;-1;9253;-1;;0
+InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.4.Stats.PacketsReceived;9;0;0;1;1;-1;9254;-1;;0
+#
+#	LANDevice.{i}.LANUSBInterfaceConfig.{i}
+#
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Enable;18;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Status;6;0;0;2;1;-1;0;-1;;Disabled
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.MACAddress;6;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.MACAddressControlEnabled;18;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Standard;6;0;0;2;1;1;1;1;;2.0
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Type;6;0;0;1;1;-1;0;-1;;Device
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Rate;6;0;0;1;1;-1;0;-1;;High
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Power;6;0;0;1;1;-1;0;-1;;Self
+#
+#	LANDevice.{i}.LANUSBInterfaceConfig.{i}.Stats
+#
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Stats.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Stats.BytesSent;9;0;0;1;1;-1;0;-1;;0
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Stats.BytesReceived;9;0;0;1;1;-1;0;-1;;0
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Stats.PacketsSent;9;0;0;1;1;-1;0;-1;;0
+InternetGatewayDevice.LANDevice.1.LANUSBInterfaceConfig.1.Stats.PacketsReceived;9;0;0;1;1;-1;0;-1;;0
+#
+#	LANDevice.{i}.WLANConfiguration.{i} ; index range 10000 ~ 11000
+#
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.WifiButtonEnable;18;0;0;2;1;1;1;10100;;0
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.WifiOptimizeState;6;0;0;2;1;1;1;10101;;None
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.Wifi5OptimizeState;6;0;0;2;1;1;1;10102;;None
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.SmartChannelEnable;18;0;0;2;1;1;1;10300;;0
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.;97;0;0;1;1;10090;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Enable;115;0;2;2;1;1;1;10000;;1
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WMMSupported;115;0;2;2;1;-1;0;-1;;1
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AutoRateFallBackEnabled;115;0;2;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MaxBitRate;103;0;0;2;1;1;1;1;;Auto
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicDataTransmitRates;103;0;0;2;1;1;1;1;;1,2
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.OperationalDataTransmitRates;103;0;0;2;1;1;1;1;;1,2,5.5,11
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Channel;106;0;0;2;1;1;10029;10002;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AutoChannelEnable;115;0;0;2;1;1;1;10003;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.SSID;103;0;2;2;1;1;1;10004;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Name;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BSSID;103;0;2;2;1;1;10058;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconType;103;0;2;2;1;1;1;10005;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MACAddressControlEnabled;115;0;0;2;1;1;1;10006;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MACAddressControlMode;106;0;0;2;1;1;1;10201;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.;99;0;0;2;1;1;1;1;;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.0.;97;0;0;1;1;10202;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WhiteMACAddressControl.0.MAC;103;0;0;2;1;1;1;10203;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.0.;97;0;0;1;1;10204;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BlackMACAddressControl.0.MAC;103;0;0;2;1;1;1;10205;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Standard;103;0;0;2;1;-1;0;-1;;n
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RegulatoryDomain;103;0;0;2;1;1;1;10023;;CN
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKeyIndex;106;0;0;2;1;-1;0;-1;;1
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPEncryptionLevel;103;0;0;2;1;-1;10063;-1;;40-bit
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.DeviceOperationMode;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.ChannelsInUse;103;0;0;2;1;1;10059;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleDataTransmitRates;103;0;0;2;1;-1;0;-1;;1,2,5.5,11,6,9,12,18,24,36,48,54,6.5,7.2,13,14.4,19.5,21.7,26,28.9,39,43.3,52,57.8,58.5,65,72.2,78,86.7,104,115.6,117,130,144.4,156,173.3,175.5,195,216.7,13.5,15,27,30,40.5,45,60,81,90,108,120,121.5,135,150,162,180,216,240,243,270,300,324,360,364.5,405,450
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TransmitPowerSupported;103;0;0;2;1;-1;0;-1;;0,25,50,75,100
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleChannels;103;0;0;2;1;-;0;-1;;1-14
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.KeyPassphrase;103;0;0;2;1;1;1;10009;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicAuthenticationMode;103;0;0;2;1;1;1;10010;;None
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicEncryptionModes;103;0;0;0;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAEncryptionModes;103;0;0;2;1;1;1;10011;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAAuthenticationMode;103;0;0;2;1;1;1;10012;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WMMEnable;115;0;0;2;1;1;1;10013;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.X_CU_FrecuencyBand;103;0;0;2;1;1;10056;-1;;WLAN2.4GHZ
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.X_CU_Bandwidth;103;0;0;2;1;1;1;10015;;20MHz
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Status;103;0;0;2;1;1;10062;-1;;Up
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconAdvertisementEnabled;115;0;0;2;1;1;1;10016;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.SSIDAdvertisementEnabled;115;0;0;2;1;1;1;10017;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iEncryptionModes;103;0;0;2;1;1;1;10019;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iAuthenticationMode;103;0;0;2;1;1;1;10020;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RadioEnabled;115;0;0;2;1;1;1;10021;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TransmitPower;106;0;0;2;1;1;1;10022;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesSent;106;0;0;2;1;1;10051;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesReceived;106;0;0;2;1;1;10052;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsSent;106;0;0;2;1;1;10053;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsReceived;106;0;0;2;1;1;10054;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalAssociations;106;0;0;0;1;1;10061;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPSKFailures;106;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalIntegrityFailures;106;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.WEPKey;103;0;0;2;1;1;1;10030;;1111111111
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.PreSharedKey;103;0;0;2;1;1;1;10040;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.KeyPassphrase;103;0;0;2;1;1;1;10041;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.AssociatedDeviceMACAddress;103;0;0;2;1;1;-1;10042;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.;99;0;0;1;1;1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceMACAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceIPAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceAuthenticationState;115;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.LastDataTransmitRate;103;0;0;2;1;-1;0;-1;;
+#
+#	LANDevice.{i}.X_CU_IPv6LANHostConfigManagement ; index range 10500 ~ 11000
+#
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.AutoConfigurationAddress;18;0;0;2;1;1;1;10501;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.IPv6DNSWanConnection;6;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.RADVD.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.RADVD.Enabled;18;0;0;2;1;1;1;10502;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.Stateless;18;0;0;2;1;1;1;1;;1
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.StatefullDHCPv6.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.StatefullDHCPv6.MinInterfaceID;6;0;0;1;1;1;1;10507;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.StatefullDHCPv6.MaxInterfaceID;6;0;0;1;1;1;1;10508;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.StatefullDHCPv6.DHCPv6LeaseTime;7;0;0;1;1;1;1;10509;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.StatefullDHCPv6.IPv6DomainName;6;0;0;1;1;1;1;10510;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.StatefullDHCPv6.IPv6DNSConfigType;6;0;0;1;1;1;1;10511;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.ServerType.StatefullDHCPv6.IPv6DNSServers;6;0;0;1;1;1;1;10512;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.RadVDConfigManagement.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.RadVDConfigManagement.ULAPrefixInfo.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.RadVDConfigManagement.ULAPrefixInfo.Enable;18;0;0;2;1;1;1;10513;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.RadVDConfigManagement.ULAPrefixInfo.Prefix;6;0;0;1;1;1;1;10514;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.RadVDConfigManagement.ULAPrefixInfo.PreferredLifeTime;7;0;0;1;1;1;1;10515;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.RadVDConfigManagement.ULAPrefixInfo.ValidLifeTime;7;0;0;1;1;1;1;10516;;
+#
+#	LANDevice.{i}.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.{i}. ; index range 10980 ~ 11000
+#
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.0.;97;0;0;2;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.0.Enable;115;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.0.IPAddr;103;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.0.Domain;103;0;0;2;1;1;1;10983;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.1.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.1.Enable;18;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.1.IPAddr;6;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.1.Domain;6;0;0;2;1;1;1;10983;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.2.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.2.Enable;18;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.2.IPAddr;6;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.2.Domain;6;0;0;2;1;1;1;10983;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.3.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.3.Enable;18;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.3.IPAddr;6;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.3.Domain;6;0;0;2;1;1;1;10983;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.4.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.4.Enable;18;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.4.IPAddr;6;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.4.Domain;6;0;0;2;1;1;1;10983;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.5.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.5.Enable;18;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.5.IPAddr;6;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.5.Domain;6;0;0;2;1;1;1;10983;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.6.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.6.Enable;18;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.6.IPAddr;6;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.6.Domain;6;0;0;2;1;1;1;10983;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.7.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.7.Enable;18;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.7.IPAddr;6;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.7.Domain;6;0;0;2;1;1;1;10983;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.8.;98;0;0;1;1;9184;1;1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.8.Enable;18;0;0;2;1;1;1;10981;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.8.IPAddr;6;0;0;2;1;1;1;10982;;
+InternetGatewayDevice.LANDevice.1.X_CU_IPv6LANHostConfigManagement.X_FPT_DNSLOCALHOST.8.Domain;6;0;0;2;1;1;1;10983;;
+#
+#	InternetGatewayDevice.LANInterfaces. ; index range 11000 ~ 12000
+#
+InternetGatewayDevice.LANInterfaces.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.LANInterfaces.LANEthernetInterfaceNumberOfEntries;9;0;0;0;1;-1;0;-1;;0
+InternetGatewayDevice.LANInterfaces.LANWLANConfigurationNumberOfEntries;9;0;0;0;1;-1;0;-1;;0
+InternetGatewayDevice.LANInterfaces.LANEthernetInterfaceConfig.;99;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.LANInterfaces.LANEthernetInterfaceConfig.0.;97;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANInterfaces.LANEthernetInterfaceConfig.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.LANInterfaces.WLANConfiguration.;99;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.LANInterfaces.WLANConfiguration.0.;97;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANInterfaces.WLANConfiguration.0.Alias;103;0;0;2;1;1;1;1;;
+#
+#	WANDevice.{i}.; index range 12000 ~ 14000
+#
+InternetGatewayDevice.WANDeviceNumberOfEntries;7;0;0;0;1;-1;0;-1;;1
+InternetGatewayDevice.WANDevice.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.Alias;6;0;0;2;1;1;1;1;;cpe-wan1
+InternetGatewayDevice.WANDevice.1.WANConnectionNumberOfEntries;9;0;0;2;1;-1;0;-1;;2
+#
+#	WANDevice.{i}.WANCommonInterfaceConfig.; index range 12100 ~ 12200
+#
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.WANAccessType;6;0;0;2;1;-1;0;-1;;PON
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.Layer1UpstreamMaxBitRate;9;0;0;0;1;-1;0;-1;;1244000000
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.Layer1DownstreamMaxBitRate;9;0;0;0;1;-1;0;-1;;2488000000
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.PhysicalLinkStatus;6;0;0;2;1;-1;0;-1;;Up
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.TotalBytesSent;9;0;0;0;1;-1;12111;-1;;0
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.TotalBytesReceived;9;0;0;0;1;-1;12112;-1;;0
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.TotalPacketsSent;9;0;0;0;1;-1;12113;-1;;0
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.TotalPacketsReceived;9;0;0;0;1;-1;12114;-1;;0
+#
+#	WANDevice.{i}.WANEthernetInterfaceConfig.; index range 12500 ~ 12600
+#
+InternetGatewayDevice.WANDevice.1.WANEthernetInterfaceConfig.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANEthernetInterfaceConfig.Stats.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANEthernetInterfaceConfig.Stats.BytesSent;9;0;0;0;1;-1;12111;-1;;
+InternetGatewayDevice.WANDevice.1.WANEthernetInterfaceConfig.Stats.BytesReceived;9;0;0;0;1;-1;12112;-1;;
+InternetGatewayDevice.WANDevice.1.WANEthernetInterfaceConfig.Stats.PacketsSent;9;0;0;0;1;-1;12113;-1;;
+InternetGatewayDevice.WANDevice.1.WANEthernetInterfaceConfig.Stats.PacketsReceived;9;0;0;0;1;-1;12114;-1;;
+#
+#	WANDevice.{i}.WANConnectionDevice.{i}.; index range 13000 ~ 14000
+#
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.;97;0;0;1;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnectionNumberOfEntries;106;0;0;2;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnectionNumberOfEntries;106;0;0;2;1;-1;0;-1;;0
+#
+#	WANDevice.{i}.WANIPConnectionDevice.{i}.WANIPConnection.{i}.
+#
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.;97;0;0;1;1;13100;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Enable;115;0;0;2;1;1;1;13101;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.ConnectionStatus;103;0;0;2;1;-1;0;-1;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PossibleConnectionTypes;103;0;0;0;1;-1;0;-1;;Unconfigured,IP_Routed,IP_Bridged
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.ConnectionType;103;0;0;2;1;1;1;13102;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Name;103;0;0;2;1;1;1;13120;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.NATEnabled;115;0;0;2;1;1;1;13103;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.AddressingType;103;0;0;2;1;1;1;13104;;DHCP
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.ExternalIPAddress;103;0;0;2;1;1;1;13105;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.SubnetMask;103;0;0;2;1;1;1;13106;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DefaultGateway;103;0;0;2;1;1;1;13107;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DNSOverrideAllowed;115;0;0;2;1;1;1;13109;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DNSServers;103;0;0;2;1;1;1;13110;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.MaxMTUSize;106;0;0;2;1;1;1;13111;;1540
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.MACAddress;103;0;0;2;1;1;1;13113;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.RouteProtocolRx;103;0;0;2;1;1;1;1;;Off
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMappingNumberOfEntries;106;0;0;2;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CIG_ServiceList;103;0;0;2;1;1;1;13116;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CIG_VLANEnable;115;0;0;2;1;1;1;13117;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CIG_VLANID;106;0;0;2;1;1;1;13118;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CIG_802_1p;106;0;0;2;1;1;1;13119;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.;97;0;1;1;1;13130;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.PortMappingEnabled;115;0;0;2;1;1;1;13131;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.Alias;103;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.PortMappingLeaseDuration;7;0;0;2;1;1;1;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.RemoteHost;103;0;0;2;1;1;1;13134;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.ExternalPort;106;0;0;2;1;1;1;13135;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.ExternalPortEndRange;106;0;0;2;1;1;1;13136;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.InternalPort;106;0;0;2;1;1;1;13137;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.PortMappingProtocol;103;0;0;2;1;1;1;13138;;TCP
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.InternalClient;103;0;0;2;1;1;1;13139;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.PortMappingDescription;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Stats.;98;0;0;1;1;-1;-1;-1;-1;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Stats.EthernetBytesSent;106;0;0;1;1;-1;13151;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Stats.EthernetBytesReceived;106;0;0;1;1;-1;13152;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Stats.EthernetPacketsSent;106;0;0;1;1;-1;13153;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Stats.EthernetPacketsReceived;106;0;0;1;1;-1;13154;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOptionNumberOfEntries;106;0;0;1;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOptionNumberOfEntries;106;0;0;1;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.;97;0;0;1;1;13210;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.Enable;115;0;0;2;1;1;1;13211;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.Tag;106;0;0;2;1;1;1;13214;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.Value;109;0;0;2;1;1;1;13215;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.;97;0;0;1;1;13210;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Enable;115;0;0;2;1;1;1;13211;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Order;106;0;0;2;1;1;1;13213;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Tag;106;0;0;2;1;1;1;13214;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Value;109;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6Enabled;106;0;0;2;1;1;1;13301;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv4Enabled;106;0;0;2;1;1;1;13302;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6ConnStatus;103;0;0;2;1;1;13303;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6AddressingType;103;0;0;2;1;1;13305;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_DHCP6cForAddress;106;0;0;2;1;1;1;13306;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_ExternalIPv6Address;103;0;0;2;1;1;18400;13307;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_DefaultIPv6Gateway;103;0;0;2;1;1;1;13308;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6DNSOverrideAllowed;115;0;0;2;1;1;1;13316;;1
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6DNSServers;103;0;0;2;1;1;1;13309;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6PrefixDelegationEnabled;106;0;0;2;1;1;13310;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6SitePrefix;103;0;0;2;1;1;1;13311;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6SitePrefixPltime;104;0;0;2;1;1;1;13312;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_IPv6SitePrefixVLtime;104;0;0;2;1;1;1;13313;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_ExternalIPv6AddressPrefixLength;106;0;0;2;1;1;1;13314;;
+#
+#	WANDevice.{i}.WANConnectionDevice.{i}.WANPPPConnection.{i}
+#
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.;97;0;1;1;-1;13099;-1;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Enable;115;0;0;2;1;1;1;13101;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.ConnectionStatus;103;0;0;2;1;-1;0;-1;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PossibleConnectionTypes;103;0;0;0;1;-1;0;-1;;Unconfigured,IP_Routed,DHCP_Spoofed,PPPoE_Bridged,PPPoE_Relay,PPTP_Relay,L2TP_Relay
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.ConnectionType;103;0;0;2;1;1;1;13102;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Name;103;0;0;2;1;1;1;13120;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.IdleDisconnectTime;106;0;0;2;1;1;1;13123;;180
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.NATEnabled;115;0;0;2;1;1;1;13103;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Username;103;0;0;2;1;1;1;13121;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Password;103;0;0;2;1;1;-1;13122;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.ExternalIPAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.RemoteIPAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.MaxMRUSize;106;0;0;2;1;1;1;13112;;1540
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.CurrentMRUSize;106;0;0;2;1;-1;0;-1;;1540
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.DNSOverrideAllowed;115;0;0;2;1;1;1;13109;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.DefaultGateway;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.DNSServers;103;0;0;2;1;1;1;13110;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.MACAddress;103;0;0;2;1;1;1;13113;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.TransportType;103;0;0;2;1;-1;0;-1;;PPPoE
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.ConnectionTrigger;103;0;0;2;1;1;1;13108;;OnDemand
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.RouteProtocolRx;103;0;0;2;1;1;1;1;;Off
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PPPLCPEcho;106;0;0;2;1;1;1;13114;;30
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PPPLCPEchoRetry;106;0;0;2;1;1;1;13115;;5
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMappingNumberOfEntries;106;0;0;2;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CIG_ServiceList;103;0;0;2;1;1;1;13116;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CIG_VLANEnable;115;0;0;2;1;1;1;13117;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CIG_VLANID;106;0;0;2;1;1;1;13118;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CIG_802_1p;106;0;0;2;1;1;1;13119;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.;97;0;1;1;1;13130;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.PortMappingEnabled;115;0;0;2;1;1;1;13131;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.Alias;103;0;0;2;1;1;1;1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.PortMappingLeaseDuration;7;0;0;2;1;1;1;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.RemoteHost;103;0;0;2;1;1;1;13134;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.ExternalPort;106;0;0;2;1;1;1;13135;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.ExternalPortEndRange;106;0;0;2;1;1;1;13136;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.InternalPort;106;0;0;2;1;1;1;13137;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.PortMappingProtocol;103;0;0;2;1;1;1;13138;;TCP
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.InternalClient;103;0;0;2;1;1;1;13139;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.PortMappingDescription;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Stats.;98;0;0;1;1;-1;-1;-1;-1;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Stats.EthernetBytesSent;106;0;0;2;1;-1;13151;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Stats.EthernetBytesReceived;106;0;0;2;1;-1;13152;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Stats.EthernetPacketsSent;106;0;0;2;1;-1;13153;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Stats.EthernetPacketsReceived;106;0;0;2;1;-1;13154;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6Enabled;106;0;0;2;1;1;1;13301;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv4Enabled;106;0;0;2;1;1;1;13302;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6ConnStatus;103;0;0;2;1;1;13303;-1;;1
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6PppUp;103;0;0;2;1;1;1;13304;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6AddressingType;103;0;0;2;1;1;13305;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_DHCP6cForAddress;106;0;0;2;1;1;1;13306;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_ExternalIPv6Address;103;0;0;2;1;1;18400;13307;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_DefaultIPv6Gateway;103;0;0;2;1;1;1;13308;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6DNSOverrideAllowed;115;0;0;2;1;1;1;13316;;1
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6DNSServers;103;0;0;2;1;1;1;13309;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6PrefixDelegationEnabled;106;0;0;2;1;1;13310;-1;;1
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6SitePrefix;103;0;0;2;1;1;1;13311;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_ExternalIPv6AddressPrefixLength;106;0;0;2;1;1;1;13314;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6SitePrefixPltime;104;0;0;2;1;1;1;13312;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_IPv6SitePrefixVLtime;104;0;0;2;1;1;1;13313;;
+#
+#	VLAN
+#
+#InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.X_CT-COM_WANGponLinkConfig.;98;0;0;1;1;-1;0;-1;;
+#InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.X_CT-COM_WANGponLinkConfig.Enable;115;0;0;2;1;1;1;1;;0
+#InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.X_CT-COM_WANGponLinkConfig.Mode;106;0;0;2;1;1;1;983;;1
+#InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.X_CT-COM_WANGponLinkConfig.VLANIDMark;106;0;2;2;1;1;1;981;;0
+#InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.X_CT-COM_WANGponLinkConfig.802-1pMark;106;0;0;2;1;1;1;982;;0
+#
+#	UPnP.Device.; index range 14000 ~ 15000
+#
+InternetGatewayDevice.UPnP.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.UPnP.Device.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.UPnP.Device.UPnPIGD;18;0;0;2;1;1;1;14002;;
+InternetGatewayDevice.UPnP.Device.VoiceServiceNumberOfEntries;9;0;0;0;1;-1;0;-1;;1
+InternetGatewayDevice.UPnP.Device.VoiceProfileNumberOfEntries;9;0;0;0;1;-1;0;-1;;1
+#
+#	VoiceService; index range 15000 ~ 15100
+#
+InternetGatewayDevice.Services.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.SignalingProtocols;6;0;0;1;1;1;15001;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Regions;6;0;0;1;1;1;15002;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.FaxT38;18;0;0;2;1;-1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.FaxPassThrough;18;0;0;1;1;-1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.DigitMap;18;0;0;1;1;-1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.1.Alias;6;0;0;1;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.1.EntryID;9;0;0;1;1;-1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.1.Codec;6;0;0;1;1;-1;0;-1;;G.711ALaw
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.1.PacketizationPeriod;6;0;0;1;1;-1;0;-1;;20
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.1.SilenceSuppression;18;0;0;1;1;-1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.2.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.2.Alias;6;0;0;1;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.2.EntryID;9;0;0;1;1;-1;0;-1;;2
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.2.Codec;6;0;0;1;1;-1;0;-1;;G.722
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.2.PacketizationPeriod;6;0;0;1;1;-1;0;-1;;20
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.2.SilenceSuppression;18;0;0;1;1;1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.3.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.3.Alias;6;0;0;1;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.3.EntryID;9;0;0;1;1;-1;0;-1;;3
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.3.Codec;6;0;0;1;1;-1;0;-1;;G.711MuLaw
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.3.PacketizationPeriod;6;0;0;1;1;-1;0;-1;;20
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.3.SilenceSuppression;18;0;0;1;1;1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.4.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.4.Alias;6;0;0;1;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.4.EntryID;9;0;0;1;1;-1;0;-1;;4
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.4.Codec;6;0;0;1;1;-1;0;-1;;G.729
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.4.PacketizationPeriod;6;0;0;1;1;-1;0;-1;;20
+InternetGatewayDevice.Services.VoiceService.1.Capabilities.Codecs.4.SilenceSuppression;18;0;0;1;1;1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Enable;6;0;0;2;1;1;1;15011;;Enabled
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.NumberOfLines;9;0;0;2;1;1;15014;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.DTMFMethod;6;0;0;2;1;1;1;15015;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Region;6;0;0;2;1;1;1;15016;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.DigitMap;6;0;0;2;1;1;1;15017;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.DigitMapEnable;18;0;0;2;1;1;1;15018;;1
+#	
+#	VoiceService.{i}.VoiceProfile.{i}.X_CIG_H248; index rang 15100 ~ 15200
+#
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.;98;0;0;1;1;1;1;-1;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.LocalPort;9;0;0;2;1;1;1;15101;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.Domain;6;0;0;2;1;1;1;1;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.DeviceName;6;0;0;2;1;1;1;1;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.MIDFormat;6;0;0;2;1;1;1;1;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.DSCPMark;6;0;0;2;1;1;1;15105;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.MediaGatewayControler;6;0;0;2;1;1;1;15106;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.MediaGatewayControlerPort;7;0;0;2;1;1;1;15107;;2944
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.Standby-MediaGatewayControler;6;0;0;2;1;1;1;15108;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.Standby-MediaGatewayControlerPort;7;0;0;2;1;1;1;15109;;2944
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.PhysicalTermIDPrefix;6;0;0;2;1;1;1;15110;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.PhysicalTermIDAddLen;9;0;0;2;1;1;1;15111;;1
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.RTPPrefix;6;0;0;2;1;1;1;15112;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.EphemeralTermIDAddLen;9;0;0;2;1;1;1;15113;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.EphemeralTermIDUniform;9;0;0;2;1;1;1;15114;;
+#	InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.X_CIG_H248.EphemeralTermIDStart;9;0;0;2;1;1;1;15115;;
+#	
+#	X_CIG_Digimap; index range 15200 ~ 15300
+#
+InternetGatewayDevice.Services.X_CIG_Digimap.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.X_CIG_Digimap.DigitMapStartTimer;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.X_CIG_Digimap.DigitMapShortTimer;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.X_CIG_Digimap.DigitMapLongTimer;6;0;0;2;1;1;1;1;;
+#	
+#	VoiceService.{i}.VoiceProfile.{i}.SIP; index range 15300 ~ 15400
+#
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.ProxyServer;6;0;0;2;1;1;1;15301;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.ProxyServerPort;9;0;0;2;1;1;1;15302;;5060
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.RegistrarServer;6;0;0;2;1;1;1;15303;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.RegistrarServerPort;9;0;0;2;1;1;1;15304;;5060
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.UserAgentDomain;6;0;0;2;1;1;1;15305;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.OutboundProxy;6;0;0;2;1;1;1;15306;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.OutboundProxyPort;9;0;0;2;1;1;1;15307;;5060
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.RegistrationPeriod;9;0;0;2;1;1;1;15308;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.ReInviteExpires;9;0;0;2;1;1;1;15309;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.UseCodecPriorityInSDPResponse;18;0;0;2;1;1;1;15310;;
+#InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.DSCPMark;9;0;0;2;1;1;1;15311;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.SIP.RegisterRetryInterval;9;0;0;2;1;1;1;15313;;
+#	
+#	VoiceService.{i}.VoiceProfile.{i}.RTP; index range 15400 ~ 15500
+#
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.RTP.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.RTP.LocalPortMin;9;0;0;2;1;1;1;15401;;50000
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.RTP.LocalPortMax;9;0;0;2;1;1;1;15402;;50100
+#InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.RTP.DSCPMark;9;0;0;2;1;1;1;15403;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.RTP.TelephoneEventPayloadType;9;0;0;2;1;1;1;15404;;
+#	
+#	VoiceService.{i}.VoiceProfile.{i}.FaxT38; index range 15500 ~ 15600
+#
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.FaxT38.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.FaxT38.Enable;18;0;0;2;1;1;1;15501;;
+#	
+# 	VoiceService.{i}.VoiceProfile.{i}.Line; index range 15600 ~ 15900
+#
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Enable;6;0;0;2;1;1;1;15601;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.DirectoryNumber;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Status;6;0;0;2;1;1;15604;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.CallState;6;0;0;2;1;1;15605;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.PhyReferenceList;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.SIP.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.SIP.AuthPassword;6;0;0;2;1;1;1;15701;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.SIP.AuthUserName;6;0;0;2;1;1;1;15702;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.SIP.URI;6;0;0;2;1;1;1;15703;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.1.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.1.EntryID;9;0;0;2;1;-1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.1.Codec;6;0;0;2;1;1;1;15803;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.1.PacketizationPeriod;6;0;0;2;1;1;1;15804;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.1.SilenceSuppression;18;0;0;2;1;1;1;15805;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.1.Priority;9;0;0;2;1;1;1;15806;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.2.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.2.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.2.EntryID;9;0;0;2;1;-1;0;-1;;2
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.2.Codec;6;0;0;2;1;1;1;15803;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.2.PacketizationPeriod;6;0;0;2;1;1;1;15804;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.2.SilenceSuppression;18;0;0;2;1;1;1;15805;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.2.Priority;9;0;0;2;1;1;1;15806;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.3.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.3.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.3.EntryID;9;0;0;2;1;-1;0;-1;;3
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.3.Codec;6;0;0;2;1;1;1;15803;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.3.PacketizationPeriod;6;0;0;2;1;1;1;15804;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.3.SilenceSuppression;18;0;0;2;1;1;1;15805;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.3.Priority;9;0;0;2;1;1;1;15806;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.4.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.4.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.4.EntryID;9;0;0;2;1;-1;0;-1;;4
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.4.Codec;6;0;0;2;1;1;1;15803;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.4.PacketizationPeriod;6;0;0;2;1;1;1;15804;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.4.SilenceSuppression;18;0;0;2;1;1;1;15805;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.1.Codec.List.4.Priority;9;0;0;2;1;1;1;15806;;
+
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Enable;6;0;0;2;1;1;1;15601;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.DirectoryNumber;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Status;6;0;0;2;1;1;15604;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.CallState;6;0;0;2;1;1;15605;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.PhyReferenceList;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.SIP.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.SIP.AuthPassword;6;0;0;2;1;1;1;15701;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.SIP.AuthUserName;6;0;0;2;1;1;1;15702;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.SIP.URI;6;0;0;2;1;1;1;15703;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.1.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.1.EntryID;9;0;0;2;1;-1;0;-1;;1
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.1.Codec;6;0;0;2;1;1;1;15803;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.1.PacketizationPeriod;6;0;0;2;1;1;1;15804;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.1.SilenceSuppression;18;0;0;2;1;1;1;15805;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.1.Priority;9;0;0;2;1;1;1;15806;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.2.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.2.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.2.EntryID;9;0;0;2;1;-1;0;-1;;2
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.2.Codec;6;0;0;2;1;1;1;15803;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.2.PacketizationPeriod;6;0;0;2;1;1;1;15804;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.2.SilenceSuppression;18;0;0;2;1;1;1;15805;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.2.Priority;9;0;0;2;1;1;1;15806;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.3.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.3.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.3.EntryID;9;0;0;2;1;-1;0;-1;;3
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.3.Codec;6;0;0;2;1;1;1;15803;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.3.PacketizationPeriod;6;0;0;2;1;1;1;15804;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.3.SilenceSuppression;18;0;0;2;1;1;1;15805;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.3.Priority;9;0;0;2;1;1;1;15806;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.4.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.4.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.4.EntryID;9;0;0;2;1;-1;0;-1;;4
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.4.Codec;6;0;0;2;1;1;1;15803;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.4.PacketizationPeriod;6;0;0;2;1;1;1;15804;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.4.SilenceSuppression;18;0;0;2;1;1;1;15805;;
+InternetGatewayDevice.Services.VoiceService.1.VoiceProfile.1.Line.2.Codec.List.4.Priority;9;0;0;2;1;1;1;15806;;
+
+#	VoiceService.{i}.PhyInterface; index range 15900 ~ 16000
+#
+InternetGatewayDevice.Services.VoiceService.1.PhyInterface.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.PhyInterface.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.Services.VoiceService.1.PhyInterface.1.Alias;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.Services.VoiceService.1.PhyInterface.1.PhyPort;6;0;0;2;1;1;1;15902;;
+InternetGatewayDevice.Services.VoiceService.1.PhyInterface.1.InterfaceID;9;0;0;2;1;1;1;15903;;
+InternetGatewayDevice.Services.VoiceService.1.PhyInterface.1.Description;6;0;0;2;1;1;1;15904;;
+#
+#	X_CU_Firewall; index range 16000 ~ 16100
+#
+# InternetGatewayDevice.X_CU_Firewall.;98;0;0;1;1;1;1;-1;;
+# InternetGatewayDevice.X_CU_Firewall.FirewallNumberOfEntries;9;0;0;2;1;1;16001;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.;99;0;0;1;1;1;1;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.;97;0;1;1;1;16002;-1;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Enabled;115;0;0;2;1;1;1;16000;;0
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Name;103;0;0;2;1;1;1;1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Interface;103;0;0;2;1;1;1;16004;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Type;103;0;0;2;1;1;1;16005;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.DefaultAction;103;0;0;2;1;1;1;16006;;Permit
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.RuleNumberOfEntries;106;0;0;2;1;1;16007;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.stats.;98;0;0;1;1;1;1;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.stats.Packets;9;0;0;2;1;1;16008;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.stats.Bytes;9;0;0;2;1;1;16009;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.;99;0;0;1;1;1;1;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.;97;0;1;1;-1;16010;-1;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Enabled;115;0;0;2;1;1;1;16011;;0
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Protocol;103;0;0;2;1;1;1;16012;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Action;103;0;0;2;1;1;1;16013;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.RejectType;103;0;0;2;1;1;1;16014;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.IcmpType;103;0;0;2;1;1;1;16015;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Origin.;98;0;0;1;1;1;1;-1;;         
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Origin.IPAddress;103;0;0;2;1;1;1;16016;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Origin.Mask;103;0;0;2;1;1;1;16017;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Origin.StartPort;106;0;0;1;1;1;1;16018;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Origin.EndPort;106;0;0;1;1;1;1;16019;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Destination.;98;0;0;1;1;1;1;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Destination.IPAddress;103;0;0;2;1;1;1;16020;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Destination.Mask;103;0;0;2;1;1;1;16021;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Destination.StartPort;106;0;0;1;1;1;1;16022;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.Destination.EndPort;106;0;0;1;1;1;1;16023;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.stats.;98;0;0;1;1;1;1;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.stats.Packets;106;0;0;2;1;1;16024;-1;;
+# InternetGatewayDevice.X_CU_Firewall.Firewall.0.Rule.0.stats.Bytes;106;0;0;2;1;1;16025;-1;;
+#
+#	CwmpFilter; index range 16000 ~ 16100
+#
+InternetGatewayDevice.CwmpFilter.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.CwmpFilter.X_FPT_AddIpFilterNode;6;0;0;2;1;1;1;16011;;No
+InternetGatewayDevice.CwmpFilter.X_FPT_AddMacFilterNode;6;0;0;2;1;1;1;16026;;No
+InternetGatewayDevice.CwmpFilter.IpFilter.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.CwmpFilter.IpFilter.0.;97;0;1;1;1;16010;-1;-1;;
+InternetGatewayDevice.CwmpFilter.IpFilter.0.SrcIpAddr;103;0;0;2;1;1;1;16016;;
+InternetGatewayDevice.CwmpFilter.IpFilter.0.SrcPort;106;0;0;1;1;1;1;16018;;
+InternetGatewayDevice.CwmpFilter.IpFilter.0.SrcPortEnd;106;0;0;1;1;1;1;16019;;
+InternetGatewayDevice.CwmpFilter.IpFilter.0.DesIpAddr;103;0;0;2;1;1;1;16020;;
+InternetGatewayDevice.CwmpFilter.IpFilter.0.DesPort;106;0;0;1;1;1;1;16022;;
+InternetGatewayDevice.CwmpFilter.IpFilter.0.DesPortEnd;106;0;0;1;1;1;1;16023;;
+InternetGatewayDevice.CwmpFilter.IpFilter.0.Protocol;103;0;0;2;1;1;1;16012;;ALL
+InternetGatewayDevice.CwmpFilter.MacFilter.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.;97;0;1;1;1;16025;-1;-1;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.Enable;106;0;0;1;1;1;1;16032;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.SrcMacAddr;103;0;0;2;1;1;1;16027;;00:00:00:00:00:00
+InternetGatewayDevice.CwmpFilter.MacFilter.0.StartTime;103;0;0;2;1;1;1;16030;;00:00
+InternetGatewayDevice.CwmpFilter.MacFilter.0.EndTime;103;0;0;2;1;1;1;16031;;00:00
+InternetGatewayDevice.CwmpFilter.MacFilter.0.Mon;106;0;0;1;1;1;1;16041;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.Tue;106;0;0;1;1;1;1;16042;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.Wed;106;0;0;1;1;1;1;16043;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.Thu;106;0;0;1;1;1;1;16044;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.Fri;106;0;0;1;1;1;1;16045;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.Sat;106;0;0;1;1;1;1;16046;;
+InternetGatewayDevice.CwmpFilter.MacFilter.0.Sun;106;0;0;1;1;1;1;16047;;
+#
+#	.X_CU_IGMPProxy.; index range 16200 ~ 16219
+#
+# InternetGatewayDevice.X_CU_IGMPProxy.;98;0;0;1;1;-1;-1;-1;;
+# InternetGatewayDevice.X_CU_IGMPProxy.Enabled;18;0;0;2;1;1;1;16201;;1
+# InternetGatewayDevice.X_CU_IGMPProxy.IGMPTableNumberOfEntries;9;0;0;2;1;1;16202;-1;;0
+# InternetGatewayDevice.X_CU_IGMPProxy.IGMPTable.;99;0;0;1;1;1;1;1;;
+# InternetGatewayDevice.X_CU_IGMPProxy.IGMPTable.0.;97;0;0;1;1;1;1;1;;
+# InternetGatewayDevice.X_CU_IGMPProxy.IGMPTable.0.GroupAddress;103;0;0;1;1;-1;0;-1;;
+# InternetGatewayDevice.X_CU_IGMPProxy.IGMPTable.0.Interface;103;0;0;1;1;-1;0;-1;;
+# InternetGatewayDevice.X_CU_IGMPProxy.IGMPTable.0.State;103;0;0;1;1;-1;0;-1;;Active
+#
+#	.X_CU_IGMPSnoop.; index range 16220 ~ 16239
+#
+InternetGatewayDevice.LANDevice.1.X_CU_IGMPSnoop.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.X_CU_IGMPSnoop.Enabled;18;0;0;2;1;1;1;16221;;0
+InternetGatewayDevice.LANDevice.1.X_CU_IGMPSnoop.LastMemberQueryInterval;9;0;0;2;1;1;1;16222;;
+InternetGatewayDevice.LANDevice.1.X_CU_IGMPSnoop.HostTimeout;9;0;0;2;1;1;1;16223;;
+InternetGatewayDevice.LANDevice.1.X_CU_IGMPSnoop.LeaveTimeout;9;0;0;2;1;1;1;16224;;
+InternetGatewayDevice.LANDevice.1.X_CU_IGMPSnoop.MaxGroups;9;0;0;2;1;1;1;16225;;
+
+#
+#	.X_CU_SystemState.NatSessionTable.; index range 16240 ~ 16259
+#
+InternetGatewayDevice.X_CU_SystemState.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.X_CU_SystemState.NatSessionTable.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.X_CU_SystemState.NatSessionTable.Total;9;0;0;2;1;1;16242;-1;;
+InternetGatewayDevice.X_CU_SystemState.NatSessionTable.Used;9;0;0;2;1;1;16243;-1;;
+
+#
+#	.X_CU_NATType.; index range 16260 ~ 16279
+#
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_CU_NATType;103;0;0;2;1;1;1;16260;;full cone
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_CU_NATType;103;0;0;2;1;1;1;16260;;symmetric
+#
+#	.X_CU_IPTunnel; index range 17000 ~ 18000
+#
+InternetGatewayDevice.X_CU_IPTunnel.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.Activated;18;0;0;2;1;1;1;17001;;0
+InternetGatewayDevice.X_CU_IPTunnel.1.TunnelName;6;0;0;2;1;1;1;1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.TunnelCounter;7;0;0;2;1;-1;0;-1;;1
+InternetGatewayDevice.X_CU_IPTunnel.1.Mode;6;0;0;2;1;1;1;17004;;
+InternetGatewayDevice.X_CU_IPTunnel.1.AssociatedWanIfName;6;0;0;2;1;1;1;17005;;
+InternetGatewayDevice.X_CU_IPTunnel.1.AssociatedLanIfName;6;0;0;2;1;1;1;17006;;
+InternetGatewayDevice.X_CU_IPTunnel.1.4in6Tunnel.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.4in6Tunnel.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.4in6Tunnel.1.ConnStatus;6;0;0;2;1;1;17008;-1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.4in6Tunnel.1.Mechanism;6;0;0;2;1;1;1;17009;;
+InternetGatewayDevice.X_CU_IPTunnel.1.4in6Tunnel.1.Dynamic;18;0;0;2;1;1;1;17010;;
+InternetGatewayDevice.X_CU_IPTunnel.1.4in6Tunnel.1.RemoteIpv6Address;6;0;0;2;1;1;1;17011;;
+InternetGatewayDevice.X_CU_IPTunnel.1.6in4Tunnel.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.6in4Tunnel.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.6in4Tunnel.1.ConnStatus;6;0;0;2;1;1;17013;-1;;
+InternetGatewayDevice.X_CU_IPTunnel.1.6in4Tunnel.1.Mechanism;6;0;0;2;1;1;1;17014;;
+InternetGatewayDevice.X_CU_IPTunnel.1.6in4Tunnel.1.Dynamic;18;0;0;2;1;1;1;17015;;
+InternetGatewayDevice.X_CU_IPTunnel.1.6in4Tunnel.1.IPv4MaskLen;7;0;0;2;1;1;1;17016;;
+InternetGatewayDevice.X_CU_IPTunnel.1.6in4Tunnel.1.Prefix;6;0;0;2;1;1;1;17017;;
+InternetGatewayDevice.X_CU_IPTunnel.1.6in4Tunnel.1.BorderRelayAddress;6;0;0;2;1;1;1;17018;;
+
+#
+#	User.{i} ; index range 18001 ~ 18099
+#
+InternetGatewayDevice.UserNumberOfEntries;9;0;0;0;1;-1;0;-1;;1
+InternetGatewayDevice.User.;99;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.User.0.;97;0;0;1;1;18001;1;-1;;
+InternetGatewayDevice.User.0.Alias;103;0;0;2;1;1;0;1;;
+InternetGatewayDevice.User.0.Enable;9;0;0;2;1;1;0;18002;;
+InternetGatewayDevice.User.0.RemoteAccessCapable;9;0;0;2;1;1;0;18003;;
+InternetGatewayDevice.User.0.Username;103;0;0;2;1;1;0;18004;;
+InternetGatewayDevice.User.0.Password;103;0;0;2;1;1;18007;18005;;
+InternetGatewayDevice.User.0.Language;103;0;0;2;1;1;0;18006;;
+
+#
+#
+#	Layer2Bridging.Bridge.; index from 18200 to 18250
+#
+InternetGatewayDevice.Layer2Bridging.;98;0;0;2;1;1;1;-1;;
+InternetGatewayDevice.Layer2Bridging.Bridge.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.Bridge.0.;97;0;0;2;1;18202;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.Bridge.0.BridgeKey;106;0;0;2;1;-1;18204;-1;;
+InternetGatewayDevice.Layer2Bridging.Bridge.0.BridgeEnable;115;0;0;2;1;1;1;18206;;0
+InternetGatewayDevice.Layer2Bridging.Bridge.0.BridgeName;103;0;0;2;1;1;1;18208;;
+InternetGatewayDevice.Layer2Bridging.Bridge.0.VLANID;106;0;0;2;1;1;1;18209;;
+#
+#	Layer2Bridging.Filter.; index from 18250 to 18280
+#
+InternetGatewayDevice.Layer2Bridging.Filter.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.Filter.0.;97;0;0;2;1;18251;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.Filter.0.FilterEnable;115;0;0;2;1;1;1;18254;;
+InternetGatewayDevice.Layer2Bridging.Filter.0.FilterBridgeReference;104;0;0;2;1;1;1;18256;;-1
+InternetGatewayDevice.Layer2Bridging.Filter.0.FilterInterface;103;0;0;2;1;1;1;18258;;
+InternetGatewayDevice.Layer2Bridging.Filter.0.VLANIDFilter;104;0;0;2;1;1;1;18259;;-1
+InternetGatewayDevice.Layer2Bridging.Filter.0.AdmitOnlyVLANTagged;115;0;0;2;1;1;1;18260;;
+#
+#	Layer2Bridging.Marking.; index from 18280 to 18300
+#
+InternetGatewayDevice.Layer2Bridging.Marking.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.Marking.0.;97;0;0;2;1;18281;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.Marking.0.MarkingEnable;115;0;0;2;1;1;1;18284;;
+InternetGatewayDevice.Layer2Bridging.Marking.0.MarkingBridgeReference;104;0;0;2;1;1;1;18286;;-1
+InternetGatewayDevice.Layer2Bridging.Marking.0.MarkingInterface;103;0;0;2;1;1;1;18287;;
+InternetGatewayDevice.Layer2Bridging.Marking.0.VLANIDUntag;115;0;0;2;1;1;1;18288;;0
+InternetGatewayDevice.Layer2Bridging.Marking.0.VLANIDMark;104;0;0;2;1;1;1;18289;;-1
+InternetGatewayDevice.Layer2Bridging.Marking.0.VLANIDMarkOverride;115;0;0;2;1;1;1;18290;;
+InternetGatewayDevice.Layer2Bridging.Marking.0.EthernetPriorityMark;104;0;0;2;1;1;1;18291;;-1
+InternetGatewayDevice.Layer2Bridging.Marking.0.EthernetPriorityOverride;115;0;0;2;1;1;1;18292;;
+#
+#	Layer2Bridging.AvailableInterface.; index from 18300 to 18320
+#
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.0.;97;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.0.AvailableInterfaceKey;106;0;0;2;1;1;18303;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.0.InterfaceReference;103;0;0;2;1;1;18305;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.1.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.1.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;1
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.1.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.1
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.2.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.2.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;2
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.2.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.2
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.3.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.3.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;3
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.3.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.3
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.4.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.4.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;4
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.4.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.4
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.5.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.5.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;5
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.5.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.1
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.6.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.6.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;6
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.6.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.2
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.7.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.7.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;7
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.7.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.3
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.8.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.8.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;8
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.8.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.LANDevice.1.WLANConfiguration.4
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.9.;98;0;0;2;1;18301;-1;-1;;
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.9.AvailableInterfaceKey;9;0;0;2;1;1;18303;-1;;9
+InternetGatewayDevice.Layer2Bridging.AvailableInterface.9.InterfaceReference;6;0;0;2;1;1;18305;-1;;InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1
+
+
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.X_CIG_Remote_telnet;18;0;0;2;1;1;1;10104;;0
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.X_CIG_Remote_telnet_username;6;0;0;2;1;1;1;10106;;
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.X_CIG_Remote_telnet_password;6;0;0;2;1;1;1;10107;;
+InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.X_CIG_Remote_https;18;0;0;2;1;1;1;10105;;1
+
+
+#
+#	WEBDiagnostics.; index range 18320 ~ 18340
+#
+InternetGatewayDevice.X_FPT_WEBDiagnostics.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.DiagnosticsState;6;0;0;2;1;1;1;18321;;None
+InternetGatewayDevice.X_FPT_WEBDiagnostics.Interface;6;0;0;2;1;1;1;18322;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.Host;6;0;0;2;1;1;1;18323;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.NumberOfTries;9;0;0;2;1;1;1;18324;;1
+InternetGatewayDevice.X_FPT_WEBDiagnostics.ConnectTimeout;9;0;0;2;1;1;1;18325;;5
+InternetGatewayDevice.X_FPT_WEBDiagnostics.TransferTimeout;9;0;0;2;1;1;1;18326;;10
+InternetGatewayDevice.X_FPT_WEBDiagnostics.MaxSiteCount;9;0;0;2;1;1;1;18327;;5
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSiteNumberOfEntries;9;0;0;0;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.;99;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.Host;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.HostAddress;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.ErrorCode;106;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.DnsLookupTime;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.RedirectTime;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.ConnectTime;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.AppConnectTime;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.PretransferTime;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.StartTransferTime;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.TotalTime;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.DownloadSize;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_WEBDiagnostics.WEBSite.0.DownloadSpeed;103;0;0;1;1;-1;0;-1;;
+#
+#       X_FPT_CollectInfo.; index range 18340 ~ 18341
+#
+InternetGatewayDevice.X_FPT_CollectInfo.;99;1;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.CollectInfoState;6;0;0;2;1;1;1;18340;;None
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.ProcessorUtilization;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.SN;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.SWVersion;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.TotalMemory;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.UsedMemory;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.ONTMAC;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.ModelName;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_CollectInfo.DevInfo.0.Uptime;103;0;0;1;1;-1;0;-1;;
+#
+#	CapturePackets.; index range 18341 ~ 18350
+#
+InternetGatewayDevice.X_FPT_CapturePackets.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_CapturePackets.CapturePacketsState;6;0;0;2;1;18344;1;18341;;None
+InternetGatewayDevice.X_FPT_CapturePackets.Interface;6;0;0;2;1;1;1;18342;;
+InternetGatewayDevice.X_FPT_CapturePackets.NumberOfPackets;9;0;0;2;1;1;1;18343;;
+#
+#	X_FPT_WiFiTimer; index range 18451 ~ 18470
+#
+InternetGatewayDevice.X_FPT_WiFiTimer.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_WiFiTimer.Enable;9;0;0;2;1;1;1;18452;;0
+InternetGatewayDevice.X_FPT_WiFiTimer.StartTime;6;0;0;2;1;1;1;18453;;06:00
+InternetGatewayDevice.X_FPT_WiFiTimer.EndTime;6;0;0;2;1;1;1;18454;;23:00
+InternetGatewayDevice.X_FPT_WiFiTimer.Mon;9;0;0;1;1;1;1;18455;;1
+InternetGatewayDevice.X_FPT_WiFiTimer.Tue;9;0;0;1;1;1;1;18456;;1
+InternetGatewayDevice.X_FPT_WiFiTimer.Wed;9;0;0;1;1;1;1;18457;;1
+InternetGatewayDevice.X_FPT_WiFiTimer.Thu;9;0;0;1;1;1;1;18458;;1
+InternetGatewayDevice.X_FPT_WiFiTimer.Fri;9;0;0;1;1;1;1;18459;;1
+InternetGatewayDevice.X_FPT_WiFiTimer.Sat;9;0;0;1;1;1;1;18460;;1
+InternetGatewayDevice.X_FPT_WiFiTimer.Sun;9;0;0;1;1;1;1;18461;;1
+#
+#	X_FPT_RebootTimer; index range 18471 ~ 18490
+#
+InternetGatewayDevice.X_FPT_RebootTimer.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_RebootTimer.Enable;9;0;0;2;1;1;1;18472;;0
+InternetGatewayDevice.X_FPT_RebootTimer.Time;6;0;0;2;1;1;1;18473;;06:00
+InternetGatewayDevice.X_FPT_RebootTimer.Mon;9;0;0;1;1;1;1;18474;;1
+InternetGatewayDevice.X_FPT_RebootTimer.Tue;9;0;0;1;1;1;1;18475;;1
+InternetGatewayDevice.X_FPT_RebootTimer.Wed;9;0;0;1;1;1;1;18476;;1
+InternetGatewayDevice.X_FPT_RebootTimer.Thu;9;0;0;1;1;1;1;18477;;1
+InternetGatewayDevice.X_FPT_RebootTimer.Fri;9;0;0;1;1;1;1;18478;;1
+InternetGatewayDevice.X_FPT_RebootTimer.Sat;9;0;0;1;1;1;1;18479;;1
+InternetGatewayDevice.X_FPT_RebootTimer.Sun;9;0;0;1;1;1;1;18480;;1
+#
+#   X_FPT_Syslog; index range 18491 ~ 18500
+#
+InternetGatewayDevice.X_FPT_Syslog.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_Syslog.RemoteEnable;9;0;0;2;1;1;1;18491;;0
+InternetGatewayDevice.X_FPT_Syslog.RemoteServer;6;0;0;2;1;1;1;18492;;
+#
+#	X_FPT_IPRateLimit; index range 18501 ~ 18515
+#
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimitEnable;9;0;0;2;1;1;1;18501;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimitMonitorEnable;9;0;0;1;1;1;1;18502;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimitCfgUsTotalBandwidth;9;0;0;1;1;1;1;18503;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimitCfgDsTotalBandwidth;9;0;0;1;1;1;1;18504;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimitCfgUsPercentage;9;0;0;1;1;1;1;18505;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimitCfgDsPercentage;9;0;0;1;1;1;1;18506;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimit.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimit.0.;97;0;1;1;1;18507;-1;-1;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimit.0.Enable;106;0;0;1;1;1;1;18508;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimit.0.IPAddr;103;0;0;2;1;1;1;18509;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimit.0.UpBandWidth;106;0;0;1;1;1;1;18510;;
+InternetGatewayDevice.LANDevice.1.X_FPT_QoS.IPRateLimit.0.DownBandWidth;106;0;0;1;1;1;1;18511;;
+#
+#	X_FPT_PPTP; index range 18516 ~ 18530
+#
+InternetGatewayDevice.X_FPT_PPTP.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_PPTP.Enable;6;0;0;2;1;1;1;18516;;No
+InternetGatewayDevice.X_FPT_PPTP.LocalAddress;6;0;0;2;1;1;1;18517;;
+InternetGatewayDevice.X_FPT_PPTP.StartAddress;6;0;0;2;1;1;1;18518;;
+InternetGatewayDevice.X_FPT_PPTP.EndAddress;6;0;0;2;1;1;1;18519;;
+InternetGatewayDevice.X_FPT_PPTP.MPPE128Enable;6;0;0;2;1;1;1;18520;;No
+InternetGatewayDevice.X_FPT_PPTP.User.;99;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_PPTP.User.0.;97;0;1;1;1;18512;-1;-1;;
+InternetGatewayDevice.X_FPT_PPTP.User.0.UserName;103;0;0;2;1;1;1;18521;;
+InternetGatewayDevice.X_FPT_PPTP.User.0.PassWord;103;0;0;2;1;1;1;18522;;
+#
+#	X_FPT_PPTP_INFO.{i}.Sessions ; index range 18531 ~ 18540
+#
+InternetGatewayDevice.X_FPT_PPTP_INFO.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.SessionsNumberOfEntries;9;0;0;0;1;-1;18532;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.;99;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.;97;0;0;1;1;18531;1;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.Type;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.RemoteAddress;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.VirtualNetwork;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.UpTime;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.LinkUp;6;0;0;2;1;1;1;18533;;Yes
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.RXPacket;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.RXRate;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.TXPacket;103;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.X_FPT_PPTP_INFO.Sessions.0.TXRate;103;0;0;1;1;-1;0;-1;;
+#
+#	RogueDetect; index range 18544 ~ 18555
+#
+
+InternetGatewayDevice.RogueDetect.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.RogueDetect.Enable;9;0;0;2;1;1;1;18544;;0
+
+#
+#       RogueDetect; index range 18600 ~ 18620
+#
+InternetGatewayDevice.X_FPT_Speedtest.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_Speedtest.TestState;6;0;0;2;1;1;1;18600;;None
+InternetGatewayDevice.X_FPT_Speedtest.DownloadSpeed;9;0;0;0;1;-1;0;-1;;0
+InternetGatewayDevice.X_FPT_Speedtest.UploadSpeed;9;0;0;0;1;-1;0;-1;;0
+InternetGatewayDevice.X_FPT_Speedtest.TestResult;6;0;0;0;1;-1;0;-1;;
+#
+#	senseSDK ; index range 18640 ~ 18660
+#
+InternetGatewayDevice.X_FPT_SenseSDK.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.X_FPT_SenseSDK.Enable;6;0;0;2;1;1;1;18640;;No
+InternetGatewayDevice.X_FPT_SenseSDK.LicenseKey;6;0;0;2;1;1;1;18641;;
+InternetGatewayDevice.X_FPT_SenseSDK.Status;6;0;0;1;1;1;1;-1;;0

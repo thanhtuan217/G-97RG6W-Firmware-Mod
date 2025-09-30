@@ -1,0 +1,113 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+<% VOIP_GetSIPConfig("sipdmap"); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	WebStepIndex();
+}
+
+$(document).ready(function(){
+	
+	$("#digi_timer").val((partial_timer/1000));
+	$("#cri_timer").val((critical_timer/1000));
+	$("#per_timer").val((waitdial_timer/1000));
+	$("#sip_dial_plan").val(sip_dial_plan);
+
+
+	$("#btn_apply").click(function(){
+		if($("#sip_dial_plan").val().length > 4028)
+		{
+			alert(WebString.sip_dial_rule);
+			return false;
+		}
+		var str = $("#sip_dial_plan").val();
+		var ValidString = "0123456789-()[]{}.*#Xx.T|EtSL";
+	
+		for(var i = 0; i < $("#sip_dial_plan").val().length; i++)
+		{
+			var ch = str.charAt(i);
+			if(-1 == ValidString.indexOf(ch))
+			{
+				alert(WebString.sip_dial_plan);
+				return false;
+			}
+		}
+		var ltimer = parseInt($("#digi_timer").val());
+		var stimer = parseInt($("#cri_timer").val());
+		var ptimer = parseInt($("#per_timer").val());
+		if(ltimer < 1 || ltimer > 60)
+		{
+			alert(WebString.sip_long_timer);
+			return false;
+		}
+		if(stimer < 1|| stimer > 60)
+		{
+			alert(WebString.sip_short_timer);
+			return false;
+		}
+		if(stimer > ltimer)
+		{
+			alert(WebString.short_timer);
+			return false;
+		}
+		if(ptimer < 1 || ptimer > 60)
+		{
+			alert(WebString.sip_waitdial_timer);
+			return false;
+		}
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" style="vertical-align:middle" id="XS1"></td>
+			<td>
+				<textarea cols="50" rows="5" id="sip_dial_plan" name="sip_dial_plan" onkeypress="return OnKeyPress(event, X_INPUT_DIGITMAP);"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS2"></td>
+			<td>
+				<input id="per_timer" name="per_timer" type="text" maxlength="2" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" /> 
+				<script>document.write(WebString.seconds);</script>
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS3"></td>
+			<td>
+				<input id="digi_timer" name="digi_timer" type="text" maxlength="2" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" /> 
+				<script>document.write(WebString.seconds);</script>
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS4"></td>
+			<td>
+				<input id="cri_timer" name="cri_timer" type="text" maxlength="2" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" /> 
+				<script>document.write(WebString.seconds);</script>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a href="#" id="btn_apply" class="btn"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

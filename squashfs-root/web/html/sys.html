@@ -1,0 +1,53 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var language = "0";
+
+<% sys_GetConfig(); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	$("#language").val(language);
+	WebStepIndex();
+}
+
+$(document).ready(function () {
+	$("#btn_apply").click(function(){
+		XDoSubmit();
+	});
+    window.top.document.title = WebString.OntName;	
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td>
+				<select name="language" id="language">
+					<option id="XS2" value="0"></option>
+					<option id="XS3" value="4"></option>
+				</select> 
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_apply" class="btn apply_btn" href="#"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

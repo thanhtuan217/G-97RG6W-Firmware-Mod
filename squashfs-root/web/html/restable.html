@@ -1,0 +1,62 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var cpu_speed = "";
+var cpu_util = "";
+var mem_total = "";
+var mem_util = "";
+var flash = "";
+
+<% Resource_GetStatus(); %>
+
+function WebInit()
+{
+	$("#cpu_speed").html(cpu_speed);
+	$("#cpu_util").html(cpu_util);
+	$("#mem_total").html(mem_total);
+	$("#mem_util").html(mem_util);
+	$("#flash").html(flash);
+}
+
+function WebDoSubmit()
+{
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td id="cpu_speed"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS2"></td>
+			<td id="cpu_util"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS3"></td>
+			<td id="mem_total"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS4"></td>
+			<td id="mem_util"></td>
+		</tr>
+		<tr>
+			<td width="200" id="XS5"></td>
+			<td id="flash"></td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<a id="btn_refresh" class="btn" href="restable.html"><script type="text/javascript">document.write(WebString.Refresh);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

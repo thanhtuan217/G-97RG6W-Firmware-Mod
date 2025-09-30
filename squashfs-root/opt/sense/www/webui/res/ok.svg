@@ -1,0 +1,27 @@
+<svg id="Connected" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #64be00;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #fff;
+        stroke-width: 2px;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Ellipse_822" data-name="Ellipse 822" class="cls-1" transform="translate(0)">
+    <circle class="cls-3" cx="18" cy="18" r="18"/>
+    <circle class="cls-4" cx="18" cy="18" r="17"/>
+  </g>
+  <path id="Path_1986" data-name="Path 1986" class="cls-2" d="M948,361.566l6.672,6.672,13.957-13.957" transform="translate(-939.9 -342.582)"/>
+</svg>

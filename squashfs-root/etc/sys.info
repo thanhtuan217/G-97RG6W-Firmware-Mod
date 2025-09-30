@@ -1,0 +1,5 @@
+PRODUCT Type = rgu
+SS  Type     = noss
+DSP Type     = nodsp
+WIFI Type    = rtl
+XDSL Type    = nodsl 

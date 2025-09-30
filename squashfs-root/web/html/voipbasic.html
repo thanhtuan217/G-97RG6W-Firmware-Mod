@@ -1,0 +1,108 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var pots1_codec = new Array;
+var pots2_codec = new Array;
+
+<% VOIP_GetMediaConfig("voipbasic"); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	WebStepIndex();
+}
+
+$(document).ready(function(){
+	
+	$("#voip_type").html(voip_type.toLocaleUpperCase());
+	$("#country_code").val(country_code);
+	$("#en_pots1").get(0).checked = (parseInt(voip_enable_pots1) == 1)?true:false;
+	$("#en_pots2").get(0).checked = (parseInt(voip_enable_pots2) == 1)?true:false;
+	if(POTS_NUM > 1)
+	{
+		$("#pots_2").show();
+	}
+	else
+	{
+		$("#pots_2").hide();
+	}
+	$("#btn_apply").click(function(){
+	XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td colspan="2">
+					<label id="voip_type"></label>
+			</td>
+    </tr>
+		<tr>
+			<td width="200" id="XS2"></td>
+			<td colspan="2">
+				<select name="country_code" id="country_code">
+	        <option value="61">AUSTRALIA </option>
+					<option value="55">BRAZIL </option>
+					<option value="56">CHILE </option>
+					<option value="86" selected="selected">CHINA </option>
+					<option value="45">DENMARK </option>
+					<option value="372">ESTONIA </option>
+					<option value="358">FINLAND </option>
+					<option value="49">GERMANY </option>
+					<option value="30">GREECE </option>
+					<option value="91">INDIA </option>
+					<option value="39">ITALY </option>
+					<option value="371">LATVIA </option>
+					<option value="60">MALAYSIA </option>
+	        <option value="52">MEXICO </option>
+					<option value="47">NORWAY </option>
+					<option value="63">PHILIPPINES </option>
+					<option value="48">POLAND </option>
+					<option value="351">PORTUGAL </option>
+					<option value="7">RUSSIAN </option>
+					<option value="966">SAUDI ARABIA </option>
+					<option value="65">SINGAPORE </option>
+					<option value="421">SLOVAKIA </option>
+					<option value="27">SOUTH AFRICA </option>
+					<option value="34">SPAIN </option>
+					<option value="46">SWEDEN </option>
+					<option value="41">SWITZERLAND </option>
+					<option value="90">TURKEY </option>
+					<option value="380">UKRAINE </option>
+					<option value="971">UNITED ARAB EMIRATES </option>
+					<option value="44">UNITED KINGDOM </option>
+					<option value="1">UNITED STATES/CANADA </option>
+      	</select>
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS3"></td>
+			<td id="pots_1">
+				<input id="en_pots1" name="en_pots1" type="checkbox" /><script>document.write(WebString.pots1);</script>
+			</td>
+			<td id="pots_2">
+				<input id="en_pots2" name="en_pots2" type="checkbox" /><script>document.write(WebString.pots2);</script>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a href="#" id="btn_apply" class="btn"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

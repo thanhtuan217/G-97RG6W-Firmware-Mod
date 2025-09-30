@@ -1,0 +1,11 @@
+kernel/drivers/net/ethernet/realtek/rtl86900/sdk/src/module/ds_pkt_bcaster/dpbcaster.ko
+kernel/drivers/net/ethernet/realtek/rtl86900/sdk/src/module/epon_drv/epon_drv.ko
+kernel/drivers/net/ethernet/realtek/rtl86900/sdk/src/module/epon_polling/epon_polling.ko
+kernel/drivers/net/ethernet/realtek/rtl86900/sdk/src/module/epon_mpcp/epon_mpcp.ko
+kernel/drivers/net/ethernet/realtek/re8686_rtl9607c_test.ko
+kernel/net/netfilter/nf_conntrack_ftp.ko
+kernel/net/netfilter/nf_conntrack_sip.ko
+kernel/net/netfilter/nf_conntrack_tftp.ko
+kernel/net/netfilter/nf_nat_ftp.ko
+kernel/net/netfilter/nf_nat_sip.ko
+kernel/net/netfilter/nf_nat_tftp.ko

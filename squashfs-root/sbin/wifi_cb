@@ -1,0 +1,717 @@
+#!/bin/sh
+
+#DRV_DIR=/lib/modules/2.6.30.9/kernel/drivers
+
+DEBUG_OUTPUT=" 1>/dev/null 2>&1 "
+
+MAJOR_ID=$(grep EepHwFunctionMajor /tmp/sys2.cfg| awk -F '=' '{print $2}')
+MINOR_ID=$(grep EepHwFunctionMinor /tmp/sys2.cfg| awk -F '=' '{print $2}')
+
+if ( test "$MAJOR_ID" = "00dc" ) || (( test "$MAJOR_ID" = "00d5" ) && ( test "$MINOR_ID" = "13" ))
+then
+	VAP_5G=wlan1
+	RADIO_5G=wlan1
+	VAP_2G=wlan0
+	RADIO_2G=wlan0
+else
+	VAP_5G=wlan0
+	RADIO_5G=wlan0
+	VAP_2G=wlan1
+	RADIO_2G=wlan1
+fi	
+
+txpowerlevel=0
+channel_valid=0
+
+#$1 is wlan0/wlan1
+get_status()
+{
+	if ( test "$1" = "5G_0" )
+	then
+		test_interface=$RADIO_5G
+	elif ( test "$1" = "2G_0" )
+	then
+		test_interface=$RADIO_2G
+	else
+		echo "config wifi parameter error"
+		get_usage
+		exit 0
+	fi
+
+	txLinkSpeed=""
+	rxLinkSpeed=""
+	ssidName=""
+	channel=""
+	status="DOWN"
+	bandwidth=""
+	txPower=0
+	bIntval=""
+	test_string=""
+	rssi_sta=""
+	mode_sta=""
+	
+	test_string=`cat /proc/$test_interface/sta_info | grep tx_linkspeed`
+	if [ -n test_string ];then
+		txLinkSpeed=$test_string
+	fi
+	test_string=`cat /proc/$test_interface/sta_info | grep rx_linkspeed`
+	if [ -n test_string ];then
+		rxLinkSpeed=$test_string
+	fi
+	ssidName=`iwconfig $test_interface | grep ESSID | cut -d':' -f 2`
+	bIntval=`iwpriv $test_interface get_mib bcnint | cut -d':' -f 2|tr -s ' ' | cut -d ' ' -f 4`
+	channel=`cat /proc/$test_interface/mib_rf | grep dot11channel | cut -d':' -f 2`
+	txPower=`cat /proc/$test_interface/mib_rf | grep tgpwr_OFDM_new | cut -d':' -f 2|tr -s ' '| awk '{print int($0)}'`
+	bandwidth=`cat /proc/$test_interface/mib_all | grep "currBW(op)" | cut -d':' -f 2`
+    mode_sta=`cat /proc/$test_interface/sta_info | grep "wireless mode" | cut -d':' -f 2`
+    rssi_sta=`cat /proc/$test_interface/sta_info | grep rssi | cut -d':' -f 2`
+
+    test_string=`iwconfig $test_interface | grep Channel`
+    if [ "$test_string" != "" ];then
+        status="UP"
+    fi
+
+	echo -e "****************************************************************"
+	echo -e " band : $1"
+	echo -e " ssid : $ssidName"
+	echo -e " channel : $channel"
+	echo -e " bandwidth : $bandwidth"
+	echo -e " mode_sta : $mode_sta"
+	echo -e " $txLinkSpeed"
+	echo -e " $rxLinkSpeed"
+	echo -e " status : $status"
+	echo -e " Txpower :  $(($txPower/2))"
+	echo -e " bintval : $bIntval"
+	echo -e "****************************************************************"
+	
+	echo -e " wifi_cb status $1\n"
+	exit 0
+}
+get_rssi()
+{
+	if ( test "$1" = "5G_0" )
+	then
+		test_interface=$RADIO_5G
+	elif ( test "$1" = "2G_0" )
+	then
+		test_interface=$RADIO_2G
+	else
+		echo "config wifi parameter error"
+		get_usage
+		exit 0
+	fi
+
+	rssi_sta=`cat /proc/$test_interface/sta_info | grep rssi|cut -d':' -f 2`
+	echo -e "RSSI $rssi_sta"
+	if ( test "$rssi_sta" = "" );then
+		echo -e "no sta associate to $1"
+	else
+		#remove brackets in string rssi_sta
+		echo ${rssi_sta/'('/' '}>>/tmp/wifi_cb_tmp
+		rssi_sta=`cat /tmp/wifi_cb_tmp`
+		rm -f /tmp/wifi_cb_tmp
+		echo ${rssi_sta/')'/' '}>>/tmp/wifi_cb_tmp
+		rssi_sta=`cat /tmp/wifi_cb_tmp`
+		rm -f /tmp/wifi_cb_tmp
+		
+		rssi_chan_0=`echo ${rssi_sta} | cut -d' ' -f 2`
+		rssi_chan_1=`echo ${rssi_sta} | cut -d' ' -f 3`
+		echo -e "RSSI chain 0 : $rssi_chan_0"
+		echo -e "RSSI chain 1 : $rssi_chan_1"
+	fi
+	exit 0
+}
+
+#$1 is wlan0/wlan1
+set_ant_sel()
+{
+	if ( test "$1" = "5G_0" )
+	then
+	    test_interface=$RADIO_5G
+	elif ( test "$1" = "2G_0" )
+	then
+	    test_interface=$RADIO_2G
+	else
+		echo "config wifi tp parameter error"
+		get_usage
+		exit 0
+	fi
+
+	if ( test "$2" = "0" )
+	then
+	    ant_sel_value=a
+	elif ( test "$2" = "1" )
+	then
+	    ant_sel_value=b
+	else
+		echo "config wifi parameter error"
+		get_usage
+		exit 0
+	fi
+	
+	echo -e "set_ant_sel start"
+	ifconfig $test_interface down
+	iwpriv $test_interface set_mib mp_specific=1 
+	iwpriv $test_interface set_mib ther=0
+	ifconfig $test_interface up
+	sleep 1
+	iwpriv $test_interface mp_start  
+	iwpriv $test_interface mp_ctx stop
+	iwpriv $test_interface mp_rate 108
+	iwpriv $test_interface mp_bandwidth 40M=0
+	iwpriv $test_interface mp_channel 3
+	iwpriv $test_interface mp_txpower patha=45,pathb=45
+	iwpriv $test_interface mp_ant_tx $ant_sel_value   
+	iwpriv $test_interface mp_ctx pkt,background 
+	echo -e " set_ant_sel : $1 $2 $ant_sel_value"
+	exit 0
+}
+get_usage()
+{
+	echo "" 
+	echo "usage: wifi_cb [command..]"
+	echo "" 
+	echo "Commands:"
+	echo "rf [BAND_ID]                      Realtek WIFI RF Calbration"
+	echo "    -BAND_ID 2G:2G_0;5G:5G_0"
+	echo "    Example:wifi_cb rf 2G_0"
+	echo "tp [BAND_ID] [SSID] [Channel] [mode] [TxPwr] [BandWidth]      Realtek WIFI Throughput Test"
+	echo "    -BAND_ID 2G:2G_0;5G:5G_0"
+	echo "    -SSID ssid name"
+	echo "    -Channel channel No."
+	echo "    -mode 2G:11b,11g,11bg,11n,11bgn;5G:11a,11n,11ac"
+	echo "    -TxPwr tx power"
+	echo "    -BandWidth 2G:20,40,2040;5G:20,40,80"
+	echo "    Example:wifi_cb tp 2G_0 Station1-4 6 11n 14 20"
+	echo "status [BAND_ID]                  Realtek WIFI RF STATUS"
+	echo "    -BAND_ID 2G:2G_0;5G:5G_0"
+	echo "    Example:wifi_cb status 2G_0"
+	echo "ANT_Sel [BAND_ID] [ANT_ID]         Realtek ANT Select"
+	echo "    -BAND_ID 2G:2G_0;5G:5G_0"
+	echo "    -ANT_ID antena No.,0 or 1"
+	echo "    Example:wifi_cb ANT_Sel 2G_0 1"
+	echo "RSSI [BAND_ID]                    Realtek WIFI RF RSSI"
+	echo "    -BAND_ID 2G:2G_0;5G:5G_0"
+	echo "    Example:wifi_cb RSSI 2G_0"
+	echo "" 
+}
+
+set_wifi_rf()
+{
+	if ( test "$1" = "5G_0" )
+	then
+	    test_interface=$RADIO_5G
+	elif ( test "$1" = "2G_0" )
+	then
+	    test_interface=$RADIO_2G
+	else
+		echo "config wifi parameter error"
+		get_usage
+		exit 0
+	fi
+	
+	echo "Realtek WIFI RF Calbration......"
+	ifconfig $test_interface down 2> /dev/null
+	ifconfig $test_interface-vap0 down 2> /dev/null
+	ifconfig $test_interface-vap1 down 2> /dev/null
+	ifconfig $test_interface-vap2 down 2> /dev/null
+	brctl delif br0 $test_interface 2> /dev/null
+	brctl delif br0 $test_interface-vap0 2> /dev/null
+	brctl delif br0 $test_interface-vap1 2> /dev/null
+	brctl delif br0 $test_interface-vap2 2> /dev/null
+
+
+	killall 11N_UDPserver 2> /dev/null
+	rm -f /tmp/wifi_cali_log
+
+	iwpriv $test_interface set_mib mp_specific=1 2>/dev/null
+
+	ifconfig $test_interface up
+
+	echo ""
+	echo "Starting MP AUTOMATION Daemon..."
+
+	11N_UDPserver 2>/tmp/wifi_cali_log 1>>/tmp/wifi_cali_log  &
+	exit 0
+}
+
+#convert txpower to txpowerlevel
+convert_txpower_2_level()
+{
+	difftxpower1=0
+	difftxpower2=2
+	difftxpower3=12
+	difftxpower4=18
+	difftxpower5=20
+	difftxpower6=-1
+	if [ $1 -ge 17 ];then
+		txpowerlevel=$difftxpower1
+	elif [ $1 -le 16 ];then
+		txpowerlevel=$difftxpower2
+	elif [ $1 -le 8 ];then
+		txpowerlevel=$difftxpower3
+	elif [ $1 -le 6 ];then
+		txpowerlevel=$difftxpower4
+	else
+		txpowerlevel=$difftxpower5
+	fi
+	echo "convert_txpower_2_level:$txpowerlevel"
+}
+
+
+config_wifi_2g_mode()
+{
+	#convert txpower to txpowerlevel
+	#char *g_rtl_wlan_24G_mode_name[8]= {
+	#	 "band",
+	#	 "deny_legacy",
+	#	 "use40M",
+	#	 "2ndchoffset",
+	#	 "ampdu",
+	#	 "amsdu",
+	#	 "coexist",
+	#	 "ada_IGI_upper"
+	#};
+	g_rtl_wlan_24G_mode_name_0="band"
+	g_rtl_wlan_24G_mode_name_1="deny_legacy"
+	g_rtl_wlan_24G_mode_name_2="use40M"
+	g_rtl_wlan_24G_mode_name_3="2ndchoffset"
+	g_rtl_wlan_24G_mode_name_4="ampdu"
+	g_rtl_wlan_24G_mode_name_5="amsdu"
+	g_rtl_wlan_24G_mode_name_6="coexist"
+	g_rtl_wlan_24G_mode_name_7="ada_IGI_upper"
+	
+	#
+	#int g_rtl_wlan_24G_mode_setting[9][8]= {
+	#	 {1,0,0,1,0,0,1,0x38},// 24g b mode
+	#	 {3,1,0,1,0,0,1,0x38},// 24g g mode
+	#	 {3,0,0,1,0,0,1,0x38},// 24g bg mode
+	#	 {11,3,0,0,1,0,0,0x37},// 24g n_20M mode
+	#	 {11,3,1,1,1,0,0,0x38},// 24g n_40M mode
+	#	 {11,3,1,1,1,0,1,0x38},// 24g n_20_40M mode
+	#	 {11,0,0,0,1,0,0,0x38},// 24g bgn_20M mode
+	#	 {11,0,1,1,1,0,0,0x25},// 24g bgn_40M mode
+	#	 {11,0,1,1,1,0,1,0x39}// 24g bgn_20_40M mode
+	#};
+	#	 {1,0,0,1,0,0,1,0x38},// 24g b mode
+	g_rtl_wlan_24G_mode_setting_0_0=1
+	g_rtl_wlan_24G_mode_setting_0_1=0
+	g_rtl_wlan_24G_mode_setting_0_2=0
+	g_rtl_wlan_24G_mode_setting_0_3=1
+	g_rtl_wlan_24G_mode_setting_0_4=0
+	g_rtl_wlan_24G_mode_setting_0_5=0
+	g_rtl_wlan_24G_mode_setting_0_6=1
+	g_rtl_wlan_24G_mode_setting_0_7=38
+	#	 {3,1,0,1,0,0,1,0x38},// 24g g mode
+	g_rtl_wlan_24G_mode_setting_1_0=3
+	g_rtl_wlan_24G_mode_setting_1_1=1
+	g_rtl_wlan_24G_mode_setting_1_2=0
+	g_rtl_wlan_24G_mode_setting_1_3=1
+	g_rtl_wlan_24G_mode_setting_1_4=0
+	g_rtl_wlan_24G_mode_setting_1_5=0
+	g_rtl_wlan_24G_mode_setting_1_6=1
+	g_rtl_wlan_24G_mode_setting_1_7=38
+	#	 {3,0,0,1,0,0,1,0x38},// 24g bg mode
+	g_rtl_wlan_24G_mode_setting_2_0=3
+	g_rtl_wlan_24G_mode_setting_2_1=0
+	g_rtl_wlan_24G_mode_setting_2_2=0
+	g_rtl_wlan_24G_mode_setting_2_3=1
+	g_rtl_wlan_24G_mode_setting_2_4=0
+	g_rtl_wlan_24G_mode_setting_2_5=0
+	g_rtl_wlan_24G_mode_setting_2_6=1
+	g_rtl_wlan_24G_mode_setting_2_7=38
+	#	 {11,3,0,0,1,0,0,0x37},// 24g n_20M mode
+	g_rtl_wlan_24G_mode_setting_3_0=11
+	g_rtl_wlan_24G_mode_setting_3_1=3
+	g_rtl_wlan_24G_mode_setting_3_2=0
+	g_rtl_wlan_24G_mode_setting_3_3=0
+	g_rtl_wlan_24G_mode_setting_3_4=1
+	g_rtl_wlan_24G_mode_setting_3_5=0
+	g_rtl_wlan_24G_mode_setting_3_6=0
+	g_rtl_wlan_24G_mode_setting_3_7=37
+	#	 {11,3,1,1,1,0,0,0x38},// 24g n_40M mode
+	g_rtl_wlan_24G_mode_setting_4_0=11
+	g_rtl_wlan_24G_mode_setting_4_1=3
+	g_rtl_wlan_24G_mode_setting_4_2=1
+	g_rtl_wlan_24G_mode_setting_4_3=1
+	g_rtl_wlan_24G_mode_setting_4_4=1
+	g_rtl_wlan_24G_mode_setting_4_5=0
+	g_rtl_wlan_24G_mode_setting_4_6=0
+	g_rtl_wlan_24G_mode_setting_4_7=38
+	#	 {11,3,1,1,1,0,1,0x38},// 24g n_20_40M mode
+	g_rtl_wlan_24G_mode_setting_5_0=11
+	g_rtl_wlan_24G_mode_setting_5_1=3
+	g_rtl_wlan_24G_mode_setting_5_2=1
+	g_rtl_wlan_24G_mode_setting_5_3=1
+	g_rtl_wlan_24G_mode_setting_5_4=1
+	g_rtl_wlan_24G_mode_setting_5_5=0
+	g_rtl_wlan_24G_mode_setting_5_6=1
+	g_rtl_wlan_24G_mode_setting_5_7=38
+	
+	#	 {11,0,0,0,1,0,0,0x38},// 24g bgn_20M mode
+	g_rtl_wlan_24G_mode_setting_6_0=11
+	g_rtl_wlan_24G_mode_setting_6_1=0
+	g_rtl_wlan_24G_mode_setting_6_2=0
+	g_rtl_wlan_24G_mode_setting_6_3=0
+	g_rtl_wlan_24G_mode_setting_6_4=1
+	g_rtl_wlan_24G_mode_setting_6_5=0
+	g_rtl_wlan_24G_mode_setting_6_6=0
+	g_rtl_wlan_24G_mode_setting_6_7=38
+	#	 {11,0,1,1,1,0,0,0x25},// 24g bgn_40M mode
+	g_rtl_wlan_24G_mode_setting_7_0=11
+	g_rtl_wlan_24G_mode_setting_7_1=0
+	g_rtl_wlan_24G_mode_setting_7_2=1
+	g_rtl_wlan_24G_mode_setting_7_3=1
+	g_rtl_wlan_24G_mode_setting_7_4=1
+	g_rtl_wlan_24G_mode_setting_7_5=0
+	g_rtl_wlan_24G_mode_setting_7_6=0
+	g_rtl_wlan_24G_mode_setting_7_7=25
+	#	 {11,0,1,1,1,0,1,0x39}// 24g bgn_20_40M mode
+	g_rtl_wlan_24G_mode_setting_8_0=11
+	g_rtl_wlan_24G_mode_setting_8_1=0
+	g_rtl_wlan_24G_mode_setting_8_2=1
+	g_rtl_wlan_24G_mode_setting_8_3=1
+	g_rtl_wlan_24G_mode_setting_8_4=1
+	g_rtl_wlan_24G_mode_setting_8_5=0
+	g_rtl_wlan_24G_mode_setting_8_6=1
+	g_rtl_wlan_24G_mode_setting_8_7=39
+
+	if ( test "$2" = "11b" ) && ( test "$3" = "20" )
+	then
+	    converted_wifi_mode_setting=0
+	elif ( test "$2" = "11g" ) && ( test "$3" = "20" )
+	then
+	    converted_wifi_mode_setting=1
+	elif ( test "$2" = "11bg" ) && ( test "$3" = "20" )
+	then
+	    converted_wifi_mode_setting=2
+	elif ( test "$2" = "11n" ) && ( test "$3" = "20" )
+	then
+	    converted_wifi_mode_setting=3
+	elif ( test "$2" = "11n" ) && ( test "$3" = "40" )
+	then
+	    converted_wifi_mode_setting=4
+	elif ( test "$2" = "11n" ) && ( test "$3" = "2040" )
+	then
+	    converted_wifi_mode_setting=5
+	elif ( test "$2" = "11bgn" ) && ( test "$3" = "20" )
+	then
+	    converted_wifi_mode_setting=6
+	elif ( test "$2" = "11bgn" ) && ( test "$3" = "40" )
+	then
+	    converted_wifi_mode_setting=7
+	elif ( test "$2" = "11bgn" ) && ( test "$3" = "2040" )
+	then
+	    converted_wifi_mode_setting=8
+	else
+		echo "config wifi parameter error"
+		get_usage
+		exit 0
+	fi
+		
+	for mode_setting in 0 1 2 3 4 5 6 7
+	do
+		mode_cmd_name=`eval echo '$'"g_rtl_wlan_24G_mode_name_"$mode_setting`
+		mode_cmd_value=`eval echo '$'"g_rtl_wlan_24G_mode_setting_"$converted_wifi_mode_setting"_"$mode_setting`
+		echo "iwpriv $1 set_mib $mode_cmd_name=$mode_cmd_value"
+		iwpriv $1 set_mib $mode_cmd_name=$mode_cmd_value
+	done
+	#config txpower
+	echo "txpowerlevel $txpowerlevel"
+	flash rfcfg $txpowerlevel 10 0 0 > /tmp/wifipwr.conf	
+
+	while read line
+	do
+		iwpriv $1 set_mib $line 2> /dev/null
+	done < /tmp/wifipwr.conf
+}
+config_wifi_5g_mode()
+{
+	#char *g_rtl_wlan_5G_mode_name[8]= {
+	#	 "band",
+	#	 "use40M",
+	#	 "2ndchoffset",
+	#	 "ampdu",
+	#	 "amsdu",
+	#};
+	g_rtl_wlan_5G_mode_name_0="band"
+	g_rtl_wlan_5G_mode_name_1="use40M"
+	g_rtl_wlan_5G_mode_name_2="2ndchoffset"
+	g_rtl_wlan_5G_mode_name_3="ampdu"
+	g_rtl_wlan_5G_mode_name_4="amsdu"
+	#int g_rtl_wlan_5G_mode_setting[6][5]= {
+	#	 {4,0,1,0,0},// 5g a mode
+	#	 {12,0,0,1,2},// 5g an_20M mode
+	#	 {12,1,1,1,2},// 5g an_40M mode
+	#	 {76,0,0,1,2},// 5g anac_20M mode
+	#	 {76,1,1,1,2},// 5g anac_40M mode
+	#	 {76,2,1,1,2}// 5g anac_80M mode
+	#};
+	#	 {4,0,1,0,0},// 5g a mode
+	g_rtl_wlan_5G_mode_setting_0_0=4
+	g_rtl_wlan_5G_mode_setting_0_1=0
+	g_rtl_wlan_5G_mode_setting_0_2=1
+	g_rtl_wlan_5G_mode_setting_0_3=0
+	g_rtl_wlan_5G_mode_setting_0_4=0
+	#	 {12,0,0,1,2},// 5g an_20M mode
+	g_rtl_wlan_5G_mode_setting_1_0=12
+	g_rtl_wlan_5G_mode_setting_1_1=0
+	g_rtl_wlan_5G_mode_setting_1_2=0
+	g_rtl_wlan_5G_mode_setting_1_3=1
+	g_rtl_wlan_5G_mode_setting_1_4=2
+	#	 {12,1,1,1,2},// 5g an_40M mode
+	g_rtl_wlan_5G_mode_setting_2_0=12
+	g_rtl_wlan_5G_mode_setting_2_1=1
+	g_rtl_wlan_5G_mode_setting_2_2=1
+	g_rtl_wlan_5G_mode_setting_2_3=1
+	g_rtl_wlan_5G_mode_setting_2_4=2
+	#	 {76,0,0,1,2},// 5g anac_20M mode
+	g_rtl_wlan_5G_mode_setting_3_0=76
+	g_rtl_wlan_5G_mode_setting_3_1=0
+	g_rtl_wlan_5G_mode_setting_3_2=0
+	g_rtl_wlan_5G_mode_setting_3_3=1
+	g_rtl_wlan_5G_mode_setting_3_4=2
+	#	 {76,1,1,1,2},// 5g anac_40M mode
+	g_rtl_wlan_5G_mode_setting_4_0=76
+	g_rtl_wlan_5G_mode_setting_4_1=1
+	g_rtl_wlan_5G_mode_setting_4_2=1
+	g_rtl_wlan_5G_mode_setting_4_3=1
+	g_rtl_wlan_5G_mode_setting_4_4=2
+	#	 {76,2,1,1,2}// 5g anac_80M mode
+	g_rtl_wlan_5G_mode_setting_5_0=76
+	g_rtl_wlan_5G_mode_setting_5_1=2
+	g_rtl_wlan_5G_mode_setting_5_2=1
+	g_rtl_wlan_5G_mode_setting_5_3=1
+	g_rtl_wlan_5G_mode_setting_5_4=2
+	if ( test "$2" = "11a" ) && ( test "$3" = "20" )
+	then
+	    converted_wifi_mode_setting=0
+	elif ( test "$2" = "11an" ) && ( test "$3" = "20" )
+	then
+	    converted_wifi_mode_setting=1
+	elif ( test "$2" = "11an" ) && ( test "$3" = "40" )
+	then
+	    converted_wifi_mode_setting=2
+	elif ( test "$2" = "11ac" ) && ( test "$3" = "20" )
+	then
+	    converted_wifi_mode_setting=3
+	elif ( test "$2" = "11ac" ) && ( test "$3" = "40" )
+	then
+	    converted_wifi_mode_setting=4
+	elif ( test "$2" = "11ac" ) && ( test "$3" = "80" )
+	then
+	    converted_wifi_mode_setting=5
+	else
+		echo "config_wifi_5g_mode $txpowerlevel"
+		get_usage
+		exit 0
+	fi
+		
+	for mode_setting in 0 1 2 3 4
+	do
+		mode_cmd_name=`eval echo '$'"g_rtl_wlan_5G_mode_name_"$mode_setting`
+		mode_cmd_value=`eval echo '$'"g_rtl_wlan_5G_mode_setting_"$converted_wifi_mode_setting"_"$mode_setting`
+		echo "iwpriv $1 set_mib $mode_cmd_name=$mode_cmd_value"
+		iwpriv $1 set_mib $mode_cmd_name=$mode_cmd_value
+	done
+	#config txpower
+	echo "txpowerlevel $txpowerlevel"
+	flash rfcfg $txpowerlevel 10 0 1 > /tmp/wifipwr.conf	
+
+	while read line
+	do
+		iwpriv $1 set_mib $line 2> /dev/null
+	done < /tmp/wifipwr.conf
+}
+judge_5g_channel()
+{
+	channel_valid=1
+	case $1 in
+		36)
+			;;
+		40)
+			;;
+		44)
+			;;
+		48)
+			;;
+		52)
+			;;
+		56)
+			;;
+		60)
+			;;
+		64)
+			;;
+		100)
+			;;
+		104)
+			;;
+		108)
+			;;
+		112)
+			;;
+		116)
+			;;
+		120)
+			;;
+		124)
+			;;
+		128)
+			;;
+		132)
+			;;
+		136)
+			;;
+		140)
+			;;
+		149)
+			;;
+		153)
+			;;
+		157)
+			;;
+		161)
+			;;
+		165)
+			;;
+		*)
+			echo "config wifi 5g channel error"
+			get_usage
+			channel_valid=0
+			exit 0
+	esac
+}
+
+judge_2g_channel()
+{
+	channel_valid=1
+	if [ $1 -lt 1 ];then
+		echo "config wifi 2g channel error"
+		get_usage
+		channel_valid=1
+		exit 0
+	fi
+	if [ $1 -gt 13 ];then
+		echo "config wifi 2g channel error"
+		get_usage
+		channel_valid=1
+		exit 0
+	fi
+}
+
+#ONT>/system/manu/wifi_cb tp 2G_0 Station1-4 6 11n 14 20
+set_wifi_tp()
+{
+
+	echo "wifi_cb tp $1 $2 $3 $4 $5 $6"
+	if ( test "$6" = "" );then
+		echo "config wifi tp parameter error"
+		get_usage
+		exit 0
+	fi
+	if ( test "$1" = "5G_0" )
+	then
+		judge_5g_channel $3
+	    test_interface=$RADIO_5G
+	elif ( test "$1" = "2G_0" )
+	then
+		judge_2g_channel $3
+	    test_interface=$RADIO_2G
+	else
+		echo "config wifi tp parameter error"
+		get_usage
+		exit 0
+	fi
+	echo "channel_valid $channel_valid"
+	if ( test "$channel_valid" = 0 );then
+		echo "config wifi tp parameter error"
+		get_usage
+		exit 0
+	fi
+	#convert parameters
+	convert_txpower_2_level $5
+	
+	#start tp configure
+	echo "Realtek WIFI Throughput Test......"
+	echo ""
+	killall -9 iwcontrol 2> /dev/null
+	killall -9 wscd 2> /dev/null
+	ifconfig $test_interface down 2> /dev/null
+	ifconfig $test_interface-vap0 down 2> /dev/null
+	ifconfig $test_interface-vap1 down 2> /dev/null
+	ifconfig $test_interface-vap2 down 2> /dev/null
+	brctl delif br0 $test_interface 2> /dev/null
+	brctl delif br0 $test_interface-vap0 2> /dev/null
+	brctl delif br0 $test_interface-vap1 2> /dev/null
+	brctl delif br0 $test_interface-vap2 2> /dev/null
+	iwpriv $test_interface set_mib ssid=$2 2>/dev/null
+
+	iwpriv $test_interface set_mib mp_specific=0 2>/dev/null
+
+	brctl addif br0 $test_interface 2> /dev/null
+
+	web_channel.sh $test_interface $3 1>/dev/null 2>&1
+	iwpriv $test_interface set_mib bcnint=60
+	
+	echo "configure $test_interface wifi mode"
+	if ( test "$1" = "5G_0" )
+	then
+		config_wifi_5g_mode $test_interface $4 $6
+	elif ( test "$1" = "2G_0" )
+	then
+		config_wifi_2g_mode $test_interface $4 $6
+	else
+		echo "config wifi tp parameter error"
+		get_usage
+		exit 0
+	fi
+	web_wpa_setting.sh $test_interface wpa2 aes 2>/dev/null
+	web_wpa_password.sh $test_interface 12345678 2>/dev/null
+	ifconfig $test_interface down 1>/dev/null 2>&1
+	ifconfig $test_interface up 1>/dev/null 2>&1
+	brctl addif br0 $test_interface 1>/dev/null 2>&1
+	echo -e "****************************************************************"
+	echo -e "band : $1"
+	echo -e "ssid : $2"
+	echo -e "channel : $3"
+	echo -e "bandwidth : $6"
+	echo -e "mode : $4"
+	echo -e "status : UP"
+	echo -e "Txpower : $5"
+	echo -e "bintval : 60"
+	echo -e "***************************************************************"
+				
+	exit 0
+}
+
+if ( test "$1" = "?" ) || ( test "$1" = "" )
+then
+	echo "config wifi parameter error"
+	get_usage
+
+elif ( test "$1" = "tp" )
+then
+	set_wifi_tp $2 $3 $4 $5 $6 $7
+
+elif ( test "$1" = "rf" ) 
+then
+	set_wifi_rf $2
+
+elif ( test "$1" = "status" )
+then
+	echo "Realtek WIFI RF ParameterS in EEPROM......"
+	get_status $2
+
+elif ( test "$1" = "ANT_Sel" )
+then
+	set_ant_sel $2 $3
+
+elif ( test "$1" = "RSSI" )
+then
+	get_rssi $2
+
+fi
+
+
+exit 0

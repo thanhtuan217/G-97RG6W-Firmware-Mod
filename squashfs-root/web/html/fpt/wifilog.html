@@ -1,0 +1,40 @@
+<% PrintTemplate1(); %>
+<script type="text/javascript" src="script/json2.js"></script>
+<style type="text/css">
+
+</style>
+
+<script type="text/javascript">
+
+var page="wifilog";
+var download_file="";
+
+<% wifilog_GetWiFiLog(); %>
+
+function WebInit() 
+{
+}
+
+$(document).ready(function (){
+
+	$("#btn_download").click(function() {
+        if(download_file == "") {
+            alert(XwifilogString[1]);
+        }else {
+            window.location.href = download_file;
+        }
+	});
+
+});
+
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p><strong><script>document.write(XwifilogString[0]);</script></strong></p>
+    <a id="btn_download" class="btn apply_btn" href="#">
+        <script>document.write(WebString.Download);</script>
+    </a>
+</div>
+
+<% PrintTemplate3(); %>

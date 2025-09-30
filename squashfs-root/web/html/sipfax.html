@@ -1,0 +1,80 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var pots1_codec = new Array;
+var pots2_codec = new Array;
+
+<% VOIP_GetMediaConfig(); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	WebStepIndex();
+}
+
+$(document).ready(function(){
+	
+	$("#fax_mode1").val(voip_fax_pots1);
+	$("#fax_mode2").val(voip_fax_pots2);
+	if(POTS_NUM > 1)
+	{
+		$("#pots_2").show();
+	}
+	else
+	{
+		$("#pots_2").hide();
+	}
+	$("#btn_apply").click(function(){
+	XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+		<td>
+			<ul style="font-weight:bold" width="200"><script>document.write(WebString.pots_if);</script></ul>
+			<ul style="padding-top:10px" width="200" id="XS1"></ul>
+			
+		</td>
+		<td id="pots_1">
+			<ul style="font-weight:bold"><script>document.write(WebString.pots1);</script></ul>
+			<ul style="padding-top:10px">
+				<select name="fax_mode1" id="fax_mode1">
+					<option selected="selected" value="0"><script>document.write(WebString.t30_pass_thru);</script></option>
+					<option value="2"><script>document.write(WebString.t30_full_ctrl);</script></option>
+					<option value="1"><script>document.write(WebString.t38_fax);</script></option>
+				</select>
+			</ul>
+		</td>
+		<td id="pots_2">
+			<ul style="font-weight:bold"><script>document.write(WebString.pots2);</script></ul>
+			<ul style="padding-top:10px">
+				<select name="fax_mode2" id="fax_mode2">
+					<option selected="selected" value="0"><script>document.write(WebString.t30_pass_thru);</script></option>
+					<option value="2"><script>document.write(WebString.t30_full_ctrl);</script></option>
+					<option value="1"><script>document.write(WebString.t38_fax);</script></option>
+				</select>
+			</ul>
+		</td>
+		</tr>
+	</table>
+</div>
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a href="#" id="btn_apply" class="btn"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

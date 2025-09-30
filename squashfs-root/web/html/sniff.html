@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-Transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8" dir="ltr">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="script/jquery.js"></script>
+<script type="text/javascript" src="script/common.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+var wifi_mode = 8;
+var wifi_radio = 0;
+var wifi_channel = "0";
+var sniff_wifi_start = 0;
+var sniff_wifi_get = 0;
+var Channel_List_2g = [];
+var Channel_List_5g = [];
+
+<% sniff_GetConfig(); %>
+<% web_GetWifiChannel(); %>
+
+function sniffInit()
+{
+	$("#wifi_mode0").get(0).checked = (wifi_mode == 8)?true:false;
+	$("#wifi_mode1").get(0).checked = (wifi_mode == 4)?true:false;
+	$("#wifi_radio0").get(0).checked = (wifi_radio == 0)?true:false;
+	$("#wifi_radio1").get(0).checked = (wifi_radio == 1)?true:false;
+	
+	doSniffType();
+	doRadioType();
+	
+	$("#wifi_channel").val(wifi_channel);
+	
+	if (sniff_wifi_start)
+	{
+		$("#stop").show();
+	}
+	else
+	{
+		$("#start").show();
+	}
+	
+	if (sniff_wifi_get)
+	{
+		document.location.href = "sniff.cgi";
+	}
+}
+
+function doSniffType()
+{
+	var sniff_work = $("#wifi_mode0").get(0).checked;
+	
+    if (sniff_work)
+    {
+    	$("#channel").hide();
+    }
+    else
+	{
+    	$("#channel").show();
+	}
+}
+
+function doRadioType()
+{
+	var radio_5g = $("#wifi_radio1").get(0).checked;
+    var channel_list = Channel_List_2g;
+    var str = "";
+    
+    if (radio_5g)
+    {
+    	channel_list = Channel_List_5g;
+    }
+
+    for (var i = 0; i < channel_list.length; i++)
+	{
+		if (0 == channel_list[i])
+		{
+			str += '<option value="' + channel_list[i] + '">' + "Auto" + '</option>';
+		}
+		else
+		{
+			str += '<option value="' + channel_list[i] + '">' + channel_list[i] + '</option>';
+		}
+	}	
+
+	$("#wifi_channel").html(str);
+
+	return;
+}
+
+$(function(){
+	sniffInit();
+	
+ 	$("#start").click(function(){
+	 	$("#action").val(1);
+        $("#XForm").submit();
+    });
+    
+ 	$("#stop").click(function(){
+	 	$("#action").val(0);
+        $("#XForm").submit();
+    });
+    
+	$("#wifi_mode0").change(function(){
+		doSniffType();
+	});
+	
+	$("#wifi_mode1").change(function(){
+		doSniffType();
+	});
+	
+	$("#wifi_radio0").change(function(){
+		doRadioType();
+	});
+
+	$("#wifi_radio1").change(function(){
+		doRadioType();
+	});
+})
+
+
+</script>
+</head>
+
+<body ondragstart="return false;">
+
+<div>
+
+	<h2>Wireless Sniff</h2>
+   	
+<form id="XForm" name="XForm" method="post" action="/GponForm/sniff_Form">
+	<input id="XWebPageName" name="XWebPageName" type="hidden" value="sniff" />
+	<input type="hidden" name="action" id="action"/>
+	<div>
+		<table border="0" cellpadding="2" cellspacing="2">
+			<tr>
+				<td width="200">Sniff Mode:</td>
+				<td>
+					<input type="radio" name= "wifi_mode" id="wifi_mode0" value="8" checked="checked"> Working Mode
+					<input type="radio" name= "wifi_mode" id="wifi_mode1" value="4"> Debug Mode
+				<td>
+			</tr>
+			<tr>
+				<td width="200">Radio:</td>
+				<td>
+					<input type="radio" name="wifi_radio" id="wifi_radio0" value="0" checked="checked"> 2.4G
+					<input type="radio" name="wifi_radio" id="wifi_radio1" value="1"> 5G
+				</td>
+			</tr>
+			<tr id="channel">
+				<td width="200">Channel:</td>
+				<td><select name="wifi_channel" id="wifi_channel" style="width:150px">
+				    </select>
+				</td>
+			</tr>
+		</table>			
+	</div>
+	
+	<div>
+		<input type="button" class="buttonL" id="start" value="Start" style="display:none">
+		<input type="button" class="buttonL" id="stop" value="Stop" style="display:none">         
+	</div>
+
+</form>
+
+</div>
+        
+</body>
+</html>
+

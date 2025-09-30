@@ -1,0 +1,99 @@
+[
+    [
+        "harmful_title",
+        "Skadlig webbplats blockerad"
+    ],
+    [
+        "harmful_heading",
+        "SENSE har blockerat den här webbplatsen för att skydda dig"
+    ],
+    [
+        "harmful_details",
+        "<br><br>Vi anser att den här webbplatsen är skadlig och kan försöka stjäla dina personuppgifter eller angripa enheten du använder när du surfar.<br>Vi avråder dig starkt från att besöka den här webbplatsen."
+    ],
+    [
+        "denied_title",
+        "Webbplats nekad"
+    ],
+
+    [
+        "denied_heading",
+        "Webbplats nekad"
+    ],
+    [
+        "denied_details",
+        "<br><br>Tillgång till denna webbplats har nekats av nätverksadministratören."
+    ],
+    [
+        "continue_button",
+        "Avblockera denna webbplats i en timme"
+    ],
+    [
+        "back_button",
+        "Gå tillbaka"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "Pusselbiten som saknas i ditt uppkopplade hem"
+    ],
+    [
+        "agent_heading",
+        "F‑Secures SENSE-router skyddar nu denna enhet."
+    ],
+    [
+        "agent_details",
+        "Bli ännu säkrare! Vi rekommenderar att du installerar SENSE-appen på den här enheten<br>för <a data-tooltip=\"Det finns bokstavligen tusentals virus och trojaner som skadar Windows-systemet och det skapas nya varje dag. SENSE-appen är alltid uppdaterad med de senaste skydden och blockerar skadlig kod så att den inte kommer åt din enhet - i och utanför SENSE-nätverket\" class=\"tooltip\">maximalt skydd</a> mot internethot."
+    ],
+    [
+        "agent_install",
+        "Ladda ner SENSE för Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Visa aldrig detta igen"
+    ],
+    [
+        "agent_postpone",
+        "Hoppa över och fortsätt till webbplatsen"
+    ],
+    [
+        "time_title",
+        "Tidsgränsen uppnådd"
+    ],
+    [
+        "time_heading",
+        "Din onlinetid är över för nu, dags att borsta tänderna!"
+    ],
+    [
+        "time_details",
+        "Du kommer åt nätverket igen i morgon på morgonen"
+    ],
+    [
+        "device_title",
+        "Internetåtkomst har blockerats!"
+    ],
+    [
+        "device_heading",
+        "Internetåtkomst har blockerats!"
+    ],
+    [
+        "device_details",
+        "Din hemnätverksadministratör har blockerat internetåtkomst för den här enheten."
+    ],
+    [
+        "parental_title",
+        "Webbplatsen har blockerats"
+    ],
+    [
+        "parental_heading",
+        "Webbplatsen har blockerats!"
+    ],
+    [
+        "parental_details",
+        "Den här webbplatskategorin har blockerats av Familjeregler"
+    ]
+]

@@ -1,0 +1,19 @@
+{"software_components":[
+{"name":"busybox", "version":"1.30.1", "copyright":"creator Bruce Perens and GPLv2 maintainer Rob Landley", "description":"BusyBox-The Swiss Army Knife of Embedded Linux", "license_url":"https://busybox.net/license.html", "third_party":true}
+,
+{"name":"curl", "version":"curl-7_66_0", "copyright":"1996-2018 Daniel Stenberg and contributors", "description":"HTTP client library", "license_url":"https://curl.haxx.se/docs/copyright.html", "third_party":true}
+,
+{"name":"libevent2", "version":"2.1.8", "copyright":"Niels Provos and Nick Mathewson", "description":"Asynchronous event processing library", "license_url":"https://libevent.org/LICENSE.txt", "third_party":true}
+,
+{"name":"libiconv-full", "version":"1.11.1", "copyright":"Free Software Foundation, Inc.", "description":"Character set conversion library", "license_url":"https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html", "third_party":true}
+,
+{"name":"json-c", "version":"0.12", "copyright":"2009-2012 Eric Haszlakiewicz", "description":"JSON library", "license_url":"https://opensource.org/licenses/MIT", "third_party":true}
+,
+{"name":"libmnl", "version":"1.0.4", "copyright":"Pablo Neira Ayuso", "description":"Minimalistic Netlink communication library", "license_url":"https://netfilter.org/about.html#license", "third_party":true}
+,
+{"name":"openssl", "version":"1.1.1b", "copyright":"1998-2019 The OpenSSL project", "description":"Cryptography library", "license_url":"https://www.openssl.org/source/license.html", "third_party":true}
+,
+{"name":"rapidjson", "version":"1.1.0", "copyright":"2015 THL A29 Limited", "description":"JSON C++ library", "license_url":"https://github.com/Tencent/rapidjson/blob/version1.1.0/license.txt", "third_party":true}
+,
+{"name":"zlib", "version":"1.2.7", "copyright":"1995-2017 Jean-loup Gailly and Mark Adler", "description":"Data compression library", "license_url":"https://www.zlib.net/zlib_license.html", "third_party":true}
+]}

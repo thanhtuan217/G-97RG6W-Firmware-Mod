@@ -1,0 +1,8 @@
+0x0000 sys_fpt.cfg rg_fpt.xml
+0x0018 sys_hmx.cfg rg_hmx.xml
+0x0016 sys_brazilunknow.cfg rg_brazilunknow.xml
+0x000f sys_ugt.cfg rg_ugt.xml
+0x001a sys_pldt.cfg rg_pldt.xml
+0x0021 sys_ultrawave.cfg rg_ultrawave.xml
+0x00ff sys_oversea.cfg rg_general.xml
+

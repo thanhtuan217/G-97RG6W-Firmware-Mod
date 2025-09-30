@@ -1,0 +1,99 @@
+[
+    [
+        "harmful_title",
+        "Skadelig nettsted blokkert"
+    ],
+    [
+        "harmful_heading",
+        "SENSE har blokkert dette nettstedet for å beskytte deg"
+    ],
+    [
+        "harmful_details",
+        "<br><br>Vi har oppdaget at dette nettstedet er skadelig og kan forsøke å stjele din personlige informasjon eller overføre skadelig programvare til enheten du bruker til surfing.<br>Vi anbefaler på det sterkeste at du ikke besøker dette nettstedet."
+    ],
+    [
+        "denied_title",
+        "Nettsted forbudt"
+    ],
+
+    [
+        "denied_heading",
+        "Nettsted forbudt"
+    ],
+    [
+        "denied_details",
+        "<br><br>Administratoren har forbudt tilgang til dette nettstedet."
+    ],
+    [
+        "continue_button",
+        "Opphev blokkering av dette nettstedet i én time"
+    ],
+    [
+        "back_button",
+        "Gå tilbake"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "Den manglende biten i det tilkoblede hjemmet"
+    ],
+    [
+        "agent_heading",
+        "F‑Secure SENSE-ruteren beskytter nå denne enheten."
+    ],
+    [
+        "agent_details",
+        "Vær enda bedre sikret! Vi anbefaler at du installerer SENSE-appen på denne enheten<br>for <a data-tooltip=\"Det er bokstavelig talt tusenvis av virus og utnyttere som skader Windows-systemet, og nye lages hver eneste dag. SENSE-appen er alltid oppdatert med den nyeste beskyttelsen og vil blokkere skadelig kode før den utføres på enheten din - inn og ut av SENSE-nettverket\" class=\"tooltip\">maksimal beskyttelse</a> mot trusler fra Internett."
+    ],
+    [
+        "agent_install",
+        "Last ned SENSE for Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Ikke vis dette igjen"
+    ],
+    [
+        "agent_postpone",
+        "Hopp over og fortsett til nettstedet"
+    ],
+    [
+        "time_title",
+        "Det er stengetid"
+    ],
+    [
+        "time_heading",
+        "Tiden din på nettet er ute nå; det er på tide å pusse tenner!"
+    ],
+    [
+        "time_details",
+        "Du får tilgang til internettet igjen i morgen"
+    ],
+    [
+        "device_title",
+        "Internett-tilgangen er blokkert!"
+    ],
+    [
+        "device_heading",
+        "Internett-tilgangen er blokkert!"
+    ],
+    [
+        "device_details",
+        "Adminstratoren av hjemmenettverket har blokkert internett-tilgangen til denne enheten."
+    ],
+    [
+        "parental_title",
+        "Nettstedet er blokkert"
+    ],
+    [
+        "parental_heading",
+        "Nettstedet er blokkert!"
+    ],
+    [
+        "parental_details",
+        "Familieregler har blokkert denne nettstedskategorien"
+    ]
+]

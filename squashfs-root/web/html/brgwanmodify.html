@@ -1,0 +1,295 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var wancount = "0";
+var wanConfig = new Array();
+
+<% BrgWanMdf_GetConfig(); %>
+
+function docheckValue()
+{
+    var wannametmp = $("#wan_name").val();
+    if ((0 == wannametmp.length) || (false == isValidName(wannametmp)) )
+    {
+        alert(WebString.wan_brg_alert);
+        return false;
+    }
+}
+
+function WebDoSubmit()
+{
+    if (false == docheckValue())
+    {
+        return;
+    }
+    $("#XForm").submit();
+}
+
+function WebInit()
+{
+    var i = 0; 
+    
+    var page="brgwanmodify";
+    $("#XWebPageName").val(page);
+    $("#XForm").attr("action", "/GponForm/" + page + "_XForm");
+    
+    for (i = 0; i < wancount; i++) 
+    {
+        if (wanConfig[i].wanIndex == top.modifyindex)
+        {
+            break;
+        }
+    }
+    //alert("mdfidx="+top.modifyindex+" i="+i);
+    
+    if (wanConfig[i].serv_inet == '0') {
+        $("#wan_bind_service_internet").removeAttr("checked");
+    } else {
+        $("#wan_bind_service_internet").attr("checked", "checked");
+    }
+    
+    if (wanConfig[i].serv_iptv == '0') {
+        $("#wan_bind_service_iptv").removeAttr("checked");
+    } else {
+        $("#wan_bind_service_iptv").attr("checked", "checked");
+    }
+    
+    if (wanConfig[i].vlanEnable == '1') {
+        $("#wan_vlan_enable_select").attr("checked", "checked");
+    } else {
+        $("#wan_vlan_enable_select").removeAttr("checked");
+    }
+    //alert(wanConfig[i].wanName)
+    $("#wan_vlan").val(wanConfig[i].vlanid);
+    $("#wan_priority").val(wanConfig[i].vlanpid);
+    $("#wan_name").val(wanConfig[i].wanName);
+}
+
+$(document).ready(function () {
+    $("#btn_apply").click(function(){
+        var wanpri = $("#wan_priority").val();
+        if (parseInt(wanpri) < 0 || parseInt(wanpri) > 7)
+        {
+            alert(XbrgString[28]);
+            return;
+        }
+        var wanvlan = $("#wan_vlan").val();
+        if (parseInt(wanvlan) < 1 || parseInt(wanvlan) > 4094)
+        {
+            alert(XbrgString[29]);
+            return;
+        }
+        $("#btn_type").val("apply");
+        $("#wan_idx").val(top.modifyindex);
+        XDoSubmit();
+    });
+    
+    $("#del_btn").click(function(){
+        $("#btn_type").val("delete");
+        $("#wan_idx").val(top.modifyindex);
+        XDoSubmit();
+    });
+});
+
+//]]>
+</script>
+<script type="text/javascript"> 
+
+function device_select()
+{
+    var form = document.access;
+    //alert(form.device_selection_select.selectedIndex);
+    document.getElementById("wifi_show").style.display = "none";
+    document.getElementById("lan_show").style.display = "none";
+
+}
+
+function selectMode(mode) {
+    document.getElementById('vlan_enable_show').style.display='none';
+    document.getElementById('vlan_vid_show').style.display='none';
+    document.getElementById('vlan_pbit_show').style.display='none';
+    if(mode == "vlan")
+    {
+        document.getElementById('vlan_enable_show').style.display='';
+        document.getElementById('vlan_vid_show').style.display='';
+        document.getElementById('vlan_pbit_show').style.display='';
+    }
+  
+}
+
+function onBody()
+{
+device_select();
+}
+</script>
+
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p>
+        <strong>
+            <script>document.write(XbrgString[8]);</script>
+        </strong>
+    </p>
+    <table>
+        <tr>
+            <td width="200">
+                <script>document.write(XbrgString[9]);</script>
+            </td>
+            <td>
+                <select name="isp_wan_device" id="isp_wan_device" onchange="device_select();">
+                    <option>
+                        <script>document.write(XbrgString[10]);</script>
+                    </option>
+                </select>
+                <td>
+        </tr>
+        <!--tr id="vlan_show">
+            <td width="200">
+                <script>document.write(XbrgString[11]);</script>
+            </td>
+            <td>
+                <select name="vlan_mode" id="vlan_mode" onchange="selectMode(this.options[this.selectedIndex].value);">
+                    <option selected="selected" value="vlan">
+                        <script>document.write(XbrgString[12]);</script>
+                    </option>
+                    <option value="untag">
+                        <script>document.write(XbrgString[13]);</script>
+                    </option>
+                </select>
+            </td>
+        </tr-->
+        <tr id="wan_bind_service">
+            <td width="200">
+                <script>document.write(XbrgString[14]);</script>
+            </td>
+            <td>
+                <input name="wan_bind_service_internet" type="checkbox" id="wan_bind_service_internet" value="on"
+                checked="checked" />
+                    <script>document.write(XbrgString[15]);</script>
+                <input name="wan_bind_service_iptv" type="checkbox" id="wan_bind_service_iptv" value="on" />
+                    <script>document.write(XbrgString[16]);</script>
+            </td>
+        </tr>
+        <tr id="vlan_enable_show">
+            <td width="200">
+                <script>document.write(XbrgString[17]);</script>
+            </td>
+            <td>
+                <input name="wan_vlan_enable_select" type="checkbox" id="wan_vlan_enable_select"  value="on"/>
+            </td>
+        </tr>
+        <tr id="vlan_vid_show">
+            <td width="200">
+                <script>document.write(XbrgString[18]);</script>
+            </td>
+            <td colspan="2">
+                <input id="wan_vlan" name="wan_vlan" type="text" size="35"  maxlength="4" />
+            </td>
+        </tr>
+        <tr id="vlan_pbit_show">
+            <td width="200">
+                <script>document.write(XbrgString[19]);</script>
+            </td>
+            <td colspan="2">
+                <input id="wan_priority" name="wan_priority" type="text" size="35"  maxlength="1" />
+            </td>
+        </tr>
+        <tr>
+            <td width="200">
+                <script>document.write(XbrgString[20]);</script>
+            </td>
+            <td colspan="2">
+                <input id="wan_name" name="wan_name" type="text" size="35"  maxlength="32" />
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="cfgstep">
+    <p>
+        <strong>
+            2.
+            <script>
+                document.write(WebString.stepApply);
+            </script>
+        </strong>
+    </p>
+    <a href="brg.html" class="btn" id="btn_apply">
+        <script>
+            document.write(WebString.Apply);
+        </script>
+    </a>
+    &nbsp;
+    <a href="brg.html" class="btn" id="del_btn">
+        <script>
+            document.write(WebString.Delete);
+        </script>
+    </a>
+    <input id="btn_type" name="btn_type" type="hidden" value="" />
+    <input id="wan_idx" name="wan_idx" type="hidden" value="" />
+</div>
+<div class="cfglist">
+    <table>
+        <tr>
+            <th colspan="3" class="tableTitle">
+                <script>document.write(XbrgString[21]);</script>
+            </th>
+        </tr>
+        <tr>
+            <th><script>document.write(XbrgString[20]);</script></th>
+            <th>
+                <script>document.write(XbrgString[22]);</script>
+            </th>
+            <th>
+                <script>document.write(XbrgString[23]);</script>
+            </th>
+        </tr>
+        <script>
+        var i;
+        for (i = 0; i < wancount; i++)
+        {
+            document.write("<tr>");
+            ///////////WAN Connection ///////////
+            var index=wanConfig[i].wanIndex;
+            var idx = parseInt(index)+1;
+            var mode = "B";
+            if ('0' == wanConfig[i].is_bridge)
+            {
+                mode = "R";
+            }
+            var service = parseInt(wanConfig[i].service);
+            var serv = "_";
+            if (service & 0x4)
+                serv = serv + "INTERNET_";
+            if (service & 0x2)
+                serv = serv + "TR069_";
+            if (service & 0x1)
+                serv = serv + "VOIP_";
+            if (service & 0x8)
+                serv = serv + "IPTV_";
+            var vlan = wanConfig[i].vlanid;
+            if((wanConfig[i].vlan_en == 0)&&(vlan == 0))
+                var name = idx.toString() + serv + mode + '_VID_' ;
+            else
+                var name = idx.toString() + serv + mode + '_VID_'+ vlan;
+            document.write("<td>"+name+"</td>");
+            ///////////WAN Name ///////////
+            document.write("<td>"+wanConfig[i].wanName+"</td>");
+            ///////////WAN Connection Mode ///////////
+            var conMode = "Bridge";
+            if ('0' == wanConfig[i].is_bridge)
+            {
+                conMode = "Route";
+            }
+            document.write("<td>"+conMode+"</td>");
+
+            document.write("</tr>");
+        }
+        </script>
+    </table>
+</div> 
+
+<% PrintTemplate3(); %>

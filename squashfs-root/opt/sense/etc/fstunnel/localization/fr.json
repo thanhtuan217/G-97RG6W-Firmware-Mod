@@ -1,0 +1,99 @@
+[
+    [
+        "harmful_title",
+        "Site Web dangereux bloqué"
+    ],
+    [
+        "harmful_heading",
+        "Afin de vous protéger, SENSE a bloqué ce site Web"
+    ],
+    [
+        "harmful_details",
+        "<br><br>Nous avons détecté que ce site est dangereux et peut tenter de voler vos informations personnelles ou d'infecter l'appareil depuis lequel vous naviguez.<br>Nous vous recommandons fortement de ne pas le consulter."
+    ],
+    [
+        "denied_title",
+        "Site Web refusé"
+    ],
+
+    [
+        "denied_heading",
+        "Site Web refusé"
+    ],
+    [
+        "denied_details",
+        "<br><br>L'accès à ce site Web a été refusé par l'administrateur du réseau."
+    ],
+    [
+        "continue_button",
+        "Débloquer ce site Web pendant une heure"
+    ],
+    [
+        "back_button",
+        "Retour"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "Le chaînon manquant de votre domicile connecté"
+    ],
+    [
+        "agent_heading",
+        "Le routeur F‑Secure SENSE protège désormais cet appareil."
+    ],
+    [
+        "agent_details",
+        "Profitez d'une sécurité encore améliorée. Nous vous recommandons d'installer l'application SENSE sur cet appareil<br>pour une <a data-tooltip=\"Il existe littéralement des milliers de virus et d'exploits dans les systèmes Windows, et de nouveaux sont créés chaque jour. L'application SENSE offre une protection constamment mise à jour et empêche l'exécution de code malveillant sur votre appareil, aussi bien sur le réseau SENSE qu'en dehors\" class=\"tooltip\">protection maximale</a> contre les menaces sur Internet."
+    ],
+    [
+        "agent_install",
+        "Télécharger SENSE pour Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Ne plus afficher"
+    ],
+    [
+        "agent_postpone",
+        "Ignorer et continuer vers le site Web"
+    ],
+    [
+        "time_title",
+        "Limite de temps atteinte"
+    ],
+    [
+        "time_heading",
+        "Vous avez atteint votre limite de temps en ligne pour aujourd'hui. Il est l'heure d'aller se brosser les dents !"
+    ],
+    [
+        "time_details",
+        "Vous pourrez vous reconnecter demain matin."
+    ],
+    [
+        "device_title",
+        "Accès Internet bloqué !"
+    ],
+    [
+        "device_heading",
+        "Accès Internet bloqué !"
+    ],
+    [
+        "device_details",
+        "L'administrateur de votre réseau domestique a bloqué l'accès à Internet sur cet appareil."
+    ],
+    [
+        "parental_title",
+        "Site Web bloqué"
+    ],
+    [
+        "parental_heading",
+        "Site Web bloqué !"
+    ],
+    [
+        "parental_details",
+        "Cette catégorie de site Web est bloquée par l'accompagnement parental."
+    ]
+]

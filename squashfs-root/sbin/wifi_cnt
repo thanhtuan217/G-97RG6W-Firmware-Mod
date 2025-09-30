@@ -1,0 +1,13 @@
+#!/bin/sh
+if [ $# -ne 1 ]; then
+    echo "Usage:"
+    echo "    `basename $0` [WLAN_IF]"
+    exit
+fi
+if [ ! -e /proc/$1 ];then
+    echo "$1 is ivalid WLAN interface"
+else
+    cat /proc/$1/ap_info
+    echo 0 > /proc/$1/ap_info
+    echo 0 > /proc/$1/stats
+fi

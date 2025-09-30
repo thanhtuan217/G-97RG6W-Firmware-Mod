@@ -1,0 +1,108 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var sys_log = [];
+var write_level = 4;
+var read_level = 4;
+
+<% syslog_GetConfig(); %>
+
+function freshlog()
+{
+	$.each(sys_log,function(wid,wel){
+		$("#sys_log").append("<tr><td width='15%'>" + wel.log_Date + "</td><td width='13%'>"  + wel.log_time + "</td><td width='18%'>" + log_level[wel.log_level] + "</td><td width='20%'>" + wel.log_system + "</td><td width='34%'>" + wel.log_data + "</td></tr>");
+	});
+	if(sys_log.length > 8)
+		$("#div_log").height(400);
+}
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	if(write_level < 8)
+		$("#write_level").val(write_level);
+	if(read_level < 8)
+		$("#read_level").val(read_level);
+
+	freshlog();
+	WebStepIndex();
+}
+
+$(document).ready(function () {
+	$("#btn_log").click(function(){
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS1"></td>
+			<td>
+				<select name="write_level" id="write_level">
+					<option value="0" id="XS9"></option>
+					<option value="1" id="XS10"></option>
+					<option value="2" id="XS11"></option>
+					<option value="3" id="XS12"></option>
+					<option value="4" id="XS13"></option>
+					<option value="5" id="XS14"></option>
+					<option value="6" id="XS15"></option>
+					<option value="7" id="XS16"></option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS2"></td>
+			<td>
+				<select name="read_level" id="read_level">
+					<option value="0" id="XS17"></option>
+					<option value="1" id="XS18"></option>
+					<option value="2" id="XS19"></option>
+					<option value="3" id="XS20"></option>
+					<option value="4" id="XS21"></option>
+					<option value="5" id="XS22"></option>
+					<option value="6" id="XS23"></option>
+					<option value="7" id="XS24"></option>
+				</select>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_log" class="btn apply_btn" href="#"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<div class="cfglist">
+	<table>
+		<tr>
+			<th colspan="5" id="XS3" class="tableTitle"></th>	
+		</tr>
+		<tr>
+			<th id="XS4" width="15%"></th>
+			<th id="XS5" width="13%"></th>
+			<th id="XS6" width="18%"></th>
+			<th id="XS7" width="20%"></th>
+			<th id="XS8" width="34%"></th>
+		</tr>
+	</table>
+	<div id="div_log" style="overflow-y:auto;">
+	<table id="sys_log">
+	</table>
+	</div>
+</div>
+
+<% PrintTemplate3(); %>

@@ -1,0 +1,120 @@
+<% PrintTemplate1(); %>
+<script type="text/javascript" src="script/json2.js"></script>
+<style type="text/css">
+
+</style>
+
+<script type="text/javascript">
+
+var page="wifilist";
+var wifi_dev = new Array();
+
+function FreshTable()
+{
+	var TR = "";
+
+	TR += "<table id='wifilistTable' class='mlist'>";
+	TR += '<tr>';
+	TR += '<th colspan="5" style="text-align:center">'+XwifilistString[1]+'</th>\n';
+	TR += '</tr>\n';
+	TR += '<tr>\n';
+	TR += '<th>'+XwifilistString[2]+'</th>\n';
+	TR += '<th>'+XwifilistString[3]+'</th>\n';
+	TR += '<th>'+XwifilistString[4]+'</th>\n';
+	TR += '<th>'+XwifilistString[5]+'</th>\n';
+	TR += '<th>'+XwifilistString[6]+'</th>\n';
+	TR += '</tr>\n';
+
+	if(wifi_dev.length == 0)
+	{
+		TR += '</table>\n';
+	}
+    else
+    {
+        var i;
+        for (i = 0; i < wifi_dev.length; i++)
+        {
+            var signal_level;
+            var signal = parseInt(wifi_dev[i].signal);
+            if (signal < -80)
+            {
+                signal_level = XwifilistString[7];
+            }
+            else if (signal < -60)
+            {
+                signal_level = XwifilistString[8];
+            }
+            else
+            {
+                signal_level = XwifilistString[9];
+            }
+            TR += "<tr>";
+            TR += '<td>' + wifi_dev[i].hostname + '<\/td>';
+            TR += "<td>" + wifi_dev[i].ip + "<\/td>";
+            TR += "<td>" + wifi_dev[i].mac + "<\/td>";
+            TR += "<td>" + wifi_dev[i].signal + "dBm" + "<\/td>";
+            TR += "<td>" + signal_level + "<\/td>";
+            TR += "<\/tr>";
+        }
+        TR += '</table>\n';
+    }
+
+	$("#wifi_list_div").html(TR);
+	$("#wifi_list_div").show();
+}
+
+function refresh_wifilist()
+{
+    var xmlhttp_refresh;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp_refresh=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp_refresh=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp_refresh.onreadystatechange=function()
+    {
+        if (xmlhttp_refresh.readyState==4 && xmlhttp_refresh.status==200)
+        {
+         		//alert(xmlhttp_refresh.responseText);
+            if(xmlhttp_refresh.responseText == null) {
+                wifi_dev = [];
+            }else {
+                var buffer = JSON.parse(xmlhttp_refresh.responseText)
+                wifi_dev = buffer;
+            }
+            
+            FreshTable(); 
+        }
+    }
+    xmlhttp_refresh.open("POST","/GponForm/wifilist_GetWiFiList",true);
+    xmlhttp_refresh.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp_refresh.send("XWebPageName="+page);
+}
+
+function WebInit() 
+{
+}
+
+$(document).ready(function (){
+
+	$("#btn_test").click(function() {
+		refresh_wifilist();
+	});
+
+});
+
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p><strong><script>document.write(XwifilistString[0]);</script></strong></p>
+    <a id="btn_test" class="btn apply_btn" href="#">
+        <script>document.write(WebString.TTest);</script>
+    </a>
+</div>
+
+<div id="wifi_list_div" class="cfglist" style="display:none"></div>
+<% PrintTemplate3(); %>

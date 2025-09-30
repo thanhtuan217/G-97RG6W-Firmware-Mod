@@ -1,0 +1,78 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var vlanInfo = new Array();
+var vlancount = 0;
+
+<% VLAN_Get_Info(); %>
+
+function showVlanTable()
+{
+    var port = 0;
+    for (i = 0; i < vlancount; i++)
+    {
+        port = parseInt(vlanInfo[i].port);
+        if (port > 25)
+        {
+            port = port - 25;
+            $("#post_list").append("<tr><td>"+ port + "<\/td><td>" + vlanInfo[i].univlan +
+                "<\/td><td>" + vlanInfo[i].unipri + "<\/td><td>" + vlanInfo[i].anivlan +
+                "<\/td><td>" + vlanInfo[i].anipri + "<\/td><td>" + vlanInfo[i].op + "<\/td><\/tr>");
+        }
+        else
+        {
+            $("#eth_list").append("<tr><td>"+ port + "<\/td><td>" + vlanInfo[i].univlan +
+                "<\/td><td>" + vlanInfo[i].unipri + "<\/td><td>" + vlanInfo[i].anivlan +
+                "<\/td><td>" + vlanInfo[i].anipri + "<\/td><td>" + vlanInfo[i].op + "<\/td><\/tr>");
+        }
+    }
+
+    WebStyleCommonList();
+}
+
+function WebInit()
+{
+    showVlanTable();
+    //WebStepIndex();
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+
+<div class="cfgstep">
+    <p><strong id="XS0"></strong></p>
+<table id="eth_list" class="commonlist">
+    <tr>
+        <th id="XS1"></th>
+        <th id="XS2"></th>
+        <th id="XS3"></th>
+        <th id="XS4"></th>
+        <th id="XS5"></th>
+        <th id="XS6"></th>
+    </tr>
+</table>
+</div>
+<div class="cfgstep">
+<table id="pots_list" class="commonlist">
+    <tr>
+        <th id="XS7"></th>
+        <th id="XS8"></th>
+        <th id="XS9"></th>
+        <th id="XS10"></th>
+        <th id="XS11"></th>
+        <th id="XS12"></th>
+    </tr>
+</table> 
+
+</div>
+
+<div class="cfgstep">
+    <a id="btn_refresh" class="btn" href="vlaninfo.html"><script type="text/javascript">document.write(WebString.Refresh);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

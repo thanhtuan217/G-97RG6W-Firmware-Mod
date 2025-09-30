@@ -1,0 +1,99 @@
+[
+    [
+        "harmful_title",
+        "Schadelijke website geblokkeerd"
+    ],
+    [
+        "harmful_heading",
+        "Voor uw bescherming heeft SENSE deze website geblokkeerd"
+    ],
+    [
+        "harmful_details",
+        "<br><br>We hebben vastgesteld dat deze site schadelijk is en mogelijk zal proberen uw persoonlijke gegevens te stelen of malware te installeren op het apparaat dat u gebruikt voor browsen.<br>We raden u ten strengste aan deze site niet te bezoeken."
+    ],
+    [
+        "denied_title",
+        "Website geweigerd"
+    ],
+
+    [
+        "denied_heading",
+        "Website geweigerd"
+    ],
+    [
+        "denied_details",
+        "<br><br>Toegang tot deze website is geweigerd door de netwerkbeheerder."
+    ],
+    [
+        "continue_button",
+        "Deze website deblokkeren voor één uur"
+    ],
+    [
+        "back_button",
+        "Ga terug"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "Het ontbrekende onderdeel in uw verbonden huis"
+    ],
+    [
+        "agent_heading",
+        "De F‑Secure SENSE-router beveiligt nu dit apparaat."
+    ],
+    [
+        "agent_details",
+        "Nog meer beveiliging. We raden u aan de SENSE-app te installeren op dit apparaat<br>voor <a data-tooltip=\"Er zijn letterlijk duizende virussen en aanvallen die het Windows-systeem beschadigen en elke dag komen hier nieuwe bij. De SENSE-app is altijd up-to-date met de nieuwste beveiligingen en zorgt dat schadelijke code niet kan worden uitgevoerd: binnen of buiten uw SENSE-netwerk\" class=\"tooltip\">maximale bescherming</a> tegen internetdreigingen."
+    ],
+    [
+        "agent_install",
+        "SENSE downloaden voor Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Dit nooit meer weergeven"
+    ],
+    [
+        "agent_postpone",
+        "Overslaan en doorgaan naar uw website"
+    ],
+    [
+        "time_title",
+        "Maximale tijd bereikt"
+    ],
+    [
+        "time_heading",
+        "U hebt uw onlinelimiet bereikt. Tijd om uw tanden te poetsen!"
+    ],
+    [
+        "time_details",
+        "U hebt morgen weer toegang tot internet"
+    ],
+    [
+        "device_title",
+        "Internettoegang is geblokkeerd."
+    ],
+    [
+        "device_heading",
+        "Internettoegang is geblokkeerd."
+    ],
+    [
+        "device_details",
+        "Uw thuisnetwerkbeheerder heeft de internettoegang voor dit apparaat geblokkeerd."
+    ],
+    [
+        "parental_title",
+        "Website is geblokkeerd"
+    ],
+    [
+        "parental_heading",
+        "Website is geblokkeerd."
+    ],
+    [
+        "parental_details",
+        "Deze websitecategorie is geblokkeerd door Gezinsregels"
+    ]
+]

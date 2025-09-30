@@ -1,0 +1,98 @@
+[
+    [
+        "harmful_title",
+        "Hi FPT - Fsecure - Browsing protection (HTTP)"
+    ],
+    [
+        "harmful_heading",
+        "You shouldn’t surf here"
+    ],
+    [
+        "harmful_details",
+        "We have listed this website as a malicious website.<br /> If you are the contract owner, please use the Hi FPT app to install through <b>“Protection Settings“</b>."
+    ],
+    [
+        "denied_title",
+        "Hi FPT - Fsecure - Blacklist"
+    ],
+    [
+        "denied_heading",
+        "Website blocked"
+    ],
+    [
+        "denied_details",
+        "Website is on the blocked list. Please contact the Contract owner to unblock this website.<br />If you are the contract owner, please use the Hi FPT app to install through <b>“Protection Settings“</b>."
+    ],
+    [
+        "time_title",
+        "Hi FPT - Fsecure - Internet Break"
+    ],
+    [
+        "time_heading",
+        "Internet Break"
+    ],
+    [
+        "time_details",
+        "Internet access is temporarily disconnected. Contact the Contract owner to open Internet access.<br />If you are the contract owner, please use the Hi FPT app to install through <b>“Protection Settings“</b>."
+    ],
+    [
+        "parental_title",
+        "Hi FPT - Fsecure - Content filtering"
+    ],
+    [
+        "parental_heading",
+        "Website blocked"
+    ],
+    [
+        "parental_details",
+        "Website blocked due to content violation. Please contact the Contract owner to add this website to the <b> allow sites.</b><br />If you are the contract owner, please use the Hi FPT app to install through <b>“Protection Settings“</b>."
+    ],
+    [
+        "device_title",
+        "Hi FPT - Fsecure - Internet Break"
+    ],
+    [
+        "device_heading",
+        "Internet Break"
+    ],
+    [
+        "device_details",
+        "Internet access is temporarily disconnected. Contact the Contract owner to open Internet access."
+    ],
+    [
+        "continue_button",
+        "Unblock this website for one hour"
+    ],
+    [
+        "back_button",
+        "Go back"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "The missing piece of your connected home"
+    ],
+    [
+        "agent_heading",
+        "The F‑Secure SENSE router is now protecting this device."
+    ],
+    [
+        "agent_details",
+        "Be even more secure! We recommend that you install the SENSE app on this device<br>for <a data-tooltip=\"There are literally thousands of viruses and exploits marring the Windows system and new ones are created every day. SENSE app is always up-to-date with latest protections and will block malicious code from being executed in your device - in and out of SENSE network\" class=\"tooltip\">maximum protection</a> against Internet threats."
+    ],
+    [
+        "agent_install",
+        "Download SENSE for Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Never show this again"
+    ],
+    [
+        "agent_postpone",
+        "Skip and continue to your website"
+    ]
+]

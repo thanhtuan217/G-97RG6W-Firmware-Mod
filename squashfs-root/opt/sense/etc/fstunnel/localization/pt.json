@@ -1,0 +1,99 @@
+[
+    [
+        "harmful_title",
+        "Website nocivo bloqueado"
+    ],
+    [
+        "harmful_heading",
+        "Para protegê-lo, SENSE bloqueou este website"
+    ],
+    [
+        "harmful_details",
+        "<br><br>Concluímos que este website é nocivo e pode tentar furtar as suas informações pessoais ou infetar o dispositivo que utiliza para navegação.<br>Recomendamos vivamente que não visite este website."
+    ],
+    [
+        "denied_title",
+        "Website recusado"
+    ],
+
+    [
+        "denied_heading",
+        "Website recusado"
+    ],
+    [
+        "denied_details",
+        "<br><br>O acesso a este website foi recusado pelo administrador de rede."
+    ],
+    [
+        "continue_button",
+        "Desbloquear este website durante uma hora"
+    ],
+    [
+        "back_button",
+        "Voltar"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "A peça que falta na sua casa ligada"
+    ],
+    [
+        "agent_heading",
+        "O router F‑Secure SENSE está a proteger este dispositivo agora."
+    ],
+    [
+        "agent_details",
+        "Fique ainda mais seguro! Recomendamos que instale a aplicação SENSE neste dispositivo <br>for <a data-tooltip=\"Existem literalmente milhares de vírus e exploits que comprometem o sistema Windows e são criadas novas ameaças todos os dias. A aplicação SENSE está sempre atualizada com as proteções mais recentes e irá bloquear código malicioso para impedir a sua execução no dispositivo - dentro e fora da rede SENSE \" class=\"tooltip\">proteção máxima</a> contra ameaças na Internet."
+    ],
+    [
+        "agent_install",
+        "Transferir SENSE para Windows"
+    ],
+    [
+        "agent_dontshow",
+        "Não mostrar novamente"
+    ],
+    [
+        "agent_postpone",
+        "Ignorar e continuar para o website"
+    ],
+    [
+        "time_title",
+        "Tempo limite atingido"
+    ],
+    [
+        "time_heading",
+        "O seu tempo online terminou por agora, é hora de lavar os dentes!"
+    ],
+    [
+        "time_details",
+        "Pode aceder à Internet novamente amanhã de manhã"
+    ],
+    [
+        "device_title",
+        "O acesso à Internet foi bloqueado!"
+    ],
+    [
+        "device_heading",
+        "Acesso à Internet bloqueado!"
+    ],
+    [
+        "device_details",
+        "O administrador da sua rede doméstica bloqueou o acesso à Internet para este dispositivo."
+    ],
+    [
+        "parental_title",
+        "Website bloqueado"
+    ],
+    [
+        "parental_heading",
+        "Website bloqueado!"
+    ],
+    [
+        "parental_details",
+        "Esta categoria de websites foi bloqueada pelas Regras familiares"
+    ]
+]

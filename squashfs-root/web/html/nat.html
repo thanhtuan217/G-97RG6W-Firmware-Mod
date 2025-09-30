@@ -1,0 +1,52 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var nat_type = 2;
+
+<% NAT_GetConfig(); %>
+
+function WebInit()
+{
+	$("#nat_type").val(nat_type);
+	WebStepIndex();
+}
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+$(document).ready(function () {
+	$("#btn_apply").click(function() {
+        XDoSubmit();
+    });
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td id="XS1" width="200"></td>
+			<td><select name="nat_type" id="nat_type">
+				<option value="0" id="XS2"></option>
+				<option value="1" id="XS3"></option>
+				<option value="2" id="XS4"></option>
+				<option value="3" id="XS5"></option>
+				</select></td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong><script type="text/javascript">document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_apply" class="btn apply_btn" href="#"><script type="text/javascript">document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

@@ -1,0 +1,57 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+<% GetMirrorCfg(); %>
+
+function WebInit()
+{
+    if (eval("mirror") == '1')
+		$("#mirror_enable").attr("checked", true);
+	else
+		$("#mirror_disable").attr("checked", true);
+}
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+    if (eval("mirror") == '1')
+		$("#mirror_enable").attr("checked", true);
+	else
+		$("#mirror_disable").attr("checked", true);
+}
+$(document).ready(function () {
+	$("#btn_apply").click(function() {
+       XDoSubmit();
+    });
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <table>
+		<tr>
+            <td><p><strong id="XS0">mirror function</strong></p></td>
+            <td><input type="radio" name="mirror" id="mirror_enable" value="1"/><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+            <input type="radio" name="mirror" id="mirror_disable" value="0"/><script>document.write(WebString.Disable);</script></td>
+        </tr>
+	</table>
+    <table>
+		<tr>
+            <td><p><strong><script>document.write(WebString.stepApply);</script></strong></p></td>
+        </tr>
+        <tr>
+            <td><a id="btn_apply" class="btn apply_btn" href="#"><script>document.write(WebString.Apply);</script></a></td>
+        </tr>
+	</table>
+</div>
+
+<% PrintTemplate3(); %>

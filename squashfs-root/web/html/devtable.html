@@ -1,0 +1,79 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var LanDevStatus = 1;
+var lan_dev = new Array();
+
+<% LANDev_GetDevice(); %>
+
+function showDeviceList()
+{
+	var i;
+	for (i = 0; i < lan_dev.length; i++)
+	{
+		var conn_type;
+		if (1 == lan_dev[i].conn_type)
+		{
+			conn_type = XdevtableString[5];
+		}
+		else if ((2 == lan_dev[i].conn_type) || (3 == lan_dev[i].conn_type))
+		{
+			conn_type = XdevtableString[6];
+		}
+		else
+		{
+		    conn_type = XdevtableString[7];
+		}
+		str = "<tr>";
+		str += '<td style="word-break : break-all;">' + lan_dev[i].hostname + '<\/td>';
+		str += "<td>" + lan_dev[i].ip + "<\/td>";
+		str += "<td>" + lan_dev[i].mac + "<\/td>";
+		str += "<td>" + conn_type + "<\/td>";
+		str += "<td>" + lan_dev[i].uptime + XdevtableString[9] + "<\/td>";
+		str += "<\/tr>";
+		$("#device_list").append(str);
+	}
+	WebStyleCommonList();
+}
+
+function WebInit()
+{
+	showDeviceList();
+}
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+$(document).ready(function () {
+	$("#btn_refresh").click(function() {
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table id="device_list" class="commonlist">
+		<tr>
+			<th id="XS1"></th>
+			<th id="XS2"></th>
+			<th id="XS3"></th>
+			<th id="XS4"></th>
+			<th id="XS8"></th>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<a id="btn_refresh" class="btn" href="#"><script type="text/javascript">document.write(WebString.Refresh);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

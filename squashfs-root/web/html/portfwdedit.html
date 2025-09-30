@@ -1,0 +1,341 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript" src="script/port_forwarding.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+var portfwd_list = [];
+var lan_ip = "";
+var lan_mask = "";
+var lan_dev = new Array();
+
+var pwdindex = top.portfwdeditIdx;
+var wanIdx = top.wanIdx;
+
+<% PORTFWD_GetConfig(); %>
+<% BR0_GetConfig(); %>
+<% LANDev_GetDevice(); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").attr("action", "/GponForm/portfwdEdit_XForm");
+	$("#XForm").submit();
+}
+
+
+function WriteAppOrder()
+{
+	var app = '<select id="portfwd_sel" name="portfwd_sel" disabled="disabled" style="width:200px">\n';
+
+	app += '<option value="-1">' + WebString.customer_setting + '</option>\n';
+
+	$.each(apporder,function(aid,ael){
+		app += '<option value="' + aid + '">' + PortfwdApp[aid] + '</option>\n';
+	});
+		
+	app += '</select>\n';
+	$("#appod").html(app);
+}
+
+function WriteWanList()
+{
+	var sobj = '<select id="wan_conlist" name="wan_conlist">\n';
+	if (portfwd_list.length == 0)
+	{
+		sobj += '<option value="0">NO_WAN_Interface</option>\n';
+	}
+	else
+	{
+		$.each(portfwd_list,function(wid,wel){
+			sobj += '<option value="' + wel.wan_index + '">' + wel.wan_name + '</option>\n';
+		});
+	}
+	sobj += '</select>\n';
+	$("#wan_sel").html(sobj);
+}
+
+function SetApp()
+{
+	$("#viewrule").hide();
+	$("#portfwd_cfg").show();
+	var appid = $("#portfwd_sel").val();
+	if(appid != -1)
+	{
+		$("#manu_port").hide();
+		$("#wanstart_port").hide();
+		$("#wanend_port").hide();
+	    $("#protocolType").hide();
+	}
+    else
+    {
+        $("#manu_port").show();
+		$("#wanstart_port").show();
+		$("#wanend_port").show();
+	    $("#protocolType").show();
+    }
+}
+
+function EnableRemoteIp()
+{
+	$("#remip").hide();
+	if($("#enable").get(0).checked == true)
+		$("#remip").show();
+}
+
+function SetHost()
+{
+	var idx = $("#host_idx").val();
+	$("#manu_ip").show();
+	if($("#host_idx").val() != -1)
+	{
+		$("#manu_ip").hide();
+		$("#portfwd_lanip").val(lan_dev[idx].ip);
+	}
+}
+
+function WebInit()
+{
+	$("#content_title span").html(eval("DescString.portfwdedit"));
+	$("#XForm").attr("action", "/GponForm/portfwdEdit_XForm");
+	WebStepIndex();
+}
+
+$(document).ready(function(){
+
+	$("#remoteIp").hide();
+	WriteAppOrder();
+	SetApp();
+	WriteWanList();
+	//EnableRemoteIp();
+	
+	for(var i = 0; i < lan_dev.length; i++)
+	{
+		var tmp = "<option value='" + i + "'>" + lan_dev[i].hostname + " - " + lan_dev[i].ip + "</option>";
+		$("#host_idx").append(tmp);
+	}
+	
+	$("#portfwd_sel").change(function(){
+		SetApp();
+		WebStepIndex();
+	});
+	
+	$("#enable").change(function(){
+		EnableRemoteIp();
+	});
+	$("#disable").change(function(){
+		EnableRemoteIp();
+	});
+	
+	
+	$("#host_idx").change(function(){
+		SetHost();
+	});
+	
+	$("#app_back").click(function(){
+		$("#set_rule").show();
+		$("#portfwd_app").hide();
+		WebStepIndex();
+	});
+	
+	$("#btn_save").click(function(){
+        var wanid = $("#wan_conlist").get(0).selectedIndex;
+        var appid = $("#portfwd_sel").val();
+        var portfwd_lanip = $("#portfwd_lanip").val();
+		if(portfwd_list.length == 0)
+		{
+			alert(WebString.wan_not_exist_alert);
+			return false;
+		}
+		if(portfwd_lanip.length == 0)
+		{
+			alert(WebString.no_lanip);
+			return false;
+		}
+		if(isValidIpAddress(portfwd_lanip) == false)
+		{
+			alert(WebString.lan_ip_erro_alert);
+			return false;
+		}
+		if(isLansubIP(portfwd_lanip, lan_ip_0,lan_mask_0) == false)
+		{
+			if(pool_type == 0 || pool_type == 1)
+			{
+				alert(WebString.lan_ip_erro_alert);
+				return false;
+			}
+			else
+			{
+				if(isLansubIP(portfwd_lanip,lan_ip_1,lan_mask_1) == false)
+				{
+					alert(WebString.lan_ip_erro_alert);
+					return false;
+				}
+			}
+		}
+
+		if($("#portfwd_lanport").val() < 1 || $("#portfwd_lanport").val() > 65535)
+		{
+			alert(WebString.nat_lan_port_erro_alert);
+			return false;
+		}
+		if($("#portfwd_wanstart").val() < 1 || $("#portfwd_wanstart").val() > 65535)
+		{
+			alert(WebString.nat_wan_start_port_alert);
+			return false;
+		}
+		if($("#portfwd_wanend").val() < 1 || $("#portfwd_wanend").val() > 65535)
+		{
+			alert(WebString.nat_wan_end_port_alert);
+			return false;
+		}
+
+		if (appid == -1)
+		{
+			var flag = 0;
+			$.each(portfwd_list[wanid].mapping_list,function(tid,tel){
+                var wanps = tel.wan_port_start; 
+                var wanpe = tel.wan_port_end;
+                if (pwdindex != tid)
+                {
+                    if (($("#portfwd_wanstart").val() >= wanps && $("#portfwd_wanstart").val() <= wanpe) 
+                     || ($("#portfwd_wanend").val() >= wanps && $("#portfwd_wanend").val() <= wanpe))
+                    {
+                        flag = 1;
+                        alert(WebString.wan_port_overlap_alert);
+                        return false;
+                    }
+                    if(flag) return false;
+                }
+			});
+			if(flag) return false;
+		}
+        
+		$("#ruleidx").val(top.portfwdeditIdx);
+		$("#XForm").attr("action", "/GponForm/portfwdEdit_XForm");		
+		$("#XForm").submit();
+	});
+	var hostidx = top.host_idx;
+	$("#host_idx").val(hostidx);
+	set_select_val($("#host_idx"), hostidx);
+	var fwdsel = portfwd_list[wanIdx].mapping_list[pwdindex].apporder;
+    set_select_val($("#portfwd_sel"), fwdsel);
+    var lanip = portfwd_list[wanIdx].mapping_list[pwdindex].lan_ip;
+    $("#portfwd_lanip").val(lanip);
+	var lanport = portfwd_list[wanIdx].mapping_list[pwdindex].lan_port;
+	$("#portfwd_lanport").val(lanport);
+	var port1 =  portfwd_list[wanIdx].mapping_list[pwdindex].wan_port_start;
+	$("#portfwd_wanstart").val(port1);
+	var port2 =  portfwd_list[wanIdx].mapping_list[pwdindex].wan_port_end;
+	$("#portfwd_wanend").val(port2);
+	var protocol = portfwd_list[wanIdx].mapping_list[pwdindex].protocol;
+    set_select_val($("#protocol"), protocol);
+    SetApp();
+	WebStepIndex();
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<input id="ruleidx" name="ruleidx" type="hidden" />
+<input id="value" name="value" type="hidden" />
+<div id="set_rule">
+	<div class="cfgstep">
+		<p><strong id="XS33"></strong></p>
+		<table>
+			<tr>
+				<td width="200" id="XS1"></td>
+				<td>
+					<span id="appod"></span>
+				</td>
+			</tr>
+		</table>
+		
+		<table>
+			<tr>
+				<td width="200" id="XS3"></td>
+				<td>
+					<select name="host_idx" id="host_idx" style="width:220px">
+						<option id="XS4" value="-1"></option>
+					</select>
+					<input id="host_name" name="host_name" type="hidden" />
+				</td>
+			</tr>
+			<tr id="manu_ip">
+				<td width="200" id="XS5"></td>
+				<td>
+					<input name="portfwd_lanip" id="portfwd_lanip" type="text" maxlength="15" onkeypress="return OnKeyPress(event, X_INPUT_IP);" />
+				</td>
+			</tr>
+		</table>	
+		
+		<table>
+				<tr id="manu_port">
+					<td width="200" id="XS7"></td>
+					<td>
+						<input name="portfwd_lanport" id="portfwd_lanport" type="text" maxlength="5" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+					</td>
+				</tr>
+		</table>	
+		
+		<table id="protocolType">
+				<tr>
+					<td width="200" id="XS9"></td>
+					<td>
+						<select name="protocol" id="protocol">
+							<option value="1">TCP</option>
+							<option value="2">UDP</option>
+							<option value="3">Both</option>
+						</select>
+					</td>
+				</tr>
+		</table>		
+			
+		<table>
+				<tr id="wanstart_port">
+					<td width="200" id="XS11"></td>
+					<td>
+						<input name="portfwd_wanstart" id="portfwd_wanstart" type="text" maxlength="5" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+					</td>
+				</tr>
+				<tr id="wanend_port">
+					<td width="200" id="XS12"></td>
+					<td>
+						<input name="portfwd_wanend" id="portfwd_wanend" type="text" maxlength="5" size="6" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+					</td>
+				</tr>
+		</table>	
+			
+		<table id= "remoteIp">
+				<tr>
+					<td width="200" id="XS14"></td>
+					<td>
+						<input name="en_remote_ip" id="disable" type="radio" checked="checked"/><script>document.write(WebString.nat_all_ip);</script>&nbsp;&nbsp;
+						<input name="en_remote_ip" id="enable" type="radio" /><script>document.write(WebString.nat_def_ip);</script>
+					</td>
+				</tr>
+				<tr id="remip">
+					<td width="200" id="XS15"></td>
+					<td>
+						<input name="portfwd_remoteip" id="portfwd_remoteip" type="text" maxlength="15" onkeypress="return OnKeyPress(event, X_INPUT_IP);" />
+					</td>
+				</tr>
+		</table>
+		
+		<table>
+			<tr>
+				<td width="200" id="XS17"></td>
+				<td id="wan_sel"></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="cfgstep">
+		<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+		<a href="#" id="btn_save" class="btn"><script>document.write(WebString.Apply);</script></a>
+	</div>
+	
+</div>
+
+<% PrintTemplate3(); %>

@@ -1,0 +1,68 @@
+#!/bin/sh
+# The parameter specification:
+
+# 01). UNIT
+
+# shift
+# 01). User name
+# 02). Password
+# 03). Keepalive time
+######### 04). DNS Type, 0: Automatically get, 1: static
+# 04). AC Name
+# 05). MTU mode, 0: Auto, 1: Fix
+# 06). MTU size
+# 07). Conn mode, 0: On demand, 1: Always ON, 2: Manual
+# 08). Idle time
+# 09). Ethernet Interface
+
+UNIT=$1
+shift
+
+CONFIG_DIR=/tmp/ppp
+CONFIG=${CONFIG_DIR}/pppoe${UNIT}.conf
+CHAP=${CONFIG_DIR}/chap-secrets${UNIT}
+PAP=${CONFIG_DIR}/pap-secrets${UNIT}
+
+
+    mkdir -p ${CONFIG_DIR}
+
+    echo "UNIT=${UNIT}"		>  ${CONFIG}
+
+# Create the chap-secrets/pap-secrets
+    echo "\"$1\" * \"$2\"" > ${CHAP}
+    echo "\"$1\" * \"$2\"" > ${PAP}
+
+    echo "ETH=$9"               >> ${CONFIG}
+    echo "USER=\"$1\""              >> ${CONFIG}
+    echo "PASSWD=\"$2\""		>> ${CONFIG}
+    if test "$7" = "0" ; then
+        echo "DEMAND=$8"        >> ${CONFIG}
+    else
+    echo "DEMAND=no"            >> ${CONFIG}
+    fi
+    echo "DNSTYPE=SERVER"       >> ${CONFIG}
+#    echo "ACNAME=\"$4\""	>> ${CONFIG}
+    echo "PEERDNS=yes"          >> ${CONFIG}
+    echo "DNS1="                >> ${CONFIG}
+    echo "DNS2="                >> ${CONFIG}
+    echo "DEFAULTROUTE=no"     >> ${CONFIG}
+    echo "CONNECT_TIMEOUT=$3"   >> ${CONFIG}
+    echo "CONNECT_POLL=2"       >> ${CONFIG}
+    echo "SERVICENAME="         >> ${CONFIG}
+    echo "PING=\".\""           >> ${CONFIG}
+    echo "PIDFILE=\"/var/run/pppoe${UNIT}.pid\""     >> ${CONFIG}
+    echo "SYNCHRONOUS=no"       >> ${CONFIG}
+    echo "CLAMPMSS=1402"        >> ${CONFIG}
+    echo "MTU_MODE=$5"          >> ${CONFIG}
+    echo "MTU_SIZE=$6"          >> ${CONFIG}
+    echo "IDLE_TIME=$8"         >> ${CONFIG}
+    echo "LCP_INTERVAL=$3"      >> ${CONFIG}
+    echo "LCP_FAILURE=4"        >> ${CONFIG}
+    echo "PPPOE_TIMEOUT=80"     >> ${CONFIG}
+    echo "FIREWALL=NONE"        >> ${CONFIG}
+    echo "LINUX_PLUGIN=/usr/sbin/rp-pppoe.so"        >> ${CONFIG}
+    echo "PPPOE_EXTRA=\"\""     >> ${CONFIG}
+    echo "PPPD_EXTRA=\"\""      >> ${CONFIG}
+    echo "RETRY_ON_FAILURE=yes" >> ${CONFIG}
+ #   echo "RETRY_TIMES=$11" >> ${CONFIG}
+

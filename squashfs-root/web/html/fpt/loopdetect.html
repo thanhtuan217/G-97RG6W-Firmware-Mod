@@ -1,0 +1,95 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+
+<script type="text/javascript">
+var lpenable="";
+var alarmMask = 0;
+var lan_num = 0;
+
+<% LoopDetect_GetConfig(); %>
+//<![CDATA[
+
+function FreshTable()
+{
+	var TR = "";
+	TR += '<table width="60%" id="loopDetectTable" class="x_table">\n';
+	TR += '<tr>\n';
+	TR += '<th>' + XloopdetectString[3] + '</th>\n';
+	TR += '<th>' + XloopdetectString[4] + '</th>\n';
+	TR += '</tr>\n';
+	
+	for (var i = 0; i < lan_num; i++)
+	{
+		var tdc = "x_td1";
+		var sta = (parseInt(alarmMask)&(1<<i))?"True":"False";
+		if (i&1)
+		{
+			tdc = "x_td2";
+		}
+
+		TR += '<tr>\n';
+		TR += '<td class="' + tdc + '">' + parseInt(i + 1) + '</td>\n';
+		TR += '<td class="' + tdc + '">' + sta + '</td>\n';
+		TR += '</tr>\n';
+	}
+	TR += '</table>\n';
+	$("#loopDetectTableContainer").html(TR);
+}
+
+function WebInit()
+{
+	WebStepIndex();
+	if(lpenable == "1")
+	{
+		$("#lpdenable1").attr("checked", true);
+	}	
+	else
+	{
+		$("#lpdenable0").attr("checked", true);
+	}
+	FreshTable();
+}
+
+function WebDoSubmit()
+{
+	//cgi code:web_diag.c
+	$("#XForm").submit();
+}
+
+$(document).ready(function () {
+	$("#btn_apply").click(function(){
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p><strong id="XS0"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS1"></td>
+            <td><input type="radio" name="lpdenable" id="lpdenable1" value="1" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+                <input type="radio" name="lpdenable" id="lpdenable0" value="0" checked/><script>document.write(WebString.Disable);</script>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="cfgstep">
+	<p><strong id="XS2"></strong></p>
+	<div id="loopDetectTableContainer" >
+	</div> 
+</div>
+
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_apply" class="btn apply_btn" href="#"><script>document.write(WebString.Apply);</script></a>
+  <a id="btn_refresh" class="btn" href="loopdetect.html"><script type="text/javascript">document.write(WebString.Refresh);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

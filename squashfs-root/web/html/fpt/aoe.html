@@ -1,0 +1,77 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+
+<script type="text/javascript">
+var aoe_enable = 0;
+var lol_enable = 0;
+
+<% aoe_XGetConfig(); %>
+//<![CDATA[
+
+function WebInit()
+{
+	WebStepIndex();
+    if(aoe_enable == 1)
+    {
+        $("#aoe_on").attr("checked", true);
+    }
+    else
+    {
+        $("#aoe_off").attr("checked", true);
+    }
+
+    if(lol_enable == 1)
+    {
+        $("#lol_on").attr("checked", true);
+    }
+    else
+    {
+        $("#lol_off").attr("checked", true);
+    }
+}
+
+function WebDoSubmit()
+{
+    $("#XForm").submit();
+}
+
+$(document).ready(function () {
+	$("#btn_apply").click(function(){
+        WebDoSubmit();
+	});
+});
+
+//]]>
+</script>
+
+<% PrintTemplate2(); %>
+<div class="cfgstep">
+    <p><strong id="XS0"></strong></p>
+    <table>
+		<tr>
+	        <td width="200" id="XS1"></td>
+	        <td><input name="aoe_value" id="aoe_on" type="radio" value="1" checked="checked" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+	        	<input name="aoe_value" id="aoe_off" type="radio" value="0" /><script>document.write(WebString.Disable);</script>
+	        </td>
+	    </tr>
+	</table>
+</div>  
+
+<div class="cfgstep">
+    <p><strong id="XS2"></strong></p>
+    <table>
+		<tr>
+	        <td width="200" id="XS3"></td>
+	        <td><input name="lol_value" id="lol_on" type="radio" value="1" checked="checked" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+	        	<input name="lol_value" id="lol_off" type="radio" value="0" /><script>document.write(WebString.Disable);</script>
+	        </td>
+	    </tr>
+	</table>
+</div>  
+
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a href="#" id="btn_apply" class="btn"><script>document.write(WebString.Apply);</script></a>
+</div>
+<% PrintTemplate3(); %>

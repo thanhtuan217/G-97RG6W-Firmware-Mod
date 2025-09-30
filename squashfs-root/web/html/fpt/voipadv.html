@@ -1,0 +1,271 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var pots1_codec = new Array;
+var pots2_codec = new Array;
+
+<% VOIP_GetSIPConfig("voipadv"); %>
+<% VOIP_GetMediaConfig("voipadv"); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	WebStepIndex();
+}
+
+$(document).ready(function(){
+	$("#sig_dscp_mark").val(sig_dscp_mark);
+	$("#medi_dscp_mark").val(rtp_dscpmark);
+	
+	$("#echo_cancel_1").get(0).checked = (parseInt(echo_cancel_1) == 1)?true:false;
+	$("#echo_cancel_2").get(0).checked = (parseInt(echo_cancel_2) == 1)?true:false;
+	$("#tx_gain_1").val(tx_gain_1);
+	$("#tx_gain_2").val(tx_gain_2);
+	$("#rx_gain_1").val(rx_gain_1);
+	$("#rx_gain_2").val(rx_gain_2);
+	
+	$("#vad_1").val(vad_1);
+	$("#vad_2").val(vad_2);
+	$("#pack_interval_1").val(pack_interval_1);
+	$("#pack_interval_2").val(pack_interval_2);
+	
+	$("#lcfo").val(lcfo);
+	$("#pr_on_callee").val(pr_on_callee);
+	$("#hook_min").val(sip_hook_timer_min);
+	$("#hook_max").val(sip_hook_timer_max);
+	$("#caller_id_format").val(caller_id_format);
+	if(POTS_NUM > 1)
+	{
+		$("#pots_2").show();
+	}
+	else
+	{
+		$("#pots_2").hide();
+	}
+	$("#btn_apply").click(function(){
+		if($("#sig_dscp_mark").val() > 63 || $("#sig_dscp_mark").val() < 0)
+		{
+			alert(WebString.sip_dscp);
+			return false;
+		}
+		if($("#medi_dscp_mark").val() > 63 || $("#medi_dscp_mark").val() < 0)
+		{
+			alert(WebString.media_dscp);
+			return false;
+		}
+		if(parseInt($("#hook_min").val()) < 0 || parseInt($("#hook_min").val()) > 2000)
+		{
+			alert(WebString.hook_min);
+			return false;
+		}
+		if(parseInt($("#hook_max").val()) < 0 ||parseInt($("#hook_max").val()) > 2000)
+		{
+			alert(WebString.hook_max);
+			return false;
+		}
+		if(parseInt($("#hook_min").val()) > parseInt($("#hook_max").val()))
+		{
+			alert(WebString.hook_min_max);
+			return false;
+		}
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<td width="200">
+			<ul style="font-weight:bold" ><script>document.write(WebString.pots_if);</script></ul>
+			<ul style="padding-top:10px" id="XS4"></ul>
+			<ul style="padding-top:10px" id="XS5"></ul>
+			<ul style="padding-top:10px" id="XS6"></ul>
+			<ul style="padding-top:10px" id="XS7"></ul>
+			<ul style="padding-top:10px" id="XS8"></ul>
+		</td>
+		<td width="200" id="pots_1">
+			<ul style="font-weight:bold"><script>document.write(WebString.pots1);</script></ul>
+			<ul style="padding-top:10px">
+				<input id="echo_cancel_1" name="echo_cancel_1" type="checkbox" />
+			</ul>		
+			<ul style="padding-top:10px">
+				<select name="tx_gain_1" id="tx_gain_1">
+					<option value="0" selected="selected">0 </option>
+					<option value="-10">-1 </option>
+					<option value="-20">-2 </option>
+					<option value="-30">-3 </option>
+					<option value="-40">-4 </option>
+					<option value="-50">-5 </option>
+					<option value="-60">-6 </option>
+					<option value="-70">-7 </option>
+					<option value="-80">-8 </option>
+					<option value="-90">-9 </option>
+					<option value="-100">-10 </option>
+				</select>
+			</ul>
+			<ul style="padding-top:10px">
+				<select name="rx_gain_1" id="rx_gain_1">
+					<option value="0" selected="selected">0 </option>
+					<option value="-10">-1 </option>
+					<option value="-20">-2 </option>
+					<option value="-30">-3 </option>
+					<option value="-40">-4 </option>
+					<option value="-50">-5 </option>
+					<option value="-60">-6 </option>
+					<option value="-70">-7 </option>
+					<option value="-80">-8 </option>
+					<option value="-90">-9 </option>
+					<option value="-100">-10 </option>
+				</select>
+			</ul style="padding-top:10px">
+			<ul style="padding-top:10px">
+				<select name="vad_1" id="vad_1">
+					<option value="1" selected="selected"><script>document.write(WebString.Enable);</script></option>
+					<option value="0"><script>document.write(WebString.Disable);</script></option>
+				</select>
+			</ul>
+			<ul style="padding-top:10px">
+				<select name="pack_interval_1" id="pack_interval_1">
+					<option value="10">10ms </option>
+					<option value="20" selected="selected">20ms </option>
+					<option value="30">30ms </option>
+					<option value="40">40ms </option>
+				</select>
+			</ul>
+		</td>
+		
+		<td width="200" id="pots_2">
+			<ul style="font-weight:bold;"><script>document.write(WebString.pots2);</script></ul>
+			<ul style="padding-top:10px">
+				<input id="echo_cancel_2" name="echo_cancel_2" type="checkbox" />
+			</ul>
+			<ul style="padding-top:10px">
+				<select name="tx_gain_2" id="tx_gain_2">
+					<option value="0" selected="selected">0 </option>
+					<option value="-10">-1 </option>
+					<option value="-20">-2 </option>
+					<option value="-30">-3 </option>
+					<option value="-40">-4 </option>
+					<option value="-50">-5 </option>
+					<option value="-60">-6 </option>
+					<option value="-70">-7 </option>
+					<option value="-80">-8 </option>
+					<option value="-90">-9 </option>
+					<option value="-100">-10 </option>
+				</select>
+			</ul>	
+			<ul style="padding-top:10px">
+				<select name="rx_gain_2" id="rx_gain_2">
+					<option value="0" selected="selected">0 </option>
+					<option value="-10">-1 </option>
+					<option value="-20">-2 </option>
+					<option value="-30">-3 </option>
+					<option value="-40">-4 </option>
+					<option value="-50">-5 </option>
+					<option value="-60">-6 </option>
+					<option value="-70">-7 </option>
+					<option value="-80">-8 </option>
+					<option value="-90">-9 </option>
+					<option value="-100">-10 </option>
+				</select>
+			</ul>		
+			<ul style="padding-top:10px">
+				<select name="vad_2" id="vad_2">
+					<option value="1" selected="selected"><script>document.write(WebString.Enable);</script></option>
+					<option value="0"><script>document.write(WebString.Disable);</script></option>
+				</select>
+			</ul>
+			<ul style="padding-top:10px">
+				<select name="pack_interval_2" id="pack_interval_2">
+					<option value="10">10ms </option>
+					<option value="20" selected="selected">20ms </option>
+					<option value="30">30ms </option>
+					<option value="40">40ms </option>
+				</select>
+			</ul>
+		</td>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong id="XS1"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS9"></td>
+			<td>
+				<select name="lcfo" id="lcfo">
+					<option value="1" selected="selected"><script>document.write(WebString.Enable);</script></option>
+					<option value="0"><script>document.write(WebString.Disable);</script></option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS10"></td>
+			<td>
+				<select name="pr_on_callee" id="pr_on_callee">
+					<option value="1" selected="selected"><script>document.write(WebString.Enable);</script></option>
+					<option value="0"><script>document.write(WebString.Disable);</script></option>
+					<option value="2" id="XS3"></option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS11"></td>
+			<td>
+				<input id="hook_min" name="hook_min" maxlength="3" size="6" type="text" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS12"></td>
+			<td>
+				<input id="hook_max" name="hook_max" maxlength="4" size="6" type="text" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS13"></td>
+			<td>
+				<select name="caller_id_format" id="caller_id_format">
+					<option value="3">FSK </option>
+					<option value="4">DTMF </option>
+					<option value="2">Telcordia </option>
+				</select>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep" style="display: none">
+	<p><strong id="XS2"></strong></p>
+	<table>
+		<tr>
+			<td width="200" id="XS14"></td>
+			<td>
+				<input id="sig_dscp_mark" name="sig_dscp_mark" maxlength="2" size="6" type="text" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200" id="XS15"></td>
+			<td>
+				<input id="medi_dscp_mark" name="medi_dscp_mark" maxlength="2" size="6" type="text" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></p>
+	<a href="#" id="btn_apply" class="btn"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

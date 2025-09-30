@@ -1,0 +1,77 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+//init data started
+var ipv6firewallEnable = 0;
+//init data end
+
+//data from web server started
+<% ipv6firewall_GetConfig(); %>
+//data from web server end
+
+//Client contents started
+
+function showIgmpEnable(en)
+{
+	if(en)
+	{
+		$("#ipv6firewallEnable1").attr("checked", "checked");
+	}
+	else
+	{
+		$("#ipv6firewallEnable0").attr("checked", "checked");
+	}
+}
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+//---------------init value--------------------
+function WebInit()
+{
+	showIgmpEnable(ipv6firewallEnable);
+
+	WebStepIndex();
+}
+
+//-------------setup triger--------------------
+$(document).ready(function(){
+
+	$("#ip6FireallApply").click(function(){
+		WebDoSubmit();
+	});
+	
+});
+
+//client contents ended
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+		<div class="cfgstep">
+			<p><strong id="XS0"></strong></p>
+			<table>
+				<tr >
+					<td width="200" id="XS1"></td>
+						<td>
+							<input name="ipv6firewallEnable" id="ipv6firewallEnable1" type="radio" value="1"/>
+							<label for="ipv6firewallEnable1" id="XS2"></label>
+							<input name="ipv6firewallEnable" id="ipv6firewallEnable0" type="radio" value="0"/>
+							<label for="ipv6firewallEnable0" id="XS3"></label>
+						</td>
+				</tr>
+			</table>
+		</div>
+		<div class="cfgstep">
+			<p><strong id="XS4"></strong></p>
+			<a href="#" id="ip6FireallApply" class="btn apply_btn"><script type="text/javascript">
+						document.write(Xipv6firewallString[5]);</script></a>
+		</div>
+		
+<% PrintTemplate3(); %>

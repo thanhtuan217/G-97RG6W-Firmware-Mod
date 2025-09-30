@@ -1,0 +1,360 @@
+#
+#	Dimark Sample Client TR-098 configuraiton file
+#
+#
+#	(C) Copyright 2006, 2007 Dimark Technologies, Inc.
+#	All Rights Reserved.
+#	Use is subject to license terms
+#
+#	This File is a sample configuraiton File that does not
+#	integrate into any backend systems.
+#
+#	The parameters in this file define the TR-098 based
+#	Baseline:1 profile
+#
+#	This sample provides a complete instance 0 object reference.
+#	While not all of those objects can actually be created by the
+#	ACS, this allows simple cut/paste/edit operations to enhance
+#	the configuration as desired.
+#
+#	This file can form the basis of building any Gateway Device.
+#
+# The form of every line is difined by the below type definition:
+# <PATH>;<TYPE>;<INSTANCE>;<NOTIFICATION>;<MAXNOTIFICATION>;<REBOOT>;<INITIDX>;<GETIDX>;<SETIDX>;<ACCESSLIST>;<DEFAULT VALUE>
+#
+#
+InternetGatewayDevice.;98;0;0;1;1;-1;-1;-1;;
+#
+InternetGatewayDevice.DeviceSummary;6;0;3;2;1;-1;0;-1;;InternetGatewayDevice:1.1[](Baseline:1, EthernetLAN:1, WiFiLAN:1)
+#
+#	InternetGatewayDeviceInfo object ; index range 2000 ~ 2100
+#
+InternetGatewayDevice.DeviceInfo.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.DeviceInfo.SpecVersion;6;0;3;0;3;-1;0;-1;;1.0
+InternetGatewayDevice.DeviceInfo.HardwareVersion;6;0;3;2;1;-1;0;-1;;V1.0
+InternetGatewayDevice.DeviceInfo.SoftwareVersion;6;0;3;2;1;-1;0;-1;;Navigator 1-1_V2.0
+InternetGatewayDevice.DeviceInfo.Manufacturer;6;0;0;2;1;-1;0;-1;;ASB
+InternetGatewayDevice.DeviceInfo.ManufacturerOUI;6;0;0;2;1;-1;0;-1;;00085c
+InternetGatewayDevice.DeviceInfo.ProductClass;6;0;0;2;1;-1;0;-1;;RG100E-AB
+InternetGatewayDevice.DeviceInfo.SerialNumber;6;0;0;2;1;-1;0;-1;;71200001FA3C7AB42
+InternetGatewayDevice.DeviceInfo.ProvisioningCode;6;0;3;2;1;1;1;1;;
+#
+#	VendorConfigFile ; index range 2100 ~ 2200
+#
+
+#
+# MemoryStatus parameters; TR-181 Issue 2 Amendment 2.htm; index range 2200 ~ 2300
+#
+
+#
+# ProcessStatus parameters; TR-181 Issue 2 Amendment 2.htm; index range 2300 ~ 2400
+#
+
+#
+#	InternetGatewayDevice.Config
+#
+
+#
+#	Management Server; index range 3000 ~ 3950
+#
+InternetGatewayDevice.ManagementServer.;98;0;0;1;1;-1;-1;-1;;
+InternetGatewayDevice.ManagementServer.URL;6;0;0;2;1;1;1;3002;;0.0.0.0
+InternetGatewayDevice.ManagementServer.Username;6;0;0;2;1;1;1;3003;;hgw
+InternetGatewayDevice.ManagementServer.Password;6;0;0;2;1;1;-1;3004;;hgw
+InternetGatewayDevice.ManagementServer.PeriodicInformEnable;18;0;0;2;1;1;1;3005;;1
+InternetGatewayDevice.ManagementServer.PeriodicInformInterval;9;0;0;2;1;1;1;3006;;60
+InternetGatewayDevice.ManagementServer.PeriodicInformTime;11;0;0;2;1;1;1;1;;
+InternetGatewayDevice.ManagementServer.ConnectionRequestURL;6;0;3;2;1;-1;0;-1;;0.0.0.0
+InternetGatewayDevice.ManagementServer.ConnectionRequestUsername;6;0;0;2;1;1;1;3009;;itms
+InternetGatewayDevice.ManagementServer.ConnectionRequestPassword;6;0;0;2;1;1;-1;3010;;itms
+InternetGatewayDevice.ManagementServer.ParameterKey;6;0;3;1;1;-1;0;-1;;
+
+#
+#	UserInterface; index range 3950 ~ 4000
+#
+InternetGatewayDevice.UserInterface;98;0;0;0;1;-1;-1;-1;;
+#
+#	RemoteAccess
+#
+
+#
+#	Layer3Forwarding; index range 5000 ~ 6000
+#
+
+#
+#	QueueManagement; index range 7000 ~ 7100
+#
+
+#
+#	QueueManagement.Classification; index range 7100 ~ 7200
+#
+
+#
+#	QueueManagement.Queue; index range 7200 ~ 7300
+#
+
+#
+#	LANconfigSecurity
+#
+
+#
+#	LANDevice.{i}
+#
+#
+#
+#	This definition is for a static LANDevice table. In order
+#	to define a dynamic table the entries need to be changed and
+#	an instance 0 has to be defined as blueprint for future objects.
+#
+InternetGatewayDevice.LANDevice.;98;0;0;1;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.;98;0;1;1;1;1;1;1;;
+#
+#	LANDevice.{i}.LANHostConfigManagement ; index range 9100 ~ 9150
+#
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.MACAddress;6;0;0;2;1;1;9101;-1;;
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPServerEnable;18;0;0;2;1;1;1;9103;;0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.MinAddress;6;0;0;2;1;1;1;9104;;192.168.0.100
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.MaxAddress;6;0;0;2;1;1;1;9105;;192.168.30.254
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.SubnetMask;6;0;0;2;1;1;1;9106;;255.255.255.0
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DNSServers;6;0;0;2;1;1;1;9107;;192.168.0.1,192.168.0.2
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DomainName;6;0;0;2;1;1;1;9108;;brg.com
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DHCPLeaseTime;7;0;0;2;1;1;1;9109;;86400
+#
+#	LANDevice.{i}.LANHostConfigManagement.IPInterface.{i}. ; index range 9150 ~ 9160
+#
+InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterfaceNumberOfEntries;9;0;0;2;1;-1;0;-1;;2
+#
+#	LANDevice.{i}.LANHostConfigManagement.DHCPConditionalServingPool.{i}. ; index range 9160 ~ 9180
+#
+
+#
+#	LANDevice.{i}.Hosts ; index range 9200 ~ 9220
+#
+
+#
+#	LANDevice.{i}.LANEthernetInterfaceConfig.{i} ; index range 9220 ~ 9240
+#
+
+#
+#	LANDevice.{i}.LANEthernetInterfaceConfig.{i}.Stats ; index range 9250 ~ 9260
+#
+
+#
+#	LANDevice.{i}.LANUSBInterfaceConfig.{i}
+#
+
+#
+#	LANDevice.{i}.LANUSBInterfaceConfig.{i}.Stats
+#
+
+#
+#	LANDevice.{i}.WLANConfiguration.{i} ; index range 10000 ~ 11000
+#
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.;97;0;0;1;1;10090;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Enable;115;0;2;2;1;1;1;10000;;1
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Status;103;0;0;2;1;1;10062;-1;;Up
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BSSID;103;0;2;2;1;1;10058;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.X_Huawei_RadioIndex;103;0;0;2;1;1;1;1;;WLAN2.4GHZ
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Channel;106;0;0;2;1;1;1;10002;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.SSID;103;0;2;2;1;1;1;10004;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconType;103;0;2;2;1;1;1;10005;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.MACAddressControlEnabled;115;0;0;2;1;1;1;10006;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.Standard;103;0;0;2;1;-1;0;-1;;n
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RegulatoryDomain;103;0;0;2;1;1;1;10023;;CN
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKeyIndex;106;0;0;2;1;-1;0;-1;;1
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicAuthenticationMode;103;0;0;2;1;1;1;10010;;None
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BasicEncryptionModes;103;0;0;0;1;1;1;1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAEncryptionModes;103;0;0;2;1;1;1;10011;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WPAAuthenticationMode;103;0;0;2;1;1;1;10012;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iEncryptionModes;103;0;0;2;1;1;1;10019;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.IEEE11iAuthenticationMode;103;0;0;2;1;1;1;10020;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleChannels;103;0;0;2;1;-1;0;-1;;1-14
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PossibleDataTransmitRates;103;0;0;2;1;-1;0;-1;;1,2,5.5,11,6,9,12,18,24,36,48,54,6.5,7.2,13,14.4,19.5,21.7,26,28.9,39,43.3,52,57.8,58.5,65,72.2,78,86.7,104,115.6,117,130,144.4,156,173.3,175.5,195,216.7,13.5,15,27,30,40.5,45,60,81,90,108,120,121.5,135,150,162,180,216,240,243,270,300,324,360,364.5,405,450
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.BeaconAdvertisementEnabled;115;0;0;2;1;1;1;10016;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.RadioEnabled;115;0;0;2;1;1;1;10021;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.ChannelsInUse;103;0;0;2;1;1;10059;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesSent;106;0;0;2;1;1;10051;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalBytesReceived;106;0;0;2;1;1;10052;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsSent;106;0;0;2;1;1;10053;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalPacketsReceived;106;0;0;2;1;1;10054;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.TotalAssociations;106;0;0;0;1;1;10061;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.1.WEPKey;103;0;0;2;1;1;-1;10030;;1111111111
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.2.WEPKey;103;0;0;2;1;1;-1;10030;;1111111111
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.3.WEPKey;103;0;0;2;1;1;-1;10030;;1111111111
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPKey.4.WEPKey;103;0;0;2;1;1;-1;10030;;1111111111
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.;98;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.;98;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.PreSharedKey;103;0;0;2;1;1;1;10040;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.KeyPassphrase;103;0;0;2;1;1;-1;10041;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.PreSharedKey.1.AssociatedDeviceMACAddress;103;0;0;2;1;1;-1;10042;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.;99;0;0;1;1;1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.;97;0;0;1;1;1;1;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceMACAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.AssociatedDevice.0.AssociatedDeviceIPAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.LANDevice.1.WLANConfiguration.0.WEPEncryptionLevel;103;0;0;2;1;-1;10063;-1;;40-bit
+#
+#	InternetGatewayDevice.LANInterfaces. ; index range 11000 ~ 12000
+#
+
+#
+#	WANDevice.{i}.; index range 12000 ~ 14000
+#
+InternetGatewayDevice.WANDevice.;98;0;0;1;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.;98;0;0;1;1;-1;0;-1;;
+#
+#	WANDevice.{i}.WANCommonInterfaceConfig.; index range 12100 ~ 12200
+#
+
+#
+#	WANDevice.{i}.WANEthernetInterfaceConfig.; index range 12500 ~ 12600
+#
+
+#
+#	WANDevice.{i}.WANConnectionDevice.{i}.; index range 13000 ~ 14000
+#
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.;97;0;0;1;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnectionNumberOfEntries;106;0;0;2;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnectionNumberOfEntries;106;0;0;2;1;-1;0;-1;;0
+#
+#	WANDevice.{i}.WANIPConnectionDevice.{i}.WANIPConnection.{i}.
+#
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.;97;0;0;1;1;13100;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Enable;115;0;0;2;1;1;1;13101;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.ConnectionStatus;103;0;0;2;1;-1;0;-1;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PossibleConnectionTypes;103;0;0;0;1;-1;0;-1;;Unconfigured,IP_Routed,IP_Bridged
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.ConnectionType;103;0;0;2;1;1;1;13102;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.Name;103;0;0;2;1;1;1;13120;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.NATEnabled;115;0;0;2;1;1;1;13103;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.AddressingType;103;0;0;2;1;1;1;13104;;DHCP
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.ExternalIPAddress;103;0;0;2;1;1;1;13105;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.SubnetMask;103;0;0;2;1;1;1;13106;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DefaultGateway;103;0;0;2;1;1;1;13107;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DNSOverrideAllowed;115;0;0;2;1;1;1;13109;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DNSServers;103;0;0;2;1;1;1;13110;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.MaxMTUSize;106;0;0;2;1;1;1;13111;;1540
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.MACAddress;103;0;0;2;1;1;1;13113;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMappingNumberOfEntries;106;0;0;2;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_Huawei_ServiceList;103;0;0;2;1;1;1;13116;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_Huawei_VLANEnable;115;0;0;2;1;1;1;13117;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_Huawei_VLANID;106;0;0;2;1;1;1;13118;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.X_Huawei_802_1p;106;0;0;2;1;1;1;13119;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.;97;0;1;1;1;13130;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.PortMappingEnabled;115;0;0;2;1;1;1;13131;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.RemoteHost;103;0;0;2;1;1;1;13134;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.ExternalPort;106;0;0;2;1;1;1;13135;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.ExternalPortEndRange;106;0;0;2;1;1;1;13136;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.InternalPort;106;0;0;2;1;1;1;13137;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.PortMappingProtocol;103;0;0;2;1;1;1;13138;;TCP
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.InternalClient;103;0;0;2;1;1;1;13139;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.PortMapping.0.PortMappingDescription;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.;98;0;0;2;1;-1;-1;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOptionNumberOfEntries;106;0;0;1;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOptionNumberOfEntries;106;0;0;1;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.;97;0;0;1;1;13210;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.Enable;115;0;0;2;1;1;1;13211;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.Tag;106;0;0;2;1;1;1;13214;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.SentDHCPOption.0.Value;109;0;0;2;1;1;1;13215;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.;97;0;0;1;1;13210;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Enable;115;0;0;2;1;1;1;13211;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Alias;103;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Order;106;0;0;2;1;1;1;13213;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Tag;106;0;0;2;1;1;1;13214;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANIPConnection.0.DHCPClient.ReqDHCPOption.0.Value;109;0;0;2;1;-1;0;-1;;
+#
+#	WANDevice.{i}.WANConnectionDevice.{i}.WANPPPConnection.{i}
+#
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.;99;0;0;2;1;1;-1;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.;97;0;1;1;-1;13099;-1;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Enable;115;0;0;2;1;1;1;13101;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.ConnectionStatus;103;0;0;2;1;-1;0;-1;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PossibleConnectionTypes;103;0;0;0;1;-1;0;-1;;Unconfigured,IP_Routed,DHCP_Spoofed,PPPoE_Bridged,PPPoE_Relay,PPTP_Relay,L2TP_Relay
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.ConnectionType;103;0;0;2;1;1;1;13102;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Name;103;0;0;2;1;1;1;13120;;Unconfigured
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.NATEnabled;115;0;0;2;1;1;1;13103;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Username;103;0;0;2;1;1;1;13121;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.Password;103;0;0;2;1;1;-1;13122;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.ExternalIPAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.RemoteIPAddress;103;0;0;2;1;-1;0;-1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.MaxMRUSize;106;0;0;2;1;1;1;13112;;1540
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.CurrentMRUSize;106;0;0;2;1;-1;0;-1;;1540
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.DNSOverrideAllowed;115;0;0;2;1;1;1;13109;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.DNSServers;103;0;0;2;1;1;1;13110;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.MACAddress;103;0;0;2;1;1;1;13113;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.TransportType;103;0;0;2;1;-1;0;-1;;PPPoE
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PPPLCPEcho;106;0;0;2;1;-1;0;-1;;30
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PPPLCPEchoRetry;106;0;0;2;1;-1;0;-1;;4
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMappingNumberOfEntries;106;0;0;2;1;-1;0;-1;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_Huawei_ServiceList;103;0;0;2;1;1;1;13116;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_Huawei_VLANEnable;115;0;0;2;1;1;1;13117;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_Huawei_VLANID;106;0;0;2;1;1;1;13118;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.X_Huawei_802_1p;106;0;0;2;1;1;1;13119;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.;99;0;0;2;1;1;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.;97;0;1;1;1;13130;1;1;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.PortMappingEnabled;115;0;0;2;1;1;1;13131;;0
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.RemoteHost;103;0;0;2;1;1;1;13134;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.ExternalPort;106;0;0;2;1;1;1;13135;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.InternalPort;106;0;0;2;1;1;1;13137;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.PortMappingProtocol;103;0;0;2;1;1;1;13138;;TCP
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.InternalClient;103;0;0;2;1;1;1;13139;;
+InternetGatewayDevice.WANDevice.1.WANConnectionDevice.0.WANPPPConnection.0.PortMapping.0.PortMappingDescription;103;0;0;2;1;1;1;1;;
+#
+#	VLAN
+#
+
+#
+#	Time.; index range 4000 ~ 5000
+#
+
+
+#
+#	IPPingDiagnostics.; index range 8000 ~ 9000
+#
+
+#
+#	UPnP.Device.; index range 14000 ~ 15000
+#
+
+#
+#	VoiceService; index range 15000 ~ 15100
+#
+
+#	
+#	VoiceService.{i}.VoiceProfile.{i}.X_CIG_H248; index rang 15100 ~ 15200
+#
+
+#	
+#	X_CIG_Digimap; index range 15200 ~ 15300
+#
+
+#	
+#	VoiceService.{i}.VoiceProfile.{i}.SIP; index range 15300 ~ 15400
+#
+
+#	
+#	VoiceService.{i}.VoiceProfile.{i}.RTP; index range 15400 ~ 15500
+#
+
+#	
+#	VoiceService.{i}.VoiceProfile.{i}.FaxT38; index range 15500 ~ 15600
+#
+
+#	
+# 	VoiceService.{i}.VoiceProfile.{i}.Line; index range 15600 ~ 15900
+#
+
+#	
+#	VoiceService.{i}.PhyInterface; index range 15900 ~ 16000
+#

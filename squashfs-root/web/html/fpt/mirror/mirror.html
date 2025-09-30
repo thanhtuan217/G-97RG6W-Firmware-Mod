@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8" dir="ltr">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+<script language="Javascript" src="../script/jquery.js" type="text/javascript"></script>
+<script language="Javascript" src="../script/common.js" type="text/javascript"></script>
+<script language="Javascript" src="../script/menu.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript" src="../script/lang_en.js"></script>
+<link href="../style/ont.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+<% GetMirrorCfg(); %>
+
+function WebInit()
+{
+    if (eval("mirror") == '1')
+		$("#mirror_enable").attr("checked", true);
+	else
+		$("#mirror_disable").attr("checked", true);
+}
+
+function XDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+$(document).ready(function () {
+	$("#btn_apply").click(function() {
+       XDoSubmit();
+    });
+});
+
+//]]>
+</script>
+</head>
+<body onload="WebInit();">
+<form id="GForm" name="GForm" method="post" action="/GponForm/LogoutForm">
+</form>
+
+<form id="XForm" name="XForm" method="post" action="/GponForm/mirror_XForm">
+	<input id="XWebPageName" name="XWebPageName" type="hidden" value="mirror/mirror" />
+<div id="wrapper">
+	<div id="header">
+		<h1><a id="logo"><img src="../images/logo.png"></a></h1>
+		<div id="header_right">
+			<table>
+			<tbody>
+			<tr>
+				<td><h2 id="device_name">Home Gateway</h2>
+					<a id="btn_logout" class="btn" href="#">
+					<script type="text/javascript">document.write(WebString.Logout);</script></a>
+				</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+
+		<ul id="main_menu" style="width: 425px; padding-left: 32px; padding-right: 32px;">
+			<li id="mm7" class="m1_support">
+				<a class="selected" href="../mirror/mirror.html"><span>Support Console</span></a>
+			</li>
+		</ul>
+</div>
+	
+<div id="content_left">
+	<ul id="sub_menu" class="sub_menu">
+	<li id="mirror">
+		<a class="selected" href="../mirror/mirror.html">Mirror</a>
+	</li>
+	<li id="devinfo">
+		<a class="" href="../devinfo.html">Device Status</a>
+	</li>
+	</ul>
+</div>
+<div id="content_right">
+<h1 id="content_title"></h1>
+<div id="cfgarea">
+
+<div class="cfgstep">
+    <table>
+		<tr>
+            <td><p><strong id="XS1">mirror function</strong></p></td>
+            <td><input type="radio" name="mirror" id="mirror_enable" value="1"/><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+            <input type="radio" name="mirror" id="mirror_disable" value="0"/><script>document.write(WebString.Disable);</script></td>
+        </tr>
+	</table>
+    <table>
+		<tr>
+            <td><p><strong><script>document.write(WebString.stepApply);</script></strong></p></td>
+        </tr>
+        <tr>
+            <td><a id="btn_apply" class="btn apply_btn" href="#"><script>document.write(WebString.Apply);</script></a></td>
+        </tr>
+	</table>
+</div>
+
+</div>
+</div>
+<div id="footer"></div>
+</div>
+</form>
+</body>
+</html>

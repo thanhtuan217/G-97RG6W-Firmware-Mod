@@ -1,0 +1,110 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var Inform = "0";
+var InformInterval = "43200";
+var AcsURL = "";
+var AcsUser = "";
+var AcsPwd = "";
+var ConnReqUser = "";
+var ConnReqPwd = "";
+
+<% TR069_GetConfig(); %>
+
+function doInformEn()
+{
+	var enable = $("#inform0").attr("checked");
+	if (enable == "checked") {
+		$("#inform_interval").show();
+	} else {
+		$("#inform_interval").hide();
+	}
+}
+
+function WebInit()
+{
+	$("#acsurl").val(AcsURL);
+	$("#acsuser").val(AcsUser);
+	$("#acspwd").val(AcsPwd);
+	$("#connrequser").val(ConnReqUser);
+	$("#connreqpwd").val(ConnReqPwd);
+	$("#informinterval").val(InformInterval);
+	if (Inform == '1')
+		$("#inform0").attr("checked", true);
+	else
+		$("#inform1").attr("checked", true);
+		
+	doInformEn();
+	WebStepIndex();
+}
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+$(document).ready(function () {
+	$("input").css("ime-mode","disabled");
+	$("input[name='inform']").click(function() {
+        doInformEn();
+    });
+	$("#btn_apply").click(function() {
+        XDoSubmit();
+    });
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+   		
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+		<tr>
+			<td id="XS1" width="200"></td>
+			<td><input type="radio" name="inform" id="inform0" value="1" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+				<input type="radio" name="inform" id="inform1" value="0" /><script>document.write(WebString.Disable);</script></td>
+		</tr>
+		<tr id="inform_interval">
+			<td id="XS2" width="200"></td>
+			<td><input type="text" name="informinterval" id="informinterval" maxlength="5" size="6" style="ime-mode: disabled;" onkeypress="return OnKeyPress(event, X_INPUT_NUM);" />
+				<script>document.write(WebString.seconds);</script></td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong id="XS3"></strong></p>
+	<table>
+		<tr>
+			<td id="XS4" width="200"></td>
+			<td><input type="text" name="acsurl" id="acsurl" maxlength="128" size="46"/></td>
+		</tr>
+		<tr>
+			<td id="XS5"></td>
+			<td><input type="text" name="acsuser" id="acsuser" maxlength="31" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_ID);" /></td>
+		</tr>
+		<tr>
+			<td id="XS6"></td>
+			<td><input type="password" name="acspwd" id="acspwd" maxlength="31" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);" /></td>
+		</tr>
+		<tr>
+			<td id="XS7"></td>
+			<td><input type="text" name="connrequser" id="connrequser" maxlength="31" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_ID);" /></td>
+		</tr>
+		<tr>
+			<td id="XS8"></td>
+			<td><input type="password" name="connreqpwd" id="connreqpwd" maxlength="31" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);" /></td>
+		</tr>
+	</table>
+</div>
+
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a id="btn_apply" class="btn apply_btn" href="#"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

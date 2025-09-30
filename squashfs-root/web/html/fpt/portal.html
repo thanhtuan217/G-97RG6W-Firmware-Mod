@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8" dir="ltr">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+<script language="Javascript" src="script/jquery.js" type="text/javascript"></script>
+<script language="Javascript" src="script/menu.js" type="text/javascript"></script>
+<script language="Javascript" src="script/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="script/json2.js"></script>
+<script type="text/javascript" src="script/lang_en.js"></script>
+<link href="style/ont.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+body#portal{
+	background: #fff;
+    font-size: 12px;
+    line-height: 18px;
+};
+
+.portal_status_red {
+    font-weight:bold;
+	width: 660px;
+	font-size: 24px;
+	text-align: left;
+	vertical-align: middle;
+    color: rgb(255,0,0);
+    white-space: nowrap;
+}
+#portal_caption_contact {
+    width: 760px;
+	font-size: 14px;
+	text-atdgn: center;
+	vertical-atdgn: middle;
+}
+#portal .btn {
+	background: #0077ee;  /*Old browsers */
+	background: -moz-linear-gradient(top, #00CCFF 0%, #004CE5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00CCFF), color-stop(100%,#004CE5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #00CCFF 0%,#004CE5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #00CCFF 0%,#004CE5 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #00CCFF 0%,#004CE5 100%); /* IE10+ */
+	background: linear-gradient(top, #00CCFF 0%,#004CE5 100%); /* W3C */
+	border-radius:6px 6px 6px 6px;
+		-moz-border-radius:6px 6px 6px 6px;
+		-webkit-border-radius:6px 6px 6px 6px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    text-shadow: 1px 1px 4px #000000;
+	behavior: url(style/css3pie/PIE.htc);
+}
+
+#portal .btn:hover {
+	background:#00A5FF;
+	text-shadow:none;
+}
+#portal_footer {
+	text-align:center;
+}
+</style>
+<script type="text/javascript">
+//<![CDATA[
+var page="portal";
+var actiontype="none";
+var refresh_timer;
+var diag_timer;
+
+var dev_name = "";
+var vendor = "";
+var customer = "";
+var dev_id = "";
+var hw_ver = "";
+var sw_ver = "";
+var current = "";
+var voltage = "";
+var txpower = 0;
+var rxpower = 0;
+var temperature = 0;
+var dev_uptime = 0;
+
+var wanstate=0;
+var wanip="";
+var gwip="";
+var dns="";
+
+var wificount=0;
+var dhcpcount=0;
+
+var diag_state	= 0;
+var diag_result	= "";
+
+var pon_ok = 0;
+var wan_ok = 0;
+var dns_ok = 0;
+var POTS =0;
+var pots_state =new Array();
+var test="test";
+
+<% DevInfo_GetConfig(); %>
+<% GetOMStatus(); %>
+<% portal_GetConfig(); %>
+
+//add cpu & ram info by rex
+var cpu_util = "";
+var mem_util = "";
+<% Resource_GetStatus(); %>
+
+function SetUptime()
+{
+	dev_uptime++;
+
+	var second = parseInt(dev_uptime);
+	var dd = parseInt(second/(3600*24));
+	var hh = parseInt((second%(3600*24))/3600);
+	var mm = parseInt((second%3600)/60);
+	var ss = parseInt(second%60);
+	var strtime = "";
+	if (dd > 0)
+	{
+		if (dd == 1)
+		{
+			strtime += dd + " day "
+		}
+		else
+		{
+			strtime += dd + " days "
+		}
+	}
+
+	if (hh <= 1)
+	{
+		strtime += hh + " hour ";
+	}
+	else
+	{
+		strtime += hh + " hours ";
+	}
+
+	if (mm <= 1)
+	{
+		strtime += mm + " minute ";
+	}
+	else
+	{
+		strtime += mm + " minutes ";
+	}
+
+	if (ss <= 1)
+	{
+		strtime += ss + " second.";
+	}
+	else
+	{
+		strtime += ss + " seconds.";
+	}
+	$("#uptime").html(strtime);
+}
+function setValue()
+{	
+	//to do
+    $("#portal_status").css("color","#F00");
+    if (pon_ok != 1) {
+        $("#portal_status").html(XportalString[15]);
+    } else if(wan_ok != 1) {
+        $("#portal_status").html(XportalString[16]);
+    } 
+	else
+    { 
+		if (wanstate != 1)
+		{
+			 $("#portal_status").html(XportalString[16]);
+		}
+		else if(dns_ok != 1) {
+			$("#portal_status").html(XportalString[17]);
+		} 
+		else {
+			$("#portal_status").html(XportalString[18]);
+			$("#portal_status").css("color","#0F0");
+		}
+	}	
+	
+
+	$("#txpower").html(((parseInt(txpower)/500)-30).toFixed(2) + " dBm");
+    if (pon_ok == 1) {
+        $("#rxpower").html( ((parseInt(rxpower)/500)-30).toFixed(2) + " dBm");
+    } else {
+        $("#rxpower").html( "-INF");
+        $("#rxpower").css("color","#F00");
+    }
+	$("#temperature").html((parseInt(temperature)/256).toFixed(1) + " ℃");
+    
+    if (wanstate != 1) {
+	// to do attr.setAttribute("style", "font-weight:bold;") 
+	
+      // $("#wanip").setAttribute("style", "font-weight:bold;")
+      // $("#gateway").setAttribute("style", "font-weight:bold;")
+      // $("#dns").setAttribute("style", "font-weight:bold;")
+        
+        if (pon_ok != 1) {
+            $("#wanip").html("Down");
+            $("#gateway").html("No");
+            $("#dns").html("No");
+        } else {
+            $("#wanip").html("0.0.0.0");
+            $("#gateway").html("0.0.0.0");
+            $("#dns").html("");
+        }
+    }
+    else {
+       // $("#wanip").className="x_form_input";
+       // $("#gateway").className="x_form_input";
+       // $("#dns").className="x_form_input";
+       // $("#dns").className="x_form_input";
+        
+        $("#wanip").html("UP("+ wanip + ")");
+        $("#gateway").html(gwip);
+        $("#dns").html(dns);
+    }
+
+    $("#wifictdents").html(wificount);
+    $("#dhcpctdents").html(dhcpcount);    
+
+    //add cpu mem info by rex
+	var used = parseInt(cpu_util);
+    if(used >= 80) {
+        $("#cpu_util").css("color","#F00");
+    }else {
+        $("#cpu_util").css("color","#000");
+    }
+    $("#cpu_util").html(cpu_util);
+    used = parseInt(mem_util);
+    if(used >= 80) {
+        $("#mem_util").css("color","#F00");
+    }else {
+        $("#mem_util").css("color","#000");
+    }
+    $("#mem_util").html(mem_util);
+}
+function do_action()
+{
+	//$("#ip_ver").attr("disabled",true);
+    $("#ping").attr("disabled",true);
+    $("#trace").attr("disabled",true);
+    
+    var xmlhttp_doaction;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp_doaction=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp_doaction=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp_doaction.onreadystatechange=function()
+    {
+        if (xmlhttp_doaction.readyState==4 && xmlhttp_doaction.status==200)
+        {
+	   			//alert(xmlhttp_doaction.responseText);
+		//var obj = eval(xmlhttp_doaction.responseText); 
+            var buffer = JSON.parse(xmlhttp_doaction.responseText);
+            //alert(buffer);
+            diag_state	= buffer.diag_state;
+            diag_result	= buffer.diag_result;
+			//alert(diag_result);
+            $("#restrt").val(diag_result);
+	        if (diag_state == 1) {
+                diag_timer = setTimeout("get_result();", 1000);
+            } else {
+                $("#ping").attr("disabled",false);
+                $("#trace").attr("disabled",false);
+            }
+        }
+    }
+    xmlhttp_doaction.open("POST","/GponForm/portal_XForm",true);
+    xmlhttp_doaction.setRequestHeader("Content-type","apptdcation/x-www-form-urlencoded");
+    xmlhttp_doaction.send("actiontype="+actiontype);
+}
+
+function doping()
+{    
+    actiontype="ping";
+    do_action();
+}
+
+function dotrace()
+{
+    actiontype="traceroute";
+    do_action();
+}
+
+function WebLoadString()
+{
+	//$("#save").value = WebString.Save;
+	//$("#cancel").value = WebString.Refresh;
+
+	var ws = eval("X" + $("#XWebPageName").val() + "String");
+	for (var i =0; i < ws.length; i++)
+	{
+		try
+		{
+			$("#XS" + i).html(ws[i]);
+		}
+		catch(error)
+		{
+		}
+	}
+	//$("#XS9").html("Status");
+}
+function refresh_info()
+{
+    var xmlhttp_refresh;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp_refresh=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp_refresh=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp_refresh.onreadystatechange=function()
+    {
+        if (xmlhttp_refresh.readyState==4 && xmlhttp_refresh.status==200)
+        {
+         		//alert(xmlhttp_refresh.responseText);
+            var buffer = JSON.parse(xmlhttp_refresh.responseText)
+            
+            txpower    = buffer.tx_opt_power;
+            rxpower    = buffer.rx_opt_power;
+            temperature          = buffer.tx_tem;
+            wanstate        = buffer.wanstate;
+            wanip           = buffer.wanip;
+            gwip            = buffer.gwip;
+            dns             = buffer.dns;
+            wificount       = buffer.wificount;
+            dhcpcount       = buffer.dhcpcount;
+            diag_state      = buffer.diag_state;
+            pon_ok          = buffer.pon_ok;
+            wan_ok          = buffer.wan_ok;
+            dns_ok          = buffer.dns_ok;
+            //add cpu & ram info by rex
+            cpu_util        = buffer.cpu_util;
+            mem_util        = buffer.mem_util;
+            
+            setValue();
+            refresh_timer = setTimeout("refresh_info();", 30000);
+        }
+    }
+    xmlhttp_refresh.open("POST","/GponForm/portal_GetInfo",true);
+    xmlhttp_refresh.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp_refresh.send("XWebPageName="+page);
+}
+
+function get_result(url,cfunc)
+{
+    var xmlhttp_result;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp_result=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp_result=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp_result.onreadystatechange=function()
+    {
+        if (xmlhttp_result.readyState==4 && xmlhttp_result.status==200)
+        {
+            var buffer = JSON.parse(xmlhttp_result.responseText)
+            diag_state	= buffer.diag_state;
+            diag_result	= buffer.diag_result;
+            $("#restrt").val(diag_result);
+            if (diag_state == 1) {
+                diag_timer = setTimeout("get_result();", 2000);
+            } else {
+             	$("#ping").attr("disabled",false);
+             	$("#trace").attr("disabled",false);
+             // $("#ping").disabled=false;
+             // $("#trace").disabled=false;
+            }
+        }
+    }
+    xmlhttp_result.open("POST","/GponForm/portal_GetResult",true);
+    xmlhttp_result.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp_result.send("XWebPageName="+portal);
+}
+
+$(document).ready(function (){
+	WebLoadString();
+	$("#div_vendor").hide();
+	if(customer=="UAL")
+	{
+		$("#vendor").html("Alcatel_Lucent");
+		$("#div_vendor").show();
+	}
+	$("#dev_name").html(dev_name);
+	$("#dev_sn").html(dev_id);
+	$("#dev_hw").html(hw_ver.toUpperCase());
+	$("#dev_sw").html(sw_ver);
+	setValue();
+  SetUptime();
+	setInterval("SetUptime();", 1000); 
+	
+	if (diag_state == 1 || diag_state == 2) {
+        diag_timer = setTimeout("get_result();", 1000);
+    } else
+    {
+		// $("#ip_ver").attr("disabled",false);
+        $("#ping").attr("disabled",false);
+        $("#trace").attr("disabled",false);
+    }
+    
+    refresh_info();
+	
+	$("#ping").click(function() {
+		doping();
+	});
+	$("#trace").click(function() {
+		dotrace();
+	});
+});
+
+//]]>
+</script>
+</head>
+<body id="portal">
+<form id="XForm" name="XForm" method="post" action="/GponForm/portal_XForm">
+<input id="XWebPageName" name="XWebPageName" type="hidden" value="portal" />
+<div id="wrapper">
+	<div class="cfgstep">
+		<table style="font-size:20px;font-weight:bold;">
+			<tr>
+				<td id="XS9"></td>
+				<td id="portal_status">DNS not respond(Không phân giải được tên miền)</td>
+			</tr>
+		</table>
+	</div>
+	<div class="cfgstep">
+    <table>
+       <tr>
+        <td width="5" style="background-color:#00CC00">&nbsp;</td>
+        <td width="180" id="XS0"></td>
+        <td width="200" id="dev_name">&nbsp;</td>
+        <td width="5" style="background-color:#00CC00"></td>
+        <td width="180" id="XS10">&nbsp;</td>
+        <td width="200" id="wanip" style="font-weight:bold">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS1">&nbsp;</td>
+        <td id="dev_sn">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS11">&nbsp;</td>
+        <td id="gateway" style="font-weight:bold">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS2">&nbsp;</td>
+        <td id="dev_hw">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS12">&nbsp;</td>
+        <td id="dns" style="font-weight:bold">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS3">&nbsp;</td>
+        <td id="dev_sw">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS13">&nbsp;</td>
+        <td id="wifictdents">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS6">&nbsp;</td>
+        <td id="txpower">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS14">&nbsp;</td>
+        <td id="dhcpctdents">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS7">&nbsp;</td>
+        <td id="rxpower" style="font-weight:bold">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS8">&nbsp;</td>
+        <td id="temperature">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS4">&nbsp;</td>
+        <td id="uptime">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+        <!-- add cpu info by rex -->
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS19">&nbsp;</td>
+        <td id="cpu_util">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+        <!-- add mem info by rex -->
+      <tr>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td id="XS20">&nbsp;</td>
+        <td id="mem_util">&nbsp;</td>
+        <td style="background-color:#00CC00">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+	</div>
+	<div class="cfgstep">
+		<tr >
+			<input type="button" id="ping" value="Ping DNS">
+			<input type="button" id="trace" value="TraceRoute DNS">
+            
+            <!--
+            <td class="x_form_caption_button">
+                <input type="button" style="width: 120px;" id="stop" value="Stop" onctdck="stoptimer();" />
+            </td>
+            -->
+        </tr>
+	</div>
+	<div class="cfgstep">
+	<tr >
+		<td >
+			<textarea id="restrt" readonly="readonly" rows="16" cols="120"></textarea>
+		</td>
+	</tr>
+	<table width="351" border="0" cellspacing="0">
+    </table>
+
+	</div>
+    <div cellspacing="10">
+        <div width="100" style="float:left">
+            <img src="images/logo.png" width="100" height="90" vspace="10" align="left" />
+        </div>
+        <div width="200" style="float:left;margin-top:15px;margin-left:50px">
+            <div width="200" style="font-size:18px;font-weight:bold;">FPT Telecom contact Support</div>
+            <div width="200" style="font-size:15px;color:#888888">&nbsp;(Chăm sóc khách hàng)</div>
+        </div>
+        <div width="20" height="90" style="float:left;margin-left:40px;margin-top:15px;"><table style="height:40px;border-color:#C1BBBB;border-left-style:solid;border-width:1px"><tr><td valign="top"></td></tr></table></div>
+        <div width="180" style="font-size:25px;font-weight:bold;color:#FF6600;float:left;margin-top:20px;margin-left:10px">1900 6600</div>
+    </div>
+</div>
+</form>
+</body>

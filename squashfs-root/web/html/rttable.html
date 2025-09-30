@@ -1,0 +1,146 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var routing_table = [];
+var routing_table_v6 = [];
+
+<% WEB_GetRouting(); %>
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	if (top.WebShowIpv6)
+	{
+		$("#route_table_v6").show();
+	}
+}
+
+function getSubstring(str,index,key)
+{
+	if (str == undefined)
+	{
+		alert("str is undefined");
+	}
+	if (key == undefined)
+	{
+		alert("key is undefined");
+	}
+	var tmp = new Array();
+	tmp = str.split(key);
+	return tmp[index];
+}
+
+$(document).ready(function(){
+	
+	WebStepIndex();
+	
+	//IPv4 Routing Table
+	var TR = '<p><strong id="XS0"></strong></p>';
+
+	TR += '<table class="commonlist">\n';
+	TR += '<tr>\n';
+	TR += '<th style="width: 25%;" id="XS1"></th>\n';
+	TR += '<th style="width: 25%;" id="XS2"></th>\n';
+	TR += '<th style="width: 25%;" id="XS3"></th>\n';
+	TR += '<th style="width: 25%;" id="XS4"></th>\n';
+	TR += '</tr>\n';
+	
+	if(routing_table.length == 0)
+	{
+		TR += '</table>\n';
+		$("#route_table").html(TR);
+		return;
+	}
+	else
+	{
+		$.each(routing_table, function(id,el){
+			for(var i = 8; i <= 15; i++)
+			{
+				if(el.interface == ("wan" + i) || el.interface == ("ppp" + i))
+				return true;
+			}
+			if(el.interface == "lo")
+			{
+				return true;
+			}
+			
+			TR += '<tr>\n';
+			TR += '<td>' + el.destip + '</td>\n';
+			TR += '<td>' + el.netmask + '</td>\n';
+			TR += '<td>' + el.gateway + '</td>\n';
+			TR += '<td>' + el.interface + '</td>\n';
+			TR += '</tr>\n';
+		});
+		TR += '</table>\n';
+		
+		$("#route_table").html(TR);
+	}
+	
+	//IPv6 Routing Table
+	var TRV6 = '<p><strong id="XS5"></strong></p>';
+	var destipv6 = "";
+	var prefix = "";
+
+	TRV6 += '<table class="commonlist">\n';
+	TRV6 += '<tr>\n';
+	TRV6 += '<th style="width: 30%;" id="XS6"></th>\n';
+	TRV6 += '<th style="width: 20%;" id="XS7"></th>\n';
+	TRV6 += '<th style="width: 30%;" id="XS8"></th>\n';
+	TRV6 += '<th style="width: 20%;" id="XS9"></th>\n';
+	TRV6 += '</tr>\n';
+	
+	if(routing_table_v6.length == 0)
+	{
+		TRV6 += '</table>\n';
+		$("#route_table_v6").html(TRV6);
+		return;
+	}
+	else
+	{
+		$.each(routing_table_v6, function(sid,sel){
+			
+			if(sel.destip.indexOf("ff") == 0 || sel.interface == "lo")
+			{
+				return true;
+			}
+			for(var j = 8; j <= 15; j++)
+			{
+				if(sel.interface == ("wan" + j) || sel.interface == ("ppp" + j))
+				return true;
+			}
+			destipv6 = getSubstring(sel.destip,0,"/");
+			prefix = getSubstring(sel.destip,1,"/");
+			TRV6 += '<tr>\n';
+			TRV6 += '<td>' + destipv6 + '</td>\n';
+			TRV6 += '<td>' + prefix + '</td>\n';
+			TRV6 += '<td>' + sel.gateway + '</td>\n';
+			TRV6 += '<td>' + sel.interface + '</td>\n';
+			TRV6 += '</tr>\n';
+		});
+		TRV6 += '</table>\n';
+		
+		$("#route_table_v6").html(TRV6);
+	}
+
+	WebStyleCommonList();
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep" id="route_table"></div>
+<div class="cfgstep" id="route_table_v6" style="display:none"></div>
+
+<div class="cfgstep">
+	<a id="btn_refresh" class="btn" href="rttable.html"><script type="text/javascript">document.write(WebString.Refresh);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

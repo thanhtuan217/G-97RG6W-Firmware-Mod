@@ -1,0 +1,5 @@
+mtools_skip_check=1
+drive c: file="/dev/sda"
+
+#usage: mlabel c:smart-gw
+#usage: mlabel -s c:

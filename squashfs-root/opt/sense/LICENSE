@@ -1,0 +1,27 @@
+SENSE SDK EVALUATION LICENSE
+
+If you have an individual arrangement with F-Secure Corporation (“F-Secure”) or another legitimate third party concerning your rights to the SENSE SDK, the terms of that arrangement shall have precedence over the terms stated herein. 
+
+F-Secure grants you the possibility, at your option, to evaluate the SENSE SDK under the terms stated herein. If you do not agree to all of these terms, you may not rely on any of the rights granted to you herein. Therefore by making use of any of the rights granted to you herein you indicate your acceptance of these license terms.
+
+1.	LICENSE GRANT. F-Secure grants you a non-exclusive and non-transferable license to use and make strictly necessary copies of the accompanying SENSE SDK software and documentation ("Software") for internal evaluation use only. F-Secure further grants you the right to modify files of the Software which F-Secure has expressly specified as being allowed to modify.
+
+2.	RESTRICTIONS. The Software is confidential and copyrighted. Title to Software and all associated intellectual property rights are retained by F-Secure and/or its licensors. Except as expressly stated herein, you may not make copies of the Software, nor modify any part of the Software. The Software is provided under this SENSE SDK Evaluation License for evaluation use only. You may not modify, decompile or reverse engineer the Software, except to the extent such activities cannot be limited under applicable laws. No right, title or interest in or to any trademark, service mark, logo or trade name of F-Secure or its licensors is granted under this Agreement.
+
+3.	DISCLAIMER OF WARRANTY. ALL EXPRESS OR IMPLIED REPRESENTATIONS AND WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT ARE DISCLAIMED. THE SOFTWARE IS PROVIDED “AS-IS”.
+
+4.	LIMITATION OF LIABILITY. IN NO EVENT WILL F-SECURE OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT, BUSINESS, OR DATA, OR FOR SPECIAL, INDIRECT, DIRECT, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF OR RELATED TO THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+5.	OPEN SOURCE. Parts of the Software may be governed by the terms of free and open source software licenses (“FOSS Licenses”). If and to the extent the terms of FOSS Licenses apply to a part of the Software and conflict with this SENSE SDK Evaluation License, the terms of the applicable FOSS Licenses shall govern instead of this SENSE SDK Evaluation License to the extent there is a conflict. The presence of FOSS Licenses may be indicated in license text files included with the Software or within individual files. 
+
+6.	CREDENTIALS. Any access credentials provided to you are to be used only with the F-Secure provided binaries and are not to be distributed outside of your own organization. In case of suspected abuse, F-Secure may suspend or invalidate the credentials. API key in ‘etc/orsp/apikey’ is not to be used for any other purposes evaluating the Software.
+
+7.	EVALUATION PERIOD. In case the Software has been delivered to you for evaluation purposes only, you must adhere to the specified evaluation period indicated to you by F-Secure, if any, and destroy all copies of the Software after that period.
+
+8.	GOVERNING LAW. This SENSE SDK Evaluation License shall be construed and governed in accordance with the laws of Finland.
+
+Files placed by F-Secure in the following locations may be modified as stated herein:
+
+- files in directory ‘hooks’ are sample files and may be modified to suit your environment
+- configuration files in directory ‘etc’ are sample files and may be modified to suit your environment
+- files under ‘www’ are sample files and may be modified to suit your environment

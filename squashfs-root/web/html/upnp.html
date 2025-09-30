@@ -1,0 +1,129 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var igd_enable = "";
+var upnp_list = new Array();
+
+<% UPNP_XGetConfig(); %>
+
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+function showUPnPList()
+{
+	var i, str;
+	for (i = 0; i < upnp_list.length; i++)
+	{
+		if(i > 32)
+		    break;
+		    
+		str = "<tr>";
+		str += "<td>" + upnp_list[i].ip + "<\/td>";
+		str += "<td>" + upnp_list[i].protocol + "<\/td>";
+		str += "<td>" + upnp_list[i].iport + "<\/td>";
+		str += "<td>" + upnp_list[i].eport + "<\/td>";
+		str += "<td><a class=\"btn remove_btn\" href=\"#\" onclick=\"deleteUPnP(" + i + ");\">" + WebString.Remove + "<\/td>";
+		str += "<tr>";
+		$("#upnp_list").append(str);
+	}
+}
+
+function deleteUPnP(idx)
+{
+	if (!confirm(WebString.delete_confirm))
+	{
+		return;
+	}
+	$("#ipaddr").val(upnp_list[idx].ip);
+	$("#protocol").val(upnp_list[idx].protocol);
+	$("#iport").val(upnp_list[idx].iport);
+	$("#eport").val(upnp_list[idx].eport);
+	$("#XForm").submit();
+}
+
+function upnp_enable()
+{
+	var upnp_en = $('input:radio[name="igdenable"]:checked').val();
+	
+	if(1 == upnp_en)
+		$("#upnplist_div").show();
+	else
+		$("#upnplist_div").hide();
+}
+
+function DataInit()
+{
+	if(igd_enable == 1)
+		$("#enable").get(0).checked = true;
+	else
+		$("#disable").get(0).checked = true;
+		
+   upnp_enable();
+}
+
+function WebInit()
+{
+	DataInit();
+	upnp_enable();
+	showUPnPList();
+	WebStepIndex();
+}
+
+$(document).ready(function(){
+
+	$("input[name='igdenable']").click(function() {
+		upnp_enable();
+	});
+    
+	$("#btn_apply").click(function(){
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+	<p><strong id="XS0"></strong></p>
+	<table>
+    <tr>
+			<td width="200" id="XS1"></td>
+			<td>
+				<input id="enable" name="igdenable" value="1" type="radio" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+				<input id="disable" name="igdenable" value="0" type="radio" /><script>document.write(WebString.Disable);</script>
+				<input id="ipaddr" name="ipaddr" type="hidden" value=""  />
+				<input id="protocol" name="protocol" type="hidden" value=""  />
+				<input id="iport" name="iport" type="hidden" value=""  />
+				<input id="eport" name="eport" type="hidden" value=""  />
+			</td>
+    </tr>
+	</table>
+</div>
+<div class="cfgstep">
+	<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+	<a href="#" id="btn_apply" class="btn"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<div class="cfglist" id="upnplist_div">
+	<table id="upnp_list">
+		<tr>
+			<th id="XS2" colspan="5" class="tableTitle">UPnP List</th>
+		</tr>
+		<tr>
+			<th id="XS3" style="width: 28%">IP Address</th>
+			<th id="XS4" style="width: 16%">Protocol</th>
+			<th id="XS5" style="width: 20%">Internal Port</th>
+			<th id="XS6" style="width: 20%">External Port</th>
+			<th style="width: 16%"><script type="text/javascript">document.write(WebString.Edit);</script></th>		
+		</tr>
+	</table>  
+</div>
+
+<% PrintTemplate3(); %>

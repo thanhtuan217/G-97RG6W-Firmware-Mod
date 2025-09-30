@@ -1,0 +1,81 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var values = "";
+var i = 0;
+
+function updateProcess()
+{
+	if(i < 99)
+	{
+		i = i + 1;
+		values =  WebString.restoring + i + "%";
+		document.getElementById('myProcess').innerHTML = values;
+	}
+	else
+	{
+		window.location.href = window.location.href;
+	}
+}
+
+function WebDoSubmit()
+{
+	if(!confirm(WebString.init_confirm))
+	{
+		return;
+	}
+	
+	top.restore_default_flag = 1;
+	$("#div_rebooting").show();
+	$("#div_init").hide();
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	if(1 == top.restore_default_flag)
+	{
+		setInterval("updateProcess();", 1000);
+		$("#div_restoring").show();
+		$("#div_init").hide();
+	}
+	else
+	{
+		$("#div_restoring").hide();
+		$("#div_init").show();
+	}
+	//WebStepIndex();
+}
+
+$(document).ready(function () {
+	$("#btn_init").click(function(){
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div id="div_init">
+	<div class="cfgstep">
+		<p><strong><script>document.write(WebString.stepRestoreDefault);</script></strong></p>
+		<a id="btn_init" class="btn apply_btn" href="#"><script>document.write(WebString.Restore);</script></a>
+	</div>
+</div>
+
+<div id="div_restoring">
+	<div class="cfgstep">
+		<p><strong id="XS1"></strong></p>
+		<table>
+			<tr>
+				<td id="myProcess"></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<% PrintTemplate3(); %>

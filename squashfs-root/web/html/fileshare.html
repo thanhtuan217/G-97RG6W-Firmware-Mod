@@ -1,0 +1,398 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var srv_enable = 0;
+var srv_name = "";
+var srv_info = "";
+var security = 0;
+var username = "";
+var password = "";
+var remote_enable = "";
+var rule_count = 0;
+var shareData = new Array();
+var s_dir_list = new Array();
+var usbStat = new Array();
+
+<% SAMBA_GetConfig(); %>
+<% USBDEV_GetConfig(); %>
+
+function pathlist_init()
+{
+    var i = 0;
+    var path = "";
+    for(var i = 0; i < usbStat.length; i++) {
+    	
+        path = "usb" + parseInt(parseInt(usbStat[i].hostnum) + 1) + "_" + usbStat[i].devnum;
+        var tmp = "<option value='" + path +"'>" + path + "</option>";
+        $("#folder_path").append(tmp);
+    }    
+}
+
+function DataInit()
+{
+    if (1 == srv_enable)
+        $("#samba_enable").attr("checked", true);
+    else
+        $("#samba_disable").attr("checked", true);
+        
+    if (1 == security)
+    {
+        $("#security_enable").attr("checked", true);
+        $("#username").val(username);
+        $("#password1").val(password);
+        $("#password2").val(password);
+    }
+    else
+        $("#security_disable").attr("checked", true);
+        
+    if(1 == remote_enable)
+    {
+        $("#remote_enable").attr("checked", true);
+    }
+    else
+    {
+        $("#remote_enable").attr("checked", false);        
+    }
+        
+    $("#srvname").val(srv_name);
+    $("#srvinfo").val(srv_info);
+    
+    if(usbStat.length == 0)
+        $("#add_entry").removeClass("btn").addClass("btn_gray");
+    else
+        $("#add_entry").removeClass("btn_gray").addClass("btn");
+
+    pathlist_init();
+}
+
+function ShareDataInit()
+{
+    this.name;
+    this.path;
+    this.level;
+}
+
+function InitShareDataTable()
+{
+    var i = 0;
+    for(i = 0; i < s_dir_list.length; i++)	
+    {
+        shareData[i] = new ShareDataInit();
+        shareData[i].name = s_dir_list[i].name;
+        shareData[i].path = s_dir_list[i].path;
+        shareData[i].level = s_dir_list[i].level;           
+    }
+    shareData.length = rule_count;
+
+    directoriesTableFresh();
+}
+
+function ShareDataBind()
+{
+    var s_name = "";
+    var s_path = "";
+    var s_level = 0;
+    
+    if(usbStat.length == 0)
+    {
+        alert(WebString.no_usbdev);
+        return false;
+    }
+    
+    if($("#share_name").val() == "")
+    {
+    	  alert(WebString.invalid_sharename);
+        return false;
+    }
+
+    if(shareData.length >= 8)
+    {
+        alert(WebString.max_dir_num);
+        return false;
+    }
+  
+    for(var i = 0; i < shareData.length; i++)
+    {
+        if($("#share_name").val() == shareData[i].name)
+        {
+            alert(WebString.sharename_exist);
+            return false;
+        }
+    }
+
+    var obj = new Object();
+    obj.name = $("#share_name").attr("value");
+    obj.path = $("#folder_path").attr("value");
+    obj.level = $("#access_level").attr("value");
+    shareData.push(obj);
+    directoriesTableFresh();
+}
+
+function directoriesTableFresh()
+{
+    var TR = "";
+    TR += '<table class="commonlist">\n';
+    TR += '<tr>\n';
+    TR += '<th>' + XfileshareString[17] + '</th>\n';
+    TR += '<th>' + XfileshareString[18] + '</th>\n';
+    TR += '<th>' + XfileshareString[19] + '</th>\n';
+    TR += '<th>' + WebString.Edit + '</th>\n';
+    TR += '</tr>\n';
+    var post_str = "";  
+     
+    for(var i = 0; i < shareData.length; i++)
+    {
+        post_str += shareData[i].name + "|";
+        post_str += shareData[i].path + "|";
+        post_str += shareData[i].level + "~";        
+        
+        TR += '<tr>\n';
+        TR += '<td style="word-break : break-all;">' + shareData[i].name + '</td>\n';
+        TR += '<td>' + shareData[i].path + '</td>\n';
+        if(3 == shareData[i].level)
+            TR += '<td>' + XfileshareString[15] + '</td>\n';
+        else
+        	  TR += '<td>' + XfileshareString[14] + '</td>\n';    
+        TR += '<td><a href="#" class="btn remove_btn" onclick="DeleteEntrySelected(this);" >' + WebString.Remove + '</a></td>';
+        TR += '</tr>\n'; 
+    }
+    
+    TR += '</table>\n';
+    $("#directoriesTableContainer").html(TR);
+    $("#directoriesTable").val(post_str);
+}
+
+function DeleteEntrySelected(r)
+{
+    WebResetTimer();
+
+    var row = r.parentNode.parentNode.rowIndex;
+    for (var i = row-1; i < shareData.length; i++ )
+    {
+        shareData[i] = shareData[i+1];
+    }
+    shareData.pop();
+    directoriesTableFresh();
+}
+
+function WebInit()
+{
+    DataInit(); 
+    SAMBAServerEnable();
+    SecurityEnable();
+    InitShareDataTable();
+    directoriesTableFresh();
+    WebStepIndex(); 
+}
+
+function SAMBAServerEnable()
+{
+    var samba_en = $('input:radio[name="samba_srv"]:checked').val();
+    
+    if(1 == samba_en)
+    {
+        $("#basics_div").show();
+        $("#directories_div").show();
+    }
+    else
+    {
+        $("#basics_div").hide();
+        $("#directories_div").hide();
+    }
+       
+    WebStepIndex();     
+}
+
+function SecurityEnable()
+{
+    var security_en = $('input:radio[name="security"]:checked').val();
+    
+    if(1 == security_en)
+    {
+        $("#user").show();
+        $("#pwd0").show();
+        $("#pwd1").show();
+    }
+    else
+    {
+        $("#user").hide();
+        $("#pwd0").hide();
+        $("#pwd1").hide();
+    }         
+}
+
+function RemoteAccessChg()
+{
+    if($("#remote_enable").attr("checked"))
+        $("#remote_en").val("1");
+    else
+        $("#remote_en").val("0");
+}
+
+function CheckSetValue()
+{
+    var username = $("#username").val();
+    var password1 = $("#password1").val();
+    var password2 = $("#password2").val();
+    var samba_en = $('input:radio[name="samba_srv"]:checked').val();
+    var security_en = $('input:radio[name="security"]:checked').val();
+
+    if((1 == samba_en) && (1 == security_en))
+    {
+        if(username.length < 1)
+        {
+            alert(WebString.ssh_username_length);
+            $("#username").focus();
+            return false;
+        }
+
+        if(password1.length < 1 || password1.length > 64)
+        {
+            alert(WebString.valid_sshpwd_length);
+            $("#password1").focus();
+            return false;
+        }
+
+        if(password1 != password2)
+        {
+            alert(WebString.password_differ);
+            $("#password2").focus();
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function WebDoSubmit()
+{       
+    if( false == CheckSetValue())
+    {
+        return;
+    }
+    
+    RemoteAccessChg();
+    $("#XForm").submit();
+}
+
+$(document).ready(function (){
+    $("input").css("ime-mode","disabled");
+    $("#btn_apply").click(function(){
+        XDoSubmit();
+    });   
+
+    $("input[name='samba_srv']").click(function() {
+        SAMBAServerEnable();
+    });
+
+    $("input[name='security']").click(function() {
+        SecurityEnable();
+    });
+    
+    $("#remote_enable").click(function(){
+        RemoteAccessChg();
+    });
+    
+    $("#add_entry").click(function(){
+        ShareDataBind();
+    });
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p><strong id="XS0"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS1"></td>
+            <td><input type="radio" name="samba_srv" id="samba_enable" value="1" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+                <input type="radio" name="samba_srv" id="samba_disable" value="0" checked/><script>document.write(WebString.Disable);</script>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="cfgstep" id="basics_div">
+    <p><strong id="XS2"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS3"></td>
+            <td><input type="text" name="srvname" id="srvname" maxlength="15" onkeyup="value=value.replace(/[^\a-\z\A-\Z\0-\9\-]/g,'')" onkeydown="if(event.keyCode==32) return false"/></td>
+        </tr>
+        <tr>
+            <td width="200" id="XS4"></td>
+            <td><input type="text" name="srvinfo" id="srvinfo" size="32" maxlength="64" onkeypress="return OnKeyPress(event, X_INPUT_ID);" />(optional)</td>
+        </tr>
+        <tr>
+            <td width="200" id="XS5"></td>
+            <td><input type="radio" name="security" id="security_enable" value="1" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+                <input type="radio" name="security" id="security_disable" value="0" checked/><script>document.write(WebString.Disable);</script>
+            </td>
+        </tr>
+        <tr id="user">
+            <td width="200" id="XS6"></td>
+            <td><input type="text" name="username" id="username" maxlength="64" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_ID);" /></td>
+        </tr>
+        <tr id="pwd0">
+            <td width="200" id="XS7"></td>
+            <td><input type="password" name="password1" id="password1" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);" /></td>
+        </tr>
+        <tr id="pwd1">
+            <td width="200" id="XS8"></td>
+            <td><input type="password" name="password2" id="password2" style="width:150px" onkeypress="return OnKeyPress(event, X_INPUT_PASSWD);" /></td>
+        </tr>
+        <tr>
+            <td width="200" id="XS9"></td>
+            <td>
+                <input name="remote_enable" id="remote_enable" type="checkbox" checked="checked"/>
+                <input type="hidden" name="remote_en" id="remote_en" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="cfgstep" id="directories_div">        
+    <p><strong id="XS10"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS11"></td>
+            <td><input type="text" name="share_name" id="share_name" maxlength="64" onkeypress="return OnKeyPress(event, X_INPUT_ID);" /></td>
+        </tr>
+        <tr>
+            <td width="200" id="XS12"></td>
+            <td>
+                <select name="folder_path" id="folder_path" >
+                </select>
+            </td>
+        </tr>        
+        <tr>
+            <td width="200" id="XS13"></td>
+            <td>
+                <select name="access_level" id="access_level" />
+                <option value="1" id="XS14"></option>
+                <option value="3" id="XS15"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span id="XS16"></span>
+                <a id="add_entry" name="add_entry" class="btn" href="#"><script>document.write(WebString.Add);</script></a>
+                <input id="directoriesTable" name="directoriesTable" type="hidden" value=""  />
+            </td>
+        </tr> 
+    </table> 
+    <div id="directoriesTableContainer"></div>   
+</div>
+
+<div class="cfgstep">
+    <p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+    <a id="btn_apply" class="btn" href="#"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>

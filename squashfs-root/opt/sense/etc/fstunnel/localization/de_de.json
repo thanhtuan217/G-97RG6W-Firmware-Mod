@@ -1,0 +1,63 @@
+[
+    [
+        "harmful_title",
+        "Schädliche Website blockiert"
+    ],
+    [
+        "harmful_heading",
+        "Zu Ihrem Schutz hat SENSE diese Website blockiert."
+    ],
+    [
+        "harmful_details",
+        "<br><br>Wir haben festgestellt, dass diese Website schädlich ist und möglicherweise versucht, Ihre persönlichen Daten zu stehlen oder das zum Surfen verwendete Gerät zu infizieren.<br>Wir empfehlen Ihnen dringend, diese Website nicht zu besuchen."
+    ],
+    [
+        "denied_title",
+        "Website gesperrt"
+    ],
+
+    [
+        "denied_heading",
+        "Website gesperrt"
+    ],
+    [
+        "denied_details",
+        "<br><br>Der Zugang zu dieser Website wurde vom Netzwerkadministrator blockiert."
+    ],
+    [
+        "continue_button",
+        "Blockierung dieser Website für eine Stunde aufheben"
+    ],
+    [
+        "back_button",
+        "Zurück"
+    ],
+    [
+        "agent_title",
+        "F‑Secure SENSE"
+    ],
+    [
+        "agent_logo",
+        "Das fehlende Puzzlestück in Ihrem vernetzten Zuhause"
+    ],
+    [
+        "agent_heading",
+        "Dieses Gerät wird nun durch den F‑Secure SENSE-Router geschützt."
+    ],
+    [
+        "agent_details",
+        "Erhöhen Sie Ihre Sicherheit! Wir empfehlen, die SENSE-App auf diesem Gerät zu installieren,<br>um <a data-tooltip=„Es gibt buchstäblich Tausende von Viren und Exploits, die das Windows-System schädigen, und täglich kommen neue dazu. Die SENSE-App ist mit modernsten Schutzvorrichtungen immer auf dem neuesten Stand und blockiert die Ausführung von bösartigem Code auf Ihrem Gerät innerhalb und außerhalb des SENSE-Netzwerks.“ class=\"tooltip\">maximalen Schutz</a> vor Bedrohungen im Internet zu gewährleisten."
+    ],
+    [
+        "agent_install",
+        "SENSE für Windows herunterladen"
+    ],
+    [
+        "agent_dontshow",
+        "Nicht erneut anzeigen"
+    ],
+    [
+        "agent_postpone",
+        "Überspringen und Ihre Website aufrufen"
+    ]
+]

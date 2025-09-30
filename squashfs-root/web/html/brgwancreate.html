@@ -1,0 +1,262 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var wanConfig = new Array();
+var num_con = 0;
+var hasuntagwan = 0;
+var untagwanidx = -1;
+
+<% BrgWanConn_GetConfig(); %>
+
+function docheckValue()
+{
+    if ($("#vlan_mode").val() == 0)
+    {
+        if (($("#vlan_id").val() == "") || ($("#p802").val() == ""))
+        {
+            alert(WebString.wan_vlan_alert);
+            return false;
+        }
+
+        var wanpri = $("#p802").val();
+        if (parseInt(wanpri) < 0 || parseInt(wanpri) > 7)
+        {
+            alert(WebString.wan_vlanpri_alert);
+            return false;
+        }
+        var wanvlan = $("#vlan_id").val();
+        if (parseInt(wanvlan) < 0 || parseInt(wanvlan) > 4095)
+        {
+            alert(WebString.wan_vlanId_alert);
+            return false;
+        }
+    }
+    else if ($("#vlan_mode").val() == 1 && hasuntagwan == 1)
+    {
+        if ((top.wanConnModifyIdx == "-1") || (top.wanConnModifyIdx != "-1" &&  untagwanidx != top.wanConnModifyIdx))
+        {
+            alert(WebString.wan_untag_alert);
+            return false;
+        } 
+    }
+        
+    if (!$("#internet").attr("checked") && !$("#iptv").attr("checked"))
+    {    
+        alert(WebString.wan_service_alert);
+        return false;
+    }
+    
+    var bridgename = $("#wan_name").val();
+    if ( (0 == bridgename.length) || (false == isValidName(bridgename)) )
+    {
+        alert(WebString.wan_brg_alert);
+        return false;
+    }
+    
+    for (var i = 0; i < wanConfig.length; i++)
+    {
+        if (top.wanConnModifyIdx != wanConfig[i].index
+        && ($("#vlan_id").val() == wanConfig[i].vlan_id))
+        {
+            //alert(WebString.wan_vlanId_same_alert);
+            //return false;
+        }
+        if (top.wanConnModifyIdx != wanConfig[i].index
+        && ($("#wan_name").val() == wanConfig[i].name))
+        {
+            alert(WebString.same_brg_name);
+            //return false;
+        }
+    } 
+    
+    return true;
+}
+
+function showWanList()
+{
+    for (i=0; i<num_con; i++)
+    {
+        var index = wanConfig[i].index;
+        var idx = parseInt(index)+1;
+        var mode = (parseInt(wanConfig[i].bridge))?"Bridge":"Route";
+        var mm = (parseInt(wanConfig[i].bridge))?"B":"R";
+        var service = parseInt(wanConfig[i].service);
+        var serv = "_";
+        if (service & 0x4)
+            serv = serv + "INTERNET_";
+        if (service & 0x2)
+            serv = serv + "TR069_";
+        if (service & 0x1)
+            serv = serv + "VOIP_";
+        if (service & 0x8)
+            serv = serv + "IPTV_";
+        var vlan = wanConfig[i].vlan_id;
+        if((wanConfig[i].vlan_en == 0)&&(vlan == 0))
+            var name = idx.toString() + serv + mm + "_VID_";
+        else
+            var name = idx.toString() + serv + mm + "_VID_" + vlan;
+        var wanname = wanConfig[i].name;
+        $("#wan_list").append("<tr><td>"+name+"<\/td><td>"+wanname+"<\/td><td>"+mode+"<\/td><\/tr>");
+    }
+}
+
+function WebInit()
+{
+    $("#XForm").attr("action", "/GponForm/brgwancreate_XForm");
+    $("#wan_idx").val(top.wanConnModifyIdx);
+    
+    var selIndex = -1;
+    for (i = 0; i < wanConfig.length; i++)
+    {
+        if (top.wanConnModifyIdx == wanConfig[i].index)
+        {
+            selIndex = i;
+            break;
+        }
+    }
+    if (selIndex == -1) {
+        $("#stp_apply p strong").html(WebString.stepApply);
+        $("#btn_delete").hide();
+    } else {
+        $("#internet").attr("checked", (parseInt(wanConfig[selIndex].service)&0x4)?true:false);
+        $("#iptv").attr("checked", (parseInt(wanConfig[selIndex].service)&0x8)?true:false);
+        $("#vlan_mode").val(wanConfig[selIndex].vlan_mode);
+        $("#vlan_id").val(wanConfig[selIndex].vlan_id);
+        $("#p802").val(wanConfig[selIndex].p802);
+        $("#wan_name").val(wanConfig[selIndex].name);
+    }
+    
+    showWanList();
+    WebStepIndex(); 
+    vlan_modeChanged();
+	//hide wan_bind_service
+	$("#wan_bind_service").hide();
+}
+
+function vlan_modeChanged()
+{
+    if(0 == $("#vlan_mode").val())
+    {
+        $("#vl_id").show();
+        $("#vl_p802").show();
+    }
+    else
+    {
+        $("#vl_id").hide();
+        $("#vl_p802").hide();
+    }
+}
+
+function WebDoSubmit()
+{
+    if (false == docheckValue())
+    {
+        return;
+    }
+    if ($("#wan_idx").val() == "-1")
+        $("#wan_act").val("0");
+    else
+        $("#wan_act").val("1");
+        
+    $("#XForm").submit();
+}
+
+$(document).ready(function () {
+    $("#btn_apply").click(function(){
+        XDoSubmit();
+    });
+    $("#btn_delete").click(function() {
+        doDelete();
+    });
+    $("#vlan_mode").change(function() {
+        vlan_modeChanged();
+    });
+});
+
+
+function doDelete()
+{
+    if (!confirm(WebString.delete_confirm))
+    {
+        return;
+    }
+    $("#wan_act").val("2");
+    $("#XForm").submit();
+}
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p><strong id="XS8"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS9"></td>
+            <td>
+                <select name="wan_dev" id="wan_dev">
+                    <option value="0" id="XS10"></option>
+                </select>
+            <td>
+        </tr>
+        <tr id="wan_bind_service">
+            <td width="200" id="XS14"></td>
+            <td><input type="checkbox" name="internet" id="internet" value="4" checked="checked" /><script type="text/javascript">document.write(XbrgString[15]);</script>
+                <input type="checkbox" name="iptv" id="iptv" value="8" checked="checked" /><script type="text/javascript">document.write(XbrgString[16]);</script>
+            </td>
+        </tr>
+        <tr>
+            <td width="200" id="XS30"></td>
+            <td>
+                <select name="vlan_mode" id="vlan_mode" />
+                    <option value="0"><script>document.write(XbrgString[31]);</script></option>
+                    <option value="1"><script>document.write(XbrgString[32]);</script></option>
+                    <option value="2"><script>document.write(XbrgString[33]);</script></option>
+            </td>
+        </tr>
+        <tr id="vl_id">
+            <td width="200" id="XS18"></td>
+            <td colspan="2">
+                <input id="vlan_id" name="vlan_id" type="text" size="6" maxlength="4" onkeypress="return OnKeyPress(event, X_INPUT_NUM);"/>
+            </td>
+        </tr>
+        <tr id="vl_p802">
+            <td width="200" id="XS19"></td>
+            <td colspan="2">
+                <input id="p802" name="p802" type="text" size="6" maxlength="1" onkeypress="return OnKeyPress(event, X_INPUT_NUM);"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="200" id="XS20"></td>
+            <td colspan="2">
+                <input id="wan_name" name="wan_name" type="text" maxlength="10" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="stp_apply" class="cfgstep">
+    <p><strong id="XS43"></strong></p>
+    <a id="btn_apply" href="#" class="btn"><script type="text/javascript">document.write(WebString.Apply);</script></a>
+    <a id="btn_delete" href="#" class="btn"><script type="text/javascript">document.write(WebString.Delete);</script></a>
+    <input id="wan_idx" name="wan_idx" type="hidden" />
+    <input id="wan_act" name="wan_act" type="hidden" />
+</div>
+
+<div class="cfglist" style="display:none">
+    <table id="wan_list">
+        <tr>
+            <th colspan="3" class="tableTitle" id="XS21"></th>
+        </tr>
+        <tr>
+            <th id="XS22"></th>
+            <th id="XS23"></th>
+            <th id="XS24"></th>
+        </tr>
+    </table>  
+</div>
+
+<% PrintTemplate3(); %>

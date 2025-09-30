@@ -1,0 +1,52 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var export_url = "";
+
+<% backup_GetConfig(); %>
+
+function WebDoSubmit()
+{
+	if (!confirm(WebString.backup_export_alert))
+	{
+		return;
+	}
+
+	$("#XForm").encoding = "application/x-www-form-urlencoded";
+	$("#XForm").submit();
+}
+
+function WebInit()
+{
+	if (export_url.length > 8)
+	{
+		$("#backup_cfg").hide();
+		$("#export_url").show();
+	}
+	//WebStepIndex();
+}
+
+$(document).ready(function () {
+	$("#btn_backup").click(function(){
+		XDoSubmit();
+	});
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div id="backup_cfg" class="cfgstep">
+	<p><strong><script>document.write(WebString.stepBackup);</script></strong></p>
+	<a id="btn_backup" class="btn apply_btn" href="#"><script>document.write(WebString.Backup);</script></a>
+</div>
+
+<div id="export_url" class="cfgstep" style="display:none">
+	<p><strong id="XS0"></strong></p>
+	<a id="XS1" href="/download/gateway_config.dat" style="margin-left:200px"></a>
+</div>
+
+<% PrintTemplate3(); %>

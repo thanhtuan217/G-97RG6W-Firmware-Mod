@@ -1,0 +1,123 @@
+﻿<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+//init data started
+var igmpEnable = false;
+var proxyEnable = false;
+var snoopingEnable = false;
+var haveRoutedIptvWan = false;
+//init data end
+
+//data from web server started
+<% igmp_GetConfig(); %>
+//data from web server end
+
+//Client contents started
+
+function showIgmpEnable(en)
+{
+	if(en)
+	{
+		$("#igmpEnable1").attr("checked", "checked");
+	}
+	else
+	{
+		$("#igmpEnable0").attr("checked", "checked");
+	}
+}
+
+function showProxyEnable(en)
+{
+	if(en)
+	{
+		$("#proxyEnable1").attr("checked", "checked");
+	}
+	else
+	{
+		$("#proxyEnable0").attr("checked", "checked");
+	}
+	
+	if(haveRoutedIptvWan == "0")
+	{
+		$("#proxyEnable1").attr("disabled", "disabled");
+		$("#proxyEnable0").attr("disabled", "disabled");
+	}
+}
+
+function showSnoopingEnable(en)
+{
+	if(en)
+	{
+		$("#snoopingEnable1").attr("checked", "checked");
+	}
+	else
+	{
+		$("#snoopingEnable0").attr("checked", "checked");
+	}
+}
+
+function WebDoSubmit()
+{
+	$("#XForm").submit();
+}
+
+//---------------init value--------------------
+function WebInit()
+{
+	showIgmpEnable(igmpEnable);
+	showProxyEnable(proxyEnable);
+	showSnoopingEnable(snoopingEnable);
+
+	WebStepIndex();
+}
+
+//-------------setup triger--------------------
+$(document).ready(function(){
+
+	$("#igmpApply").click(function(){
+		WebDoSubmit();
+	});
+	
+});
+
+//client contents ended
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+		<div class="cfgstep">
+			<p><strong id="XS0"></strong></p>
+			<table>
+				<tr style="display:none">
+					<td width="200" id="XS1"></td>
+						<td>
+							<input name="igmpEnable" id="igmpEnable1" type="radio" value="1"/><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+							<input name="igmpEnable" id="igmpEnable0" type="radio" value="0"/><script>document.write(WebString.Disable);</script>
+						</td>
+				</tr>
+				<tr>
+					<td width="200" id="XS2"></td>
+						<td>
+							<input name="proxyEnable" id="proxyEnable1" type="radio" value="1"/><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+							<input name="proxyEnable" id="proxyEnable0" type="radio" value="0" /><script>document.write(WebString.Disable);</script>
+						</td>
+				</tr>
+				<tr style="display:none">
+					<td width="200" id="XS3"></td>
+						<td>
+							<input name="snoopingEnable" id="snoopingEnable1" type="radio" value="1"/><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+							<input name="snoopingEnable" id="snoopingEnable0" type="radio" value="0" /><script>document.write(WebString.Disable);</script>
+						</td>
+				</tr>
+			</table>
+		</div>
+		<div class="cfgstep">
+			<p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+			<a href="#" id="igmpApply" class="btn apply_btn"><script>document.write(WebString.Apply);</script></a>
+		</div>
+		
+<% PrintTemplate3(); %>

@@ -1,0 +1,16 @@
+{
+    "enabled": 1,
+    "browsingProtection": 1,
+    "histogramClassifierThresholds": {
+        "hostname": 10,
+        "category": 10,
+        "timeOnline": 7200
+    },
+    "flowCountingThresholds": {
+        "tcp": 111,
+        "udp": 111,
+        "interval": 4
+    },
+    "fingerprintInterval": 600,
+    "bypassPacketInterval": 3600
+}

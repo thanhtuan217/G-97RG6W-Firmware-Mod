@@ -1,0 +1,114 @@
+<% PrintTemplate1(); %>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+var srv_enable = 0;
+var srv_name = "";
+
+<% DLNA_GetConfig(); %>
+
+function DataInit()
+{
+    if (1 == srv_enable)
+        $("#dlna_enable").attr("checked", true);
+    else
+        $("#dlna_disable").attr("checked", true);
+    
+    if("" == srv_name)
+        $("#srvname").val("Home Gateway");
+    else
+        $("#srvname").val(srv_name);        
+}
+
+function WebInit()
+{
+    DataInit(); 
+    DLNAServerEnable();
+    WebStepIndex(); 
+}
+
+function DLNAServerEnable()
+{
+    var dlna_en = $('input:radio[name="dlna_srv"]:checked').val();
+    
+    if(1 == dlna_en)
+    {
+    	  $("#dlna_note").show();
+        $("#srvname_div").show();
+    }
+    else
+    {
+    	  $("#dlna_note").hide();
+        $("#srvname_div").hide();
+    }
+    
+    WebStepIndex();     
+}
+
+function CheckSetValue()
+{
+		if("" == $("#srvname").val())
+		{
+		    alert(WebString.srvname_alert);
+		    return false;	
+		}
+    return true;
+}
+
+function WebDoSubmit()
+{       
+    if( false == CheckSetValue())
+    {
+        return;
+    }
+
+    $("#XForm").submit();
+}
+
+$(document).ready(function (){
+    $("#btn_apply").click(function(){
+        XDoSubmit();
+    });   
+
+    $("input[name='dlna_srv']").click(function() {
+        DLNAServerEnable();
+    });
+});
+
+//]]>
+</script>
+<% PrintTemplate2(); %>
+
+<div class="cfgstep">
+    <p><strong id="XS0"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS1"></td>
+            <td><input type="radio" name="dlna_srv" id="dlna_enable" value="1" /><script>document.write(WebString.Enable);</script>&nbsp;&nbsp;
+                <input type="radio" name="dlna_srv" id="dlna_disable" value="0" checked/><script>document.write(WebString.Disable);</script>
+            </td>
+        </tr>
+        <tr id="dlna_note" style="display:none">
+            <td width="200" id="XS2" colspan="2" style="font-weight: bold"></td>
+        </tr>
+    </table>
+</div>
+
+<div class="cfgstep" id="srvname_div">
+    <p><strong id="XS3"></strong></p>
+    <table>
+        <tr>
+            <td width="200" id="XS4"></td>
+            <td><input type="text" name="srvname" id="srvname" maxlength="64" onkeypress="return OnKeyPress(event, X_INPUT_ID);" /></td>
+        </tr>
+    </table>
+</div>
+
+<div class="cfgstep">
+    <p><strong><script>document.write(WebString.stepApply);</script></strong></p>
+    <a id="btn_apply" class="btn" href="#"><script>document.write(WebString.Apply);</script></a>
+</div>
+
+<% PrintTemplate3(); %>
