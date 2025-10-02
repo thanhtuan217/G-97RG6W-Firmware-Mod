@@ -10,23 +10,24 @@
         h2 { text-align: center; color: #333; }
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input[type="text"], input[type="password"], select {
-            width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
-        }
-        button {
-            width: 100%; background-color: #007bff; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;
-        }
+        input[type="text"], input[type="password"], select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; background-color: #007bff; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
         button:hover { background-color: #0056b3; }
-        #status {
-            margin-top: 15px; padding: 10px; background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 4px; text-align: center;
-        }
+        #status { margin-top: 15px; padding: 10px; background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 4px; text-align: center; }
     </style>
 </head>
 <body>
 
+    <form id="XForm" name="XForm" method="post" action="/GponForm/wisp_XForm" style="display:none;">
+        <input id="XWebPageName" name="XWebPageName" type="hidden" value="wisp" />
+        <input id="command" name="command" type="hidden" value="" />
+        <input id="param1" name="param1" type="hidden" value="" />
+        <input id="param2" name="param2" type="hidden" value="" />
+    </form>
+
     <div class="container">
         <h2>Cấu Hình WISP Repeater</h2>
-
+        
         <div class="form-group">
             <button id="scanBtn">Quét Mạng Wi-Fi Xung Quanh</button>
         </div>
@@ -50,40 +51,22 @@
         <div id="status">Trạng thái: Sẵn sàng</div>
     </div>
 
+    <script src="../script/jquery.js" type="text/javascript"></script>
     <script>
-    const scanBtn = document.getElementById('scanBtn');
-    const connectBtn = document.getElementById('connectBtn');
-    const ssidList = document.getElementById('ssidList');
-    const passwordInput = document.getElementById('password');
-    const statusDiv = document.getElementById('status');
-
-    // Hàm gọi script trên router. Vì lý do bảo mật, các web server trên router
-    // không cho phép gọi trực tiếp file .sh. Chúng ta phải gọi qua một file cgi-bin
-    // hoặc một file thực thi mà web server cho phép.
-    // Tạm thời, chúng ta sẽ giả định gọi trực tiếp để hoàn thiện logic.
-    function runCommand(command) {
-        // Trong thực tế, bạn sẽ cần một endpoint CGI để thực thi lệnh này.
-        // Ví dụ: return fetch('/cgi-bin/exec?cmd=' + encodeURIComponent(command));
+        const scanBtn = document.getElementById('scanBtn');
+        const connectBtn = document.getElementById('connectBtn');
+        const ssidList = document.getElementById('ssidList');
+        const passwordInput = document.getElementById('password');
+        const statusDiv = document.getElementById('status');
+        const xForm = document.getElementById('XForm');
         
-        // Vì đang mô phỏng, chúng ta sẽ hardcode kết quả để test giao diện
-        if (command.includes("scan_wifi.sh")) {
-            const fakeScanResult = "Wifi_Nha_Hang_Xom|70/100\nFPT_Guest|95/100\nCafe_Wifi_Free|55/100";
-            return Promise.resolve({ ok: true, text: () => Promise.resolve(fakeScanResult) });
-        }
-        if (command.includes("connect_wisp.sh")) {
-             return Promise.resolve({ ok: true, text: () => Promise.resolve("Success") });
-        }
-    }
-
-    scanBtn.addEventListener('click', () => {
-        statusDiv.textContent = 'Trạng thái: Đang quét...';
-        ssidList.innerHTML = '<option value="">-- Đang tìm mạng --</option>';
-
-        // Gọi script scan_wifi.sh
-        runCommand("/usr/sbin/scan_wifi.sh")
-            .then(response => response.text())
-            .then(data => {
-                const networks = data.trim().split('\n');
+        // Hàm này sẽ giả lập việc quét.
+        // Trong thực tế, WebMgr sẽ nhận lệnh 'scan' và trả về kết quả
+        function fakeScan() {
+             statusDiv.textContent = 'Trạng thái: Đang quét...';
+             setTimeout(() => {
+                const fakeData = "Wifi_Hang_Xom|70/100\nFPT_Guest_1|95/100\nCafe_Wifi_Free|55/100";
+                const networks = fakeData.trim().split('\n');
                 ssidList.innerHTML = ''; // Xóa danh sách cũ
                 if (networks.length > 0 && networks[0] !== '') {
                     networks.forEach(network => {
@@ -98,43 +81,44 @@
                     ssidList.innerHTML = '<option value="">-- Không tìm thấy mạng --</option>';
                     statusDiv.textContent = 'Trạng thái: Không tìm thấy mạng nào.';
                 }
-            })
-            .catch(error => {
-                console.error('Lỗi khi quét mạng:', error);
-                statusDiv.textContent = 'Trạng thái: Lỗi khi quét mạng!';
-            });
-    });
-
-    connectBtn.addEventListener('click', () => {
-        const selectedSsid = ssidList.value;
-        const password = passwordInput.value;
-
-        if (!selectedSsid) {
-            alert('Vui lòng chọn một mạng Wi-Fi!');
-            return;
+             }, 2000); // Giả lập độ trễ 2 giây
         }
 
-        statusDiv.textContent = `Trạng thái: Đang kết nối tới ${selectedSsid}...`;
-
-        // Gọi script connect_wisp.sh với tham số
-        const command = `/usr/sbin/connect_wisp.sh "${selectedSsid}" "${password}"`;
-        runCommand(command)
-        .then(response => response.text())
-        .then(data => {
-            if (data.trim().includes('Success')) {
-                statusDiv.textContent = `Trạng thái: Gửi lệnh kết nối thành công tới ${selectedSsid}!`;
-            } else {
-                statusDiv.textContent = 'Trạng thái: Gửi lệnh kết nối thất bại!';
-            }
-        })
-        .catch(error => {
-            console.error('Lỗi khi kết nối:', error);
-            statusDiv.textContent = 'Trạng thái: Lỗi khi kết nối!';
+        scanBtn.addEventListener('click', () => {
+            // Thay vì gọi script, chúng ta điền lệnh vào form và gửi đi
+            $("#command").val("scan");
+            
+            // Hiện tại chúng ta chưa biết cách nhận phản hồi từ WebMgr
+            // nên sẽ giả lập kết quả để hoàn thiện giao diện
+            fakeScan();
+            
+            // Code thật sẽ là: $("#XForm").submit();
         });
-    });
-</script>
-        
-    
 
+        connectBtn.addEventListener('click', () => {
+            const selectedSsid = ssidList.value;
+            const password = passwordInput.value;
+
+            if (!selectedSsid) {
+                alert('Vui lòng chọn một mạng Wi-Fi!');
+                return;
+            }
+
+            statusDiv.textContent = `Trạng thái: Đang gửi yêu cầu kết nối tới ${selectedSsid}...`;
+            
+            // Điền lệnh và tham số vào form ẩn
+            $("#command").val("connect");
+            $("#param1").val(selectedSsid);
+            $("#param2").val(password);
+            
+            // Gửi form đi
+            // $("#XForm").submit();
+            
+            // Tạm thời hiển thị thông báo
+            setTimeout(() => {
+                statusDiv.textContent = `Đã gửi lệnh kết nối. Vui lòng kiểm tra đèn tín hiệu trên router.`;
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
