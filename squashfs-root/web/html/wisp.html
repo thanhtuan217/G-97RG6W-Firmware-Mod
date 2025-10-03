@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
 
     <div class="container">
         <h2>Cấu Hình WISP Repeater</h2>
-        
+
         <div class="form-group">
             <button id="scanBtn">Quét Mạng Wi-Fi Xung Quanh</button>
         </div>
@@ -58,16 +58,13 @@
         const ssidList = document.getElementById('ssidList');
         const passwordInput = document.getElementById('password');
         const statusDiv = document.getElementById('status');
-        const xForm = document.getElementById('XForm');
-        
-        // Hàm này sẽ giả lập việc quét.
-        // Trong thực tế, WebMgr sẽ nhận lệnh 'scan' và trả về kết quả
+
         function fakeScan() {
              statusDiv.textContent = 'Trạng thái: Đang quét...';
              setTimeout(() => {
                 const fakeData = "Wifi_Hang_Xom|70/100\nFPT_Guest_1|95/100\nCafe_Wifi_Free|55/100";
                 const networks = fakeData.trim().split('\n');
-                ssidList.innerHTML = ''; // Xóa danh sách cũ
+                ssidList.innerHTML = '';
                 if (networks.length > 0 && networks[0] !== '') {
                     networks.forEach(network => {
                         const [ssid, signal] = network.split('|');
@@ -81,17 +78,12 @@
                     ssidList.innerHTML = '<option value="">-- Không tìm thấy mạng --</option>';
                     statusDiv.textContent = 'Trạng thái: Không tìm thấy mạng nào.';
                 }
-             }, 2000); // Giả lập độ trễ 2 giây
+             }, 2000);
         }
 
         scanBtn.addEventListener('click', () => {
-            // Thay vì gọi script, chúng ta điền lệnh vào form và gửi đi
             $("#command").val("scan");
-            
-            // Hiện tại chúng ta chưa biết cách nhận phản hồi từ WebMgr
-            // nên sẽ giả lập kết quả để hoàn thiện giao diện
             fakeScan();
-            
             // Code thật sẽ là: $("#XForm").submit();
         });
 
@@ -105,18 +97,13 @@
             }
 
             statusDiv.textContent = `Trạng thái: Đang gửi yêu cầu kết nối tới ${selectedSsid}...`;
-            
-            // Điền lệnh và tham số vào form ẩn
             $("#command").val("connect");
             $("#param1").val(selectedSsid);
             $("#param2").val(password);
-            
-            // Gửi form đi
-            // $("#XForm").submit();
-            
-            // Tạm thời hiển thị thông báo
+            $("#XForm").submit();
+
             setTimeout(() => {
-                statusDiv.textContent = `Đã gửi lệnh kết nối. Vui lòng kiểm tra đèn tín hiệu trên router.`;
+                statusDiv.textContent = `Đã gửi lệnh kết nối. Router có thể sẽ khởi động lại.`;
             }, 1500);
         });
     </script>
